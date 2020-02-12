@@ -14,6 +14,7 @@ namespace InstituteOfFineArts.Models
         public string AccountId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public override string  Email { get; set; }
         public DateTime Birthday { get; set; }
         public GenderType Gender { get; set; }
         public string Avatar { get; set; }
@@ -46,4 +47,5 @@ namespace InstituteOfFineArts.Models
     {
         public string StudentId { get; set; }
     }
+
 }
