@@ -1,11 +1,44 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    
 }
-
+.slide {
+    margin-top: 20px;
+}
+.background-style {
+    background-image: url("https://files.123freevectors.com/wp-content/original/143764-beige-antique-background-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.center {
+    display: block;
+    margin: -20px 10px 0px 10px;
+    width: 50%;
+}
+:root {
+    --mainColor: #ffa6c9;
+}
+.navbar-style {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.navbar-style a {
+    color: #696969;
+    text-decoration: none;
+    float: left;
+    height: 50px;
+    padding: 0 200px 0 0;
+    font-size: 18px;
+    line-height: 20px;
+    background-repeat: repeat-x;
+    background-size: 100%;
+}
+    .navbar-styles a:hover {
+        color: #e0115f;
+        background: linear-gradient( to right, var(--mainColor) 0%, var(--mainColor) 5px, transparent );
+    }
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
+    padding-left: 0px;
     padding-right: 15px;
 }
 
