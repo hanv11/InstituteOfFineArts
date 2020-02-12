@@ -26,23 +26,40 @@
             </div>
             <div class="navbar-collapse collapse navbar-styles">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Cuộc Thi", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Giải Thưởng", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Triển Lãm", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Liên Hệ", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Giới Thiệu", "About", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Competition", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Award", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Exhibitions", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <hr />
+    <hr style="border: 1px solid #696969" />
     <div class="container body-content ">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <hr style="border: 1px solid #696969" />
+        <footer id="theme-footer">
+            <div id="footer-widget-area" class="footer-3c">
+
+                <div id="footer-first" class="footer-widgets-box">
+                    <div id="text-html-widget-4" class="footer-widget text-html">
+                        <div class="footer-widget-top"><h4>Liên hệ</h4></div>
+                        <div class="footer-widget-container">
+                            <div>
+                                Địa chỉ: 8 Ton That Thuyet, Cau Giay, Ha Noi<br>
+                                Điện thoại: (844) 39426972, 38263861, 38220879<br>
+                                Fax: (844) 38226418<br>
+                                Email: HMLA.FineArt@gmail.com<br>
+                                Website: www.HMLAFineArt.edu.vn
+                            </div><div class="clear"></div>
+                        </div>
+                    </div><!-- .widget /-->
+                </div>
+            </div><!-- #second .widget-area -->
+
         </footer>
     </div>
 

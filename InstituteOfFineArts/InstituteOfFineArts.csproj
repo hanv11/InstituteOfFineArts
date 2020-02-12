@@ -174,8 +174,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Awards.cs" />
+    <Compile Include="Models\Classes.cs" />
+    <Compile Include="Models\Competitions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Mark.cs" />
+    <Compile Include="Models\Students.cs" />
+    <Compile Include="Models\Submissions.cs" />
+    <Compile Include="Models\UserAccout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -185,6 +192,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\pofa_logo.png" />
+    <Content Include="Content\img\winning.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
