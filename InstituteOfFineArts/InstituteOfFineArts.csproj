@@ -189,9 +189,13 @@
     <Compile Include="Migrations\202002131532493_UpdateTables.Designer.cs">
       <DependentUpon>202002131532493_UpdateTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002131721151_RefactorTables.cs" />
+    <Compile Include="Migrations\202002131721151_RefactorTables.Designer.cs">
+      <DependentUpon>202002131721151_RefactorTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Awards.cs" />
+    <Compile Include="Models\Award.cs" />
     <Compile Include="Models\Competition.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -1296,6 +1300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002131532493_UpdateTables.resx">
       <DependentUpon>202002131532493_UpdateTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002131721151_RefactorTables.resx">
+      <DependentUpon>202002131721151_RefactorTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
