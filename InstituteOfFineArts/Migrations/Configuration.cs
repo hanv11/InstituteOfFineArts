@@ -15,14 +15,7 @@ namespace InstituteOfFineArts.Migrations
         }
 
         protected override void Seed(InstituteOfFineArts.Models.ApplicationDbContext context)
-        {
-            var list = new List<Competition>();
-
-            list.Add(new Competition()
-            {
-                CompetitionId = 01,
-
-            
+        {          
             var list = new List<Competition>();
 
             list.Add(new Competition()
