@@ -158,5 +158,10 @@ namespace InstituteOfFineArts.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult DetailCompetition(int id)
+        {
+            return View();
+        }
     }
 }
