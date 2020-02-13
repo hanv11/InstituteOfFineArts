@@ -14,8 +14,9 @@ namespace InstituteOfFineArts.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Image { get; set; }
-        public string AwardDetails { get; set; }
         public string Description { get; set; }
+        public virtual ICollection<Award> Awards { get; set; }
+
         public virtual ICollection<Submission> Submissions { get; set; }
     }
 }
