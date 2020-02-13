@@ -43,9 +43,4 @@ namespace InstituteOfFineArts.Models
 
     }
 
-    public class Student : Account
-    {
-        public string StudentId { get; set; }
-    }
-
 }

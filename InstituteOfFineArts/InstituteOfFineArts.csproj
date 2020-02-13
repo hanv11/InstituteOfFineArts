@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CompetitionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,16 +179,22 @@
     <Compile Include="Migrations\202002121557235_InitTables.Designer.cs">
       <DependentUpon>202002121557235_InitTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002130506232_init_model.cs" />
+    <Compile Include="Migrations\202002130506232_init_model.Designer.cs">
+      <DependentUpon>202002130506232_init_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002130544572_init_model1.cs" />
+    <Compile Include="Migrations\202002130544572_init_model1.Designer.cs">
+      <DependentUpon>202002130544572_init_model1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Awards.cs" />
-    <Compile Include="Models\Classes.cs" />
-    <Compile Include="Models\Competitions.cs" />
+    <Compile Include="Models\Competition.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Mark.cs" />
-    <Compile Include="Models\Students.cs" />
-    <Compile Include="Models\Submissions.cs" />
+    <Compile Include="Models\Submission.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -274,6 +281,9 @@
     <Content Include="Content\dist\js\demo.js" />
     <Content Include="Content\dist\js\pages\dashboard.js" />
     <Content Include="Content\dist\js\pages\dashboard2.js" />
+    <Content Include="Content\img\artexhibition.jpg" />
+    <Content Include="Content\img\banner-concert.jpg" />
+    <Content Include="Content\img\thewinningpaintings.jpg" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Content\plugins\bootstrap-slider\slider.css" />
@@ -1079,7 +1089,6 @@
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\pofa_logo.png" />
-    <Content Include="Content\img\winning.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1254,6 +1263,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Competitions\Create.cshtml" />
+    <Content Include="Views\Competitions\Delete.cshtml" />
+    <Content Include="Views\Competitions\Details.cshtml" />
+    <Content Include="Views\Competitions\Edit.cshtml" />
+    <Content Include="Views\Competitions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1274,6 +1288,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002121557235_InitTables.resx">
       <DependentUpon>202002121557235_InitTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002130506232_init_model.resx">
+      <DependentUpon>202002130506232_init_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002130544572_init_model1.resx">
+      <DependentUpon>202002130544572_init_model1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
