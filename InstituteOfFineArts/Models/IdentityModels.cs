@@ -20,5 +20,9 @@ namespace InstituteOfFineArts.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Competition> Competitions { get; set; }
+
+        public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Awards> Awards { get; set; }
     }
 }
