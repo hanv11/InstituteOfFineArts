@@ -16,14 +16,18 @@ namespace InstituteOfFineArts.Migrations
 
         protected override void Seed(InstituteOfFineArts.Models.ApplicationDbContext context)
         {
-        
-            //context.Database.ExecuteSqlCommand("TRUNCATE TABLE Competitions"); // Delete column by VuongMinh
-
             var list = new List<Competition>();
 
             list.Add(new Competition()
             {
                 CompetitionId = 01,
+
+            
+            var list = new List<Competition>();
+
+            list.Add(new Competition()
+            {
+                CompetitionId = 11,
                 CompetitionName = "We are the peoples we the arts 2018",
                 StartDate = DateTime.ParseExact("2017-12-15", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
                 EndDate = DateTime.ParseExact("2018-06-18", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),

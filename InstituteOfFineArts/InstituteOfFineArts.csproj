@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202002130544572_init_model1.Designer.cs">
       <DependentUpon>202002130544572_init_model1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002130807322_init.cs" />
+    <Compile Include="Migrations\202002130807322_init.Designer.cs">
+      <DependentUpon>202002130807322_init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Awards.cs" />
@@ -1268,6 +1272,7 @@
     <Content Include="Views\Competitions\Details.cshtml" />
     <Content Include="Views\Competitions\Edit.cshtml" />
     <Content Include="Views\Competitions\Index.cshtml" />
+    <Content Include="Views\Competitions\DetailCompetition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1294,6 +1299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002130544572_init_model1.resx">
       <DependentUpon>202002130544572_init_model1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002130807322_init.resx">
+      <DependentUpon>202002130807322_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
