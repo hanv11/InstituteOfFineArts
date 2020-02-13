@@ -191,6 +191,10 @@
     <Compile Include="Migrations\202002130807322_init.Designer.cs">
       <DependentUpon>202002130807322_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002130901494_init1.cs" />
+    <Compile Include="Migrations\202002130901494_init1.Designer.cs">
+      <DependentUpon>202002130901494_init1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Awards.cs" />
@@ -1302,6 +1306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002130807322_init.resx">
       <DependentUpon>202002130807322_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002130901494_init1.resx">
+      <DependentUpon>202002130901494_init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
