@@ -16,7 +16,8 @@ namespace InstituteOfFineArts.Migrations
 
         protected override void Seed(InstituteOfFineArts.Models.ApplicationDbContext context)
         {
-            context.Database.ExecuteSqlCommand("TRUNCATE TABLE Competitions");
+        
+            //context.Database.ExecuteSqlCommand("TRUNCATE TABLE Competitions"); // Delete column by VuongMinh
 
             var list = new List<Competition>();
 
