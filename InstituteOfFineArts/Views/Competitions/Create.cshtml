@@ -15,7 +15,7 @@
 <div class="form-horizontal">
     <h4>Competition</h4>
     <hr />
-    <button id="upload_widget" class="cloudinary-button">Upload files</button>
+    
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.CompetitionName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -44,11 +44,14 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+            <img id="previous" src="#" class="hidden img-thumbnail" alt="Alternate Text" style="width: 100px" />
+            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @type="hidden"} })
             @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+        <div style="margin-top: 5px">
+            <button type="button" id="upload_widget" class="btn btn-primary">Upload files</button>
+        </div>
         </div>
     </div>
-
     @* <div class="form-group"> *@
     @*     @Html.LabelFor(model => model.Awards, htmlAttributes: new { @class = "control-label col-md-2" }) *@
     @*     <div class="col-md-10"> *@
@@ -83,10 +86,15 @@
 
     <script type="text/javascript">  
         var myWidget = cloudinary.createUploadWidget({
-                cloudName: 'my_cloud_name', 
-                uploadPreset: 'my_preset'}, (error, result) => { 
+                cloudName: 'hanv11',
+                uploadPreset: 'bpmopgln'}, (error, result) => { 
                 if (!error && result && result.event === "success") { 
                     console.log('Done! Here is the image info: ', result.info); 
+                    var imgLink = result.info.secure_url;
+                    document.querySelector("input[name='Image']").value = imgLink;
+                    var imgPrevious = document.getElementById("previous");
+                    imgPrevious.src = imgLink;
+                    imgPrevious.classList.remove("hidden");
                 }
             }
         )
