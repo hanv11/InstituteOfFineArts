@@ -124,9 +124,18 @@ namespace InstituteOfFineArts.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult DetailCompetition(int id)
+        public ActionResult DetailCompetition(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Competition competition = db.Competitions.Find(id);
+            if (competition == null)
+            {
+                return HttpNotFound();
+            }
+            return View(competition);
         }
     }
 }
