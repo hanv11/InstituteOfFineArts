@@ -60,7 +60,7 @@ artifacts/
 StyleCopReport.xml
 
 # Files built by Visual Studio
-
+*.mdf
 *_i.c
 *_p.c
 *_h.h
