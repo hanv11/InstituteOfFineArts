@@ -6,7 +6,7 @@ using System.Web;
 
 namespace InstituteOfFineArts.Models
 {
-    public class Awards
+    public class Award
     {
         [Key]
         public int SubmissionId { get; set; }

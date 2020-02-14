@@ -16,6 +16,6 @@ namespace InstituteOfFineArts.Models
        public string Description { get; set; }
        public virtual Competition Competitions { get; set; }
        public virtual Mark Marks { get; set; }
-       public virtual Awards Awards { get; set; }
+       public virtual Award Awards { get; set; }
     }
 }
