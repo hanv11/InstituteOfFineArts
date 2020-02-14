@@ -46,6 +46,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.4.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.4.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -175,25 +181,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002121557235_InitTables.cs" />
-    <Compile Include="Migrations\202002121557235_InitTables.Designer.cs">
-      <DependentUpon>202002121557235_InitTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002130506232_init_model.cs" />
-    <Compile Include="Migrations\202002130506232_init_model.Designer.cs">
-      <DependentUpon>202002130506232_init_model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002130544572_init_model1.cs" />
-    <Compile Include="Migrations\202002130544572_init_model1.Designer.cs">
-      <DependentUpon>202002130544572_init_model1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202002130807322_init.cs" />
     <Compile Include="Migrations\202002130807322_init.Designer.cs">
       <DependentUpon>202002130807322_init.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="Migrations\202002130901494_init1.cs" />
+    <Compile Include="Migrations\202002130901494_init1.Designer.cs">
+      <DependentUpon>202002130901494_init1.cs</DependentUpon>
+</Compile>
+    <Compile Include="Migrations\202002131532493_UpdateTables.cs" />
+    <Compile Include="Migrations\202002131532493_UpdateTables.Designer.cs">
+      <DependentUpon>202002131532493_UpdateTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002131721151_RefactorTables.cs" />
+    <Compile Include="Migrations\202002131721151_RefactorTables.Designer.cs">
+      <DependentUpon>202002131721151_RefactorTables.cs</DependentUpon>
+
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Awards.cs" />
+    <Compile Include="Models\Award.cs" />
     <Compile Include="Models\Competition.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -287,8 +295,21 @@
     <Content Include="Content\dist\js\pages\dashboard2.js" />
     <Content Include="Content\img\artexhibition.jpg" />
     <Content Include="Content\img\banner-concert.jpg" />
+    <Content Include="Content\img\listofpainting.jpg" />
+    <Content Include="Content\img\poster1.jpg" />
+    <Content Include="Content\img\poster10.jpg" />
+    <Content Include="Content\img\poster2.jpg" />
+    <Content Include="Content\img\poster3.jpg" />
+    <Content Include="Content\img\poster4.jpg" />
+    <Content Include="Content\img\poster5.jpg" />
+    <Content Include="Content\img\poster6.jpg" />
+    <Content Include="Content\img\poster7.jpg" />
+    <Content Include="Content\img\poster8.jpg" />
+    <Content Include="Content\img\poster9.jpg" />
     <Content Include="Content\img\thewinningpaintings.jpg" />
+    <Content Include="Content\img\upcomingartcompetition.jpg" />
     <Content Include="Content\logo.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Content\plugins\bootstrap-slider\slider.css" />
     <Content Include="Content\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
@@ -1272,6 +1293,7 @@
     <Content Include="Views\Competitions\Details.cshtml" />
     <Content Include="Views\Competitions\Edit.cshtml" />
     <Content Include="Views\Competitions\Index.cshtml" />
+    <Content Include="Views\Competitions\ShowList.cshtml" />
     <Content Include="Views\Competitions\DetailCompetition.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1291,17 +1313,19 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002121557235_InitTables.resx">
-      <DependentUpon>202002121557235_InitTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002130506232_init_model.resx">
-      <DependentUpon>202002130506232_init_model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002130544572_init_model1.resx">
-      <DependentUpon>202002130544572_init_model1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002130807322_init.resx">
       <DependentUpon>202002130807322_init.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="Migrations\202002130901494_init1.resx">
+      <DependentUpon>202002130901494_init1.cs</DependentUpon>
+</EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002131532493_UpdateTables.resx">
+      <DependentUpon>202002131532493_UpdateTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002131721151_RefactorTables.resx">
+      <DependentUpon>202002131721151_RefactorTables.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

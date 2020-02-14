@@ -158,7 +158,6 @@ namespace InstituteOfFineArts.Migrations
                     "https://i.etsystatic.com/5118220/r/il/5cb486/2085880972/il_570xN.2085880972_dicd.jpg", 
                     "something")
                 );
-
         }
     }
 }

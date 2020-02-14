@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InstituteOfFineArts.Models;
+using PagedList;
 
 namespace InstituteOfFineArts.Controllers
 {
@@ -18,6 +19,40 @@ namespace InstituteOfFineArts.Controllers
         public ActionResult Index()
         {
             return View(db.Competitions.ToList());
+        }
+        public ActionResult ShowList(string searchString, string sortOrder, string currentFilter, int? page)
+        {
+            ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var competitions = db.Competitions.AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                competitions = competitions.Where(s => s.CompetitionName.Contains(searchString));
+            }
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    competitions = competitions.OrderByDescending(s => s.CompetitionName);
+                    break;
+                case "Date":
+                    break;
+                default:
+                    competitions = competitions.OrderBy(s => s.CompetitionName);
+                    break;
+            }
+            int pageSize = 3;
+            var pageNumber = page ?? 1;
+            return View(competitions.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Competitions/Details/5
@@ -124,9 +159,18 @@ namespace InstituteOfFineArts.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult DetailCompetition(int id)
+        public ActionResult DetailCompetition(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Competition competition = db.Competitions.Find(id);
+            if (competition == null)
+            {
+                return HttpNotFound();
+            }
+            return View(competition);
         }
     }
 }
