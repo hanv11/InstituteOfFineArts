@@ -185,6 +185,11 @@
     <Compile Include="Migrations\202002130807322_init.Designer.cs">
       <DependentUpon>202002130807322_init.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="Migrations\202002130901494_init1.cs" />
+    <Compile Include="Migrations\202002130901494_init1.Designer.cs">
+      <DependentUpon>202002130901494_init1.cs</DependentUpon>
+</Compile>
     <Compile Include="Migrations\202002131532493_UpdateTables.cs" />
     <Compile Include="Migrations\202002131532493_UpdateTables.Designer.cs">
       <DependentUpon>202002131532493_UpdateTables.cs</DependentUpon>
@@ -192,6 +197,7 @@
     <Compile Include="Migrations\202002131721151_RefactorTables.cs" />
     <Compile Include="Migrations\202002131721151_RefactorTables.Designer.cs">
       <DependentUpon>202002131721151_RefactorTables.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -289,7 +295,19 @@
     <Content Include="Content\dist\js\pages\dashboard2.js" />
     <Content Include="Content\img\artexhibition.jpg" />
     <Content Include="Content\img\banner-concert.jpg" />
+    <Content Include="Content\img\listofpainting.jpg" />
+    <Content Include="Content\img\poster1.jpg" />
+    <Content Include="Content\img\poster10.jpg" />
+    <Content Include="Content\img\poster2.jpg" />
+    <Content Include="Content\img\poster3.jpg" />
+    <Content Include="Content\img\poster4.jpg" />
+    <Content Include="Content\img\poster5.jpg" />
+    <Content Include="Content\img\poster6.jpg" />
+    <Content Include="Content\img\poster7.jpg" />
+    <Content Include="Content\img\poster8.jpg" />
+    <Content Include="Content\img\poster9.jpg" />
     <Content Include="Content\img\thewinningpaintings.jpg" />
+    <Content Include="Content\img\upcomingartcompetition.jpg" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\plugins\bootstrap-slider\bootstrap-slider.js" />
@@ -1298,11 +1316,16 @@
     <EmbeddedResource Include="Migrations\202002130807322_init.resx">
       <DependentUpon>202002130807322_init.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="Migrations\202002130901494_init1.resx">
+      <DependentUpon>202002130901494_init1.cs</DependentUpon>
+</EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002131532493_UpdateTables.resx">
       <DependentUpon>202002131532493_UpdateTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002131721151_RefactorTables.resx">
       <DependentUpon>202002131721151_RefactorTables.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
