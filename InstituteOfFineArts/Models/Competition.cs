@@ -18,5 +18,19 @@ namespace InstituteOfFineArts.Models
         public virtual ICollection<Award> Awards { get; set; }
 
         public virtual ICollection<Submission> Submissions { get; set; }
+        public Competition()
+        {
+
+        }
+        public Competition(int competid, string competname, DateTime sdate, DateTime edate, string img, string awarddetail , string decription)
+        {
+            CompetitionId = competid;
+            CompetitionName = competname;
+            StartDate = sdate;
+            EndDate = edate;
+            Image = img;
+            AwardDetails = awarddetail;
+            Description = decription;
+        }
     }
 }
