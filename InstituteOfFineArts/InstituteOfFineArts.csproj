@@ -185,11 +185,11 @@
     <Compile Include="Migrations\202002130807322_init.Designer.cs">
       <DependentUpon>202002130807322_init.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Include="Migrations\202002130901494_init1.cs" />
     <Compile Include="Migrations\202002130901494_init1.Designer.cs">
       <DependentUpon>202002130901494_init1.cs</DependentUpon>
-=======
+</Compile>
     <Compile Include="Migrations\202002131532493_UpdateTables.cs" />
     <Compile Include="Migrations\202002131532493_UpdateTables.Designer.cs">
       <DependentUpon>202002131532493_UpdateTables.cs</DependentUpon>
@@ -197,7 +197,7 @@
     <Compile Include="Migrations\202002131721151_RefactorTables.cs" />
     <Compile Include="Migrations\202002131721151_RefactorTables.Designer.cs">
       <DependentUpon>202002131721151_RefactorTables.cs</DependentUpon>
->>>>>>> master
+
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1316,16 +1316,16 @@
     <EmbeddedResource Include="Migrations\202002130807322_init.resx">
       <DependentUpon>202002130807322_init.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
+
     <EmbeddedResource Include="Migrations\202002130901494_init1.resx">
       <DependentUpon>202002130901494_init1.cs</DependentUpon>
-=======
+</EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002131532493_UpdateTables.resx">
       <DependentUpon>202002131532493_UpdateTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002131721151_RefactorTables.resx">
       <DependentUpon>202002131721151_RefactorTables.cs</DependentUpon>
->>>>>>> master
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
