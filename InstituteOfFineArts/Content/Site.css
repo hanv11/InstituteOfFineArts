@@ -56,6 +56,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
 .site-main {
     display: block;
 }
@@ -65,9 +66,7 @@ textarea {
     padding: 0;
 }
 
-.entry-title {
-    position: relative;
-}
+
 
 h1 .entry-title {
     margin-bottom: 0;
@@ -76,4 +75,36 @@ h1 .entry-title {
 .banner-thumbnail {
     width: 1200px;
     height: 300px;
+}
+
+
+    .entry-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 2px;
+        background-color: #179bd7;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+.entry-title {
+    margin-bottom: -20px;
+    color: #696969;
+    text-align: center;
+}
+.entry-content {
+   
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;
+}
+.entry-content:hover{
+    background-color:#ffffff;
+}
+
+.entry-content li{
+    text-align:center;
+    list-style-type:none;
 }

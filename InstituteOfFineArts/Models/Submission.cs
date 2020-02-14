@@ -16,6 +16,17 @@ namespace InstituteOfFineArts.Models
        public string Description { get; set; }
        public virtual Competition Competitions { get; set; }
        public virtual Mark Marks { get; set; }
+       public Submission()
+       {
+
+       }
+       public Submission(int subid, int competid, string pic, string descrip)
+       {
+           SubmissionId = subid;
+           CompetitionId = competid;
+           Picture = pic;
+           Description = descrip;
+       }
        public virtual Award Awards { get; set; }
     }
 }
