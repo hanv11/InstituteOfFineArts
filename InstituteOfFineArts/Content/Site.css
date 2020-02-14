@@ -56,3 +56,24 @@ select,
 textarea {
     max-width: 280px;
 }
+.site-main {
+    display: block;
+}
+
+.entry-header {
+    text-align: center;
+    padding: 0;
+}
+
+.entry-title {
+    position: relative;
+}
+
+h1 .entry-title {
+    margin-bottom: 0;
+}
+
+.banner-thumbnail {
+    width: 1200px;
+    height: 300px;
+}

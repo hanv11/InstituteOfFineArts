@@ -117,6 +117,17 @@ namespace InstituteOfFineArts.Migrations
             });
 
             context.Competitions.AddRange(list);
+            var list1 = new List<Submission>();
+            list1.Add(new Submission()
+            {
+                SubmissionId = 1,
+                CompetitionId = 1,
+                Picture = "~/Content/img/poster10.jpg",
+                AccountId = 1,
+                Description = "Tranh ve phong canh"
+            });
+            context.Submissions.AddRange(list1);
+
         }
     }
 }

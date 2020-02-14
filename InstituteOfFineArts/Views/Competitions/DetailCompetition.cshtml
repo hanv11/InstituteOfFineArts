@@ -5,59 +5,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Detail Competition</h2>
 
-<div>
+
+<div class="container">
+    <main class="site-main">
+        <article class="type-page">
+            <header class="entry-header" >
+                <h1 class="entry-title">
+                    @Html.DisplayFor(model => model.CompetitionName)
+                </h1>
+            </header>
+
+            <hr />
+
+            <dl class="col-md-12">
+                <dd>
+                    <img class="banner-thumbnail" width="1200" height="300" src="@Url.Content(Model.Image)" />
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StartDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EndDate)
+                </dd>
+
+
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dd>
+                    <a href="https://www.theartacademy.in/product/national-art-competition-2018/"><img class="aligncenter size-full wp-image-7111" src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300,h_75/https://www.theartacademy.in/wp-content/uploads/2018/11/National-Art-Competition-2018-for-children-The-Art-Academy-Register-button.jpg" alt="National-Art-Competition-2018-for-children-The-Art-Academy-Register-button" width="300" height="75"></a>
+                </dd>
+            </dl>
+        </article>
+    </main>
+    
    
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CompetitionName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CompetitionName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AwardDetails)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AwardDetails)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
 </div>

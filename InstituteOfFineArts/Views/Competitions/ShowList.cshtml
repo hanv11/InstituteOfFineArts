@@ -12,7 +12,7 @@
     </ol> 
 </section>
 <section class="content">
-    @using (Html.BeginForm("ShowList", "Competition", FormMethod.Get))
+    @using (Html.BeginForm("ShowList", "Competitions", FormMethod.Get))
     {
         <div class="container">
             <div class="row" style="margin: 20px">
@@ -44,75 +44,3 @@
     Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
     @Html.PagedListPager(Model, page => Url.Action("ShowList", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
 </section>
-
-@*<article id="post-6943" class="post-6943 page type-page status-publish hentry">
-        <div class="entry-content">
-            <header class="entry-header"><h1 class="entry-title" style="text-align:center">List Of Art Competitions-2020</h1></header>
-            <div class="row">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img style="width:1100px; height: 400px;" src='https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://www.theartacademy.in/wp-content/uploads/2018/11/National-ART-COMPETITION-2018-for-children-in-Secunderabad-The-Art-Academy-Landing-Page-Banner.jpg' alt="Alternate Text" />
-                        <a href="">
-                            <h2 style="text-align: center;">Art Competitions</h2>
-                        </a>
-                        <p>
-                            Some art competitions will organize by HMLA fine art
-                        </p>
-                    </div>
-                </div>
-                <hr style="border: 1px solid #696969" />
-                <div class="row">
-                    <div class="col-md-4">
-                        <img style="width:1100px; height: 400px;" src='https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://www.theartacademy.in/wp-content/uploads/2018/11/National-ART-COMPETITION-2018-for-children-in-Secunderabad-The-Art-Academy-Landing-Page-Banner.jpg' alt="Alternate Text" />
-                        <a href="">
-                            <h2 style="text-align: center;">Art Competitions</h2>
-                        </a>
-                        <p>
-                            Some art competitions will organize by HMLA fine art
-                        </p>
-                    </div>
-                </div>
-                <hr style="border: 1px solid #696969" />
-                <div class="row">
-                    <div class="col-md-4">
-                        <img style="width:1100px; height: 400px;" src='https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://www.theartacademy.in/wp-content/uploads/2018/11/National-ART-COMPETITION-2018-for-children-in-Secunderabad-The-Art-Academy-Landing-Page-Banner.jpg' alt="Alternate Text" />
-                        <a href="">
-                            <h2 style="text-align: center;">Art Competitions</h2>
-                        </a>
-                        <p>
-                            Some art competitions will organize by HMLA fine art
-                        </p>
-                    </div>
-                </div>
-                <hr style="border: 1px solid #696969" />
-                <div class="row">
-                    <div class="col-md-4">
-                        <img style="width:1100px; height: 400px;" src='https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://www.theartacademy.in/wp-content/uploads/2018/11/National-ART-COMPETITION-2018-for-children-in-Secunderabad-The-Art-Academy-Landing-Page-Banner.jpg' alt="Alternate Text" />
-                        <a href="">
-                            <h2 style="text-align: center;">Art Competitions</h2>
-                        </a>
-                        <p>
-                            Some art competitions will organize by HMLA fine art
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </article>*@
-
-@*<article id="post-6943" class="post-6943 page type-page status-publish hentry">
-       <div class="entry-content">
-        <p>
-            <span style="font-size: medium;">
-            <img class="alignnone size-full wp-image-7079" src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1024/https://www.theartacademy.in/wp-content/uploads/2018/11/National-ART-COMPETITION-2018-for-children-in-Secunderabad-The-Art-Academy-Landing-Page-Banner.jpg" width="1100" height="500" sizes="(max-width: 1200px) 100vw, 1200px">
-            </span>
-        </p>
-            <p>THE ART ACADEMY’s National Art Competition 2018-19 is a great way to build your confidence in exhibiting your talent and gain exposure for your artwork.</p>
-            <p><span style="color: #e0357b;">National Art Competition – Winners</span></p>
-        <ul>
-            <li>The competition is open to all ages<strong><span style="font-size: small;">. </span></strong></li>
-            <li>Whole schools and individual students are welcome to participate.</li>
-            <li>Each entrant is acknowledged with a <strong><span style="font-size: small;"> certificate of participation.</span></strong></li>
-        </ul>
-       </div>
-    </article>*@
