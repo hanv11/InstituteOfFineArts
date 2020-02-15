@@ -25,5 +25,6 @@ namespace InstituteOfFineArts.Models
         public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Submission> Submissions { get; set; }
         public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Award> Awards { get; set; }
 
+        public System.Data.Entity.DbSet<InstituteOfFineArts.Models.AccountRole> IdentityRoles { get; set; }
     }
 }
