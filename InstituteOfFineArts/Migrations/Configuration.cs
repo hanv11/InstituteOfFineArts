@@ -112,7 +112,7 @@ namespace InstituteOfFineArts.Migrations
                 new Submission(
                     01, 
                     02, 
-                    "~/Content/img/submissions/https://tylerstudentlife.files.wordpress.com/2010/05/87cover.jpg?w=584", 
+                    "https://tylerstudentlife.files.wordpress.com/2010/05/87cover.jpg?w=584", 
                     "something"),
                 new Submission(
                     02, 
