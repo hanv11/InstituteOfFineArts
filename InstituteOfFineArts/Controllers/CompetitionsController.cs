@@ -172,5 +172,10 @@ namespace InstituteOfFineArts.Controllers
             }
             return View(competition);
         }
+
+        public ActionResult RegisterCompetition()
+        {
+            return RedirectToAction("Create","Submissions");
+        }
     }
 }

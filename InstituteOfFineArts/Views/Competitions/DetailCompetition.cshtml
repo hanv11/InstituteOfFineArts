@@ -45,7 +45,10 @@
                     @Html.DisplayFor(model => model.Description)
                 </dd>
                 <dd>
-                    <a href="https://www.theartacademy.in/product/national-art-competition-2018/"><img class="aligncenter size-full wp-image-7111" src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300,h_75/https://www.theartacademy.in/wp-content/uploads/2018/11/National-Art-Competition-2018-for-children-The-Art-Academy-Register-button.jpg" alt="National-Art-Competition-2018-for-children-The-Art-Academy-Register-button" width="300" height="75"></a>
+                    <a href='@Url.Action("Register", "Submissions", new {competitionId = Model.CompetitionId})' target="_blank">
+                        <img src='@Url.Content("https://www.theartacademy.in/wp-content/uploads/2018/11/National-Art-Competition-2018-for-children-The-Art-Academy-Register-button.jpg")' />
+                    </a>
+                    
                 </dd>
             </dl>
         </article>

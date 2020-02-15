@@ -65,7 +65,12 @@ textarea {
     text-align: center;
     padding: 0;
 }
-
+a.button-register {
+    background-image: url("https://www.theartacademy.in/wp-content/uploads/2018/11/National-Art-Competition-2018-for-children-The-Art-Academy-Register-button.jpg");
+    width: 300px;
+    height: 75px;
+    display: block;
+}
 
 
 h1 .entry-title {
@@ -108,3 +113,4 @@ h1 .entry-title {
     text-align:center;
     list-style-type:none;
 }
+
