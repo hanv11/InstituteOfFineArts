@@ -4,15 +4,28 @@
 @using (Html.BeginForm("ListSubmission", "Submissions", FormMethod.Get))
 {
     @Html.AntiForgeryToken()
+   
+        <div class="container">
 
-    <div class="form-horizontal">
-        @foreach (var item in Model)
-        {
-            <h1 class="form-group">
-                @Html.DisplayFor(modelItem => item.Competitions.CompetitionName)
-            </h1>
-            <img width="500px" height="500px" src="@Url.Content(item.Picture)" />
-            @Html.DisplayFor(modelItem => item.Description)
-        }
-    </div>
-    }
+            <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Submission</h1>
+
+            <hr class="mt-2 mb-5">
+
+            <div class="row text-center text-lg-left">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <a href="#" class="d-block mb-4 h-100">
+                            <img class="img-fluid img-thumbnail" src="@item.Picture" alt="">
+                        </a>
+                    </div>
+
+
+
+                }
+
+            </div>
+
+        </div>
+        <!-- /.container -->
+}
