@@ -56,10 +56,28 @@ select,
 textarea {
     max-width: 280px;
 }
-.entry-title {
-    color: #696969;
-    text-align: center;
+
+.site-main {
+    display: block;
 }
+
+.entry-header {
+    text-align: center;
+    padding: 0;
+}
+
+
+
+h1 .entry-title {
+    margin-bottom: 0;
+}
+
+.banner-thumbnail {
+    width: 1200px;
+    height: 300px;
+}
+
+
     .entry-title::after {
         content: "";
         display: block;
@@ -69,8 +87,10 @@ textarea {
         margin: 0 auto;
         margin-top: 5px;
     }
-.entry-title{
-    margin-bottom:-20px;
+.entry-title {
+    margin-bottom: -20px;
+    color: #696969;
+    text-align: center;
 }
 .entry-content {
    

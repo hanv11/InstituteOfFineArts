@@ -15,12 +15,12 @@ namespace InstituteOfFineArts.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public override string  Email { get; set; }
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
         public GenderType Gender { get; set; }
         public string Avatar { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeletedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdateAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
         public enum GenderType
         {
             Male = 0,

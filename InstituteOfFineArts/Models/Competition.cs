@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -29,7 +30,6 @@ namespace InstituteOfFineArts.Models
             StartDate = sdate;
             EndDate = edate;
             Image = img;
-            AwardDetails = awarddetail;
             Description = decription;
         }
     }

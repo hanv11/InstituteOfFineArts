@@ -6,19 +6,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="content-header">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">List Of Art Competitions</li>
-    </ol>
-</section>
+
 <section class="content">
+
     <header class="entry-header">
         <h1 class="entry-title">
             List Of Art Competitions
         </h1>
     </header>
     <hr style="border-color:white" />
+
     @using (Html.BeginForm("ShowList", "Competitions", FormMethod.Get))
     {
         <div class="container">

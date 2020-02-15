@@ -151,7 +151,9 @@ namespace InstituteOfFineArts.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Account { UserName = model.Email, Email = model.Email };
+                
+                var user = new Account { UserName = model.Email, Email = model.Email, CreatedAt = DateTime.Now, UpdateAt = DateTime.Now, DeletedAt = DateTime.Now};
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
