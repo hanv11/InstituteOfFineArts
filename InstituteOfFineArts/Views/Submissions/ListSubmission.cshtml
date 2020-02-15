@@ -1,0 +1,18 @@
+﻿@model IEnumerable<InstituteOfFineArts.Models.Submission>
+
+
+@using (Html.BeginForm("ListSubmission", "Submissions", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @foreach (var item in Model)
+        {
+            <h1 class="form-group">
+                @Html.DisplayFor(modelItem => item.Competitions.CompetitionName)
+            </h1>
+            <img width="500px" height="500px" src="@Url.Content(item.Picture)" />
+            @Html.DisplayFor(modelItem => item.Description)
+        }
+    </div>
+    }

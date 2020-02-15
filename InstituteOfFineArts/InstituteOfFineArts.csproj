@@ -1318,12 +1318,14 @@
     <Content Include="Views\Competitions\Index.cshtml" />
     <Content Include="Views\Competitions\ShowList.cshtml" />
     <Content Include="Views\Competitions\DetailCompetition.cshtml" />
-    <Content Include="Views\Submissions\Register.cshtml" />
+    <Content Include="Views\Submissions\Create.cshtml" />
     <Content Include="Views\Submissions\Delete.cshtml" />
     <Content Include="Views\Submissions\Details.cshtml" />
     <Content Include="Views\Submissions\Edit.cshtml" />
     <Content Include="Views\Submissions\Index.cshtml" />
+    <Content Include="Views\Submissions\Register.cshtml" />
     <Content Include="Views\Submissions\RegisterPartialView.cshtml" />
+    <Content Include="Views\Submissions\ListSubmission.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

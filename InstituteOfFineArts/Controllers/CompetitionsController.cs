@@ -165,6 +165,7 @@ namespace InstituteOfFineArts.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             Competition competition = db.Competitions.Find(id);
             if (competition == null)
             {

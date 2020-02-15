@@ -10,7 +10,7 @@
 <div class="container">
     <main class="site-main">
         <article class="type-page">
-            <header class="entry-header" >
+            <header class="entry-header">
                 <h1 class="entry-title">
                     @Html.DisplayFor(model => model.CompetitionName)
                 </h1>
@@ -18,41 +18,38 @@
 
             <hr />
 
-            <dl class="col-md-12">
-                <dd>
+            <div class="col-md-12">
+                <div>
                     <img class="banner-thumbnail" width="1200" height="300" src="@Url.Content(Model.Image)" />
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.StartDate)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.StartDate)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.EndDate)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.EndDate)
-                </dd>
+                </div>
 
 
+                <div class="row">
+                    <div class="col-md-3">
+                        <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
+                        @Html.DisplayFor(model => model.StartDate)
+                    </div>
+                    <div class="col-md-6">
+                        <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
+                        @Html.DisplayFor(model => model.EndDate)
+                    </div>
 
-                <dd>
+                </div>
+
+                <div>
                     @Html.DisplayFor(model => model.Description)
-                </dd>
-                <dd>
-                    <a href='@Url.Action("Register", "Submissions", new {competitionId = Model.CompetitionId})' target="_blank">
-                        <img src='@Url.Content("https://www.theartacademy.in/wp-content/uploads/2018/11/National-Art-Competition-2018-for-children-The-Art-Academy-Register-button.jpg")' />
-                    </a>
-                    
-                </dd>
-            </dl>
+                </div>
+
+                <a href='@Url.Action("Register", "Submissions", new {competitionId = Model.CompetitionId})' target="_blank" class="register-button">
+                    <img src='@Url.Content("https://www.theartacademy.in/wp-content/uploads/2018/11/National-Art-Competition-2018-for-children-The-Art-Academy-Register-button.jpg")' />
+                </a>
+
+            </div>
         </article>
     </main>
-    
-   
 </div>
+<hr style="border: 1px solid" />
+@if (Model.Submissions.Any())
+{
+    @Html.Action("ListSubmission", "Submissions", new { competitionId = Model.CompetitionId })
+}

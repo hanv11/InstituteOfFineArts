@@ -4,9 +4,13 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@Html.DisplayFor(model => model.CompetitionName)
-
+    <h1 class="entry-header">
+        @Html.DisplayFor(model => model.CompetitionName)
+    </h1>
+    <div class="entry-banner">
+        <img src="@Url.Content(Model.Image)" />
+    </div>
+   
 
 @Html.Action("RegisterPartialView", "Submissions", new { competitionId = Model.CompetitionId })
 

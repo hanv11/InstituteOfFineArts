@@ -56,7 +56,13 @@ select,
 textarea {
     max-width: 280px;
 }
-
+.register-button {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;
+}
 .site-main {
     display: block;
 }
@@ -65,12 +71,7 @@ textarea {
     text-align: center;
     padding: 0;
 }
-a.button-register {
-    background-image: url("https://www.theartacademy.in/wp-content/uploads/2018/11/National-Art-Competition-2018-for-children-The-Art-Academy-Register-button.jpg");
-    width: 300px;
-    height: 75px;
-    display: block;
-}
+
 
 
 h1 .entry-title {
@@ -81,9 +82,7 @@ h1 .entry-title {
     width: 1200px;
     height: 300px;
 }
-
-
-    .entry-title::after {
+.entry-title::after {
         content: "";
         display: block;
         width: 60px;
@@ -97,6 +96,7 @@ h1 .entry-title {
     color: #696969;
     text-align: center;
 }
+
 .entry-content {
    
     text-align: center;
@@ -113,4 +113,11 @@ h1 .entry-title {
     text-align:center;
     list-style-type:none;
 }
-
+.entry-banner {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;
+    height: 300px;
+}
