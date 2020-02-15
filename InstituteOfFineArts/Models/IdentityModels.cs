@@ -12,7 +12,7 @@ namespace InstituteOfFineArts.Models
     public class ApplicationDbContext : IdentityDbContext<Account>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MyContext", throwIfV1Schema: false)
         {
         }
 
@@ -22,13 +22,7 @@ namespace InstituteOfFineArts.Models
         }
 
         public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Competition> Competitions { get; set; }
-
-
-
-
         public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Submission> Submissions { get; set; }
-
-
         public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Award> Awards { get; set; }
 
     }
