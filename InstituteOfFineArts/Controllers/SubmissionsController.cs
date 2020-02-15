@@ -36,29 +36,43 @@ namespace InstituteOfFineArts.Controllers
             return View(submission);
         }
 
-        // GET: Submissions/Create
-        public ActionResult Create()
+        // GET: Submissions/Register
+        public ActionResult Register(int? competitionId)
         {
-            ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName");
-            return View();
+            if (competitionId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Competition competition = db.Competitions.Find(competitionId);
+            if (competition == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(competition);
         }
 
+        public ActionResult RegisterPartialView(int competitionId)
+        {
+            ViewBag.competitionId = competitionId;
+            return PartialView();
+        }
         // POST: Submissions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SubmissionId,CompetitionId,Picture,AccountId,Description")] Submission submission)
+        public ActionResult Create([Bind(Include = "CompetitionId,Picture,AccountId,Description")] Submission submission)
         {
             if (ModelState.IsValid)
             {
                 db.Submissions.Add(submission);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("Details", submission);
             }
 
             ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
-            return View(submission);
+            return View("Details",submission);
         }
 
         // GET: Submissions/Edit/5
