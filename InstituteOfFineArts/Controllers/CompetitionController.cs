@@ -11,7 +11,7 @@ using PagedList;
 
 namespace InstituteOfFineArts.Controllers
 {
-    public class CompetitionsController : Controller
+    public class CompetitionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
