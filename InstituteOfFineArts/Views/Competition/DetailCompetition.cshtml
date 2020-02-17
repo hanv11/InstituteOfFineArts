@@ -18,25 +18,24 @@
 
             <hr />
 
-            <div class="col-md-12">
-                <div>
-                    <img class="banner-thumbnail" width="1200" height="300" src="@Url.Content(Model.Image)" />
+            <div class="container">
+                <div class="entry-banner">
+                    <img class="banner-thumbnail" src="@Url.Content(Model.Image)" />
                 </div>
 
-
-                <div class="row">
-                    <div class="col-md-3">
+                <div class="row detail-content">
+                    <div class="col-md-6 term">
                         <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
                         @Html.DisplayFor(model => model.StartDate)
                     </div>
-                    <div class="col-md-6">
-                        <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
+                    <div class="col-md-6 term">
+                        <strong >@Html.DisplayNameFor(model => model.EndDate):</strong>
                         @Html.DisplayFor(model => model.EndDate)
                     </div>
 
                 </div>
 
-                <div>
+                <div class="detail-content">
                     @Html.DisplayFor(model => model.Description)
                 </div>
 
