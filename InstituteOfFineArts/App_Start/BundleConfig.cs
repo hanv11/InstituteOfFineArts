@@ -25,6 +25,19 @@ namespace InstituteOfFineArts
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            //Homepage
+            bundles.Add(new StyleBundle("~/Homepage/css").Include(
+                      "~/Content/Homepage/vendor/bootstrap/css/bootstrap.min.css",
+                      "~/Content/Homepage/css/agency.min.css",
+                      "~/Content/Homepage/vendor/fontawesome-free/css/all.min.css"));
+            bundles.Add(new ScriptBundle("~/Homepage/js").Include(
+                    "~/Scripts/Homepage/vendor/jquery/jquery.min.js",
+                    "~/Scripts/Homepage/vendor/bootstrap/js/bootstrap.bundle.min.js",
+                    "~/Scripts/Homepage/js/jqBootstrapValidation.js",
+                    "~/Scripts/Homepage/js/contact_me.js",
+                    "~/Scripts/Homepage/js/agency.min.js",
+                    "~/Scripts/Homepage/vendor/jquery-easing/jquery.easing.min.js"));
+            //AdminPage
             bundles.Add(new ScriptBundle("~/Js").Include(
             "~/Scripts/jquery-{version}.js",
             "~/Scripts/jquery.validate*",
