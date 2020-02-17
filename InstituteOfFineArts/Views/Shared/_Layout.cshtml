@@ -1,70 +1,101 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>@ViewBag.Title</title>
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/Img/pofa_logo.png")">
+
+    @Styles.Render("~/Homepage/css")
 
 </head>
-<body class="background-style">
 
-    <div class="navbar navbar-style">
-        
-        <div class="container ">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<body id="page-top">
+
+    <!-- Navigation -->
+
+
+    <!-- Header -->
+    <header class="masthead">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+            <div class="container">
                 <a class="logo" href='@Url.Action("Index", "Home")'>
-                    <img class="center" style="width: 160px; height: 90px;" src='@Url.Content("~/Content/Img/pofa_logo.png")' />
-                </a>
-                
+                    <img class="center" style="width: 160px; height: 90px;" src='@Url.Content("~/Content/Img/pofa_logo.png")'>
+                </a>>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="navbar-collapse collapse navbar-styles">
+
+                </div>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item">
+                            @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Competition", "Contact", "Home", new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Award", "Contact", "Home", new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Exhibitions", "Contact", "Home", new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("About", "About", "Home", new { @class = "nav-link js-scroll-trigger" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.Partial("_LoginPartial")
+                        </li>
+
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse navbar-styles">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Competition", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Award", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Exhibitions", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+        </nav>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Institude Of Fine Art</div>
             </div>
         </div>
-    </div>
- 
-    <div class="body-content ">
-        @RenderBody()
-        
-        <footer class="container" id="theme-footer">
-            <div id="footer-widget-area" class="footer-3c">
-                <hr style="border: 1px solid #696969" />
-                <div id="footer-first" class="footer-widgets-box">
-                    <div id="text-html-widget-4" class="footer-widget text-html">
-                        <div class="footer-widget-top"><h4>Liên hệ</h4></div>
-                        <div class="footer-widget-container">
-                            <div>
+    </header>
+
+    @RenderBody()
+    <!-- Footer -->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                        <div class="row">
+                            <div style="color:white;">
                                 Địa chỉ: 8 Ton That Thuyet, Cau Giay, Ha Noi<br>
                                 Điện thoại: (844) 39426972, 38263861, 38220879<br>
                                 Fax: (844) 38226418<br>
                                 Email: HMLA.FineArt@gmail.com<br>
                                 Website: www.HMLAFineArt.edu.vn
-                            </div><div class="clear"></div>
+                            </div>
                         </div>
-                    </div><!-- .widget /-->
+                    </form>
                 </div>
-            </div><!-- #second .widget-area -->
+            </div>
+        </div>
+    </section>
 
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <!-- Bootstrap core JavaScript -->
+    @Scripts.Render("~/Homepage/js")
     @RenderSection("scripts", required: false)
+
 </body>
+
 </html>
