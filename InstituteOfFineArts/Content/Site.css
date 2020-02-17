@@ -96,7 +96,6 @@ h1 .entry-title {
     color: #696969;
     text-align: center;
 }
-
 .entry-content {
     text-align: center;
     display: block;
@@ -126,6 +125,21 @@ h1 .entry-title {
     display: block;
     text-align: center;
 }
+.entry-content a{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;
+    padding-bottom: 5px;
+}
+
+ .entry-content a:hover {
+        background-color: #000000;
+ }
+.entry-content li {
+        text-align: center;
+        list-style-type: none;
+ }
 .term {
     font-size: 20px;
 }
@@ -146,3 +160,4 @@ h1 .entry-title {
     height: 300px;
     border: 1px solid black;
 }
+
