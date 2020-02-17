@@ -79,7 +79,7 @@ h1 .entry-title {
 }
 
 .banner-thumbnail {
-    width: 1200px;
+    width: 800px;
     height: 300px;
 }
 .entry-title::after {
@@ -95,6 +95,21 @@ h1 .entry-title {
     margin-bottom: -20px;
     color: #696969;
     text-align: center;
+}
+.entry-content {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;
+}
+.entry-content:hover{
+    background-color:#ffffff;
+}
+
+.entry-content li{
+    text-align:center;
+    list-style-type:none;
 }
 .entry-banner {
     text-align: center;
@@ -125,3 +140,24 @@ h1 .entry-title {
         text-align: center;
         list-style-type: none;
  }
+.term {
+    font-size: 20px;
+}
+.detail-content {
+    margin: 10px;
+    padding: 10px;
+}
+.thumbnail-img {
+    width: 250px;
+    height: 250px;
+}
+.show-more {
+    width: 170px;
+    margin-top: 5px;
+}
+.picture {
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
+}
+
