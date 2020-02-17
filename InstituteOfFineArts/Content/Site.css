@@ -79,7 +79,7 @@ h1 .entry-title {
 }
 
 .banner-thumbnail {
-    width: 1200px;
+    width: 800px;
     height: 300px;
 }
 .entry-title::after {
@@ -98,7 +98,6 @@ h1 .entry-title {
 }
 
 .entry-content {
-   
     text-align: center;
     display: block;
     margin-left: auto;
@@ -126,4 +125,24 @@ h1 .entry-title {
     height: 40px;
     display: block;
     text-align: center;
+}
+.term {
+    font-size: 20px;
+}
+.detail-content {
+    margin: 10px;
+    padding: 10px;
+}
+.thumbnail-img {
+    width: 250px;
+    height: 250px;
+}
+.show-more {
+    width: 170px;
+    margin-top: 5px;
+}
+.picture {
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
 }

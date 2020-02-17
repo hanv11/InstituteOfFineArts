@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InstituteOfFineArts.Models;
+using PagedList;
 
 namespace InstituteOfFineArts.Controllers
 {
@@ -33,7 +34,51 @@ namespace InstituteOfFineArts.Controllers
             }
 
             var submission = db.Submissions.Where(s => s.CompetitionId == competitionId );
-            return PartialView("ListSubmission",submission.ToList());
+            return PartialView("ListSubmission",submission.ToList().Take(4));
+        }
+
+        public ActionResult List(int? id, string searchString, string sortOrder, string currentFilter, int? page)
+        {
+            ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var submission = db.Submissions.Where(s => s.CompetitionId == id);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                submission = submission.Where(s => s.SubmissionId.ToString().Contains(searchString));
+            }
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    submission = submission.OrderByDescending(s => s.AccountId);
+                    break;
+                case "Date":
+                    break;
+                default:
+                    submission = submission.OrderBy(s => s.AccountId.ToString());
+                    break;
+            }
+            int pageSize = 4;
+            var pageNumber = page ?? 1;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Competition competition = db.Competitions.Find(id);
+            if (competition == null)
+            {
+                return HttpNotFound();
+            }
+            return View("List", submission.ToPagedList(pageNumber,pageSize));
         }
         // GET: Submissions/Details/5
         public ActionResult Details(int? id)
@@ -116,7 +161,7 @@ namespace InstituteOfFineArts.Controllers
             {
                 db.Entry(submission).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details",new {id = submission.SubmissionId});
             }
             ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
             return View(submission);

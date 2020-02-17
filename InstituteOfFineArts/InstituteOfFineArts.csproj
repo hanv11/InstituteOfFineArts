@@ -1301,6 +1301,7 @@
     <Content Include="Views\AccountRoles\Details.cshtml" />
     <Content Include="Views\AccountRoles\Edit.cshtml" />
     <Content Include="Views\AccountRoles\Index.cshtml" />
+    <Content Include="Views\Submissions\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
