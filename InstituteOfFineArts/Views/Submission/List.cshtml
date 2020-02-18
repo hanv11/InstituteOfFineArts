@@ -10,7 +10,7 @@
         <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">The List of Submission</h1>
 
         <hr class="mt-2 mb-5">
-        @using (Html.BeginForm("List", "Submissions", FormMethod.Get))
+        @using (Html.BeginForm("List", "Submission", FormMethod.Get))
         {
             @Html.AntiForgeryToken()
             <div class="container">
@@ -27,7 +27,7 @@
             {
                 <div class="col-md-3">
                    
-                        <a href="@Url.Action("Details","Submissions",new {id = item.SubmissionId})" class="d-block mb-4 h-100">
+                        <a href="@Url.Action("Details","Submission",new {id = item.SubmissionId})" class="d-block mb-4 h-100">
                             <img class="thumbnail-img" src="@item.Picture" alt="">
                         </a>
                         <div>

@@ -96,6 +96,7 @@ namespace InstituteOfFineArts.Controllers
         }
 
         // GET: Submissions/Register
+        [Authorize(Roles = "Student")]
         public ActionResult Register(int? competitionId)
         {
             if (competitionId == null)

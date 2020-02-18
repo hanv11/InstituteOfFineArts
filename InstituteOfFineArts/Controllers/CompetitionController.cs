@@ -176,7 +176,7 @@ namespace InstituteOfFineArts.Controllers
 
         public ActionResult RegisterCompetition()
         {
-            return RedirectToAction("Create","Submissions");
+            return RedirectToAction("Create","Submission");
         }
     }
 }
