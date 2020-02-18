@@ -56,7 +56,7 @@ namespace InstituteOfFineArts.Controllers
         }
 
         // GET: Competitions/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Index(int? id)
         {
             if (id == null)
             {
@@ -67,7 +67,7 @@ namespace InstituteOfFineArts.Controllers
             {
                 return HttpNotFound();
             }
-            return View(competition);
+            return View("Details",competition);
         }
 
         // GET: Competitions/Create
