@@ -17,11 +17,16 @@ namespace InstituteOfFineArts.Models
         public string Image { get; set; }
         public string Description { get; set; }
         public virtual ICollection<Award> Awards { get; set; }
-
+        public CompetitionStatus Status { get; set; }
+        public enum CompetitionStatus
+        {
+            Pending = 0,
+            Confirmed = 1,
+            Finished = 2
+        }
         public virtual ICollection<Submission> Submissions { get; set; }
         public Competition()
         {
-
         }
         public Competition(int competid, string competname, DateTime sdate, DateTime edate, string img, string awarddetail , string decription)
         {
