@@ -26,6 +26,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
             if (ModelState.IsValid)
             {
+                competition.Status = Competition.CompetitionStatus.Pending;
                 db.Competitions.Add(competition);
                 db.SaveChanges();
                 return RedirectToAction("Index");
