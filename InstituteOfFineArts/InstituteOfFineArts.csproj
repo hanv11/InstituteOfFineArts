@@ -183,7 +183,7 @@
     <Compile Include="Controllers\CompetitionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SubmissionsController.cs" />
+    <Compile Include="Controllers\SubmissionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1385,20 +1385,19 @@
     <Content Include="Views\Competition\Index.cshtml" />
     <Content Include="Views\Competition\ShowList.cshtml" />
     <Content Include="Views\Competition\DetailCompetition.cshtml" />
-    <Content Include="Views\Submissions\Create.cshtml" />
-    <Content Include="Views\Submissions\Delete.cshtml" />
-    <Content Include="Views\Submissions\Details.cshtml" />
-    <Content Include="Views\Submissions\Edit.cshtml" />
-    <Content Include="Views\Submissions\Index.cshtml" />
-    <Content Include="Views\Submissions\Register.cshtml" />
-    <Content Include="Views\Submissions\RegisterPartialView.cshtml" />
-    <Content Include="Views\Submissions\ListSubmission.cshtml" />
     <Content Include="Views\AccountRoles\Create.cshtml" />
     <Content Include="Views\AccountRoles\Delete.cshtml" />
     <Content Include="Views\AccountRoles\Details.cshtml" />
     <Content Include="Views\AccountRoles\Edit.cshtml" />
     <Content Include="Views\AccountRoles\Index.cshtml" />
-    <Content Include="Views\Submissions\List.cshtml" />
+    <Content Include="Views\Submission\Delete.cshtml" />
+    <Content Include="Views\Submission\Details.cshtml" />
+    <Content Include="Views\Submission\Edit.cshtml" />
+    <Content Include="Views\Submission\Index.cshtml" />
+    <Content Include="Views\Submission\List.cshtml" />
+    <Content Include="Views\Submission\ListSubmission.cshtml" />
+    <Content Include="Views\Submission\Register.cshtml" />
+    <Content Include="Views\Submission\RegisterPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -11,7 +11,7 @@ using PagedList;
 
 namespace InstituteOfFineArts.Controllers
 {
-    public class SubmissionsController : Controller
+    public class SubmissionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
