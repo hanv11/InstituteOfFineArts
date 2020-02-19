@@ -20,6 +20,7 @@ namespace InstituteOfFineArts.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public DateTime? DeletedAt { get; set; }
+        public ICollection<Submission> Submissions { get; set; }
         public enum GenderType
         {
             Male = 0,

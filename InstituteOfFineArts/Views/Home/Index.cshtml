@@ -2,68 +2,104 @@
     ViewBag.Title = "Home Page";
 }
 
+<section class="feature-section">
+    <div class="container-fluid background-style" style="height:550px; display:flex">
+        <div class="row" style="padding: 20px 5px">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                        <img class="img-fluid" src="~/content/img/banner-concert.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                        <img class="img-fluid" src="~/content/img/thewinningpaintings.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                        <img class="img-fluid" src="~/content/img/artexhibition.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                        <img class="img-fluid" src="~/content/img/listofpainting.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                        <img class="img-fluid" src="~/content/img/upcomingartcompetition.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                        <img class="img-fluid" src='~/content/img/banner-concert.jpg' alt="">
+                    </a>
+                </div>
+            </div>
+    </div>
+</section>
 
-<section class="bg-light page-section" id="portfolio">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                    <img class="img-fluid" src="~/content/img/banner-concert.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Art competitions</h4>
-                    <p class="text-muted">some art competitions will organize by hmla fine art</p>
+@*<section class="bg-light page-section" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                        <img class="img-fluid" src="~/content/img/banner-concert.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Art competitions</h4>
+                        <p class="text-muted">some art competitions will organize by hmla fine art</p>
 
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                    <img class="img-fluid" src="~/content/img/thewinningpaintings.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>The winning paintings</h4>
-                    <p class="text-muted">There are all the painting was won in competitions of hmla fine art</p>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                        <img class="img-fluid" src="~/content/img/thewinningpaintings.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>The winning paintings</h4>
+                        <p class="text-muted">There are all the painting was won in competitions of hmla fine art</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                    <img class="img-fluid" src="~/content/img/artexhibition.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>art exhibitions</h4>
-                    <p class="text-muted">There are the exhibitions when some beautifull paintings in all competitions of hmla fine art will be showed</p>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                        <img class="img-fluid" src="~/content/img/artexhibition.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>art exhibitions</h4>
+                        <p class="text-muted">There are the exhibitions when some beautifull paintings in all competitions of hmla fine art will be showed</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                    <img class="img-fluid" src="~/content/img/listofpainting.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>list of paintings</h4>
-                    <p class="text-muted">There are all the painting was won in competitions of hmla fine art </p>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                        <img class="img-fluid" src="~/content/img/listofpainting.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>list of paintings</h4>
+                        <p class="text-muted">There are all the painting was won in competitions of hmla fine art </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                    <img class="img-fluid" src="~/content/img/upcomingartcompetition.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>upcoming art competition</h4>
-                    <p class="text-muted">There are the exhibitions when some beautifull paintings in all competitions of hmla fine art will be showed</p>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                        <img class="img-fluid" src="~/content/img/upcomingartcompetition.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>upcoming art competition</h4>
+                        <p class="text-muted">There are the exhibitions when some beautifull paintings in all competitions of hmla fine art will be showed</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                    <img class="img-fluid" src='~/content/img/banner-concert.jpg' alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Window</h4>
-                    <p class="text-muted">Photography</p>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                        <img class="img-fluid" src='~/content/img/banner-concert.jpg' alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Window</h4>
+                        <p class="text-muted">Photography</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>*@
 
 
 

@@ -1,113 +1,192 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Activitar Template">
+    <meta name="keywords" content="Activitar, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Activitar | Template</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
-
-    <title>@ViewBag.Title</title>
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/Img/pofa_logo.png")">
-
-    @Styles.Render("~/Homepage/css")
+    <!-- Css Styles -->
     @Styles.Render("~/Content/css")
-
+    @Styles.Render("~/Content/Homepage/css")
 </head>
 
-<body id="page-top">
-
-    <!-- Navigation -->
-
-
-    <!-- Header -->
-    <header class="masthead">
-        <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+<body class="background-style">
+    <!-- Page Preloder -->
+    <!-- Header Section Begin -->
+    <header class="header-section" >
+        <div class="container-fluid">
+            <div class="logo">
+                <a href="#">
+                    <img src="~/Content/img/pofa_logo.png" style="width:200px; height:100px; margin-top: -40px" alt="">
+                </a>
+            </div>
+            <div class="top-social">
+                <a href="#"><i class="fa fa-facebook" style="color:#151515"></i></a>
+                <a href="#"><i class="fa fa-linkedin" style="color:#151515"></i></a>
+                <a href="#"><i class="fa fa-pinterest-p" style="color:#151515"></i></a>
+                <a href="#"><i class="fa fa-youtube-play" style="color:#151515"></i></a>
+                <a href="#"><i class="fa fa-user" style="color:#151515"></i></a>
+            </div>
             <div class="container">
-                <a class="logo" href='@Url.Action("Index", "Home")'>
-                    <img class="center" style="width: 160px; height: 90px;" src='@Url.Content("~/Content/Img/pofa_logo.png")'>
-                </a>>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="navbar-collapse collapse navbar-styles">
-
-                </div>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item">
-                            @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link js-scroll-trigger" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Competition", "Contact", "Home", new { @class = "nav-link js-scroll-trigger" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Award", "Contact", "Home", new { @class = "nav-link js-scroll-trigger" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Exhibitions", "Contact", "Home", new { @class = "nav-link js-scroll-trigger" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link js-scroll-trigger" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("About", "About", "Home", new { @class = "nav-link js-scroll-trigger" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.Partial("_LoginPartial")
-                        </li>
-
-                    </ul>
+                <div class="nav-menu">
+                    <nav class="mainmenu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Schedule</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li>
+                                <a href="#">Blog</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-            <div class="navbar-collapse collapse navbar-styles">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Competition", "ShowList", "Competition")</li>
-                    <li>@Html.ActionLink("Award", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Exhibitions", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </nav>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Institude Of Fine Art</div>
-            </div>
+            <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-
-    @RenderBody()
-    <!-- Footer -->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                        <div class="row">
-                            <div style="color:white;">
-                                Địa chỉ: 8 Ton That Thuyet, Cau Giay, Ha Noi<br>
-                                Điện thoại: (844) 39426972, 38263861, 38220879<br>
-                                Fax: (844) 38226418<br>
-                                Email: HMLA.FineArt@gmail.com<br>
-                                Website: www.HMLAFineArt.edu.vn
-                            </div>
-                        </div>
-                    </form>
+    <!-- Header End -->
+    <!-- Hero Section Begin -->
+    <div style="padding-top: 80px" id="demo" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Content/Homepage/img/hero-slider/slider1.jpg" alt="Los Angeles">
+                <div class="carousel-caption">
+                    <h3>Los Angeles</h3>
+                    <p>We had such a great time in LA!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Homepage/img/hero-slider/slider2.jpg" alt="Chicago">
+                <div class="carousel-caption">
+                    <h3>Chicago</h3>
+                    <p>Thank you, Chicago!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/Homepage/img/hero-slider/slider3.png" alt="New York">
+                <div class="carousel-caption">
+                    <h3>New York</h3>
+                    <p>We love the Big Apple!</p>
                 </div>
             </div>
         </div>
-    </section>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
 
-
-    <!-- Bootstrap core JavaScript -->
-    @Scripts.Render("~/Homepage/js")
+    <!-- Hero End -->
+    <!-- Feature Section Begin -->
+    <!-- Classes Section End -->
+    @RenderBody()
+    <!-- Footer Section Begin -->
+    <footer class="background-style" style="padding: 20px 5px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-logo-item">
+                        <div class="f-logo">
+                            <a href="#"><img src="~/Content/img/pofa_logo.png" alt=""></a>
+                        </div>
+                        <p>
+                            Despite growth of the Internet over the past seven years, the use of toll-free phone numbers
+                            in television advertising continues.
+                        </p>
+                        <div class="social-links">
+                            <h6>Follow us</h6>
+                            <a href="#"><i class="fa fa-facebook" style="color:#151515"></i></a>
+                            <a href="#"><i class="fa fa-twitter" style="color:#151515"></i></a>
+                            <a href="#"><i class="fa fa-google-plus" style="color:#151515"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" style="color:#151515"></i></a>
+                            <a href="#"><i class="fa fa-instagram" style="color:#151515"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>Our Blog</h5>
+                        <div class="footer-blog">
+                            <a href="#" class="fb-item">
+                                <h6>Most people who work</h6>
+                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            </a>
+                            <a href="#" class="fb-item">
+                                <h6>Freelance Design Tricks How </h6>
+                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            </a>
+                            <a href="#" class="fb-item">
+                                <h6>have a computer at home have had </h6>
+                                <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <h5>Get Info</h5>
+                        <ul class="footer-info">
+                            <li>
+                                <i class="fa fa-phone" style="color:#151515"></i>
+                                <span>Phone:</span>
+                                (12) 345 6789
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope-o" style="color:#151515"></i>
+                                <span>Email:</span>
+                                Colorlib.info@gmail.com
+                            </li>
+                            <li>
+                                <i class="fa fa-map-marker" style="color:#151515"></i>
+                                <span>Address</span>
+                                Iris Watson, Box 283 8562, NY
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="ct-inside">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Js Plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    @Scripts.Render("~/Content/js")
+    @Scripts.Render("~/Content/Homepage/js")
     @RenderSection("scripts", required: false)
-
 </body>
 
 </html>
