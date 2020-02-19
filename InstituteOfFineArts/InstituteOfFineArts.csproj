@@ -174,6 +174,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Teacher\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
@@ -195,25 +196,9 @@
     <Compile Include="Migrations\202002181540072_AddStatusForCompetition.Designer.cs">
       <DependentUpon>202002181540072_AddStatusForCompetition.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002190457291_table.cs" />
-    <Compile Include="Migrations\202002190457291_table.Designer.cs">
-      <DependentUpon>202002190457291_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002190543104_table1.cs" />
-    <Compile Include="Migrations\202002190543104_table1.Designer.cs">
-      <DependentUpon>202002190543104_table1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002190545317_table2.cs" />
-    <Compile Include="Migrations\202002190545317_table2.Designer.cs">
-      <DependentUpon>202002190545317_table2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002190713093_table3.cs" />
-    <Compile Include="Migrations\202002190713093_table3.Designer.cs">
-      <DependentUpon>202002190713093_table3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002190723397_table4.cs" />
-    <Compile Include="Migrations\202002190723397_table4.Designer.cs">
-      <DependentUpon>202002190723397_table4.cs</DependentUpon>
+    <Compile Include="Migrations\202002191528401_AddColumnCreatedByToCompetition.cs" />
+    <Compile Include="Migrations\202002191528401_AddColumnCreatedByToCompetition.Designer.cs">
+      <DependentUpon>202002191528401_AddColumnCreatedByToCompetition.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
@@ -1358,6 +1343,7 @@
     <Content Include="Content\Homepage\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Homepage\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\Homepage\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Competition\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1447,20 +1433,8 @@
     <EmbeddedResource Include="Migrations\202002181540072_AddStatusForCompetition.resx">
       <DependentUpon>202002181540072_AddStatusForCompetition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002190457291_table.resx">
-      <DependentUpon>202002190457291_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002190543104_table1.resx">
-      <DependentUpon>202002190543104_table1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002190545317_table2.resx">
-      <DependentUpon>202002190545317_table2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002190713093_table3.resx">
-      <DependentUpon>202002190713093_table3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002190723397_table4.resx">
-      <DependentUpon>202002190723397_table4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002191528401_AddColumnCreatedByToCompetition.resx">
+      <DependentUpon>202002191528401_AddColumnCreatedByToCompetition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

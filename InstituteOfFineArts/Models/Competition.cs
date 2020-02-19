@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,9 @@ namespace InstituteOfFineArts.Models
         [Key]
         public int CompetitionId { get; set; }
         public string CompetitionName { get; set; }
+        [ForeignKey("Account")]
+        public string CreatedBy { get; set; }
+        public virtual Account Account { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Image { get; set; }
