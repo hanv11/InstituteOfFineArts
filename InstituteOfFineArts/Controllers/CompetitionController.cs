@@ -67,9 +67,9 @@ namespace InstituteOfFineArts.Controllers
             {
                 return HttpNotFound();
             }
-            return View("Details",competition);
+            return View("Details", competition);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Competitions/Create
         public ActionResult Create()
         {
@@ -81,6 +81,7 @@ namespace InstituteOfFineArts.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description")] Competition competition)
         {
             if (ModelState.IsValid)
@@ -92,7 +93,7 @@ namespace InstituteOfFineArts.Controllers
 
             return View(competition);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Competitions/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -113,6 +114,7 @@ namespace InstituteOfFineArts.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description")] Competition competition)
         {
             if (ModelState.IsValid)
@@ -123,7 +125,7 @@ namespace InstituteOfFineArts.Controllers
             }
             return View(competition);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Competitions/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -138,7 +140,7 @@ namespace InstituteOfFineArts.Controllers
             }
             return View(competition);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: Competitions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -165,7 +167,7 @@ namespace InstituteOfFineArts.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             Competition competition = db.Competitions.Find(id);
             if (competition == null)
             {
@@ -173,10 +175,10 @@ namespace InstituteOfFineArts.Controllers
             }
             return View(competition);
         }
-
+        [Authorize(Roles = "Student")]
         public ActionResult RegisterCompetition()
         {
-            return RedirectToAction("Create","Submission");
+            return RedirectToAction("Create", "Submission");
         }
     }
 }
