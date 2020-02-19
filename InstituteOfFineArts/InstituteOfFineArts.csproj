@@ -195,6 +195,26 @@
     <Compile Include="Migrations\202002181540072_AddStatusForCompetition.Designer.cs">
       <DependentUpon>202002181540072_AddStatusForCompetition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002190457291_table.cs" />
+    <Compile Include="Migrations\202002190457291_table.Designer.cs">
+      <DependentUpon>202002190457291_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002190543104_table1.cs" />
+    <Compile Include="Migrations\202002190543104_table1.Designer.cs">
+      <DependentUpon>202002190543104_table1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002190545317_table2.cs" />
+    <Compile Include="Migrations\202002190545317_table2.Designer.cs">
+      <DependentUpon>202002190545317_table2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002190713093_table3.cs" />
+    <Compile Include="Migrations\202002190713093_table3.Designer.cs">
+      <DependentUpon>202002190713093_table3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002190723397_table4.cs" />
+    <Compile Include="Migrations\202002190723397_table4.Designer.cs">
+      <DependentUpon>202002190723397_table4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1418,6 +1438,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002181540072_AddStatusForCompetition.resx">
       <DependentUpon>202002181540072_AddStatusForCompetition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002190457291_table.resx">
+      <DependentUpon>202002190457291_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002190543104_table1.resx">
+      <DependentUpon>202002190543104_table1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002190545317_table2.resx">
+      <DependentUpon>202002190545317_table2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002190713093_table3.resx">
+      <DependentUpon>202002190713093_table3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002190723397_table4.resx">
+      <DependentUpon>202002190723397_table4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

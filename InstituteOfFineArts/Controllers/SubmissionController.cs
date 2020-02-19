@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using InstituteOfFineArts.Models;
+using Microsoft.AspNet.Identity;
 using PagedList;
 
 namespace InstituteOfFineArts.Controllers
@@ -126,11 +128,13 @@ namespace InstituteOfFineArts.Controllers
         {
             if (ModelState.IsValid)
             {
+                submission.AccountId = User.Identity.GetUserId();
                 db.Submissions.Add(submission);
                 db.SaveChanges();
                 return View("Details", submission);
             }
 
+            
             ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
             return View("Details",submission);
         }
@@ -147,7 +151,12 @@ namespace InstituteOfFineArts.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
+
+            if (submission.AccountId == User.Identity.GetUserId())
+            {
+                ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
+                
+            }
             return View(submission);
         }
 
