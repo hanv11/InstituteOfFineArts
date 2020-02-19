@@ -1,41 +1,71 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<div style="padding-top: 80px" id="demo" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/Content/Homepage/img/hero-slider/slider1.jpg" alt="Los Angeles">
+            <div class="carousel-caption">
+                <h3>Los Angeles</h3>
+                <p>We had such a great time in LA!</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/Content/Homepage/img/hero-slider/slider2.jpg" alt="Chicago">
+            <div class="carousel-caption">
+                <h3>Chicago</h3>
+                <p>Thank you, Chicago!</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/Content/Homepage/img/hero-slider/slider3.png" alt="New York">
+            <div class="carousel-caption">
+                <h3>New York</h3>
+                <p>We love the Big Apple!</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
 <section class="feature-section">
     <div class="container-fluid background-style" style="height:550px; display:flex">
         <div class="row" style="padding: 20px 5px">
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                        <img class="img-fluid" src="~/content/img/banner-concert.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                        <img class="img-fluid" src="~/content/img/thewinningpaintings.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                        <img class="img-fluid" src="~/content/img/artexhibition.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                        <img class="img-fluid" src="~/content/img/listofpainting.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                        <img class="img-fluid" src="~/content/img/upcomingartcompetition.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                        <img class="img-fluid" src='~/content/img/banner-concert.jpg' alt="">
-                    </a>
-                </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                    <img class="img-fluid" src="~/content/img/banner-concert.jpg" alt="">
+                </a>
             </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                    <img class="img-fluid" src="~/content/img/thewinningpaintings.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                    <img class="img-fluid" src="~/content/img/artexhibition.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                    <img class="img-fluid" src="~/content/img/listofpainting.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                    <img class="img-fluid" src="~/content/img/upcomingartcompetition.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                    <img class="img-fluid" src='~/content/img/banner-concert.jpg' alt="">
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
