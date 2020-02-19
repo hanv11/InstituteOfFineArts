@@ -7,35 +7,39 @@
 }
 
 
-    <div class="container">
+    <div class="container ">
         <hr />
-        <div class="entry-header">
+        <div class="entry-header detail-submission">
             <h2>@Html.DisplayFor(model => model.Competitions.CompetitionName)</h2>
         </div>
         <br />
-        <div class="entry-header">
+        <div class="row submission-content">
 
-            <div class="row">
-                <div class="col-md-6" >
+            
+                <div class="col-md-5" >
                     <img class="picture" src="@Url.Content(Model.Picture)" alt="Alternate Text" />
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.DisplayNameFor(model => model.Account)
+                    </div>
+                    <div class="col-md-6">
+                        @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)
+                    </div>
 
-                <div class="col-md-3">
-                    @Html.DisplayNameFor(model => model.AccountId)
-                </div>
+                
+                
+                    <div class="col-md-6">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </div>
 
-                <div class="col-md-3">
-                    @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model=>model.Account.LastName)
+                    <div class="col-md-6">
+                        @Html.DisplayFor(model => model.Description)
+                    </div>
                 </div>
-
-                <div class="col-md-3">
-                    @Html.DisplayNameFor(model => model.Description)
-                </div>
-
-                <div class="col-md-3">
-                    @Html.DisplayFor(model => model.Description)
-                </div>
-                <div style="margin-top: 250px;">
+                
+                
+                <div class="col-md-3 submission-button">
                     @if (Model.AccountId == User.Identity.GetUserId())
                     {
                         <a href="@Url.Action("Edit", "Submission", new {id = Model.SubmissionId})"><img style="width: 80px; height: 40px;" src="https://i.ibb.co/KrS2rDg/images-removebg-preview.png" /></a>
@@ -44,9 +48,6 @@
                     <a href="@Url.Action("List", "Submission", new {id = Model.CompetitionId})"><img style="width: 80px; height: 40px" src="https://pngimage.net/wp-content/uploads/2018/05/back-button-png-blue-1.png" /></a>
 
                 </div>
-                </div>
-           
-
         </div>
 
     </div>
