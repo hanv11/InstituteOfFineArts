@@ -21,7 +21,6 @@ namespace InstituteOfFineArts.Models
         public virtual Mark Marks { get; set; }
         public Submission()
         {
-
         }
         public Submission(int subid, int competid, string pic, string descrip)
         {
