@@ -23,19 +23,19 @@ namespace InstituteOfFineArts.Controllers
             var submissions = db.Submissions.Include(s => s.Competitions);
             return View(submissions.ToList());
         }
-        public ActionResult ListSubmission(int? competitionId)
+        public ActionResult ListSubmission(int? Id)
         {
-            if (competitionId == null)
+            if (Id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Competition competition = db.Competitions.Find(competitionId);
+            Competition competition = db.Competitions.Find(Id);
             if (competition == null)
             {
                 return HttpNotFound();
             }
 
-            var submission = db.Submissions.Where(s => s.CompetitionId == competitionId);
+            var submission = db.Submissions.Where(s => s.CompetitionId == Id);
             return PartialView("ListSubmission", submission.ToList().Take(4));
         }
 
