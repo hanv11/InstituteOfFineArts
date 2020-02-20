@@ -6,17 +6,17 @@
 }
 
 
-
+<hr />
 <div class="container">
     <main class="site-main">
         <article class="type-page">
             <header class="entry-header">
-                <h1 class="entry-title">
+                <h1 class="entry-title" style="margin-top: 100px; margin-bottom: 10px;">
                     @Html.DisplayFor(model => model.CompetitionName)
                 </h1>
             </header>
 
-            <hr />
+
 
             <div class="container">
                 <div class="entry-banner">
@@ -29,13 +29,13 @@
                         @Html.DisplayFor(model => model.StartDate)
                     </div>
                     <div class="col-md-6 term">
-                        <strong >@Html.DisplayNameFor(model => model.EndDate):</strong>
+                        <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
                         @Html.DisplayFor(model => model.EndDate)
                     </div>
 
                 </div>
 
-                <div class="detail-content">
+                <div class="detail-content submission-content">
                     @Html.DisplayFor(model => model.Description)
                 </div>
 
