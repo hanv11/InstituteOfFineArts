@@ -212,71 +212,73 @@
     <meta charset="UTF-8">
 
     <title>Art Museum</title>
-    
+    @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Homepage/css")
 </head>
 <body style="display:block">
     <button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu"></i></button>
-    <header id="header" class="header-scrolled">
-        <div class="container header-top">
-            <div class="row">
-                <div class="col-12 top-head-right">
-                    <ul>
-                        <li class="menu-has-children">
-                            <a href="#"><i class="fa fa-user-circle"></i></a>
-                            <ul style="display: none;">
-                                <li><a href="#">Login Form</a></li>
-                            </ul>
-                        </li>
 
-                    </ul>
+    <header class="header-section header-normal">
+        <div class="container-fluid">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="~/Content/img/pofa_logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="top-social nav-menu">                
+                <ul>
+                    <li class="">
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <ul class="dropdown">
+                            <li>@Html.Partial("_LoginPartial")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="nav-menu">
+                    <nav class="mainmenu mobile-menu">
+                        <ul>
+                            <li><a href="./index.html">Home</a></li>
+                            <li class="">
+                                <a href="./blog.html">Competition</a>
+                                <ul class="dropdown">
+                                    <li><a href="./about-us.html">List Competitions</a></li>
+                                    <li><a href="./blog-single.html"> Competition Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./about-us.html">Award</a></li>
+                            <li><a href="./schedule.html">Exhibitions</a></li>
+                            <li><a href="./gallery.html">About Us</a></li>
+                            <li><a href="./contact.html">Contacts</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="container">
-            <div class="row align-items-center justify-content-between d-flex">
-                <div id="logo" class="col-md-12 top-head-left">
-                    <a href="#"><img src="~/Content/img/pofa_logo.png" alt="Logo" title=""></a>
+            <div id="mobile-menu-wrap">
+                <div class="slicknav_menu">
+                    <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" style="outline: none;"><span class="slicknav_menutxt">MENU</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><nav class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
+                        <ul>
+                            <li><a href="#" role="menuitem">Home</a></li>
+                            <li class="active slicknav_collapsed slicknav_parent">
+                                <a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style="outline: none;">
+                                    <a href="./blog.html">Competition</a>
+                                    <span class="slicknav_arrow">►</span>
+                                </a><ul class="dropdown slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+                                    <li><a href="./about-us.html" role="menuitem" tabindex="-1">List Competitions</a></li>
+                                    <li><a href="./blog-single.html" role="menuitem" tabindex="-1">Award</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" role="menuitem">Exhibitions</a></li>
+                            <li><a href="#" role="menuitem">About Us</a></li>
+                            <li><a href="#" role="menuitem">Contacts</a></li>
+                        </ul>
+                    </nav>
                 </div>
-                <nav id="nav-menu-container">
-                    <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
-                        <li class="menu-active"><a href="index.html">Home</a></li>
-                        <li class="active">
-                            <a href="#">Competition</a>
-                            <ul class="dropdown">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="event.html">Award</a></li>
-                        <li><a href="ticket.html">Exhibition</a></li>
-                        <li><a href="blog-home.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </header>
-    <section class="banner-area relative" id="home">
-        <div class="overlay overlay-bg"></div>
-        <div class="container">
-            <div class="row fullscreen d-flex align-items-center justify-content-center" style="height: 561px;">
-                <div class="banner-content col-lg-8">
-                    <h6 class="text-white">Openning on 21st February, 2018</h6>
-                    <h1 class="text-white">
-                        Exhibition on Modern Era
-                    </h1>
-                    <p class="pt-20 pb-20 text-white">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. sed do eiusmod tempor incididunt..
-                    </p>
-                    <a href="#" class="primary-btn text-uppercase">Get Started</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    @RenderBody()
-    <section class="service-area pt-100" id="about">
+    @*<section class="service-area pt-100" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -364,7 +366,7 @@
     <section class="exibition-area section-gap" id="exhibitions">
         <div class="container">
             <div class="row">
-                <div class="active-exibition-carusel owl-carousel owl-theme owl-loaded">
+                <div class="active-exibition-carusel owl-carousel owl-theme owl-loaded col-lg-12">
                     <div class="owl-stage-outer">
                         <div class="owl-stage" style="transform: translate3d(-1125px, 0px, 0px); transition: all 0.25s ease 0s; width: 4875px;">
                             <div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
@@ -380,7 +382,8 @@
                                     </p>
                                     <h6 class="date">31st January, 2018</h6>
                                 </div>
-                            </div><div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
+                            </div>
+                            <div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
                                 <div class="single-exibition item">
                                     <img class="img-fluid" src="~/Content/Homepage/img/e3.jpg" alt="">
                                     <ul class="tags">
@@ -393,7 +396,8 @@
                                     </p>
                                     <h6 class="date">31st January, 2018</h6>
                                 </div>
-                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                            </div>
+                            <div class="owl-item" style="width: 345px; margin-right: 30px;">
                                 <div class="single-exibition item">
                                     <img src="~/Content/Homepage/img/e1.jpg" alt="">
                                     <ul class="tags">
@@ -406,7 +410,8 @@
                                     </p>
                                     <h6 class="date">31st January, 2018</h6>
                                 </div>
-                            </div><div class="owl-item active" style="width: 345px; margin-right: 30px;">
+                            </div>
+                            <div class="owl-item active" style="width: 345px; margin-right: 30px;">
                                 <div class="single-exibition item">
                                     <img src="~/Content/Homepage/img/e2.jpg" alt="">
                                     <ul class="tags">
@@ -419,7 +424,8 @@
                                     </p>
                                     <h6 class="date">31st January, 2018</h6>
                                 </div>
-                            </div><div class="owl-item active" style="width: 345px; margin-right: 30px;">
+                            </div>
+                            <div class="owl-item active" style="width: 345px; margin-right: 30px;">
                                 <div class="single-exibition item">
                                     <img src="~/Content/Homepage/img/e3.jpg" alt="">
                                     <ul class="tags">
@@ -432,7 +438,8 @@
                                     </p>
                                     <h6 class="date">31st January, 2018</h6>
                                 </div>
-                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                            </div>
+                            <div class="owl-item" style="width: 345px; margin-right: 30px;">
                                 <div class="single-exibition item">
                                     <img src="~/Content/Homepage/img/e1.jpg" alt="">
                                     <ul class="tags">
@@ -555,71 +562,16 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>*@
 
-
-    <section class="upcoming-event-area section-gap" id="events">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-60 col-lg-10">
-                    <div class="title text-center">
-                        <h1 class="mb-10">Checkout our Upcoming Events</h1>
-                        <p>Who are in extremely love with eco friendly system.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 event-left">
-                    <div class="single-events">
-                        <img class="img-fluid" src="~/Content/Homepage/img/u1.jpg" alt="">
-                        <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                        <h6><span>21st February</span> at Central government museum</h6>
-                        <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
-                        </p>
-                        <a href="#" class="primary-btn text-uppercase">View Details</a>
-                    </div>
-                    <div class="single-events">
-                        <img class="img-fluid" src="~/Content/Homepage/img/u3.jpg" alt="">
-                        <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                        <h6><span>21st February</span> at Central government museum</h6>
-                        <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
-                        </p>
-                        <a href="#" class="primary-btn text-uppercase">View Details</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 event-right">
-                    <div class="single-events">
-                        <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                        <h6><span>21st February</span> at Central government museum</h6>
-                        <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
-                        </p>
-                        <a href="#" class="primary-btn text-uppercase">View Details</a>
-                        <img class="img-fluid" src="~/Content/Homepage/img/u2.jpg" alt="">
-                    </div>
-                    <div class="single-events">
-                        <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                        <h6><span>21st February</span> at Central government museum</h6>
-                        <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
-                        </p>
-                        <a href="#" class="primary-btn text-uppercase">View Details</a>
-                        <img class="img-fluid" src="~/Content/Homepage/img/u4.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    @RenderBody()
 
     <section class="blog-area section-gap" id="blog">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-8">
                     <div class="title text-center">
-                        <h1 class="mb-10">Latest From Our Blog</h1>
+                        <h1 class="mb-10">List Competition</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -627,7 +579,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 single-blog">
                     <div class="thumb">
-                        <img class="img-fluid" src="~/Content/Homepage/img/b1.jpg" alt="">
+                        <img class="img-fluid" src="~/Content/Homepage/img/u1.jpg" alt="">
                     </div>
                     <p class="date">10 Jan 2018</p>
                     <a href="#">
@@ -646,7 +598,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 single-blog">
                     <div class="thumb">
-                        <img class="img-fluid" src="~/Content/Homepage/img/b2.jpg" alt="">
+                        <img class="img-fluid" src="~/Content/Homepage/img/u2.jpg" alt="">
                     </div>
                     <p class="date">10 Jan 2018</p>
                     <a href="#">
@@ -665,7 +617,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 single-blog">
                     <div class="thumb">
-                        <img class="img-fluid" src="~/Content/Homepage/img/b3.jpg" alt="">
+                        <img class="img-fluid" src="~/Content/Homepage/img/u3.jpg" alt="">
                     </div>
                     <p class="date">10 Jan 2018</p>
                     <a href="#">
@@ -684,7 +636,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 single-blog">
                     <div class="thumb">
-                        <img class="img-fluid" src="~/Content/Homepage/img/b4.jpg" alt="">
+                        <img class="img-fluid" src="~/Content/Homepage/img/u4.jpg" alt="">
                     </div>
                     <p class="date">10 Jan 2018</p>
                     <a href="#">
@@ -786,7 +738,7 @@
     </footer>
     @Scripts.Render("~/Content/js")
     @Scripts.Render("~/Content/Homepage/js")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required:false)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
     <script type="61ce3ffbce705e338d4feed6-text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
@@ -798,8 +750,10 @@
         gtag('config', 'UA-23581568-13');
     </script>
     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="61ce3ffbce705e338d4feed6-|49" defer=""></script>
+
     
     @Scripts.Render("~/Content/Homepage/js")
+
 
 </body>
 </html>

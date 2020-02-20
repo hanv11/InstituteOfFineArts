@@ -433,6 +433,9 @@
     <Content Include="Content\img\poster7.jpg" />
     <Content Include="Content\img\poster8.jpg" />
     <Content Include="Content\img\poster9.jpg" />
+    <Content Include="Content\img\slider1.jpg" />
+    <Content Include="Content\img\slider2.jpg" />
+    <Content Include="Content\img\slider3.png" />
     <Content Include="Content\img\thewinningpaintings.jpg" />
     <Content Include="Content\img\upcomingartcompetition.jpg" />
     <Content Include="Content\logo.png" />
