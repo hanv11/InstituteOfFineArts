@@ -1,7 +1,9 @@
 ﻿body {
     
 }
-
+.type-page {
+    display: block;
+}
 .slide {
     margin-top: 20px;
 }
@@ -72,18 +74,22 @@ textarea {
     padding: 0;
 }
 .footer-submission {
-    margin: 10px;
+    margin: 20px;
 }
 .header-submission {
-    margin: 100px 10px 10px 100px;
+    margin-top: 30px;
+    text-align: center;
+  
 }
 .detail-submission {
     margin-top: 100px;
     margin-bottom: 20px;
 }
 .submission-content {
+    text-align: justify;
     margin: 20px;
     font-size: 20px;
+    color: #000000;
 }
 .submission-button {
     margin: 10px 20px 20px 600px;
@@ -107,7 +113,6 @@ h1 .entry-title {
     }
 .entry-title {
     margin-bottom: -20px;
-    color: #696969;
     text-align: center;
 }
 .entry-content {
@@ -155,10 +160,12 @@ h1 .entry-title {
         list-style-type: none;
  }
 .term {
-    font-size: 20px;
+    font-size: 24px;
+    color: #000000;
+    text-align: center;
 }
 .detail-content {
-    margin: 10px;
+    margin: 20px;
     padding: 10px;
 }
 .thumbnail-img {
@@ -173,4 +180,18 @@ h1 .entry-title {
     width: 400px;
     height: 300px;
     border: 1px solid black;
+}
+.content-register {
+    font-size: 18px;
+    margin-left: 150px;
+
+}
+.content-update {
+    font-size: 18px;
+}
+.max-w {
+    max-width: 33%;
+}
+.w-60 {
+    width: 60%;
 }

@@ -2,50 +2,56 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_ExtraLayout.cshtml";
 }
 
 @using (Html.BeginForm("Edit", "Submission", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <div class="container">
-        <div class="form-horizontal">
-            <h2>Edit Submission</h2>
+        <div class="form-horizontal content-update">
+            <div class="header-submission">
+
+                <h2>@Html.DisplayFor(model => model.Competitions.CompetitionName)</h2>
+            </div>
+
             <hr />
+
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             @Html.HiddenFor(model => model.SubmissionId)
+        <div class="submission-content">
             <div class="form-group">
                 @Html.EditorFor(model => model.CompetitionId, new { htmlAttributes = new { @class = "form-control", @type = "hidden", @value = @ViewBag.CompetitionId } })
             </div>
-
             <div class="form-group">
-                @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "col-md-2" })
                 <div class="col-md-10">
                     <img id="previous" src="#" class="hidden img-thumbnail" alt="Alternate Text" style="width: 100px" />
                     @Html.EditorFor(model => model.Picture, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
                     @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
                     <div style="margin-top: 5px">
-                        <button type="button" id="upload_widget1" class="btn btn-primary">Upload files</button>
+                        <button type="button" id="upload_widget1" class="btn btn-primary btn-lg">Upload files</button>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = " col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" }, cols = 40, rows = 4 })
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value="Save" class="btn btn-success btn-lg" />
                 </div>
             </div>
+        </div>
+            
             <div>
-                @Html.ActionLink("Back to List", "List",new {id=Model.CompetitionId})
+               <a href="@Url.Action("List", "Submission", new {id = Model.CompetitionId})"><img style="width: 80px; height: 40px" src="https://pngimage.net/wp-content/uploads/2018/05/back-button-png-blue-1.png" /></a>
             </div>
         </div>
     </div>
