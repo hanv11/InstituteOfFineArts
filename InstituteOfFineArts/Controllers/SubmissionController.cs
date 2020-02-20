@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using InstituteOfFineArts.Models;
+using Microsoft.AspNet.Identity;
 using PagedList;
 
 namespace InstituteOfFineArts.Controllers
@@ -33,8 +35,8 @@ namespace InstituteOfFineArts.Controllers
                 return HttpNotFound();
             }
 
-            var submission = db.Submissions.Where(s => s.CompetitionId == competitionId );
-            return PartialView("ListSubmission",submission.ToList().Take(4));
+            var submission = db.Submissions.Where(s => s.CompetitionId == competitionId);
+            return PartialView("ListSubmission", submission.ToList().Take(4));
         }
 
         public ActionResult List(int? id, string searchString, string sortOrder, string currentFilter, int? page)
@@ -78,7 +80,7 @@ namespace InstituteOfFineArts.Controllers
             {
                 return HttpNotFound();
             }
-            return View("List", submission.ToPagedList(pageNumber,pageSize));
+            return View("List", submission.ToPagedList(pageNumber, pageSize));
         }
         // GET: Submissions/Details/5
         public ActionResult Details(int? id)
@@ -111,7 +113,6 @@ namespace InstituteOfFineArts.Controllers
 
             return View(competition);
         }
-
         public ActionResult RegisterPartialView(int competitionId)
         {
             ViewBag.competitionId = competitionId;
@@ -122,20 +123,24 @@ namespace InstituteOfFineArts.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Student")]
         public ActionResult Create([Bind(Include = "CompetitionId,Picture,AccountId,Description")] Submission submission)
         {
             if (ModelState.IsValid)
             {
+                submission.AccountId = User.Identity.GetUserId();
                 db.Submissions.Add(submission);
                 db.SaveChanges();
                 return View("Details", submission);
             }
 
+
             ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
-            return View("Details",submission);
+            return View("Details", submission);
         }
 
         // GET: Submissions/Edit/5
+        [Authorize(Roles = "Student")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -147,7 +152,12 @@ namespace InstituteOfFineArts.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
+
+            if (submission.AccountId == User.Identity.GetUserId())
+            {
+                ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
+
+            }
             return View(submission);
         }
 
@@ -156,19 +166,22 @@ namespace InstituteOfFineArts.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Student")]
         public ActionResult Edit([Bind(Include = "SubmissionId,CompetitionId,Picture,AccountId,Description")] Submission submission)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(submission).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details",new {id = submission.SubmissionId});
+                return RedirectToAction("Details", new { id = submission.SubmissionId });
             }
             ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
             return View(submission);
         }
 
         // GET: Submissions/Delete/5
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Teacher")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -183,6 +196,8 @@ namespace InstituteOfFineArts.Controllers
             return View(submission);
         }
 
+        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Teacher")]
         // POST: Submissions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
