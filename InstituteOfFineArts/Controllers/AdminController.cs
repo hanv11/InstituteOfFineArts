@@ -8,6 +8,7 @@ namespace InstituteOfFineArts.Controllers
 {
     public class AdminController : Controller
     {
+        [Authorize(Roles = "Admin,Teacher,Manager")]
         // GET: Admin
         public ActionResult Index()
         {
