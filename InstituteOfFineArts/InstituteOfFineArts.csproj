@@ -1556,6 +1556,7 @@
     <Content Include="Views\Submission\ListSubmission.cshtml" />
     <Content Include="Views\Submission\Register.cshtml" />
     <Content Include="Views\Submission\RegisterPartialView.cshtml" />
+    <Content Include="Views\Shared\_ExtraLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

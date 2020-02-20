@@ -23,19 +23,19 @@ namespace InstituteOfFineArts.Controllers
             var submissions = db.Submissions.Include(s => s.Competitions);
             return View(submissions.ToList());
         }
-        public ActionResult ListSubmission(int? competitionId)
+        public ActionResult ListSubmission(int? Id)
         {
-            if (competitionId == null)
+            if (Id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Competition competition = db.Competitions.Find(competitionId);
+            Competition competition = db.Competitions.Find(Id);
             if (competition == null)
             {
                 return HttpNotFound();
             }
 
-            var submission = db.Submissions.Where(s => s.CompetitionId == competitionId);
+            var submission = db.Submissions.Where(s => s.CompetitionId == Id);
             return PartialView("ListSubmission", submission.ToList().Take(4));
         }
 
@@ -166,6 +166,7 @@ namespace InstituteOfFineArts.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         [Authorize(Roles = "Student")]
         public ActionResult Edit([Bind(Include = "SubmissionId,CompetitionId,Picture,AccountId,Description")] Submission submission)
         {
@@ -180,8 +181,8 @@ namespace InstituteOfFineArts.Controllers
         }
 
         // GET: Submissions/Delete/5
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin,Teacher")]
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -196,8 +197,7 @@ namespace InstituteOfFineArts.Controllers
             return View(submission);
         }
 
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin,Teacher")]
         // POST: Submissions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
