@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+@*<html lang="zxx">
 
 <head>
     <meta charset="UTF-8">
@@ -9,19 +9,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Activitar | Template</title>
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
+
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Homepage/css")
 </head>
 
 <body class="background-style">
-    <!-- Page Preloder -->
-    <!-- Header Section Begin -->
-    <header class="header-section" >
+    
+    <header class="header-section">
         <div class="container-fluid">
             <div class="logo">
                 <a href="#">
@@ -40,11 +38,11 @@
                     <nav class="mainmenu mobile-menu">
                         <ul>
                             <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Schedule</a></li>
-                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Competititon</a></li>
+                            <li><a href="#">Award</a></li>
+                            <li><a href="#">Exhibitions</a></li>
                             <li>
-                                <a href="#">Blog</a>
+                                <a href="#">About</a>
                                 <ul class="dropdown">
                                     <li><a href="#">About Us</a></li>
                                     <li><a href="#">Blog Details</a></li>
@@ -58,8 +56,7 @@
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-    <!-- Header End -->
-    <!-- Hero Section Begin -->
+  
     <div style="padding-top: 80px" id="demo" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -92,11 +89,9 @@
         </a>
     </div>
 
-    <!-- Hero End -->
-    <!-- Feature Section Begin -->
-    <!-- Classes Section End -->
+
     @RenderBody()
-    <!-- Footer Section Begin -->
+  
     <footer class="background-style" style="padding: 20px 5px">
         <div class="container">
             <div class="row">
@@ -169,18 +164,17 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="ct-inside">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            
                             Copyright &copy;
                             <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
-    <!-- Js Plugins -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -189,4 +183,613 @@
     @RenderSection("scripts", required: false)
 </body>
 
+</html>*@
+<html lang="zxx" class="no-js">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="img/fav.png">
+
+    <meta name="author" content="codepixer">
+
+    <meta name="description" content="">
+
+    <meta name="keywords" content="">
+
+    <meta charset="UTF-8">
+
+    <title>Art Museum</title>
+    
+    @Styles.Render("~/Content/Homepage/css")
+</head>
+<body style="display:block">
+    <button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu"></i></button>
+    <header id="header" class="header-scrolled">
+        <div class="container header-top">
+            <div class="row">
+                <div class="col-12 top-head-right">
+                    <ul>
+                        <li class="menu-has-children">
+                            <a href="#"><i class="fa fa-user-circle"></i></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Login Form</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo" class="col-md-12 top-head-left">
+                    <a href="#"><img src="~/Content/img/pofa_logo.png" alt="Logo" title=""></a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                        <li class="menu-active"><a href="index.html">Home</a></li>
+                        <li class="active">
+                            <a href="#">Competition</a>
+                            <ul class="dropdown">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="event.html">Award</a></li>
+                        <li><a href="ticket.html">Exhibition</a></li>
+                        <li><a href="blog-home.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row fullscreen d-flex align-items-center justify-content-center" style="height: 561px;">
+                <div class="banner-content col-lg-8">
+                    <h6 class="text-white">Openning on 21st February, 2018</h6>
+                    <h1 class="text-white">
+                        Exhibition on Modern Era
+                    </h1>
+                    <p class="pt-20 pb-20 text-white">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. sed do eiusmod tempor incididunt..
+                    </p>
+                    <a href="#" class="primary-btn text-uppercase">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    @RenderBody()
+    <section class="service-area pt-100" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <span class="lnr lnr-clock"></span>
+                        <h4>Openning Hours</h4>
+                        <p>
+                            Mon - Fri: 10.00am to 05.00pm
+                            Sat: 12.00pm to 03.00 pm
+                            Sunday Closed
+                        </p>
+                        <div class="overlay">
+                            <div class="text">
+                                <p>
+                                    Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                                </p>
+                                <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <span class="lnr lnr-rocket"></span>
+                        <h4>Ongoing Exhibitions</h4>
+                        <p>
+                            Mon - Fri: 10.00am to 05.00pm
+                            Sat: 12.00pm to 03.00 pm
+                            Sunday Closed
+                        </p>
+                        <div class="overlay">
+                            <div class="text">
+                                <p>
+                                    Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                                </p>
+                                <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <span class="lnr lnr-briefcase"></span>
+                        <h4>Openning Events</h4>
+                        <p>
+                            Mon - Fri: 10.00am to 05.00pm
+                            Sat: 12.00pm to 03.00 pm
+                            Sunday Closed
+                        </p>
+                        <div class="overlay">
+                            <div class="text">
+                                <p>
+                                    Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+                                </p>
+                                <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="quote-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 quote-left">
+                    <h1>
+                        <span>Music</span> gives soul to the universe, <br>
+                        wings to the <span>mind</span>, flight <br>
+                        to the <span>imagination</span>.
+                    </h1>
+                </div>
+                <div class="col-lg-6 quote-right">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="exibition-area section-gap" id="exhibitions">
+        <div class="container">
+            <div class="row">
+                <div class="active-exibition-carusel owl-carousel owl-theme owl-loaded">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage" style="transform: translate3d(-1125px, 0px, 0px); transition: all 0.25s ease 0s; width: 4875px;">
+                            <div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img class="img-fluid" src="~/Content/Homepage/img/e2.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img class="img-fluid" src="~/Content/Homepage/img/e3.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e1.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item active" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e2.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item active" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e3.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e1.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e2.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e3.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e1.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img class="img-fluid" src="~/Content/Homepage/img/e2.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img class="img-fluid" src="~/Content/Homepage/img/e3.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e1.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div><div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
+                                <div class="single-exibition item">
+                                    <img src="~/Content/Homepage/img/e2.jpg" alt="">
+                                    <ul class="tags">
+                                        <li><a href="#">Travel</a></li>
+                                        <li><a href="#">Life style</a></li>
+                                    </ul>
+                                    <a href="#"><h4>Portable latest blog for women</h4></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
+                                    </p>
+                                    <h6 class="date">31st January, 2018</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-controls">
+                        <div class="owl-nav">
+                            <div class="owl-prev" style="display: none;">prev</div>
+                            <div class="owl-next" style="display: none;">next</div>
+                        </div>
+                        <div class="owl-dots" style="">
+                            <div class="owl-dot"><span></span></div>
+                            <div class="owl-dot"><span></span></div>
+                            <div class="owl-dot"><span></span></div>
+                            <div class="owl-dot active"><span></span></div>
+                            <div class="owl-dot"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="upcoming-event-area section-gap" id="events">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-10">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Checkout our Upcoming Events</h1>
+                        <p>Who are in extremely love with eco friendly system.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 event-left">
+                    <div class="single-events">
+                        <img class="img-fluid" src="~/Content/Homepage/img/u1.jpg" alt="">
+                        <a href="#"><h4>Event on the rock solid carbon</h4></a>
+                        <h6><span>21st February</span> at Central government museum</h6>
+                        <p>
+                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                        </p>
+                        <a href="#" class="primary-btn text-uppercase">View Details</a>
+                    </div>
+                    <div class="single-events">
+                        <img class="img-fluid" src="~/Content/Homepage/img/u3.jpg" alt="">
+                        <a href="#"><h4>Event on the rock solid carbon</h4></a>
+                        <h6><span>21st February</span> at Central government museum</h6>
+                        <p>
+                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                        </p>
+                        <a href="#" class="primary-btn text-uppercase">View Details</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 event-right">
+                    <div class="single-events">
+                        <a href="#"><h4>Event on the rock solid carbon</h4></a>
+                        <h6><span>21st February</span> at Central government museum</h6>
+                        <p>
+                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                        </p>
+                        <a href="#" class="primary-btn text-uppercase">View Details</a>
+                        <img class="img-fluid" src="~/Content/Homepage/img/u2.jpg" alt="">
+                    </div>
+                    <div class="single-events">
+                        <a href="#"><h4>Event on the rock solid carbon</h4></a>
+                        <h6><span>21st February</span> at Central government museum</h6>
+                        <p>
+                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                        </p>
+                        <a href="#" class="primary-btn text-uppercase">View Details</a>
+                        <img class="img-fluid" src="~/Content/Homepage/img/u4.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="blog-area section-gap" id="blog">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-70 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Latest From Our Blog</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 single-blog">
+                    <div class="thumb">
+                        <img class="img-fluid" src="~/Content/Homepage/img/b1.jpg" alt="">
+                    </div>
+                    <p class="date">10 Jan 2018</p>
+                    <a href="#">
+                        <h4>
+                            Addiction When Gambling
+                            Becomes A Problem
+                        </h4>
+                    </a>
+                    <p>
+                        inappropriate behavior ipsum dolor sit amet, consectetur.
+                    </p>
+                    <div class="meta-bottom d-flex justify-content-between">
+                        <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                        <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 single-blog">
+                    <div class="thumb">
+                        <img class="img-fluid" src="~/Content/Homepage/img/b2.jpg" alt="">
+                    </div>
+                    <p class="date">10 Jan 2018</p>
+                    <a href="#">
+                        <h4>
+                            Addiction When Gambling
+                            Becomes A Problem
+                        </h4>
+                    </a>
+                    <p>
+                        inappropriate behavior ipsum dolor sit amet, consectetur.
+                    </p>
+                    <div class="meta-bottom d-flex justify-content-between">
+                        <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                        <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 single-blog">
+                    <div class="thumb">
+                        <img class="img-fluid" src="~/Content/Homepage/img/b3.jpg" alt="">
+                    </div>
+                    <p class="date">10 Jan 2018</p>
+                    <a href="#">
+                        <h4>
+                            Addiction When Gambling
+                            Becomes A Problem
+                        </h4>
+                    </a>
+                    <p>
+                        inappropriate behavior ipsum dolor sit amet, consectetur.
+                    </p>
+                    <div class="meta-bottom d-flex justify-content-between">
+                        <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                        <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 single-blog">
+                    <div class="thumb">
+                        <img class="img-fluid" src="~/Content/Homepage/img/b4.jpg" alt="">
+                    </div>
+                    <p class="date">10 Jan 2018</p>
+                    <a href="#">
+                        <h4>
+                            Addiction When Gambling
+                            Becomes A Problem
+                        </h4>
+                    </a>
+                    <p>
+                        inappropriate behavior ipsum dolor sit amet, consectetur.
+                    </p>
+                    <div class="meta-bottom d-flex justify-content-between">
+                        <p><span class="lnr lnr-heart"></span> 15 Likes</p>
+                        <p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="gallery-area section-gap" id="gallery">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-70 col-lg-8">
+                    <div class="title text-center">
+                        <h1 class="mb-10 text-white">Our Exhibition Gallery</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="grid-container" class="row">
+                <a class="single-gallery" href="~/Content/Homepage/img/g1.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g1.jpg" data-index="0" style="padding: 15px; height: 108.347px; width: 156.019px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g2.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g2.jpg" data-index="1" style="padding: 15px; height: 108.347px; width: 113.981px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g3.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g3.jpg" data-index="2" style="padding: 15px; height: 114.02px; width: 75.2534px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g4.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g4.jpg" data-index="3" style="padding: 15px; height: 114.02px; width: 119.493px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g5.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g5.jpg" data-index="4" style="padding: 15px; height: 114.02px; width: 75.2534px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g6.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g6.jpg" data-index="5" style="padding: 15px; height: 128.327px; width: 135px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g7.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g7.jpg" data-index="6" style="padding: 15px; height: 128.327px; width: 135px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g8.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g8.jpg" data-index="7" style="padding: 15px; height: 108.347px; width: 156.019px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g9.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g9.jpg" data-index="8" style="padding: 15px; height: 108.347px; width: 113.981px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g10.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g10.jpg" data-index="9" style="padding: 15px; height: 108.521px; width: 113.73px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g11.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g11.jpg" data-index="10" style="padding: 15px; height: 108.521px; width: 156.27px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g12.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g12.jpg" data-index="11" style="padding: 15px; height: 114.02px; width: 75.2534px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g4.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g4.jpg" data-index="12" style="padding: 15px; height: 114.02px; width: 119.493px; opacity: 1;"></a>
+                <a class="single-gallery" href="~/Content/Homepage/img/g5.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g5.jpg" data-index="13" style="padding: 15px; height: 114.02px; width: 75.2534px; opacity: 1;"></a>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer-area section-gap background-style">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>About Us</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+                        </p>
+                        <p class="footer-text">
+
+                            Copyright &copy;
+                            <script type="61ce3ffbce705e338d4feed6-text/javascript">document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Newsletter</h6>
+                        <p>Stay update with our latest</p>
+                        <div class="" id="mc_embed_signup">
+                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+                                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = ''" onblur="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = 'Enter Email '" required="" type="email" data-cf-modified-61ce3ffbce705e338d4feed6-="">
+                                <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                </div>
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        <h6>Follow Us</h6>
+                        <p>Let us be social</p>
+                        <div class="footer-social d-flex align-items-center">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @Scripts.Render("~/Content/js")
+    @Scripts.Render("~/Content/Homepage/js")
+    @RenderSection("scripts", required: false)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
+    <script type="61ce3ffbce705e338d4feed6-text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
+    <script type="61ce3ffbce705e338d4feed6-text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="61ce3ffbce705e338d4feed6-|49" defer=""></script>
+    
+    @Scripts.Render("~/Content/Homepage/js")
+    @RenderSection("scripts", required: false)
+
+</body>
 </html>
+
