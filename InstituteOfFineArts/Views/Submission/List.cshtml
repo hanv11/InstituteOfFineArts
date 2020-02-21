@@ -35,7 +35,7 @@
         <div class="row text-center detail-content">
             @foreach (var item in Model)
             {
-                <div class="col-md-3">
+                <div class="col-md-3 mb-4">
 
                     <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">
                         <img class="thumbnail-img" src="@item.Picture" alt="">
