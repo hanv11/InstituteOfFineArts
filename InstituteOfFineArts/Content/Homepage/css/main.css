@@ -1876,7 +1876,7 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-   
+    position: fixed;
     padding: 0px 0px 14px 0;
     position: fixed;
     left: 0;
@@ -1903,12 +1903,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-section.header-normal {
-	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	background: #151515;
-	padding-top: 0;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    padding-top: 0;
 }
 
 .header-section.header-normal .logo {
@@ -2163,7 +2163,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .banner-area {
 
-  background: url(../img/header-bg.jpg) center;
+  background: url(../img/slider2.jpg) center;
   background-size: cover;
 }
 
