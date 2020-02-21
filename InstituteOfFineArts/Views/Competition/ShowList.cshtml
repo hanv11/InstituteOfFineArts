@@ -15,15 +15,6 @@
             </h1>
         </header>
         <hr style="border-color:white" />
-        @using (Html.BeginForm("ShowList", "Competition", FormMethod.Get))
-        {
-
-                <div class="row" style="margin: 20px">
-                    <div class="col-lg-6">
-                        @Html.TextBox("SearchString", null, ViewBag.CurrentFilter as string, new { @placeholder = " Find by Name... ", @class = "form-control" })
-                    </div>
-                </div>
-        }
        @using (Html.BeginForm("ShowList", "Competition", FormMethod.Get))
          {
          <div class="container">

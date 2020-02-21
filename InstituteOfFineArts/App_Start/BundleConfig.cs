@@ -53,7 +53,7 @@ namespace InstituteOfFineArts
                     "~/Content/Homepage/js/mail-script.js",
                     "~/Content/Homepage/js/main.js"));
             //AdminPage
-            bundles.Add(new ScriptBundle("~/Js").Include(
+            bundles.Add(new ScriptBundle("~/Content/Js").Include(
             "~/Scripts/jquery-{version}.js",
             "~/Scripts/jquery.validate*",
             "~/Scripts/bootstrap.min.js",
