@@ -5,34 +5,46 @@
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_ExtraLayout.cshtml";
 }
-
-    <section class="container">
-        @using (Html.BeginForm("List", "Submission", FormMethod.Get))
-        {
-            <h1 class="header-submission">@Html.DisplayFor(model=>Model.First().Competitions.CompetitionName)</h1>
-            @Html.AntiForgeryToken()
-            <div class="container">
-                <div class="row" style="margin: 20px">
-                    <div class="col-lg-6">
-                        @Html.TextBox("SearchString", null, ViewBag.CurrentFilter as string, new { @placeholder = " Find by Name... ", @class = "form-control" })
-                    </div>
-                </div>
+<section class="banner-area relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white pt-20 pb-20">
+                    @Html.DisplayFor(model => model.First().Competitions.CompetitionName)
+                </h1>
             </div>
-        }
+        </div>
+    </div>
+</section>
+    <section class="container">
+        
+        @*         @using (Html.BeginForm("List", "Submission", FormMethod.Get)) *@
+        @*         { *@
+        @*             <h1 class="header-submission">@Html.DisplayFor(model=>Model.First().Competitions.CompetitionName)</h1> *@
+        @*             @Html.AntiForgeryToken() *@
+        @*             <div class="container"> *@
+        @*                 <div class="row" style="margin: 20px"> *@
+        @*                     <div class="col-lg-6"> *@
+        @*                         @Html.TextBox("SearchString", null, ViewBag.CurrentFilter as string, new { @placeholder = " Find by Name... ", @class = "form-control" }) *@
+        @*                     </div> *@
+        @*                 </div> *@
+        @*             </div> *@
+        @*         } *@
 
         <div class="row text-center detail-content">
             @foreach (var item in Model)
             {
                 <div class="col-md-3">
 
-                    <a href="@Url.Action("Details","Submission",new {id = item.SubmissionId})" class="d-block mb-4">
+                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">
                         <img class="thumbnail-img" src="@item.Picture" alt="">
                     </a>
                     <h6>
-                        @Html.DisplayNameFor(model => item.Account.UserName): @Html.DisplayFor(model => item.Account.FirstName) @Html.DisplayFor(model => item.Account.LastName)
+                         @Html.DisplayFor(model => item.Account.FirstName) @Html.DisplayFor(model => item.Account.LastName)
                     </h6>
                     <h6>
-                        @Html.DisplayNameFor(model => item.Description): @Html.DisplayFor(model => item.Description)
+                         @Html.DisplayFor(model => item.Description)
                     </h6>
 
                 </div>
@@ -43,5 +55,5 @@
             Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
             <div style="color: white;"> @Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))</div>
         </div>
-       
+
     </section>

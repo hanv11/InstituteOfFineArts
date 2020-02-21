@@ -129,7 +129,7 @@ namespace InstituteOfFineArts.Controllers
             if (ModelState.IsValid)
             {
                 submission.AccountId = User.Identity.GetUserId();
-                db.Submissions.Add(submission);
+                db.Submissions.Attach(submission);
                 db.SaveChanges();
                 return View("Details", submission);
             }
