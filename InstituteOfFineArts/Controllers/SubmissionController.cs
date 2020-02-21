@@ -69,7 +69,7 @@ namespace InstituteOfFineArts.Controllers
                     submission = submission.OrderBy(s => s.AccountId.ToString());
                     break;
             }
-            int pageSize = 4;
+            int pageSize = 8;
             var pageNumber = page ?? 1;
             if (id == null)
             {
