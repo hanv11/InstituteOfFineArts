@@ -5,7 +5,6 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <section class="banner-area relative">
     <div class="overlay overlay-bg"></div>
     <div class="container">
@@ -18,38 +17,43 @@
         </div>
     </div>
 </section>
-<div class="container ">
-    <div class="row submission-content">
-        <div class="col-md-5">
-            <img class="picture" src="@Url.Content(Model.Picture)" alt="Alternate Text" />
-        </div>
-        <div class="row w-60">
-            <div class="col-md-6 max-w">
-                @Html.DisplayNameFor(model => model.Account)
+<div class="whole-wrap">
+    <div class="container ">
+
+        <div class="section-top-border">
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-rounded img-fluid picture" src="@Url.Content(Model.Picture)" alt="Alternate Text" />
+
+                </div>
+                <div class="col-md-4 mt-sm-20">
+                    <h4 class="mb-4">Student Name: @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)</h4>
+
+                    <h4 class="mb-4">Description : @Html.DisplayFor(model => model.Description)</h4>
+                    <h4 class="mb-4">Point: </h4>
+                    <h4 class="mb-4">Award: </h4>
+                    <h4 class="mb-4">Post Date: </h4>
+                </div>
+
+
+                @*<div class="col-md-8 mt-sm-20"">
+                if (model.accountid == user.identity.getuserid())
+                {
+                    <a href="@url.action("edit", "submission", new {id = model.submissionid})"></a>
+                }
+
+                <a href="@url.action("list", "submission", new {id = model.competitionid})"></a>
+
+            </div>*@
             </div>
-            <div class="col-md-7">
-                @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)
+            <div class="col-md-6 m-2">
+                @if (Model.AccountId == User.Identity.GetUserId())
+                {
+                    <a class="btn btn-primary btn-lg" href="@Url.Action("Edit", "Submission", new { id = Model.SubmissionId })">Update</a>
+                }
+
+                <a class="btn btn-primary btn-lg" href="@Url.Action("List", "Submission", new {id = Model.CompetitionId})">Back</a>
             </div>
-
-            <div class="col-md-6 max-w">
-                @Html.DisplayNameFor(model => model.Description)
-            </div>
-
-            <div class="col-md-7">
-                @Html.DisplayFor(model => model.Description)
-            </div>
-        </div>
-
-
-        <div class="col-md-3 submission-button">
-            @if (Model.AccountId == User.Identity.GetUserId())
-            {
-                <a href="@Url.Action("Edit", "Submission", new {id = Model.SubmissionId})"><img style="width: 80px; height: 40px;" src="https://i.ibb.co/KrS2rDg/images-removebg-preview.png" /></a>
-            }
-
-            <a href="@Url.Action("List", "Submission", new {id = Model.CompetitionId})"><img style="width: 80px; height: 40px" src="https://pngimage.net/wp-content/uploads/2018/05/back-button-png-blue-1.png" /></a>
-
         </div>
     </div>
-
 </div>

@@ -151,7 +151,7 @@ textarea {
 .submission-content {
     text-align: justify;
     margin: 20px;
-    font-size: 20px;
+    font-size: 14px;
     color: #000000;
 }
 .submission-button {
@@ -257,4 +257,7 @@ h1 .entry-title {
 }
 .w-60 {
     width: 60%;
+}
+.img-detail-submisstion {
+    width: 550px;
 }

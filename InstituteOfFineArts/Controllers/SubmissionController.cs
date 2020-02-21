@@ -69,7 +69,7 @@ namespace InstituteOfFineArts.Controllers
                     submission = submission.OrderBy(s => s.AccountId.ToString());
                     break;
             }
-            int pageSize = 4;
+            int pageSize = 8;
             var pageNumber = page ?? 1;
             if (id == null)
             {
@@ -129,7 +129,7 @@ namespace InstituteOfFineArts.Controllers
             if (ModelState.IsValid)
             {
                 submission.AccountId = User.Identity.GetUserId();
-                db.Submissions.Attach(submission);
+                db.Submissions.Add(submission);
                 db.SaveChanges();
                 return View("Details", submission);
             }

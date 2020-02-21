@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using InstituteOfFineArts.Models;
 
 namespace InstituteOfFineArts.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
@@ -25,6 +27,11 @@ namespace InstituteOfFineArts.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult ListCompetition()
+        {
+            return PartialView("_ListCompetition", db.Competitions.ToList());
         }
     }
 }
