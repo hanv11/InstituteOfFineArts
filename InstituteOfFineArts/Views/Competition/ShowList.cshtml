@@ -6,50 +6,76 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-    <section class="content container">
-
-        <header class="entry-header">
-            <h1 class="entry-title">
-                List Of Art Competitions
-            </h1>
-        </header>
-        <hr style="border-color:white" />
-       @using (Html.BeginForm("ShowList", "Competition", FormMethod.Get))
-         {
-         <div class="container">
-            <div class="row" style="margin: 20px">
-                <div class="col-lg-6">
-                    @Html.TextBox("SearchString", null, ViewBag.CurrentFilter as string, new { @placeholder = " Find by Name... ", @class = "form-control" })
-
+    <section class="banner-area relative">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white pt-20 pb-20">
+                       List Of Competitions
+                    </h1>
                 </div>
             </div>
-          </div>        
-         }
-
-        @foreach (var item in Model)
-        {
-          <article>
-              <div class="entry-content">
-                  <a style="display:table; border:1px solid #808080; background-color:aliceblue; height:300px; text-decoration:none" href='@Url.Action("DetailCompetition","Competition", new {id = item.CompetitionId })'>
-                      <span>
-                          <img style="width:350px; height: 300px; float:left; border: 2px solid #ff6a00" class="alignnone size-full wp-image-7079" src="@Url.Content(item.Image)" width="1100" height="500" sizes="(max-width: 1200px) 100vw, 1200px">
-                      </span>
-                      <div style="padding: 5px 10px">
-                          <h2>@Html.DisplayFor(modelItem => item.CompetitionName)</h2>
-                          <p style="color: #e0357b; width:98%">@Html.DisplayFor(modelItem => item.Description)</p>
-                          <ul>
-                              <li>The competition is open to all ages<strong><span style="font-size: small;">. </span></strong></li>
-                              <li>Whole schools and individual students are welcome to participate.</li>
-                              <li>Each entrant is acknowledged with a <strong><span style="font-size: small;"> certificate of participation.</span></strong></li>
-                          </ul>
-                      </div>
-                  </a>
-              </div>         
-         <hr style="border-color:white" />
-         </article>
-        }
-        Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
-        @Html.PagedListPager(Model, page => Url.Action("ShowList", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+        </div>
     </section>
+
+    <section class="upcoming-event-area section-gap content container" id="events">
+        <section class="upcoming-event-area" id="events">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-10">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Các sự kiện đang được diễn ra</h1>
+                        <p>Who are in extremely love with eco friendly system.</p>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            @foreach (var item in Model)
+            {
+                <article>
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="menu-content pb-60 col-lg-10">
+                                <div class="title text-center">
+                                    <h1 class="mb-10"></h1>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display:inline-flex">
+                            <div class="col-lg-6 event-left">
+                                <div class="single-events">
+                                    <img class="img-fluid" src="@Url.Content(item.Image)" alt="">
+                                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
+                                    <h6><span>21st February</span>@Html.DisplayFor(modelItem => item.CompetitionName)</h6>
+                                    <p>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </p>
+                                    <a href="@Url.Action("DetailCompetition","Competition", new {id = item.CompetitionId })" class="primary-btn text-uppercase">View Details</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 event-right">
+                                <div class="single-events">
+                                    <img class="img-fluid" src="@Url.Content(item.Image)" alt="">
+                                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
+                                    <h6><span>21st February</span>@Html.DisplayFor(modelItem => item.CompetitionName)</h6>
+                                    <p>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </p>
+                                    <a href="@Url.Action("DetailCompetition","Competition", new {id = item.CompetitionId })" class="primary-btn text-uppercase">View Details</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </article>
+            }
+            <hr />
+            Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("ShowList", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+        </section>
+
+    </section>
+
 
