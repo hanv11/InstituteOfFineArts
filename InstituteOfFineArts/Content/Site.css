@@ -5,7 +5,7 @@
     display: block;
 }
 .slide {
-    width:100%;
+    width: 100%;
     margin-top: 0;
 }
 .container-style {
@@ -63,9 +63,12 @@
     max-height: 600px;
     text-align: center;
 }
-.style-slide img {
-    width: 100%;
-}
+    .style-slide img {
+        background: url(../img/slider2.jpg) center;
+        background-size: cover;
+        width: 100%;
+    }
+
 
 .background-style {
     background-image: url("https://files.123freevectors.com/wp-content/original/143764-beige-antique-background-image.jpg");
