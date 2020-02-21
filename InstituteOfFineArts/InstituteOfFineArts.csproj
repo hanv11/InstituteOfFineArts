@@ -1674,6 +1674,7 @@
     <Content Include="Views\Shared\_ManageNav.cshtml" />
     <Content Include="Views\Shared\_TeacherNav.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Home\_ListCompetition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
