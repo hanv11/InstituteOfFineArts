@@ -18,35 +18,32 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <script src="https://kit.fontawesome.com/5a3bb408a6.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <header class="main-header">
-            <div>
-                <!-- Logo -->
-                <a href="../../index2.html" class="logo">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>IOFA</b></span>
-                    <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Institude Of Fine Art</b></span>
+            <!-- Logo -->
+            <a href="../../index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>HMLA FA</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>HMLA Fine Art</b></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </a>
-                <!-- Header Navbar: style can be found in header.less -->
-                <nav class="navbar navbar-static-top">
-                    <!-- Sidebar toggle button-->
-                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <div class="navbar-custom-menu" style="padding-right:20px">
-                        @Html.Partial("_LoginPartial")
-                    </div>
-                </nav>
-            </div>
+                <div class="navbar-custom-menu">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </nav>
         </header>
         <!-- =============================================== -->
         <!-- Left side column. contains the sidebar -->
