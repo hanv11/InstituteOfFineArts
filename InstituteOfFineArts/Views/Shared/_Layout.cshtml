@@ -216,24 +216,17 @@
     @Styles.Render("~/Content/Homepage/css")
 </head>
 <body style="display:block">
-    <button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu"></i></button>
 
-    <header class="header-section header-normal">
+<header id="header" class="header-section header-normal">
         <div class="container-fluid">
             <div class="logo">
                 <a href="./index.html">
                     <img src="~/Content/img/pofa_logo.png" alt="logo">
                 </a>
             </div>
-            <div class="top-social nav-menu">                
-                <ul>
-                    <li class="">
-                        <a href="#"><i class="fa fa-user"></i></a>
-                        <ul class="dropdown">
-                            <li>@Html.Partial("_LoginPartial")</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="top-social nav-menu">
+                @Html.Partial("_LoginPartial")
+                
             </div>
             <div class="container">
                 <div class="nav-menu">
@@ -278,292 +271,7 @@
             </div>
         </div>
     </header>
-    @*<section class="service-area pt-100" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="single-service">
-                        <span class="lnr lnr-clock"></span>
-                        <h4>Openning Hours</h4>
-                        <p>
-                            Mon - Fri: 10.00am to 05.00pm
-                            Sat: 12.00pm to 03.00 pm
-                            Sunday Closed
-                        </p>
-                        <div class="overlay">
-                            <div class="text">
-                                <p>
-                                    Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
-                                </p>
-                                <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-service">
-                        <span class="lnr lnr-rocket"></span>
-                        <h4>Ongoing Exhibitions</h4>
-                        <p>
-                            Mon - Fri: 10.00am to 05.00pm
-                            Sat: 12.00pm to 03.00 pm
-                            Sunday Closed
-                        </p>
-                        <div class="overlay">
-                            <div class="text">
-                                <p>
-                                    Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
-                                </p>
-                                <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-service">
-                        <span class="lnr lnr-briefcase"></span>
-                        <h4>Openning Events</h4>
-                        <p>
-                            Mon - Fri: 10.00am to 05.00pm
-                            Sat: 12.00pm to 03.00 pm
-                            Sunday Closed
-                        </p>
-                        <div class="overlay">
-                            <div class="text">
-                                <p>
-                                    Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
-                                </p>
-                                <a href="#" class="text-uppercase primary-btn">Buy ticket</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="quote-area section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 quote-left">
-                    <h1>
-                        <span>Music</span> gives soul to the universe, <br>
-                        wings to the <span>mind</span>, flight <br>
-                        to the <span>imagination</span>.
-                    </h1>
-                </div>
-                <div class="col-lg-6 quote-right">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="exibition-area section-gap" id="exhibitions">
-        <div class="container">
-            <div class="row">
-                <div class="active-exibition-carusel owl-carousel owl-theme owl-loaded col-lg-12">
-                    <div class="owl-stage-outer">
-                        <div class="owl-stage" style="transform: translate3d(-1125px, 0px, 0px); transition: all 0.25s ease 0s; width: 4875px;">
-                            <div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img class="img-fluid" src="~/Content/Homepage/img/e2.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div>
-                            <div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img class="img-fluid" src="~/Content/Homepage/img/e3.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e1.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e2.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div>
-                            <div class="owl-item active" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e3.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div>
-                            <div class="owl-item" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e1.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e2.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e3.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e1.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img class="img-fluid" src="~/Content/Homepage/img/e2.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div><div class="owl-item" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img class="img-fluid" src="~/Content/Homepage/img/e3.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div><div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e1.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div><div class="owl-item cloned" style="width: 345px; margin-right: 30px;">
-                                <div class="single-exibition item">
-                                    <img src="~/Content/Homepage/img/e2.jpg" alt="">
-                                    <ul class="tags">
-                                        <li><a href="#">Travel</a></li>
-                                        <li><a href="#">Life style</a></li>
-                                    </ul>
-                                    <a href="#"><h4>Portable latest blog for women</h4></a>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                                    </p>
-                                    <h6 class="date">31st January, 2018</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="owl-controls">
-                        <div class="owl-nav">
-                            <div class="owl-prev" style="display: none;">prev</div>
-                            <div class="owl-next" style="display: none;">next</div>
-                        </div>
-                        <div class="owl-dots" style="">
-                            <div class="owl-dot"><span></span></div>
-                            <div class="owl-dot"><span></span></div>
-                            <div class="owl-dot"><span></span></div>
-                            <div class="owl-dot active"><span></span></div>
-                            <div class="owl-dot"><span></span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>*@
-
+    
     @RenderBody()
 
     <section class="blog-area section-gap" id="blog">
@@ -743,17 +451,24 @@
     <script type="61ce3ffbce705e338d4feed6-text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
     <script type="61ce3ffbce705e338d4feed6-text/javascript">
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        $(document).ready(function(){
+              window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
 
-        gtag('config', 'UA-23581568-13');
+                        gtag('config', 'UA-23581568-13');
+                    $(window).scroll(function() {
+                    if($(this).scrollTop() <= 80)
+                        $('.header-section.header-normal').css('background-color','rgba(0, 0, 0, 0)');
+                    else
+                        $('.header-section.header-normal').css('background-color','rgba(0, 0, 0, 0.7)');
+                });
+            })
+
+
     </script>
     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="61ce3ffbce705e338d4feed6-|49" defer=""></script>
-
     
-    @Scripts.Render("~/Content/Homepage/js")
-
 
 </body>
 </html>

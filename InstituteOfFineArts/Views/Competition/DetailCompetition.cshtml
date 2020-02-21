@@ -2,24 +2,34 @@
 
 @{
     ViewBag.Title = "DetailCompetition";
-    Layout = "~/Views/Shared/_ExtraLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    
+    <section class="banner-area relative">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white pt-20 pb-20">
+                        @Html.DisplayFor(model => model.CompetitionName)
+                    </h1>
+                    <a href="@Url.Action("Register", "Submission", new {competitionId = Model.CompetitionId})" target="_blank" class="primary-btn text-uppercase">Register</a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+   
 
 <div class="container">
     <main class="site-main">
         <article class="type-page">
-            <header class="entry-header">
-                <h1 class="entry-title" style="margin-top: 10px; margin-bottom: 10px;">
-                    @Html.DisplayFor(model => model.CompetitionName)
-                </h1>
-            </header>
+          
             <hr />
 
 
             <div class="container">
-                <div class="entry-banner">
-                    <img class="banner-thumbnail" src="@Url.Content(Model.Image)" />
-                </div>
+                
 
                 <div class="row detail-content">
                     <div class="col-md-6 term">
@@ -37,9 +47,7 @@
                     @Html.DisplayFor(model => model.Description)
                 </div>
 
-                <a href='@Url.Action("Register", "Submission", new {competitionId = Model.CompetitionId})' target="_blank" class="register-button">
-                    <img src='@Url.Content("https://www.theartacademy.in/wp-content/uploads/2018/11/National-Art-Competition-2018-for-children-The-Art-Academy-Register-button.jpg")' />
-                </a>
+               
 
             </div>
         </article>

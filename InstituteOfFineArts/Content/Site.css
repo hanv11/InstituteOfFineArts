@@ -99,7 +99,7 @@ h1 .entry-title {
 }
 
 .banner-thumbnail {
-    width: 800px;
+    width: 100%;
     height: 300px;
 }
 .entry-title::after {
