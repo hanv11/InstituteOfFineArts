@@ -1,5 +1,7 @@
-﻿<html lang="zxx" class="no-js">
+﻿<!DOCTYPE html>
+<html lang="zxx" class="no-js">
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="shortcut icon" href="img/fav.png">
@@ -16,38 +18,69 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Homepage/css")
 </head>
-<body class=" background-style">
-     
-     <header id="header" class="header-scrolled"> 
-     
-         <div class="container"> 
-             <div class="row align-items-center justify-content-between d-flex"> 
-                 <div id="logo" class="col-md-12 top-head-left"> 
-                     <a href="#"><img src="~/Content/img/pofa_logo.png" alt="Logo" title=""></a> 
-                 </div> 
-                 <nav id="nav-menu-container"> 
-                     <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;"> 
-                         <li class="menu-active"><a href="index.html">Home</a></li> 
-                         <li class="active"> 
-                             <a href="#">Competition</a> 
-                             <ul class="dropdown"> 
-                                 <li><a href="#">About Us</a></li> 
-                                 <li><a href="#">Blog Details</a></li> 
-                             </ul> 
-                         </li> 
-                         <li><a href="event.html">Award</a></li> 
-                         <li><a href="ticket.html">Exhibition</a></li> 
-                         <li><a href="blog-home.html">About</a></li> 
-                         <li><a href="contact.html">Contact</a></li> 
-                     </ul> 
-                 </nav> 
-             </div> 
-         </div> 
-     </header> 
+<body style="display:block">
+
+    <header id="header" class="header-section header-normal">
+        <div class="container-fluid">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="~/Content/img/pofa_logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="top-social nav-menu">
+                @Html.Partial("_LoginPartial")
+
+            </div>
+            <div class="container">
+                <div class="nav-menu">
+                    <nav class="mainmenu mobile-menu">
+                        <ul>
+                            <li><a href="./index.html">Home</a></li>
+                            <li class="">
+                                <a href="./blog.html">Competition</a>
+                                <ul class="dropdown">
+                                    <li><a href="./about-us.html">List Competitions</a></li>
+                                    <li><a href="./blog-single.html"> Competition Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./about-us.html">Award</a></li>
+                            <li><a href="./schedule.html">Exhibitions</a></li>
+                            <li><a href="./gallery.html">About Us</a></li>
+                            <li><a href="./contact.html">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap">
+                <div class="slicknav_menu">
+                    <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" style="outline: none;"><span class="slicknav_menutxt">MENU</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><nav class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
+                        <ul>
+                            <li><a href="#" role="menuitem">Home</a></li>
+                            <li class="active slicknav_collapsed slicknav_parent">
+                                <a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style="outline: none;">
+                                    <a href="./blog.html">Competition</a>
+                                    <span class="slicknav_arrow">►</span>
+                                </a><ul class="dropdown slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+                                    <li><a href="./about-us.html" role="menuitem" tabindex="-1">List Competitions</a></li>
+                                    <li><a href="./blog-single.html" role="menuitem" tabindex="-1">Award</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" role="menuitem">Exhibitions</a></li>
+                            <li><a href="#" role="menuitem">About Us</a></li>
+                            <li><a href="#" role="menuitem">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
 
     @RenderBody()
 
-    <footer class="section-gap ">
+
+
+
+    <footer class="footer-area section-gap background-style">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-6 col-sm-6">
@@ -68,7 +101,16 @@
                     <div class="single-footer-widget">
                         <h6>Newsletter</h6>
                         <p>Stay update with our latest</p>
-                        
+                        <div class="" id="mc_embed_signup">
+                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+                                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = ''" onblur="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = 'Enter Email '" required="" type="email" data-cf-modified-61ce3ffbce705e338d4feed6-="">
+                                <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                </div>
+                                <div class="info"></div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
@@ -86,19 +128,32 @@
             </div>
         </div>
     </footer>
+    @Scripts.Render("~/Content/js")
     @Scripts.Render("~/Content/Homepage/js")
     @RenderSection("scripts", required: false)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
     <script type="61ce3ffbce705e338d4feed6-text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
     <script type="61ce3ffbce705e338d4feed6-text/javascript">
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        $(document).ready(function(){
+              window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
 
-        gtag('config', 'UA-23581568-13');
+                        gtag('config', 'UA-23581568-13');
+                    $(window).scroll(function() {
+                    if($(this).scrollTop() <= 80)
+                        $('.header-section.header-normal').css('background-color','rgba(0, 0, 0, 0)');
+                    else
+                        $('.header-section.header-normal').css('background-color','rgba(0, 0, 0, 0.7)');
+                });
+            })
+
+
     </script>
     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="61ce3ffbce705e338d4feed6-|49" defer=""></script>
 
+
 </body>
 </html>
+
