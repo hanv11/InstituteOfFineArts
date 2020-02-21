@@ -37,23 +37,23 @@ namespace InstituteOfFineArts
                       "~/Content/Homepage/css/main.css"));
 
             bundles.Add(new ScriptBundle("~/Content/Homepage/js").Include(
-                    "~/Homepage/js/vendor/jquery-2.2.4.min.js",
-                    "~/Homepage/js/vendor/bootstrap.min.js",
-                    "~/Homepage/js/easing.min.js",
-                    "~/Homepage/js/hoverIntent.js",
-                    "~/Homepage/js/superfish.min.js",
-                    "~/Homepage/js/jquery.ajaxchimp.min.js",
-                    "~/Homepage/js/jquery.magnific-popup.min.js",
-                    "~/Homepage/js/owl.carousel.min.js",
-                    "~/Homepage/js/imagesloaded.pkgd.min.js",
-                    "~/Homepage/js/justified.min.js",
-                    "~/Homepage/js/jquery.sticky.js",
-                    "~/Homepage/js/jquery.nice-select.min.js",
-                    "~/Homepage/js/parallax.min.js",
-                    "~/Homepage/js/mail-script.js",
-                    "~/Homepage/js/main.js"));
+                    "~/Content/Homepage/js/vendor/jquery-2.2.4.min.js",
+                    "~/Content/Homepage/js/vendor/bootstrap.min.js",
+                    "~/Content/Homepage/js/easing.min.js",
+                    "~/Content/Homepage/js/hoverIntent.js",
+                    "~/Content/Homepage/js/superfish.min.js",
+                    "~/Content/Homepage/js/jquery.ajaxchimp.min.js",
+                    "~/Content/Homepage/js/jquery.magnific-popup.min.js",
+                    "~/Content/Homepage/js/owl.carousel.min.js",
+                    "~/Content/Homepage/js/imagesloaded.pkgd.min.js",
+                    "~/Content/Homepage/js/justified.min.js",
+                    "~/Content/Homepage/js/jquery.sticky.js",
+                    "~/Content/Homepage/js/jquery.nice-select.min.js",
+                    "~/Content/Homepage/js/parallax.min.js",
+                    "~/Content/Homepage/js/mail-script.js",
+                    "~/Content/Homepage/js/main.js"));
             //AdminPage
-            bundles.Add(new ScriptBundle("~/Js").Include(
+            bundles.Add(new ScriptBundle("~/Content/Js").Include(
             "~/Scripts/jquery-{version}.js",
             "~/Scripts/jquery.validate*",
             "~/Scripts/bootstrap.min.js",

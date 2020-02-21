@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_ExtraLayout.cshtml";
 }
 
 
@@ -19,21 +19,19 @@
                 <div class="col-md-5" >
                     <img class="picture" src="@Url.Content(Model.Picture)" alt="Alternate Text" />
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row w-60">
+                    <div class="col-md-6 max-w">
                         @Html.DisplayNameFor(model => model.Account)
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)
                     </div>
 
-                
-                
-                    <div class="col-md-6">
+                    <div class="col-md-6 max-w">
                         @Html.DisplayNameFor(model => model.Description)
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         @Html.DisplayFor(model => model.Description)
                     </div>
                 </div>

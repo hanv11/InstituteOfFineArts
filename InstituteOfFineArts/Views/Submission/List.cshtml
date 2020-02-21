@@ -3,12 +3,10 @@
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "List";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_ExtraLayout.cshtml";
 }
 
-
     <section class="container">
-        <hr class="mt-2 mb-5">
         @using (Html.BeginForm("List", "Submission", FormMethod.Get))
         {
             <h1 class="header-submission">@Html.DisplayFor(model=>Model.First().Competitions.CompetitionName)</h1>
@@ -22,7 +20,7 @@
             </div>
         }
 
-        <div class="row text-center">
+        <div class="row text-center detail-content">
             @foreach (var item in Model)
             {
                 <div class="col-md-3">
@@ -43,7 +41,7 @@
         </div>
         <div class="footer-submission">
             Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
-            @Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+            <div style="color: white;"> @Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))</div>
         </div>
        
     </section>
