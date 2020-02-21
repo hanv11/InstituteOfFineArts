@@ -1,32 +1,43 @@
 ﻿@using InstituteOfFineArts.Models
 @model IEnumerable<InstituteOfFineArts.Models.Submission>
+<div class="row d-flex justify-content-center">
+    <div class="menu-content pb-70 col-lg-8">
+        <div class="title text-center">
+            <h1 class="mb-10">Submissions</h1>
+          
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
 
-
-@using (Html.BeginForm("ListSubmission", "Submission", FormMethod.Get))
-{
-    @Html.AntiForgeryToken()
-   
-        <div class="container">
-
-            <h1 class="font-weight-light text-center mt-4 mb-0">List Submission</h1>
-
-            <hr class="mt-2 mb-5">
-
-            <div class="row text-center text-lg-left">
-                @foreach (var item in Model)
-                {
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <a href="@Url.Action("Details","Submission",new {id = item.SubmissionId})" class="d-block mb-4 h-100">
-                            <img class="thumbnail-img" src="@item.Picture" alt="">
-                        </a>
-                    </div>
-                }
-                <div class="col-md-12 text-center">
-                    <a href="@Url.Action("List", "Submission", new {id = Model.First().CompetitionId})" target="_blank" ><img class="show-more" src="https://www.darkironfitness.com/wp-content/uploads/2017/08/view-more-button-copy.png" /></a>
+            <div class="col-lg-3 col-md-6 single-blog mx-auto">
+                <div class="thumb ">
+                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"><img class="thumbnail-img" src="@item.Picture" alt=""></a>
                 </div>
+                
+                  
+              
+                <p class="text-center">
+                    
+                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"> @item.Description</a>
+
+                </p>
 
             </div>
-            
-        </div>
-        <!-- /.container -->
-}
+
+        }
+    </div>
+
+    <!-- /.container -->
+    @using (Html.BeginForm("ListSubmission", "Submission", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="col-md-12 text-center">
+    <a href="@Url.Action("List", "Submission", new {id = Model.First().CompetitionId})" target="_blank" class="primary-btn text-uppercase">Load More</a>
+</div>
+    }
+</div>

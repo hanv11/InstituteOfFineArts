@@ -319,6 +319,7 @@
     <Content Include="Content\Homepage\img\b2.jpg" />
     <Content Include="Content\Homepage\img\b3.jpg" />
     <Content Include="Content\Homepage\img\b4.jpg" />
+    <Content Include="Content\Homepage\img\banner.jpg" />
     <Content Include="Content\Homepage\img\blog\blog-banner.jpg" />
     <Content Include="Content\Homepage\img\blog\c1.jpg" />
     <Content Include="Content\Homepage\img\blog\c2.jpg" />
@@ -399,6 +400,7 @@
     <Content Include="Content\Homepage\img\pages\w4.jpg" />
     <Content Include="Content\Homepage\img\pages\w5.jpg" />
     <Content Include="Content\Homepage\img\pages\w6.jpg" />
+    <Content Include="Content\Homepage\img\slider2.jpg" />
     <Content Include="Content\Homepage\img\u1.jpg" />
     <Content Include="Content\Homepage\img\u2.jpg" />
     <Content Include="Content\Homepage\img\u3.jpg" />

@@ -24,13 +24,7 @@
 <div class="container">
     <main class="site-main">
         <article class="type-page">
-          
-            <hr />
-
-
             <div class="container">
-                
-
                 <div class="row detail-content">
                     <div class="col-md-6 term">
                         <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
@@ -40,14 +34,10 @@
                         <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
                         @Html.DisplayFor(model => model.EndDate)
                     </div>
-
                 </div>
-
                 <div class="detail-content submission-content">
                     @Html.DisplayFor(model => model.Description)
                 </div>
-
-               
 
             </div>
         </article>
@@ -58,4 +48,3 @@
 {
     @Html.Action("ListSubmission", "Submission", new { Id = Model.CompetitionId })
 }
-<hr class="container" style="border: 1px solid" />
