@@ -128,7 +128,10 @@ namespace InstituteOfFineArts.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = User.Identity.GetUserId();
+                var account = db.Users.FirstOrDefault(u => u.Id == userId) ;
                 submission.AccountId = User.Identity.GetUserId();
+                submission.Account = account;
                 db.Submissions.Add(submission);
                 db.SaveChanges();
                 return View("Details", submission);
