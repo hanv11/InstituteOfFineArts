@@ -5,8 +5,8 @@
     ViewBag.Title = "ShowList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-    <section class="banner-area relative">
+    <div class="container-style" style="background-color:#f3f3f3; background-size:cover">
+        <section class="banner-area relative">
         <div class="overlay overlay-bg"></div>
         <div class="container">
             <div class="row d-flex align-items-center justify-content-center">
@@ -42,30 +42,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row" style="display:inline-flex">
-                            <div class="col-lg-6 event-left">
-                                <div class="single-events">
-                                    <img class="img-fluid" src="@Url.Content(item.Image)" alt="">
-                                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                                    <h6><span>21st February</span>@Html.DisplayFor(modelItem => item.CompetitionName)</h6>
-                                    <p>
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </p>
-                                    <a href="@Url.Action("DetailCompetition","Competition", new {id = item.CompetitionId })" class="primary-btn text-uppercase">View Details</a>
-                                </div>
+                        <div class="row show-list" style="">
+                            <div class="col-lg-12" style="display:inline-block"  >
+                                <div class="single-events" style="text-align:center">
+                                    <img class="col-md-6 shadow-lg p-3 mb-5 bg-white rounded" src="@Url.Content(item.Image)" style="margin: 20px 0 0 0" alt="">
+                                    <div style="padding-top: 20px; border-left-color: #ff6a00">
+                                        <a style="padding:5px" href="#"><h4>@Html.DisplayFor(modelItem => item.CompetitionName)</h4></a>
+                                        <p>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </p>
+                                        <a href="@Url.Action("DetailCompetition","Competition", new {id = item.CompetitionId })" class="primary-btn text-uppercase">View Details</a>
+                                    </div>
+                                    </div>
+                          
                             </div>
-                            <div class="col-lg-6 event-right">
-                                <div class="single-events">
-                                    <img class="img-fluid" src="@Url.Content(item.Image)" alt="">
-                                    <a href="#"><h4>Event on the rock solid carbon</h4></a>
-                                    <h6><span>21st February</span>@Html.DisplayFor(modelItem => item.CompetitionName)</h6>
-                                    <p>
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </p>
-                                    <a href="@Url.Action("DetailCompetition","Competition", new {id = item.CompetitionId })" class="primary-btn text-uppercase">View Details</a>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
@@ -78,4 +68,6 @@
 
     </section>
 
+    </div>
+    
 
