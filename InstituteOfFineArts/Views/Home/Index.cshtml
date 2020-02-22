@@ -3,12 +3,13 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <section class="slide" id="home">
+    <section class="slide " id="home">
         <div class="container-style ">
             <div id="myCarousel" class=" carousel slide " data-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner banner-area relative">
 
                     <div class="item active style-slide">
+                        <div class="overlay-bg overlay"></div>
                         <img src="~/Content/img/slider1.jpg" alt="Los Angeles">
                         <div class="carousel-caption">
                             @*<h3>Los Angeles</h3>*@
@@ -17,6 +18,7 @@
                     </div>
 
                     <div class="item style-slide">
+                        <div class="overlay-bg overlay"></div>
                         <img src="~/Content/img/slider2.jpg" alt="Chicago">
                         <div class="carousel-caption">
                             @*<h3>Chicago</h3>*@
@@ -25,6 +27,7 @@
                     </div>
 
                     <div class="item style-slide">
+                        <div class="overlay-bg overlay"></div>
                         <img src="~/Content/img/slider3.png" alt="New York">
                         <div class="carousel-caption">
                             @*<h3>New York</h3>*@

@@ -56,7 +56,15 @@
 }
 
 
-
+.show-list {
+    text-align: center;
+    display: block;
+    border: 1px solid rgba(0,0,0,0.9);
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRRNMmUoizxCswR1w7AAsD21_6CuWNNl4kdRYDG2OV8HZCs91_i');
+    background-size: cover;
+    background-position:center;
+    height: 250px;
+}
 
 .style-slide {
     max-width: 100%;
