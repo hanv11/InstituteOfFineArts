@@ -5,8 +5,8 @@
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section class="banner-area relative">
-    <div class="overlay overlay-bg"></div>
+<section class="relative" style="background: url(@Model.First().Competitions.Image);background-size: cover">
+    <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
@@ -17,28 +17,14 @@
         </div>
     </div>
 </section>
-    <section class="container">
-        
-        @*         @using (Html.BeginForm("List", "Submission", FormMethod.Get)) *@
-        @*         { *@
-        @*             <h1 class="header-submission">@Html.DisplayFor(model=>Model.First().Competitions.CompetitionName)</h1> *@
-        @*             @Html.AntiForgeryToken() *@
-        @*             <div class="container"> *@
-        @*                 <div class="row" style="margin: 20px"> *@
-        @*                     <div class="col-lg-6"> *@
-        @*                         @Html.TextBox("SearchString", null, ViewBag.CurrentFilter as string, new { @placeholder = " Find by Name... ", @class = "form-control" }) *@
-        @*                     </div> *@
-        @*                 </div> *@
-        @*             </div> *@
-        @*         } *@
-
+    <section class="container-fluid">
         <div class="row text-center detail-content">
             @foreach (var item in Model)
             {
-                <div class="col-md-3 mb-4">
+                <div class="col-md-3 mb-5 mx-auto"  style="box-shadow: 3px 3px 10px 1px grey;">
 
                     <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">
-                        <img class="thumbnail-img" src="@item.Picture" alt="">
+                        <img class="thumbnail-img img-rounded" src="@item.Picture" alt="">
                     </a>
                     <h6>
                          @Html.DisplayFor(model => item.Account.FirstName) @Html.DisplayFor(model => item.Account.LastName)

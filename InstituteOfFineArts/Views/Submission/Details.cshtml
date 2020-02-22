@@ -23,8 +23,13 @@
         <div class="section-top-border">
             <div class="row">
                 <div class="col-md-6">
-                    <img class="img-rounded img-fluid picture" src="@Url.Content(Model.Picture)" alt="Alternate Text" />
 
+                    <img id="myImg" class="img-rounded img-fluid picture" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey;" src="@Url.Content(Model.Picture)" alt="Alternate Text" />
+                
+                    <div id="myModal" class="modal">
+                        <span class="close1">&times;</span>
+                        <img  class="modal-content" id="img01" style="margin-top: -60px;" />
+                    </div>
                 </div>
                 <div class="col-md-4 mt-sm-20">
                     <h4 class="mb-4">Student Name: @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)</h4>
@@ -34,19 +39,8 @@
                     <h4 class="mb-4">Award: </h4>
                     <h4 class="mb-4">Post Date: </h4>
                 </div>
-
-
-                @*<div class="col-md-8 mt-sm-20"">
-                if (model.accountid == user.identity.getuserid())
-                {
-                    <a href="@url.action("edit", "submission", new {id = model.submissionid})"></a>
-                }
-
-                <a href="@url.action("list", "submission", new {id = model.competitionid})"></a>
-
-            </div>*@
             </div>
-            <div class="col-md-6 m-2">
+            <div class="col-md-6 mt-4">
                 @if (Model.AccountId == User.Identity.GetUserId())
                 {
                     <a class="btn btn-primary btn-lg" href="@Url.Action("Edit", "Submission", new { id = Model.SubmissionId })">Update</a>
@@ -57,3 +51,23 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var modal = document.getElementById("myModal");
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+
+// Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close1")[0];
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() { 
+        modal.style.display = "none";
+    }
+</script>

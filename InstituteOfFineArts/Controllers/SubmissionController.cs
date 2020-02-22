@@ -36,7 +36,7 @@ namespace InstituteOfFineArts.Controllers
             }
 
             var submission = db.Submissions.Where(s => s.CompetitionId == Id);
-            return PartialView("ListSubmission", submission.ToList().Take(4));
+            return PartialView("ListSubmission", submission.ToList().Take(3));
         }
 
         public ActionResult List(int? id, string searchString, string sortOrder, string currentFilter, int? page)
