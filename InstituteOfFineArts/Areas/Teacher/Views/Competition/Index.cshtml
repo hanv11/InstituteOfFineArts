@@ -7,59 +7,69 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CompetitionName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Awards)
-        </th>
-        <th></th>
-    </tr>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    @Html.ActionLink("Create New", "Create")
+                </div>
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CompetitionName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StartDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EndDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Image)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Awards)
+                            </th>
+                            <th></th>
+                        </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompetitionName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.Image)" alt="Alternate Text" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Awards)
-            </td>
-            <td>
-            
-            @using (Html.BeginForm("List", "Submission", FormMethod.Get))
-            {
-                    <a href="@Url.Action("List","Submission",new { id = item.CompetitionId})">List</a>
-            }
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }) |
-                    @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId })
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CompetitionName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                </td>
+                                <td>
+                                    <img class="img-responsive pad" src="@Html.DisplayFor(modelItem => item.Image)" alt="Alternate Text" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Awards)
+                                </td>
+                                <td>
 
-            </td>
-        </tr>
-    }
+                                    @using (Html.BeginForm("List", "Submission", FormMethod.Get))
+                                    {
+                                        <a href="@Url.Action("List","Submission",new { id = item.CompetitionId})">List</a>
+                                    }
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }) |
+                                    @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId })
 
-</table>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
