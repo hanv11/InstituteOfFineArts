@@ -7,13 +7,13 @@ namespace InstituteOfFineArts.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddColumnCreatedByToCompetition : IMigrationMetadata
+    public sealed partial class UpdateData : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddColumnCreatedByToCompetition));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateData));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002191528401_AddColumnCreatedByToCompetition"; }
+            get { return "202002231722102_UpdateData"; }
         }
         
         string IMigrationMetadata.Source

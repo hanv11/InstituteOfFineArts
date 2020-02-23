@@ -13,12 +13,15 @@ namespace InstituteOfFineArts.Models
         public int SubmissionId { get; set; }
         public int CompetitionId { get; set; }
         public string Picture { get; set; }
+
+        // nguoi ta ra submission
         [ForeignKey("Account")]
         public string AccountId { get; set; }
-        public string Description { get; set; }
         public virtual Account Account { get; set; }
-        public virtual Competition Competitions { get; set; }
-        public virtual Mark Marks { get; set; }
+
+        public string Description { get; set; }
+        public virtual Competition Competition { get; set; }
+        public virtual ICollection<Mark > Marks { get; set; }
         public Submission()
         {
         }

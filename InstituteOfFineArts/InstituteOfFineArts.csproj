@@ -189,17 +189,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002150739303_UpdateData.cs" />
-    <Compile Include="Migrations\202002150739303_UpdateData.Designer.cs">
-      <DependentUpon>202002150739303_UpdateData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002181540072_AddStatusForCompetition.cs" />
-    <Compile Include="Migrations\202002181540072_AddStatusForCompetition.Designer.cs">
-      <DependentUpon>202002181540072_AddStatusForCompetition.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002191528401_AddColumnCreatedByToCompetition.cs" />
-    <Compile Include="Migrations\202002191528401_AddColumnCreatedByToCompetition.Designer.cs">
-      <DependentUpon>202002191528401_AddColumnCreatedByToCompetition.cs</DependentUpon>
+    <Compile Include="Migrations\202002231722102_UpdateData.cs" />
+    <Compile Include="Migrations\202002231722102_UpdateData.Designer.cs">
+      <DependentUpon>202002231722102_UpdateData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
@@ -1700,21 +1692,15 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002150739303_UpdateData.resx">
-      <DependentUpon>202002150739303_UpdateData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002181540072_AddStatusForCompetition.resx">
-      <DependentUpon>202002181540072_AddStatusForCompetition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002191528401_AddColumnCreatedByToCompetition.resx">
-      <DependentUpon>202002191528401_AddColumnCreatedByToCompetition.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Teacher\Models\" />
     <Folder Include="Areas\Teacher\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002231722102_UpdateData.resx">
+      <DependentUpon>202002231722102_UpdateData.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

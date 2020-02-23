@@ -20,7 +20,7 @@ namespace InstituteOfFineArts.Controllers
         // GET: Submissions
         public ActionResult Index()
         {
-            var submissions = db.Submissions.Include(s => s.Competitions);
+            var submissions = db.Submissions.Include(s => s.Competition);
             return View(submissions.ToList());
         }
         public ActionResult ListSubmission(int? Id)
