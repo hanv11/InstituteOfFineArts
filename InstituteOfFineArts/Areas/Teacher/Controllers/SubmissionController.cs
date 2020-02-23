@@ -19,7 +19,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         // GET: Teacher/Submission
         public ActionResult Index()
         {
-            var submissions = db.Submissions.Include(s => s.Account).Include(s => s.Competitions);
+            var submissions = db.Submissions.Include(s => s.Account).Include(s => s.Competition);
             return View(submissions.ToList());
         }
         public ActionResult List(int? id, string searchString, string sortOrder, string currentFilter, int? page)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,16 +10,25 @@ namespace InstituteOfFineArts.Models
     public class Mark
     {
         [Key]
+        public int MarkId { get; set; }
+        [ForeignKey("Submission")]
         public int SubmissionId { get; set; }
+        public virtual Submission Submission { get; set; }
+        
+        // nguoi duoc cho phep cham thi
+        [ForeignKey("Examiner")]
+        public string AccountId { get; set; }
+        public virtual Account Examiner { get; set; }
         public MarkType Marks { get; set; }
-        public enum MarkType {
-            disqualified = 0,
-            normal = 1,
-            moderate = 2,
-            good = 3,
-            better = 4,
-            best = 5 }
         public string Description { get; set; }
-        public virtual ICollection<Submission> Submissions { get; set; }
+        public enum MarkType
+        {
+            Disqualified = 0,
+            Normal = 1,
+            Moderate = 2,
+            Good = 3,
+            Better = 4,
+            Best = 5
+        }
     }
 }
