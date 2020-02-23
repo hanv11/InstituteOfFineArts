@@ -90,6 +90,15 @@ namespace InstituteOfFineArts
                   "~/Content/Login/vendor/daterangepicker/daterangepicker.js",
                   "~/Content/Login/vendor/countdowntime/countdowntime.js",
                   "~/Content/Login/js/main.js"));
+            bundles.Add(new ScriptBundle("~/Js").Include(
+                    "~/Scripts/jquery-{version}.js",
+                    "~/Scripts/jquery.validate*",
+                    "~/Scripts/bootstrap.min.js",
+                    "~/Scripts/jquery.validate*",
+                    "~/Content/plugins/slimScroll/jquery.slimscroll.min.js",
+                    "~/Content/plugins/fastclick/fastclick.js",
+                    "~/Content/dist/js/app.min.js",
+                    "~/Content/dist/js/demo.js"));
         }
     }
 }
