@@ -14,8 +14,9 @@ namespace InstituteOfFineArts.Models
         public int SubmissionId { get; set; }
         public int CompetitionId { get; set; }
         public string Picture { get; set; }
-        [DisplayName("Submission Name")]
+        [DisplayName("Name")]
         public string SubmissionName { get; set; }
+        [DataType(DataType.DateTime)]
         [DisplayName("Updated Post")]
         public DateTime? UpdatedAt { get; set; }
         // nguoi ta ra submission

@@ -5,13 +5,13 @@
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section class="relative" style="background: url(@Model.First().Competitions.Image);background-size: cover">
+<section class="relative" style="background: url(@Url.Content(@Model.First().Competition.Image));background-size: cover">
     <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white pt-20 pb-20">
-                    @Html.DisplayFor(model => model.First().Competitions.CompetitionName)
+                    @Html.DisplayFor(model => model.First().Competition.CompetitionName)
                 </h1>
             </div>
         </div>
@@ -21,18 +21,22 @@
         <div class="row text-center detail-content">
             @foreach (var item in Model)
             {
-                <div class="col-md-3 mb-5 mx-auto"  style="box-shadow: 3px 3px 10px 1px grey;">
-
-                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">
-                        <img class="thumbnail-img img-rounded" src="@item.Picture" alt="">
-                    </a>
+                <div class="col-md-3 mb-5 mx-auto single-blog"  style="box-shadow: 3px 3px 10px 1px grey;">
+                    <div class="thumb">
+                        <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">
+                            <img class="thumbnail-img shadow mb-1 mt-3 img-rounded" src="@item.Picture" alt="">
+                        </a>
+                    </div>
+                    
                     <h6>
                          @Html.DisplayFor(model => item.Account.FirstName) @Html.DisplayFor(model => item.Account.LastName)
                     </h6>
                     <h6>
-                         @Html.DisplayFor(model => item.Description)
+                         @Html.DisplayFor(model => item.SubmissionName)
                     </h6>
-
+                    <h6>
+                        @Html.DisplayFor(model=>item.UpdatedAt)
+                    </h6>
                 </div>
             }
 
