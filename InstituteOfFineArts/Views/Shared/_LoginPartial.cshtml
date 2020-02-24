@@ -1,21 +1,23 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", new {Area = ""}, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
+    
 
-    <ul class="nav navbar-nav navbar-right nav-link js-scroll-trigger" style="margin-right:2px;">
+    <ul class="navbar-right js-scroll-trigger">
+        @using (Html.BeginForm("LogOff", "Account", new {Area = ""}, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
         @*<li>
             <a href="@Url.Action("Index","Manage",routeValues: null)"><img class="logo-user" src="@Url.Content("~/Content/img/logologin.png")" /></a>
         </li>*@
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
+        }
     </ul>
-    }
+   
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right nav-link js-scroll-trigger">
+    <ul class="navbar-right js-scroll-trigger">
         
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
