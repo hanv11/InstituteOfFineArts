@@ -5,13 +5,25 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    <div class="box box-info">
+        <div class="box-body">
+            <h4>Edit Competition</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.CompetitionId)
 
+            <div class="form-group">
+                @Html.LabelFor(model => model.CompetitionName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CompetitionName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CompetitionName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+<<<<<<< HEAD
     <div class="form-horizontal">
         <h4>Competition</h4>
         <hr />
@@ -117,20 +129,9 @@
         }
 
     </table>
-}
-@if (Model.Examiners.Any())
-{
-    <ul>
-      
-    </ul>
-}
 
-<div class="col-md-10">
+        <div class="col-md-10">
     <input id="search" type="text" name="name" value="" autocomplete="false" placeholder="Seach" />
-</div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
@@ -174,9 +175,9 @@
             }
         });
         var myWidget = cloudinary.createUploadWidget({
-                cloudName: 'hanv11',
-                uploadPreset: 'bpmopgln'
-            },
+            cloudName: 'hanv11',
+            uploadPreset: 'bpmopgln'
+        },
             (error, result) => {
                 if (!error && result && result.event === "success") {
                     console.log('Done! Here is the image info: ', result.info);
@@ -189,7 +190,7 @@
             }
         );
 
-        document.getElementById("upload_widget").addEventListener("click", function(){
+        document.getElementById("upload_widget").addEventListener("click", function () {
             myWidget.open();
         }, false);
     </script>

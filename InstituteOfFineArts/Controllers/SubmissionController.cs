@@ -124,7 +124,7 @@ namespace InstituteOfFineArts.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Student")]
-        public ActionResult Create([Bind(Include = "CompetitionId,Picture,AccountId,Description")] Submission submission)
+        public ActionResult Create([Bind(Include = "CompetitionId,Picture,AccountId,Description,SubmissionName,UpdatedAt")] Submission submission)
         {
             if (ModelState.IsValid)
             {
@@ -132,6 +132,7 @@ namespace InstituteOfFineArts.Controllers
                 var account = db.Users.FirstOrDefault(u => u.Id == userId) ;
                 submission.AccountId = User.Identity.GetUserId();
                 submission.Account = account;
+                submission.UpdatedAt = DateTime.Now;
                 db.Submissions.Add(submission);
                 db.SaveChanges();
                 return View("Details", submission);
@@ -171,11 +172,16 @@ namespace InstituteOfFineArts.Controllers
         [ValidateAntiForgeryToken]
 
         [Authorize(Roles = "Student")]
-        public ActionResult Edit([Bind(Include = "SubmissionId,CompetitionId,Picture,AccountId,Description")] Submission submission)
+        public ActionResult Edit([Bind(Include = "SubmissionId,CompetitionId,Picture,AccountId,Description, SubmissionName")] Submission submission)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(submission).State = EntityState.Modified;
+                var userId = User.Identity.GetUserId();
+                var account = db.Users.FirstOrDefault(u => u.Id == userId);
+                submission.AccountId = User.Identity.GetUserId();
+                submission.Account = account;
+                submission.UpdatedAt = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = submission.SubmissionId });
             }

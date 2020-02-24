@@ -9,22 +9,23 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row mb-5">
                 @foreach (var item in Model)
                 {
 
-                    <div class="col-lg-3 col-md-6 single-blog mx-auto" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey;">
-                        <div class="thumb">
-                            <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"><img class="thumbnail-img shadow p-3 mb-3 mt-3 img-rounded" src="@item.Picture" alt=""></a>
-                        </div>
-
-                        <p class="text-left">
-                            <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"> @item.Description - @item.Account.FirstName @item.Account.LastName</a>
-
-                        </p>
-                        <p class="text-left">Post Date</p>
+                <div class="col-lg-3 col-md-6 single-blog mx-auto" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey;">
+                    <div class="thumb">
+                        <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"><img class="thumbnail-img shadow mb-3 mt-3 img-rounded" src="@item.Picture" alt=""></a>
                     </div>
+                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})">
+                        <p class="text-left">
+                            @item.SubmissionName 
+                        </p>
+                        <p class="text-left">@item.Account.FirstName @item.Account.LastName</p>
+                        <p class="text-left">@item.UpdatedAt</p>
+                    </a>
+                </div>
 
                 }
             </div>

@@ -193,6 +193,18 @@
     <Compile Include="Migrations\202002231722102_UpdateData.Designer.cs">
       <DependentUpon>202002231722102_UpdateData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002240333153_submissionTable1.cs" />
+    <Compile Include="Migrations\202002240333153_submissionTable1.Designer.cs">
+      <DependentUpon>202002240333153_submissionTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002240334194_submissionTable.cs" />
+    <Compile Include="Migrations\202002240334194_submissionTable.Designer.cs">
+      <DependentUpon>202002240334194_submissionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002240619390_submissionTable2.cs" />
+    <Compile Include="Migrations\202002240619390_submissionTable2.Designer.cs">
+      <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -420,6 +432,8 @@
     <Content Include="Content\img\listofpainting.jpg" />
     <Content Include="Content\img\poster1.jpg" />
     <Content Include="Content\img\poster10.jpg" />
+    <Content Include="Content\img\poster11.jpg" />
+    <Content Include="Content\img\poster12.jpg" />
     <Content Include="Content\img\poster2.jpg" />
     <Content Include="Content\img\poster3.jpg" />
     <Content Include="Content\img\poster4.jpg" />
@@ -1702,6 +1716,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002231722102_UpdateData.resx">
       <DependentUpon>202002231722102_UpdateData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002240333153_submissionTable1.resx">
+      <DependentUpon>202002240333153_submissionTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002240334194_submissionTable.resx">
+      <DependentUpon>202002240334194_submissionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002240619390_submissionTable2.resx">
+      <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

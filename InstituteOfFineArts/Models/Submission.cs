@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,7 +14,11 @@ namespace InstituteOfFineArts.Models
         public int SubmissionId { get; set; }
         public int CompetitionId { get; set; }
         public string Picture { get; set; }
-
+        [DisplayName("Name")]
+        public string SubmissionName { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayName("Updated Post")]
+        public DateTime? UpdatedAt { get; set; }
         // nguoi ta ra submission
         [ForeignKey("Account")]
         public string AccountId { get; set; }

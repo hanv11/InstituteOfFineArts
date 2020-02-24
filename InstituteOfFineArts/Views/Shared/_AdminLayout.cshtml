@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <div class="navbar-custom-menu">
+                <div class="navbar-custom-menu" style="margin-right:1%">
                     @Html.Partial("_LoginPartial")
                 </div>
             </nav>
@@ -56,7 +56,18 @@
                         <img src="@Url.Content("~/Content/Img/pofa_logo.png")" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Admin</p>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <p>Admin</p>
+                        }
+                        else if (User.IsInRole("Manager"))
+                        {
+                            <p>Manager</p>
+                        }
+                        else if (User.IsInRole("Teacher"))
+                        {
+                            <p>Teacher</p>
+                        }
 
                     </div>
                 </div>
