@@ -19,9 +19,39 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Homepage/css")
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body style="display:block">
-    <header class="header-section header-normal header-scrolled" style="height: 90px" id="header">
+    <button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu"></i></button>
+    <header id="header" class="header-section header-normal header-scrolled" style="height: 90px">
+        <div class="container-fluid">
+                <div class="logo" style="margin-top: -10px">
+                    <a href="index.html"><img src="~/Content/img/pofa_logo.png" alt="" title=""></a>
+                </div>
+                <div class="container">
+                    <div class="nav-menu">
+                        <nav id="nav-menu-container" class="mainmenu mobile-menu">
+                            <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                                <li class="menu-active"><a href="/Home/Index">Home</a></li>
+                                <li class="">
+                                    <a href="/Competition/ShowList">Competition</a>
+                                </li>
+                                <li><a href="#">Award</a></li>
+                                <li><a href="#">Exhibitions</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contacts</a></li>
+                                <li style=""><a href="@Url.Action("LoginPartial","Account")">Login</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+ 
+                </div>
+            </div>
+    </header>
+
+
+    @*<header class="header-section header-normal header-scrolled" style="height: 90px" id="header">
         <div class="container-fluid">
             <div class="logo" style="margin-top: -10px">
                 <a href="/Home/Index">
@@ -51,29 +81,8 @@
                     </nav>
                 </div>
             </div>
-            <div id="mobile-menu-wrap">
-                <div class="slicknav_menu">
-                    <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" style="outline: none;"><span class="slicknav_menutxt">MENU</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><nav class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
-                        <ul>
-                            <li><a href="#" role="menuitem">Home</a></li>
-                            <li class="active slicknav_collapsed slicknav_parent">
-                                <a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style="outline: none;">
-                                    <a href="#">Competition</a>
-                                    <span class="slicknav_arrow">►</span>
-                                </a><ul class="dropdown slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
-                                    <li><a href="#" role="menuitem" tabindex="-1">List Competitions</a></li>
-                                    <li><a href="#" role="menuitem" tabindex="-1">Award</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" role="menuitem">Exhibitions</a></li>
-                            <li><a href="#" role="menuitem">About Us</a></li>
-                            <li><a href="#" role="menuitem">Contacts</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
         </div>
-    </header>
+    </header>*@
     @RenderBody()
     <footer class="footer-section">
         <div class="container">
@@ -155,6 +164,8 @@
             </div>
         </div>
     </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Content/js")
     @Scripts.Render("~/Content/Homepage/js")
     @RenderSection("scripts", required: false)
