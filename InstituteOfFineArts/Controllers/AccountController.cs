@@ -60,6 +60,10 @@ namespace InstituteOfFineArts.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+        public ActionResult LoginPartial()
+        {
+            return PartialView("_LoginPartial");
+        }
 
         //
         // POST: /Account/Login
