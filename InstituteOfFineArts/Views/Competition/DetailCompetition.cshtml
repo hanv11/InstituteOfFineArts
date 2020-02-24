@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     
-    <section class="relative" style="background-image: url(@Url.Content(@Model.Image)); background-size: cover">
+    <section class="relative" style="background-image: url(@Url.Content(@Model.Image)); -ms-background-size: cover; background-size: cover">
         <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
         <div class="container">
             <div class="row d-flex align-items-center justify-content-center">
