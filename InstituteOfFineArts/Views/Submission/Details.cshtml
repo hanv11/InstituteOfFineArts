@@ -11,7 +11,7 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white pt-20 pb-20">
-                    @Html.DisplayFor(model => model.Competitions.CompetitionName)
+                    @Html.DisplayFor(model => model.Competition.CompetitionName)
                 </h1>
             </div>
         </div>
@@ -19,31 +19,33 @@
 </section>
 <div class="whole-wrap">
     <div class="container ">
-
+        <div class="text-center mt-2">
+            <h1>@Html.DisplayFor(model => model.SubmissionName)</h1>
+        </div>
         <div class="section-top-border">
             <div class="row">
                 <div class="col-md-6">
 
                     <img id="myImg" class="img-rounded img-fluid picture" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey;" src="@Url.Content(Model.Picture)" alt="Alternate Text" />
-                
+
                     <div id="myModal" class="modal">
                         <span class="close1">&times;</span>
-                        <img  class="modal-content" id="img01" style="margin-top: -60px;" />
+                        <img class="modal-content" id="img01" style="margin-top: -60px;" />
                     </div>
                 </div>
                 <div class="col-md-4 mt-sm-20">
                     <h4 class="mb-4">Student Name: @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)</h4>
 
                     <h4 class="mb-4">Description : @Html.DisplayFor(model => model.Description)</h4>
-                    <h4 class="mb-4">Point: </h4>
-                    <h4 class="mb-4">Award: </h4>
-                    <h4 class="mb-4">Post Date: </h4>
+                    <h4 class="mb-4">Point: @Html.DisplayFor(model => model.Marks)</h4>
+                    <h4 class="mb-4">Award: @Html.DisplayFor(model => model.Awards)</h4>
+                    <h4 class="mb-4">Post Date: @Html.DisplayFor(model => model.UpdatedAt)</h4>
                 </div>
             </div>
             <div class="col-md-6 mt-4">
                 @if (Model.AccountId == User.Identity.GetUserId())
                 {
-                    <a class="btn btn-primary btn-lg" href="@Url.Action("Edit", "Submission", new { id = Model.SubmissionId })">Update</a>
+                    <a class="btn btn-primary btn-lg" href="@Url.Action("Edit", "Submission", new {id = Model.SubmissionId})">Update</a>
                 }
 
                 <a class="btn btn-primary btn-lg" href="@Url.Action("List", "Submission", new {id = Model.CompetitionId})">Back</a>

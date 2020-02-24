@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     
-    <section class="relative" style="background: url(@Model.Image); background-size: cover">
+    <section class="relative" style="background-image: url(@Url.Content(@Model.Image)); background-size: cover">
         <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
         <div class="container">
             <div class="row d-flex align-items-center justify-content-center">
@@ -13,8 +13,18 @@
                     <h1 class="text-white pt-20 pb-20">
                         @Html.DisplayFor(model => model.CompetitionName)
                     </h1>
+                    <div class="row detail-content">
+                        <div class="col-md-6 term">
+                            <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
+                            @Html.DisplayFor(model => model.StartDate)
+                        </div>
+                        <div class="col-md-6 term">
+                            <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
+                            @Html.DisplayFor(model => model.EndDate)
+                        </div>
+                    </div>
                     <a href="@Url.Action("Register", "Submission", new {competitionId = Model.CompetitionId})" target="_blank" class="primary-btn text-uppercase">Register</a>
-                    
+
                 </div>
             </div>
         </div>
@@ -25,16 +35,6 @@
     <main class="site-main">
         <article class="type-page">
             <div class="container">
-                <div class="row detail-content">
-                    <div class="col-md-6 term">
-                        <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
-                        @Html.DisplayFor(model => model.StartDate)
-                    </div>
-                    <div class="col-md-6 term">
-                        <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
-                        @Html.DisplayFor(model => model.EndDate)
-                    </div>
-                </div>
                 <div class="detail-content submission-content">
                     @Html.DisplayFor(model => model.Description)
                 </div>
