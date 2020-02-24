@@ -193,8 +193,7 @@
     <Compile Include="Migrations\202002231722102_UpdateData.Designer.cs">
       <DependentUpon>202002231722102_UpdateData.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
+
     <Compile Include="Migrations\202002240333153_submissionTable1.cs" />
     <Compile Include="Migrations\202002240333153_submissionTable1.Designer.cs">
       <DependentUpon>202002240333153_submissionTable1.cs</DependentUpon>
@@ -207,7 +206,7 @@
     <Compile Include="Migrations\202002240619390_submissionTable2.Designer.cs">
       <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
     </Compile>
->>>>>>> master
+
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1718,8 +1717,7 @@
     <EmbeddedResource Include="Migrations\202002231722102_UpdateData.resx">
       <DependentUpon>202002231722102_UpdateData.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-=======
+
     <EmbeddedResource Include="Migrations\202002240333153_submissionTable1.resx">
       <DependentUpon>202002240333153_submissionTable1.cs</DependentUpon>
     </EmbeddedResource>
@@ -1729,7 +1727,7 @@
     <EmbeddedResource Include="Migrations\202002240619390_submissionTable2.resx">
       <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> master
+
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
