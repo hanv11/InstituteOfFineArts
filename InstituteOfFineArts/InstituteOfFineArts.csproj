@@ -201,6 +201,10 @@
     <Compile Include="Migrations\202002240334194_submissionTable.Designer.cs">
       <DependentUpon>202002240334194_submissionTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002240619390_submissionTable2.cs" />
+    <Compile Include="Migrations\202002240619390_submissionTable2.Designer.cs">
+      <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1714,6 +1718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002240334194_submissionTable.resx">
       <DependentUpon>202002240334194_submissionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002240619390_submissionTable2.resx">
+      <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
