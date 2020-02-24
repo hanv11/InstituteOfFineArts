@@ -6,12 +6,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InstituteOfFineArts.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace InstituteOfFineArts.Areas.Teacher.Controllers
 {
     public class CompetitionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private UserManager<Account> _userManager = new UserManager<Account>(new UserStore<Account>());
         // GET: Teacher/Competition
         public ActionResult Index()
         {
@@ -105,5 +108,46 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult GetTeachers(string keyword)
+        {
+            var teacher = (from user in db.Users
+                from role in user.Roles
+                join userRole in db.Roles on role.RoleId equals userRole.Id
+                where userRole.Name == "Teacher"
+                select new
+                {
+                    id = user.Id,
+                    name = user.FirstName + user.LastName
+                });
+
+            return new JsonResult()
+            {
+                Data = teacher,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
+
+        public ActionResult AddExaminer(string accountId)
+        {
+            if (accountId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var account = db.Users.FirstOrDefault(x => x.Id.Equals(accountId));
+            var currentUserId = User.Identity.GetUserId();
+            var competition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
+
+            if (competition.Examiners.Contains(account))
+            {
+                return null;
+            }
+            competition.Examiners.Add(account);
+            return new JsonResult()
+            {
+                Data = account,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
     }
 }

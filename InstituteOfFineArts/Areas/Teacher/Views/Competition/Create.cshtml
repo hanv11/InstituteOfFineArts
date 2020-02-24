@@ -3,87 +3,129 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 }
 
 <h2>Create Competition</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <hr />
-    
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.CompetitionName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CompetitionName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CompetitionName, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @Type = "date", @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <div class="form-horizontal">
+        <hr />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @Type = "date", @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompetitionName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompetitionName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompetitionName, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <img id="previous" src="#" class="hidden img-thumbnail" alt="Alternate Text" style="width: 100px" />
-            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @type="hidden"} })
-            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-        <div style="margin-top: 5px">
-            <button type="button" id="upload_widget" class="btn btn-primary">Upload files</button>
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @Type = "date", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
         </div>
-        </div>
-    </div>
-    @* <div class="form-group"> *@
-    @*     @Html.LabelFor(model => model.Awards, htmlAttributes: new { @class = "control-label col-md-2" }) *@
-    @*     <div class="col-md-10"> *@
-    @*         @Html.EditorFor(model => model.Awards, new { htmlAttributes = new { @class = "form-control" } }) *@
-    @*         @Html.ValidationMessageFor(model => model.Awards, "", new { @class = "text-danger" }) *@
-    @*     </div> *@
-    @* </div> *@
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @Type = "date", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img id="previous" src="#" class="hidden img-thumbnail" alt="Alternate Text" style="width: 100px" />
+                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                <div style="margin-top: 5px">
+                    <button type="button" id="upload_widget" class="btn btn-primary">Upload files</button>
+                </div>
+            </div>
+        </div>
+        @* <div class="form-group"> *@
+        @*     @Html.LabelFor(model => model.Awards, htmlAttributes: new { @class = "control-label col-md-2" }) *@
+        @*     <div class="col-md-10"> *@
+        @*         @Html.EditorFor(model => model.Awards, new { htmlAttributes = new { @class = "form-control" } }) *@
+        @*         @Html.ValidationMessageFor(model => model.Awards, "", new { @class = "text-danger" }) *@
+        @*     </div> *@
+        @* </div> *@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <ul id="examiners">
+        </ul>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
-</div>
 }
 
+<div class="col-md-10">
+    <input id="search" type="text" name="name" value="" autocomplete="false" placeholder="Seach by rollNumber or StudentName" />
+</div>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
-    
-    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+
 
     <script type="text/javascript">
+        $("#search").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '@Url.Action("GetTeachers", "Competition")',
+                    data: {
+                        keyword: $('#search').val() + "",
+                    },
+                    success: function(data) {
+                        response($.map(data,
+                            function(val, item) {
+                                return {
+                                    label: val.name,
+                                    value: val.name,
+                                    id: val.id
+                                }
+                            }))
+                    }
+                })
+            },
+            select: function(event, ui) {
+//                $("#id").val(ui.item.rollNumber);
+//                $("#Penalty").removeAttr('disabled');
+                console.log(ui.item.id);
+                $.ajax({
+                    url: '@Url.Action("AddExaminer", "Competition")',
+                    data: {
+                        accountId : ui.item.id
+                    },
+                    success: function(res) {
+                        $("#examiners").append("<li>" + res.FirstName + "</li>");
+                    }
+
+                })
+            }
+        });
         var myWidget = cloudinary.createUploadWidget({
                 cloudName: 'hanv11',
                 uploadPreset: 'bpmopgln'
@@ -100,9 +142,11 @@
             }
         );
 
-        document.getElementById("upload_widget").addEventListener("click", function(){
-            myWidget.open();
-        }, false);
+        document.getElementById("upload_widget").addEventListener("click",
+            function() {
+                myWidget.open();
+            },
+            false);
     </script>
     @Scripts.Render("~/bundles/jqueryval")
 }
