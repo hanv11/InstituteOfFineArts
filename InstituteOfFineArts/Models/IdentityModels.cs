@@ -20,11 +20,11 @@ namespace InstituteOfFineArts.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Competition> Competitions { get; set; }
+        public DbSet<Submission> Submissions { get; set; }
+        public DbSet<Award> Awards { get; set; }
 
-        public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Competition> Competitions { get; set; }
-        public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Submission> Submissions { get; set; }
-        public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Award> Awards { get; set; }
+        public DbSet<AccountRole> IdentityRoles { get; set; }
 
-        public System.Data.Entity.DbSet<InstituteOfFineArts.Models.AccountRole> IdentityRoles { get; set; }
     }
 }
