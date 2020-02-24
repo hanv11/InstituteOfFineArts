@@ -25,5 +25,6 @@ namespace InstituteOfFineArts.Models
         public DbSet<Award> Awards { get; set; }
 
         public DbSet<AccountRole> IdentityRoles { get; set; }
+
     }
 }

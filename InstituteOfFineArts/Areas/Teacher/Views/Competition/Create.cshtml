@@ -67,8 +67,6 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
-        <ul id="examiners">
-        </ul>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -77,9 +75,6 @@
     </div>
 }
 
-<div class="col-md-10">
-    <input id="search" type="text" name="name" value="" autocomplete="false" placeholder="Seach by rollNumber or StudentName" />
-</div>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
@@ -91,41 +86,7 @@
 
 
     <script type="text/javascript">
-        $("#search").autocomplete({
-            source: function(request, response) {
-                $.ajax({
-                    url: '@Url.Action("GetTeachers", "Competition")',
-                    data: {
-                        keyword: $('#search').val() + "",
-                    },
-                    success: function(data) {
-                        response($.map(data,
-                            function(val, item) {
-                                return {
-                                    label: val.name,
-                                    value: val.name,
-                                    id: val.id
-                                }
-                            }))
-                    }
-                })
-            },
-            select: function(event, ui) {
-//                $("#id").val(ui.item.rollNumber);
-//                $("#Penalty").removeAttr('disabled');
-                console.log(ui.item.id);
-                $.ajax({
-                    url: '@Url.Action("InviteExaminer", "Competition")',
-                    data: {
-                        accountId : ui.item.id
-                    },
-                    success: function(res) {
-                        $("#examiners").append("<li>" + res.FirstName + "</li>");
-                    }
-
-                })
-            }
-        });
+    
         var myWidget = cloudinary.createUploadWidget({
                 cloudName: 'hanv11',
                 uploadPreset: 'bpmopgln'

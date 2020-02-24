@@ -60,10 +60,14 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Competition competition = db.Competitions.Find(id);
+            var competition = db.Competitions.Find(id);
             if (competition == null)
             {
                 return HttpNotFound();
+            }
+            if (competition.CreatorId != User.Identity.GetUserId())
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             return View(competition);
         }
@@ -94,6 +98,10 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             if (competition == null)
             {
                 return HttpNotFound();
+            }
+            if (competition.CreatorId != User.Identity.GetUserId())
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             return View(competition);
         }
@@ -126,28 +134,31 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
-
+        [Authorize(Roles = "Teacher")]
         public ActionResult InviteExaminer(string accountId)
         {
             if (accountId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             var account = db.Users.FirstOrDefault(x => x.Id.Equals(accountId));
             var currentUserId = User.Identity.GetUserId();
             var competition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
-
-            if (competition.Examiners.Contains(account))
+            if (competition == null || competition.Examiners.Contains(account))
             {
                 return null;
             }
             competition.Examiners.Add(account);
-            return new JsonResult()
-            {
-                Data = account,
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet
-            };
+            db.SaveChanges();
+            return PartialView("_ListExaminer", competition.Examiners);
+        }
+        [Authorize(Roles = "Teacher")]
+        public ActionResult Joined()
+        {
+            var currentUserId = User.Identity.GetUserId();
+            var currentUser = db.Users.Find(currentUserId);
+            var competition = db.Competitions.Where(c => c.Examiners.Select(s => s.Id).Contains(currentUserId)).ToList();
+            return View(competition);
         }
     }
 }
