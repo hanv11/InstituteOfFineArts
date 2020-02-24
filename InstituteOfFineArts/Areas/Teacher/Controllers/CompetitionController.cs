@@ -127,7 +127,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             };
         }
 
-        public ActionResult AddExaminer(string accountId)
+        public ActionResult InviteExaminer(string accountId)
         {
             if (accountId == null)
             {

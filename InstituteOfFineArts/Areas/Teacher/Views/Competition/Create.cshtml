@@ -115,7 +115,7 @@
 //                $("#Penalty").removeAttr('disabled');
                 console.log(ui.item.id);
                 $.ajax({
-                    url: '@Url.Action("AddExaminer", "Competition")',
+                    url: '@Url.Action("InviteExaminer", "Competition")',
                     data: {
                         accountId : ui.item.id
                     },
