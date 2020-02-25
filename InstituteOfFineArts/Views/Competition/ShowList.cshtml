@@ -1,12 +1,13 @@
-﻿
-@model PagedList.IPagedList<InstituteOfFineArts.Models.Competition>
-@using PagedList.Mvc;
-@{
+﻿@using System.Collections.Generic
+@using System.Linq
+@using InstituteOfFineArts.Models
+@model System.Collections.Generic.IEnumerable<InstituteOfFineArts.Models.Competition>
+
     ViewBag.Title = "ShowList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div class="container-style" style="background-color:#f3f3f3; background-size:cover">
-        <section class="banner-area relative">
+<div class="container-style" style="background-color:#f3f3f3; background-size:cover">
+    <section class="banner-area relative">
         <div class="overlay overlay-bg"></div>
         <div class="container">
             <div class="row d-flex align-items-center justify-content-center">
@@ -25,49 +26,55 @@
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-10">
                     <div class="title text-center">
-                        <h1 class="mb-10">Các sự kiện đang được diễn ra</h1>
+                        <h1 class="mb-10">Checkout our Upcoming Events</h1>
                         <p>Who are in extremely love with eco friendly system.</p>
                     </div>
                 </div>
             </div>
-            @foreach (var item in Model)
-            {
-                <article>
-                    <div class="container">
-                        <div class="row d-flex justify-content-center">
-                            <div class="menu-content pb-60 col-lg-10">
-                                <div class="title text-center">
-                                    <h1 class="mb-10"></h1>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row show-list" style="">
-                            <div class="col-lg-12 single-blog" style="display:inline-block"  >
-                                <div class="single-events" style="text-align:center">
-                                    <img class="col-md-4 shadow-lg p-3 mb-5 bg-white rounded" src="@Url.Content(item.Image)" style="height:225px; margin: 10px 10px 0 0" alt="">
-                                    <div style="padding-top: 20px; border-left-color: #ff6a00">
-                                        <a style="padding:5px" href="#"><h4>@Html.DisplayFor(modelItem => item.CompetitionName)</h4></a>
-                                        <p>
-                                            @Html.DisplayFor(modelItem => item.Description)
-                                        </p>
-                                        <a href="@Url.Action("DetailCompetition","Competition", new {id = item.CompetitionId })" class="primary-btn text-uppercase">View Details</a>
-                                    </div>
-                                    </div>
-                          
-                            </div>
+            <div class="container">
+                @{
+                    var length = Model.Count();
+                    List<Competition> competitions = (List<Competition>)Model;
+                }
+                @for (var i = 0; i < 1; i++)
+                {
+                    <div class="col-lg-6 event-left">
+                        <div class="single-events">
+                            <img class="img-fluid" src="@Url.Content(competitions[i].Image)" alt="">
+                            <a href="#"><h4>@competitions[i].CompetitionName</h4></a>
+                            <p>
+                                @competitions[i].Description
+                            </p>
+                            @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                         </div>
                     </div>
-
-                </article>
-            }
+                    <div class="col-lg-6 event-right">
+                        <div class="single-events">
+                            <a href="#"><h4>@competitions[i + 1].CompetitionName</h4></a>
+                            <p>
+                                @competitions[i + 1].Description
+                            </p>
+                            @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 1].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                            <img class="img-fluid" src="@Url.Content(competitions[i + 1].Image)" alt="">
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="container">
+                <ul class="pagination">
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                </ul>
+            </div>
             <hr />
-            Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
-            @Html.PagedListPager(Model, page => Url.Action("ShowList", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+
         </section>
 
     </section>
 
-    </div>
-    
+</div>
+
 

@@ -3,12 +3,12 @@
 @using InstituteOfFineArts.Models
 @model System.Collections.Generic.IEnumerable<InstituteOfFineArts.Models.Competition>
 
-    <section class="upcoming-event-area section-gap" id="events">
+    <section class="upcoming-event-area section-gap" style="background-color:#F9F9FF" id="events">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-10">
                     <div class="title text-center">
-                        <h1 class="mb-10">Các sự kiện đang diễn ra</h1>
+                        <h1 class="mb-10">List Of Competitions</h1>
                         <p>Who are in extremely love with eco friendly system.</p>
                     </div>
                 </div>
@@ -22,43 +22,39 @@
             {
                 <div class="col-lg-6 event-left">
                     <div class="single-events">
-                        <img class="img-fluid" src="@competitions[i].Image" alt="">
-                        <a href="#"><h4>@competitions[i].CompetitionName</h4></a>
-                        <h6><span>21st February</span> at Central government museum</h6>
+                        <img class="img-fluid" src="@Url.Content(competitions[i + 2].Image)" alt="">
+                        <a href="#"><h4>@competitions[i + 2].CompetitionName</h4></a>
                         <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                            @competitions[i + 2].Description
                         </p>
-                        <a href="#" class="primary-btn text-uppercase">View Details</a>
+                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                     </div>
                     <div class="single-events">
-                        <a href="#"><h4>@competitions[i+2].CompetitionName</h4></a>
-                        <h6><span>21st February</span> at Central government museum</h6>
+                        <img class="img-fluid" src="@Url.Content(competitions[i + 4].Image)" alt="">
+                        <a href="#"><h4>@competitions[i + 4].CompetitionName</h4></a>
                         <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                            @competitions[i + 4].Description
                         </p>
-                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new {Id = @competitions[i+2].CompetitionId},new { @class = "primary-btn text-uppercase"});
-                        <img class="img-fluid" src="@competitions[i + 2].Image" alt="">
+                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 2].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                     </div>
 
                 </div>
                 <div class="col-lg-6 event-right">
                     <div class="single-events">
-                        <a href="#"><h4>@competitions[i+1].CompetitionName</h4></a>
-                        <h6><span>21st February</span> at Central government museum</h6>
+                        <a href="#"><h4>@competitions[i + 1].CompetitionName</h4></a>
                         <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                            @competitions[i + 1].Description
                         </p>
-                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new {Id = @competitions[i+1].CompetitionId},new { @class = "primary-btn text-uppercase"});
-                        <img class="img-fluid" src="@competitions[i+1].Image" alt="">
+                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new {Id = @competitions[i+1].CompetitionId},new { @class = "primary-btn text-uppercase"})
+                        <img class="img-fluid" src="@Url.Content(competitions[i + 1].Image)" alt="">
                     </div>
                     <div class="single-events">
-                        <img class="img-fluid" src="@competitions[i+3].Image" alt="">
-                        <a href="#"><h4>@competitions[i+3].CompetitionName</h4></a>
-                        <h6><span>21st February</span> at Central government museum</h6>
+                        <a href="#"><h4>@competitions[i + 5].CompetitionName</h4></a>
                         <p>
-                            inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially.
+                            @competitions[i + 3].Description
                         </p>
-                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new {Id = @competitions[i+4].CompetitionId},new { @class = "primary-btn text-uppercase"});
+                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 3].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                        <img class="img-fluid" src="@Url.Content(competitions[i + 5].Image)" alt="">
                     </div>
 
                 </div>

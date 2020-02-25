@@ -2,7 +2,6 @@
 @if (Request.IsAuthenticated)
 {
     
-
     <ul class="navbar-right js-scroll-trigger">
         @using (Html.BeginForm("LogOff", "Account", new {Area = ""}, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
         {
@@ -18,7 +17,6 @@
 else
 {
     <ul class="navbar-right js-scroll-trigger">
-        
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
