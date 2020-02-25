@@ -1,45 +1,47 @@
 ﻿@using InstituteOfFineArts.Models
 @model IEnumerable<InstituteOfFineArts.Models.Submission>
-    <div class="container-fluid" style="background-color: #ffffff">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
-                <div class="title text-center">
-                    <h1 class="mb-10">Submissions</h1>
+<div class="single-widget recent-posts-widget">
+    <h4 class="title">Some Submissions</h4>
+    <div class="blog-list ">
 
+
+
+        @foreach (var item in Model)
+        {
+            <div class="single-recent-post d-flex flex-row">
+                <div class="recent-thumb">
+                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"><img class="img-fluid" style="width:65px; padding-bottom: 15px" src="@item.Picture" alt=""></a>
                 </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row mb-5">
-                @foreach (var item in Model)
-                {
+                <div class="recent-details">
+                    <a href="blog-single.html">
+                        <h4>
+                            @item.SubmissionName
 
-                <div class="col-lg-3 col-md-6 single-blog mx-auto" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey;">
-                    <div class="thumb">
-                        <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"><img class="thumbnail-img shadow mb-3 mt-3 img-rounded" src="@item.Picture" alt=""></a>
-                    </div>
-                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})">
-                        <p class="text-left">
-                            @item.SubmissionName 
-                        </p>
-                        <p class="text-left">@item.Account.FirstName @item.Account.LastName</p>
-                        <p class="text-left">@item.UpdatedAt</p>
+                        </h4>
                     </a>
-                </div>
+                    <p>
+                        @item.Account.FirstName @item.Account.LastName
+                    </p>
+                    <p>
+                        @item.UpdatedAt
+                    </p>
 
-                }
+                </div>
             </div>
 
-            <!-- /.container -->
-            @using (Html.BeginForm("ListSubmission", "Submission", FormMethod.Get))
-            {
-                @Html.AntiForgeryToken()
 
-                <div class="col-md-12 text-center">
-                    <a href="@Url.Action("List", "Submission", new {id = Model.First().CompetitionId})" target="_blank" class="primary-btn text-uppercase">View More</a>
+        }
+        @using (Html.BeginForm("ListSubmission", "Submission", FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
 
-                </div>
-            }
 
-        </div>
+                <a href="@Url.Action("List", "Submission", new {id = Model.First().CompetitionId})" target="_blank" style="text-align:left" class="text-uppercase">See More</a>
+
+
+        }
+        <!-- /.container -->
+
+
     </div>
+</div>
