@@ -4,8 +4,8 @@
     ViewBag.Title = "DetailCompetition";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    
-    <section class="relative" style="background-image: url(@Url.Content(@Model.Image)); background-size: cover">
+
+    <section class="relative" style="background-image: url(@Url.Content(@Model.Image)); -ms-background-size: cover; background-size: cover">
         <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
         <div class="container">
             <div class="row d-flex align-items-center justify-content-center">
@@ -19,33 +19,137 @@
                             @Html.DisplayFor(model => model.StartDate)
                         </div>
                         <div class="col-md-6 term">
-                            <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
+                            <strong></strong>
                             @Html.DisplayFor(model => model.EndDate)
                         </div>
                     </div>
-                    <a href="@Url.Action("Register", "Submission", new {competitionId = Model.CompetitionId})" target="_blank" class="primary-btn text-uppercase">Register</a>
+                    <a href="@Url.Action("Register", "Submission", new { competitionId = Model.CompetitionId })" target="_blank" class="primary-btn text-uppercase">Register</a>
 
                 </div>
             </div>
         </div>
     </section>
-   
+<!-- Start blog-posts Area -->
+<section class="blog-posts-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 post-list blog-post-list">
+                <div class="single-post">
+                    <img class="img-fluid" style="width:700px" src="@Url.Content(@Model.Image)" alt="">
+                    <a href="#">
+                        <h1>
+                            @Html.DisplayFor(model => model.CompetitionName)
+                        </h1>
+                    </a>
+                    <div class="content-wrap">
 
-<div class="container">
-    <main class="site-main">
-        <article class="type-page">
-            <div class="container">
-                <div class="detail-content submission-content">
-                    @Html.DisplayFor(model => model.Description)
+
+                        <blockquote class="generic-blockquote">
+                            <p>@Html.DisplayNameFor(model => model.StartDate): @Html.DisplayFor(model => model.StartDate)</p>
+                            <p>@Html.DisplayNameFor(model => model.EndDate): @Html.DisplayFor(model => model.EndDate)</p>
+                        </blockquote>
+
+                        <p>
+                            @Html.DisplayFor(model => model.Description)
+                        </p>
+
+
+
+                    </div>
+                    <div class="bottom-meta">
+
+                            <div class="social-wrap col-lg-12">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                </ul>
+
+                            </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="col-lg-4 sidebar">
+                <div class="single-widget search-widget">
+                    <form class="example" action="#" style="margin:auto;max-width:300px">
+                        <input type="text" placeholder="Search Posts" name="search2">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
 
-            </div>
-        </article>
-    </main>
-</div>
+                <div class="single-widget protfolio-widget">
+                    <h4 class="title">Competition maker</h4>
+                    <img src="@Html.DisplayFor(model => model.Creator.Avatar, new { id = Model.CreatorId })" class="img-responsive" style="text-align:center ; width:75px;" alt="">
+                    <a href="#"><h4>@Html.DisplayFor(model => model.Creator.FirstName, new { id = Model.CreatorId }) @Html.DisplayFor(model => model.Creator.LastName)</h4></a>
+                    <p>
+                        @Html.DisplayFor(model => model.Creator.PhoneNumber, new { id = Model.CreatorId })
+                    </p>
+                </div>
 
-@if (Model.Submissions.Any())
-{
-    @Html.Action("ListSubmission", "Submission", new { Id = Model.CompetitionId })
-}
+                <div class="single-widget category-widget">
+                    <h4 class="title">Number of participants</h4>
+                    <ul>
+                        <li><a href="#" class="justify-content-between align-items-center d-flex"><h6>... Peoples</h6> <span></span></a></li>
+
+                    </ul>
+                </div>
+
+                @if (Model.Submissions.Any())
+                {
+                    @Html.Action("ListSubmission", "Submission", new { Id = Model.CompetitionId })
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End blog-posts Area -->
+@*<section class="relative" style="background-image: url(@Url.Content(@Model.Image)); -ms-background-size: cover; background-size: cover">
+            <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="about-content col-lg-12">
+                        <h1 class="text-white pt-20 pb-20">
+                            @Html.DisplayFor(model => model.CompetitionName)
+                        </h1>
+                        <div class="row detail-content">
+                            <div class="col-md-6 term">
+                                <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
+                                @Html.DisplayFor(model => model.StartDate)
+                            </div>
+                            <div class="col-md-6 term">
+                                <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
+                                @Html.DisplayFor(model => model.EndDate)
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Register", "Submission", new {competitionId = Model.CompetitionId})" target="_blank" class="primary-btn text-uppercase">Register</a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <div class="container">
+        <main class="site-main">
+            <article class="type-page">
+                <div class="container">
+                    <div class="detail-content submission-content">
+                        @Html.DisplayFor(model => model.Description)
+                    </div>
+
+                </div>
+            </article>
+        </main>
+    </div>*@
+
+
 <br />
