@@ -5,7 +5,7 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right nav-link js-scroll-trigger" style="margin-right:2px;">
+    <ul class="">
         @*<li>
             <a href="@Url.Action("Index","Manage",routeValues: null)"><img class="logo-user" src="@Url.Content("~/Content/img/logologin.png")" /></a>
         </li>*@
@@ -15,7 +15,7 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right nav-link js-scroll-trigger">
+    <ul class=" navbar-right js-scroll-trigger">
         
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
