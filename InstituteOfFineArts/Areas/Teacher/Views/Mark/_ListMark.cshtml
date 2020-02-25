@@ -1,0 +1,36 @@
+﻿@model IEnumerable<InstituteOfFineArts.Models.Mark>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Submission.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-md-2">
+                <img class="img-responsive" src="@Url.Content(@item.Submission.Picture)" alt="Alternate Text" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marks, new { id = item.AccountId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description, new { id = item.AccountId })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MarkId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MarkId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MarkId })
+            </td>
+        </tr>
+    }
+
+</table>

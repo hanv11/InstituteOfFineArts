@@ -1,0 +1,8 @@
+﻿@model InstituteOfFineArts.Models.Account
+@{
+    ViewBag.Title = "ListMark";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ListMark</h2>
+@Html.Action("_ListMark", "Mark", new { Id = Model.Id })
