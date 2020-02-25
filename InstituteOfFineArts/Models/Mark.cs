@@ -30,5 +30,6 @@ namespace InstituteOfFineArts.Models
             Better = 4,
             Best = 5
         }
+
     }
 }

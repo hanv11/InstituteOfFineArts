@@ -9,8 +9,21 @@
 {
     @Html.AntiForgeryToken()
     <div class="box box-info">
-        <div class="box-body">
-            <h4>Edit Competition</h4>
+    <div class="box-body">
+        <h4>Edit Competition</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CompetitionId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompetitionName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompetitionName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompetitionName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-horizontal">
+            <h4>Competition</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.CompetitionId)
@@ -23,50 +36,35 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-    <div class="form-horizontal">
-        <h4>Competition</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.CompetitionId)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CompetitionName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CompetitionName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CompetitionName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <img id="previous" src="#" class="hidden img-thumbnail" alt="Alternate Text" style="width: 100px" />
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
-                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
-                <div style="margin-top: 5px">
-                    <button type="button" id="upload_widget" class="btn btn-primary">Upload files</button>
+            <div class="form-group">
+                @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
 
-        @*<div class="form-group">
+            <div class="form-group">
+                @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <img id="previous" src="#" class="hidden img-thumbnail" alt="Alternate Text" style="width: 100px" />
+                    @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    <div style="margin-top: 5px">
+                        <button type="button" id="upload_widget" class="btn btn-primary">Upload files</button>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="form-group">
                 @Html.LabelFor(model => model.AwardDetails, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.AwardDetails, new { htmlAttributes = new { @class = "form-control" } })
@@ -74,20 +72,23 @@
                 </div>
             </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>
+    </div>
+            }
     <table class="table" id="list-examiner">
 
         <tr>
@@ -165,9 +166,9 @@
                 $.ajax({
                     url: '@Url.Action("InviteExaminer", "Competition")',
                     data: {
-                        accountId : ui.item.id
+                        accountId: ui.item.id
                     },
-                    success: function (res) {
+                    success: function(res) {
                         $("#list-examiner").html(res);
                     }
 
@@ -175,9 +176,9 @@
             }
         });
         var myWidget = cloudinary.createUploadWidget({
-            cloudName: 'hanv11',
-            uploadPreset: 'bpmopgln'
-        },
+                cloudName: 'hanv11',
+                uploadPreset: 'bpmopgln'
+            },
             (error, result) => {
                 if (!error && result && result.event === "success") {
                     console.log('Done! Here is the image info: ', result.info);
@@ -190,9 +191,11 @@
             }
         );
 
-        document.getElementById("upload_widget").addEventListener("click", function () {
-            myWidget.open();
-        }, false);
+        document.getElementById("upload_widget").addEventListener("click",
+            function() {
+                myWidget.open();
+            },
+            false);
     </script>
     @Scripts.Render("~/bundles/jqueryval")
 }
