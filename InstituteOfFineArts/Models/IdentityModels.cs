@@ -26,6 +26,6 @@ namespace InstituteOfFineArts.Models
 
         public DbSet<AccountRole> IdentityRoles { get; set; }
 
-        public System.Data.Entity.DbSet<InstituteOfFineArts.Models.Mark> Marks { get; set; }
+        public DbSet<Mark> Marks { get; set; }
     }
 }

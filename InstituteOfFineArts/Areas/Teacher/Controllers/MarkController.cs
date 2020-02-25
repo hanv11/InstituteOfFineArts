@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using InstituteOfFineArts.Areas.Teacher.Models;
 using InstituteOfFineArts.Models;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 
 namespace InstituteOfFineArts.Areas.Teacher.Controllers
@@ -138,19 +140,52 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult ListMark(string Id)
+        public ActionResult ListMark(int? competitionId)
         {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (competitionId == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var competition = db.Competitions.Find(competitionId);
+                var currentUserId = User.Identity.GetUserId();
+                var currentUser = db.Users.Find(currentUserId);
+                if (competition == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+                }
+                if (!competition.Examiners.Contains(currentUser))
+                {
+                   return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                }
+                var allSubmission = db.Submissions.Where(s => s.CompetitionId == competitionId);
+                var markView = (from submission in db.Submissions
+                    join mark in db.Marks on submission.SubmissionId equals mark.SubmissionId
+                    where submission.CompetitionId == competitionId & mark.AccountId.Equals(currentUserId)
+                    select new MarkViewModel
+                    {
+                        SubmisstionId = submission.SubmissionId,
+                        MarkId = mark.MarkId,
+                        Image = submission.Picture,
+                        Description = mark.Description,
+                        Mark = mark.Marks,
+                        StudentName = submission.Account.FirstName
+                    }).ToList();
+                foreach (var item in allSubmission)
+                {
+                    foreach (var m in item.Marks)
+                    {
+                        if(m.AccountId.Equals(currentUserId)) break;
+                        markView.Add(new MarkViewModel()
+                        {
+                            SubmisstionId = item.SubmissionId,
+                            MarkId = null,
+                            Image = item.Picture,
+//                            StudentName = item.Account.FirstName
+                        });
+                    }
+                }
+                return View(markView);
             }
-            Account account = db.Users.Find(Id);
-            if (account == null)
-            {
-                return HttpNotFound();
-            }
-            return View(account);
-        }
 
         public ActionResult _ListMark(string Id)
         {

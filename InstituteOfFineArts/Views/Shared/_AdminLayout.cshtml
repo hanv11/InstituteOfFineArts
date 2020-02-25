@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <div class="navbar-custom-menu" style="margin-right:1%">
+                <div class="navbar-custom-menu" style="margin-right:5%">
                     @Html.Partial("_LoginPartial")
                 </div>
             </nav>
@@ -111,7 +111,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
+        @Scripts.Render("~/Content/Js")
     @RenderSection("scripts", false)
 </body>
 </html>
