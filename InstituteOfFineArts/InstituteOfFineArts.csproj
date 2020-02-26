@@ -1706,6 +1706,8 @@
     <Content Include="Views\Home\_ListCompetition.cshtml" />
     <Content Include="Views\Submission\SomeSubmission.cshtml" />
     <Content Include="Views\Competition\Details.cshtml" />
+    <Content Include="Views\Submission\SubmissionIndex.cshtml" />
+    <Content Include="Views\Competition\SomeCompetition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
