@@ -1631,6 +1631,7 @@
     <Content Include="Areas\Teacher\Views\Mark\_ListMark.cshtml" />
     <Content Include="Areas\Teacher\Views\Mark\ListMark.cshtml" />
     <Content Include="Areas\Teacher\Views\Competition\MyCompetition.cshtml" />
+    <Content Include="Areas\Teacher\Views\Mark\_PopupEditMark.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

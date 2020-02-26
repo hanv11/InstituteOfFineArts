@@ -16,6 +16,9 @@
             @Html.DisplayNameFor(model => model.Mark)
         </th>
         <th>
+            Status
+        </th>  
+        <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th></th>
@@ -29,17 +32,34 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StudentName)
-            </td><td>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Mark)
             </td>
+
+            @if (item.Mark == null)
+            {
+                <td>
+                    <button class="btn btn-warning">Pending</button>
+                </td>
+                <td>
+                    @Html.ActionLink("Create", "Create", new {submissionId = item.SubmissionId}, new {@class = "btn btn-info"})
+                </td>
+            }
+            else
+            {
+                <td>
+                    <button class="btn btn-success">Done</button>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = item.MarkId}, new {@class = "btn btn-info"})
+
+                </td>
+            }
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MarkId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MarkId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MarkId })
-            </td>
+           
         </tr>
     }
 

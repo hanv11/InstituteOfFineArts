@@ -42,10 +42,26 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         }
 
         // GET: Teacher/Mark/Create
-        public ActionResult Create(int? id)
+        [Authorize(Roles = "Teacher")]
+        public ActionResult Create(int? submissionId)
         {
-            Submission submission = db.Submissions.Find(id);
-            ViewBag.SubmissionId = id;
+            if (submissionId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var currentUserId = User.Identity.GetUserId();
+            var account = db.Users.Find(currentUserId);
+            var submission = db.Submissions.Find(submissionId);
+            if (submission == null)
+            {
+                return HttpNotFound();
+            }
+            if (!submission.Competition.Examiners.Contains(account))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+            ViewBag.SubmissionId = submissionId;
             ViewBag.Picture = submission.Picture;
             return View();
         }
@@ -148,8 +164,10 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 var competition = db.Competitions.Find(competitionId);
+
                 var currentUserId = User.Identity.GetUserId();
                 var currentUser = db.Users.Find(currentUserId);
+
                 if (competition == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.NotFound);
@@ -158,6 +176,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 {
                    return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
                 }
+
                 var allSubmission = db.Submissions.Where(s => s.CompetitionId == competitionId);
                 var markView = (from submission in db.Submissions
                     join mark in db.Marks on submission.SubmissionId equals mark.SubmissionId
@@ -173,19 +192,20 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                     }).ToList();
                 foreach (var item in allSubmission)
                 {
-                    foreach (var m in item.Marks)
+                    var mark = db.Marks.FirstOrDefault(m =>
+                        m.AccountId.Equals(currentUserId) & m.SubmissionId == item.SubmissionId);
+                    if (mark == null)
                     {
-                        if(m.AccountId.Equals(currentUserId)) break;
                         markView.Add(new MarkViewModel()
                         {
                             SubmissionId = item.SubmissionId,
                             MarkId = null,
                             Image = item.Picture,
-//                            StudentName = item.Account.FirstName
+                            StudentName = item.Account.FirstName + " " + item.Account.LastName,
                         });
                     }
                 }
-                return View(markView);
+                return View(markView.OrderBy(m => m.Mark == null).ToList());
             }
 
     }
