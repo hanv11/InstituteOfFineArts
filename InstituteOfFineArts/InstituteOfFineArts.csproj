@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202002240619390_submissionTable2.Designer.cs">
       <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002260314509_Edit_Award_Table.cs" />
+    <Compile Include="Migrations\202002260314509_Edit_Award_Table.Designer.cs">
+      <DependentUpon>202002260314509_Edit_Award_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1703,6 +1707,7 @@
     <Content Include="Views\Shared\_TeacherNav.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Home\_ListCompetition.cshtml" />
+    <Content Include="Views\Submission\SomeSubmission.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1734,6 +1739,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002240619390_submissionTable2.resx">
       <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002260314509_Edit_Award_Table.resx">
+      <DependentUpon>202002260314509_Edit_Award_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,39 @@
+﻿@using InstituteOfFineArts.Models
+@model IEnumerable<InstituteOfFineArts.Models.Submission>
+
+
+<section class="gallery-area section-gap gallery-page-area" id="gallery">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Another Submissions</h1>
+                    <p>This's some submissions of other students</p>
+                </div>
+            </div>
+        </div>
+        <div id="grid-container" class="row">
+            @foreach (var item in Model)
+            {
+
+
+                <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})">
+                    <div><img class="grid-item" style="width:65px; padding-bottom: 15px" src="@item.Picture" alt=""></div>
+                </a>
+
+
+
+
+            }
+
+        </div>
+        <div style="text-align:center;">
+            @using (Html.BeginForm("SomeSubmission", "Submission", FormMethod.Get))
+            {
+                @Html.AntiForgeryToken()
+                <a href="@Url.Action("List", "Submission", new {id = Model.First().CompetitionId})" class="genric-btn primary circle button-area">See More</a>
+            }
+        </div>
+    </div>
+</section>
+

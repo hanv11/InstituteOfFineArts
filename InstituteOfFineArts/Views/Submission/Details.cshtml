@@ -13,63 +13,68 @@
                 <h1 class="text-white pt-20 pb-20">
                     @Html.DisplayFor(model => model.Competition.CompetitionName)
                 </h1>
+                <p class="text-white link-nav"><a href="/Home/Index">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="/Submission/List/@Html.DisplayFor(model => model.CompetitionId)">List Submission</a><span class="lnr lnr-arrow-right"></span><a href="/Submission/Detail/@Html.DisplayFor(model => model.SubmissionId)">Detail Submission</a></p>
             </div>
         </div>
     </div>
 </section>
-<div class="whole-wrap">
-    <div class="container ">
-        <div class="text-center mt-2">
-            <h1>@Html.DisplayFor(model => model.SubmissionName)</h1>
-        </div>
-        <div class="section-top-border">
-            <div class="row">
-                <div class="col-md-6">
+<div style="background-color: #f3f3f3;">
+    <!-- Start cat-top Area -->
+    <section class="cat-top-area section-gap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 cat-top-left">
+                    <h1>
+                        @Html.DisplayFor(model => model.Competition.CompetitionName)
+                    </h1>
+                    <h4>
+                        @Html.DisplayFor(model => model.Description)
+                    </h4>
+                    <p>Student Name: @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)</p>
+                    <p>Point: @Html.DisplayFor(model => model.Marks)</p>
+                    <p>Award: @Html.DisplayFor(model => model.Awards)</p>
+                    <p>Post Date: @Html.DisplayFor(model => model.UpdatedAt)</p>
+                    <p>Description : @Html.DisplayFor(model => model.Description)</p>
+                    @if (Model.AccountId == User.Identity.GetUserId())
+                    {
+                        <a class="genric-btn warning circle" href="@Url.Action("Edit", "Submission", new {id = Model.SubmissionId})">Update</a>
+                    }
 
-                    <img id="myImg" class="img-rounded img-fluid picture" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey;" src="@Url.Content(Model.Picture)" alt="Alternate Text" />
-
-                    <div id="myModal" class="modal">
-                        <span class="close1">&times;</span>
-                        <img class="modal-content" id="img01" style="margin-top: -60px;" />
-                    </div>
+                    <a class="genric-btn success circle" href="@Url.Action("List", "Submission", new {id = Model.CompetitionId})">Back</a>
                 </div>
-                <div class="col-md-4 mt-sm-20">
-                    <h4 class="mb-4">Student Name: @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)</h4>
-
-                    <h4 class="mb-4">Description : @Html.DisplayFor(model => model.Description)</h4>
-                    <h4 class="mb-4">Point: @Html.DisplayFor(model => model.Marks)</h4>
-                    <h4 class="mb-4">Award: @Html.DisplayFor(model => model.Awards)</h4>
-                    <h4 class="mb-4">Post Date: @Html.DisplayFor(model => model.UpdatedAt)</h4>
+                <div class="col-lg-6 cat-top-right">
+                    <img id="myImg" class="img-responsive img-rounded" src="@Url.Content(Model.Picture)" alt="">
+                </div>
+                <div id="myModal" class="modal">
+                    <span class="close1">&times;</span>
+                    <img class="modal-content" id="img01" style="margin-top: 60px;" />
                 </div>
             </div>
-            <div class="col-md-6 mt-4">
-                @if (Model.AccountId == User.Identity.GetUserId())
-                {
-                    <a class="btn btn-primary btn-lg" href="@Url.Action("Edit", "Submission", new {id = Model.SubmissionId})">Update</a>
-                }
-
-                <a class="btn btn-primary btn-lg" href="@Url.Action("List", "Submission", new {id = Model.CompetitionId})">Back</a>
-            </div>
         </div>
-    </div>
+
+
+
+    </section>
+    @Html.Action("SomeSubmission", "Submission", new { Id = Model.CompetitionId })
+    <!-- End cat-top Area -->
 </div>
 
-<script type="text/javascript">
-    var modal = document.getElementById("myModal");
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-    }
+    <script type="text/javascript">
+        var modal = document.getElementById("myModal");
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("myImg");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
 
-// Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close1")[0];
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close1")[0];
 
-// When the user clicks on <span> (x), close the modal
-    span.onclick = function() { 
-        modal.style.display = "none";
-    }
-</script>
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    </script>
