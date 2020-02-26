@@ -1,44 +1,39 @@
 ﻿@model IEnumerable<InstituteOfFineArts.Models.Account>
 
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Birthday)
-        </th>
-       
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th></th>
-    </tr>
+<tr>
+    <th>
+        FirstName
+    </th>
+    <th>
+        LastName
+    </th>
+    <th>
+        Email
+    </th>
+    <th>
+        Birthday
+    </th>
+    <th></th>
+</tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @item.FirstName
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @item.LastName
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @item.Email
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Birthday)
+            @item.Birthday
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "DeleteExaminer", new { AccountId=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <button class="btn-danger" onclick="remove('@item.Id')">Delete</button>
         </td>
     </tr>
 }
