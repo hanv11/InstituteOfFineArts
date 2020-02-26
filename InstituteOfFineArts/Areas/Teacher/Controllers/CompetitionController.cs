@@ -126,7 +126,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             var teacher = (from user in db.Users
                 from role in user.Roles
                 join userRole in db.Roles on role.RoleId equals userRole.Id
-                where userRole.Name == "Teacher"
+                where userRole.Name == "Teacher" & user.FirstName.Contains(keyword) | user.LastName.Contains(keyword)
                 select new
                 {
                     id = user.Id,
@@ -171,7 +171,6 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
 
             var currentUserId = User.Identity.GetUserId();
-            var currentUser = db.Users.Find(currentUserId);
             var myCompetition = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId)).ToList();
             return View(myCompetition);
 
@@ -192,7 +191,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 competition.Examiners.Remove(account);
             }
             db.SaveChanges();
-            return PartialView("_ListExaminer");
+            return PartialView("_ListExaminer",competition.Examiners);
             
         }
     }

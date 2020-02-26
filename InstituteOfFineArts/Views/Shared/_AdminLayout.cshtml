@@ -13,11 +13,15 @@
     <link rel="icon" type="image/png" href="@Url.Content("~/Content/Img/pofa_logo.png")">
     <!-- For apple devices -->
     <link rel="apple-touch-icon" type="image/png" href="@Url.Content("~/Content/Img/pofa_logo.png")" />
+      
     @Styles.Render("~/Css")
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">s
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+ 
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -107,11 +111,14 @@
 
     </div>
     @Scripts.Render("~/bundles/jquery")
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+@Scripts.Render("~/Content/Js")
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-        @Scripts.Render("~/Content/Js")
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+ 
+  
+ss
     @RenderSection("scripts", false)
 </body>
 </html>
