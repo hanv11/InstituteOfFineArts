@@ -59,13 +59,14 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
             if (ModelState.IsValid)
             {
+                var CompetitionId = db.Competitions.First().CompetitionId;
                 var teacherId = User.Identity.GetUserId();
                 var account = db.Users.FirstOrDefault(u => u.Id == teacherId);
                 mark.AccountId = teacherId;
                 mark.Examiner = account;
                 db.Marks.Add(mark);
                 db.SaveChanges();
-                return RedirectToAction("ListMark");
+                return RedirectToAction("ListMark",new {CompetitionId = CompetitionId});
             }
             return View(mark);
         }
@@ -168,7 +169,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                         Image = submission.Picture,
                         Description = mark.Description,
                         Mark = mark.Marks,
-                        StudentName = submission.Account.FirstName
+                        StudentName = submission.Account.FirstName + " " + submission.Account.LastName
                     }).ToList();
                 foreach (var item in allSubmission)
                 {
@@ -187,10 +188,5 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 return View(markView);
             }
 
-        public ActionResult _ListMark(string Id)
-        {
-            var teacher = db.Marks.Where(s => s.AccountId == Id);
-            return PartialView("_ListMark",teacher.ToList());
-        }
     }
 }
