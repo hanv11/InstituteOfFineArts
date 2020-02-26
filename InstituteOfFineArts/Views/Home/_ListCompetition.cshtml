@@ -27,7 +27,7 @@
                         <p>
                             @competitions[i + 2].Description
                         </p>
-                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 2].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                     </div>
                     <div class="single-events">
                         <img class="img-fluid" src="@Url.Content(competitions[i + 4].Image)" alt="">
@@ -35,7 +35,7 @@
                         <p>
                             @competitions[i + 4].Description
                         </p>
-                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 2].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 4].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                     </div>
 
                 </div>
@@ -51,9 +51,9 @@
                     <div class="single-events">
                         <a href="#"><h4>@competitions[i + 5].CompetitionName</h4></a>
                         <p>
-                            @competitions[i + 3].Description
+                            @competitions[i + 5].Description
                         </p>
-                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 3].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                        @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 5].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                         <img class="img-fluid" src="@Url.Content(competitions[i + 5].Image)" alt="">
                     </div>
 
