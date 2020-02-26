@@ -23,6 +23,11 @@ namespace InstituteOfFineArts.Controllers
             var submissions = db.Submissions.Include(s => s.Competition);
             return View(submissions.ToList());
         }
+        public ActionResult SubmissionIndex()
+        {
+            var submissions = db.Submissions.Include(s => s.Competition);
+            return PartialView(submissions.ToList().Take(4));
+        }
         public ActionResult ListSubmission(int? Id)
         {
             if (Id == null)

@@ -33,5 +33,6 @@ namespace InstituteOfFineArts.Controllers
         {
             return PartialView("_ListCompetition", db.Competitions.ToList());
         }
+        
     }
 }

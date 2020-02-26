@@ -13,21 +13,21 @@
                 <h1 class="text-white pt-20 pb-20">
                     @Html.DisplayFor(model => model.CompetitionName)
                 </h1>
-                <div class="row detail-content">
-                    <div class="col-md-6 term">
-                        <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
-                        @Html.DisplayFor(model => model.StartDate)
-                    </div>
-                    <div class="col-md-6 term">
-                        <strong></strong>
-                        @Html.DisplayFor(model => model.EndDate)
-                    </div>
-                </div>
+                <p class="text-white link-nav">
+                    
+                        <span class="lnr ">@Html.DisplayNameFor(model => model.StartDate):@Html.DisplayFor(model => model.StartDate)</span>
 
+
+
+                        <span class="lnr ">@Html.DisplayNameFor(model => model.EndDate):@Html.DisplayFor(model => model.EndDate)</span>
+
+                </p>
+            </div>
+                
 
             </div>
         </div>
-    </div>
+    
 </section>
 <!-- Start blog-posts Area -->
 <section class="blog-posts-area section-gap">
@@ -76,12 +76,6 @@
                 </div>
             </div>
             <div class="col-lg-4 sidebar">
-                <div class="single-widget search-widget">
-                    <form class="example" action="#" style="margin:auto;max-width:300px">
-                        <input type="text" placeholder="Search Posts" name="search2">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
 
                 <div class="single-widget protfolio-widget">
                     <h4 class="title">Competition maker</h4>
@@ -99,13 +93,13 @@
                 </div>
 
                 @*<div class="single-widget category-widget">
-                        <h4 class="title">Number of participants</h4>
-                        <ul>
-                            <li><a href="#" class="justify-content-between align-items-center d-flex"><h6>... Peoples</h6> <span></span></a></li>
+            <h4 class="title">Number of participants</h4>
+            <ul>
+                <li><a href="#" class="justify-content-between align-items-center d-flex"><h6>... Peoples</h6> <span></span></a></li>
 
-                        </ul>
-                    </div>*@
-
+            </ul>
+        </div>*@
+                @Html.Action("SomeCompetition", "Competition");
                 @if (Model.Submissions.Any())
                 {
                     @Html.Action("ListSubmission", "Submission", new { Id = Model.CompetitionId })
