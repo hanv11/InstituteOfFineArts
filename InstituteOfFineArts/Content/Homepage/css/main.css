@@ -58,7 +58,9 @@ body {
   line-height: 1.625em;
   position: relative;
 }
-
+.style-images {
+    max-height: 250px;
+}
 ol, ul {
   margin: 0;
   padding: 0;
@@ -2534,21 +2536,14 @@ body.mobile-nav-active {
 .upcoming-event-area .event-left .single-events {
   margin-bottom: 50px;
 }
+.upcoming-event-area .event-left .single-events img {
+    max-height: 250px !important;
+}
 
 .upcoming-event-area .event-left .single-events h4 {
   margin-top: 40px;
 }
 
-.upcoming-event-area .event-left .single-events h6 {
-  font-weight: 300;
-  color: #777;
-  padding-top: 10px;
-  padding-bottom: 12px;
-}
-
-.upcoming-event-area .event-left .single-events h6 span {
-  color: #222;
-}
 
 .upcoming-event-area .event-right .single-events {
   margin-bottom: 50px;
@@ -2556,18 +2551,9 @@ body.mobile-nav-active {
 
 .upcoming-event-area .event-right .single-events img {
   margin-top: 40px;
+  max-height:250px !important;
 }
 
-.upcoming-event-area .event-right .single-events h6 {
-  font-weight: 300;
-  color: #777;
-  padding-top: 10px;
-  padding-bottom: 12px;
-}
-
-.upcoming-event-area .event-right .single-events h6 span {
-  color: #222;
-}
 
 .blog-area {
   background-color: #f9f9ff;
