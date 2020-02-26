@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using InstituteOfFineArts.Areas.Teacher.Models;
 using InstituteOfFineArts.Models;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -170,49 +171,24 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
             var currentUserId = User.Identity.GetUserId();
             var currentUser = db.Users.Find(currentUserId);
-            var allCompetition = db.Competitions.ToList();
-            var mycompetition = (from competition in db.Competitions
-                where competition.CreatorId == currentUserId
-                select new CompetitionViewModel
-                {
-                    CompetitionId = competition.CompetitionId,
-                    CompetitionName = competition.CompetitionName,
-                    StartDate = competition.StartDate,
-                    EndDate = competition.EndDate,
-                    Image = competition.Image,
-                    Description = competition.Description
-                }).ToList();
-            foreach (var item in allCompetition)
-            {
-                if (item.CreatorId.Equals(currentUserId)) break;
-                mycompetition.Add(new CompetitionViewModel()
-                {
-                    CompetitionId = item.CompetitionId,
-                    CompetitionName = item.CompetitionName,
-                    StartDate = item.StartDate,
-                    EndDate = item.EndDate,
-                    Image = item.Image,
-                    Description = item.Description
-                });
-                
-            }
-            return View(mycompetition);
+            var myCompetition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
+            return View(myCompetition);
         }
         [Authorize(Roles = "Teacher")]
-        public ActionResult DeleteExaminer(string accountId)
+        public ActionResult DeleteExaminer(int? competitionId, string accountId)
         {
-            if (accountId == null)
+            if (accountId.IsNullOrWhiteSpace() || competitionId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var account = db.Users.FirstOrDefault(x => x.Id.Equals(accountId));
+
+            var account = db.Users.Find(accountId);
             var currentUserId = User.Identity.GetUserId();
-            var competition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
-            if (competition == null || competition.Examiners.Contains(account))
+            var competition = db.Competitions.Find(competitionId);
+            if (competition != null || competition.Examiners.Contains(account))
             {
-                return null;
+                competition.Examiners.Remove(account);
             }
-            competition.Examiners.Remove(account);
             db.SaveChanges();
             return PartialView("_ListExaminer");
             
