@@ -16,7 +16,8 @@ namespace InstituteOfFineArts.Models
         {
             firstprize = 1,
             thesecondprize = 2,
-            thethirdprize = 3
+            thethirdprize = 3,
+            none = 0
         }
     }
 }
