@@ -33,13 +33,13 @@
                                 @*<th>
                                         @Html.DisplayNameFor(model => model.Awards)
                                     </th>*@
-                                <th>Action</th>
+                                @* <th>Action</th> *@
                             </tr>
 
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>
+                                    <td class="col-md-2">
                                         <a href="@Url.Action("List", "Submission", new { id = item.CompetitionId })"> @Html.DisplayFor(modelItem => item.CompetitionName)</a>
                                     </td>
                                     <td>
@@ -48,23 +48,23 @@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.EndDate)
                                     </td>
-                                    <td>
-                                        <img class="img-responsive pad" src="@Html.DisplayFor(modelItem => item.Image)" alt="Alternate Text" />
+                                    <td class="col-md-4">
+                                        <img class="img-responsive" src="@Url.Content(@item.Image)" alt="Alternate Text" />
                                     </td>
-                                    @*<td>
-                                            @Html.DisplayFor(modelItem => item.Awards)
-                                        </td>*@
-                                    <td>
+@*                                     <td> *@
 
-                                        @using (Html.BeginForm("List", "Submission", FormMethod.Get))
-                                        {
-
-                                        }
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" })
-                                        @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
-
-                                    </td>
+@*                                         </td> *@
+@*                                      <td>  *@
+@*   *@
+@*                                          @using (Html.BeginForm("List", "Submission", FormMethod.Get))  *@
+@*                                          {  *@
+@*   *@
+@*                                          }  *@
+@*                                          @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" })  *@
+@*                                          @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })  *@
+@*                                          @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })  *@
+@*   *@
+@*                                      </td>  *@
                                 </tr>
                             }
 

@@ -6,14 +6,13 @@ using InstituteOfFineArts.Models;
 
 namespace InstituteOfFineArts.Areas.Teacher.Models
 {
-    public class MarkViewModel
+    public class CompetitionViewModel
     {
-        public int? MarkId { get; set; }
+        public int CompetitionId { get; set; }
+        public string CompetitionName { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string Image { get; set; }
-        public int SubmissionId { get; set; }
         public string Description { get; set; }
-        public Mark.MarkType? Mark { get; set; }
-        public string StudentName { get; set; }
-
     }
 }

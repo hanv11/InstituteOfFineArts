@@ -65,7 +65,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 mark.Examiner = account;
                 db.Marks.Add(mark);
                 db.SaveChanges();
-                return RedirectToAction("_ListMark");
+                return RedirectToAction("ListMark");
             }
             return View(mark);
         }
@@ -163,7 +163,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                     where submission.CompetitionId == competitionId & mark.AccountId.Equals(currentUserId)
                     select new MarkViewModel
                     {
-                        SubmisstionId = submission.SubmissionId,
+                        SubmissionId = submission.SubmissionId,
                         MarkId = mark.MarkId,
                         Image = submission.Picture,
                         Description = mark.Description,
@@ -177,7 +177,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                         if(m.AccountId.Equals(currentUserId)) break;
                         markView.Add(new MarkViewModel()
                         {
-                            SubmisstionId = item.SubmissionId,
+                            SubmissionId = item.SubmissionId,
                             MarkId = null,
                             Image = item.Picture,
 //                            StudentName = item.Account.FirstName

@@ -11,9 +11,13 @@
         </a>
     </li>
     <li class="treeview">
-        <a href="@Url.Action("Index","Competition","Teacher")">
+        <a href="#competitisonSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
             <i class="fa fa-table"></i> <span>Competitions</span>
         </a>
+        <ul class="collapse"  id="competitisonSubmenu">
+            <li><a href="@Url.Action("Index","Competition","Teacher")"><i class="fa fa-th-list"></i> <span>List Competition</span></a></li>
+            <li><a href="@Url.Action("MyCompetition","Competition","Teacher")"><i class="fa fa-user"></i> <span>My Competition</span></a></li>
+        </ul>
     </li>
     <li class="treeview">
         <a href="@Url.Action("Index","Submission")">
