@@ -5,30 +5,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <section class="relative" style="background-image: url(@Url.Content(@Model.Image)); -ms-background-size: cover; background-size: cover">
-        <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
-        <div class="container">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="about-content col-lg-12">
-                    <h1 class="text-white pt-20 pb-20">
-                        @Html.DisplayFor(model => model.CompetitionName)
-                    </h1>
-                    <div class="row detail-content">
-                        <div class="col-md-6 term">
-                            <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
-                            @Html.DisplayFor(model => model.StartDate)
-                        </div>
-                        <div class="col-md-6 term">
-                            <strong></strong>
-                            @Html.DisplayFor(model => model.EndDate)
-                        </div>
+<section class="banner-area relative">
+    <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white pt-20 pb-20">
+                    @Html.DisplayFor(model => model.CompetitionName)
+                </h1>
+                <div class="row detail-content">
+                    <div class="col-md-6 term">
+                        <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
+                        @Html.DisplayFor(model => model.StartDate)
                     </div>
-                    <a href="@Url.Action("Register", "Submission", new { competitionId = Model.CompetitionId })" target="_blank" class="primary-btn text-uppercase">Register</a>
-
+                    <div class="col-md-6 term">
+                        <strong></strong>
+                        @Html.DisplayFor(model => model.EndDate)
+                    </div>
                 </div>
+
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 <!-- Start blog-posts Area -->
 <section class="blog-posts-area section-gap">
     <div class="container">
@@ -53,20 +53,21 @@
                             @Html.DisplayFor(model => model.Description)
                         </p>
 
-
-
+                        <div style="text-align:center;">
+                            <a href="@Url.Action("Register", "Submission", new { competitionId = Model.CompetitionId })" target="_blank" class="primary-btn text-uppercase">Click here to register</a>
+                        </div>
                     </div>
                     <div class="bottom-meta">
 
-                            <div class="social-wrap col-lg-12">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
+                        <div class="social-wrap col-lg-12">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
 
-                            </div>
+                        </div>
 
                     </div>
 
@@ -84,20 +85,26 @@
 
                 <div class="single-widget protfolio-widget">
                     <h4 class="title">Competition maker</h4>
-                    <img src="@Html.DisplayFor(model => model.Creator.Avatar, new { id = Model.CreatorId })" class="img-responsive" style="text-align:center ; width:75px;" alt="">
+                    <div class="col-lg-offset-4">
+                        <img src="@Html.DisplayFor(model => model.Creator.Avatar, new { id = Model.CreatorId })" class="img-responsive" style=" width:100px;" alt="">
+                    </div>
                     <a href="#"><h4>@Html.DisplayFor(model => model.Creator.FirstName, new { id = Model.CreatorId }) @Html.DisplayFor(model => model.Creator.LastName)</h4></a>
+                    <p>
+                        @Html.DisplayFor(model => model.Creator.Email, new { id = Model.CreatorId })
+                    </p>
                     <p>
                         @Html.DisplayFor(model => model.Creator.PhoneNumber, new { id = Model.CreatorId })
                     </p>
+
                 </div>
 
-                <div class="single-widget category-widget">
-                    <h4 class="title">Number of participants</h4>
-                    <ul>
-                        <li><a href="#" class="justify-content-between align-items-center d-flex"><h6>... Peoples</h6> <span></span></a></li>
+                @*<div class="single-widget category-widget">
+                        <h4 class="title">Number of participants</h4>
+                        <ul>
+                            <li><a href="#" class="justify-content-between align-items-center d-flex"><h6>... Peoples</h6> <span></span></a></li>
 
-                    </ul>
-                </div>
+                        </ul>
+                    </div>*@
 
                 @if (Model.Submissions.Any())
                 {

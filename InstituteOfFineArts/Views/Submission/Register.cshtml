@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section class="banner-area relative">
+<section class="banner-area relative ">
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
@@ -16,14 +16,38 @@
         </div>
     </div>
 </section>
-<div class="container">
-    <main class="site-main">
-        <article class="type-page">
-            @Html.Action("RegisterPartialView", "Submission", new { competitionId = Model.CompetitionId })
-        </article>
-        
-    </main>
-</div>
+
+    <div class="row section-gap">
+        <div class="col-md-5">
+            <main class="site-main">
+                <h2 style="padding-left:200px;">
+                    Register to @Html.DisplayFor(model => model.CompetitionName)
+                </h2>
+                <br />
+
+                @Html.Action("RegisterPartialView", "Submission", new { competitionId = Model.CompetitionId })
+
+
+            </main>
+        </div>
+        <div class="col-md-7">
+            <section style="padding-left:20%">
+                <div class="cat-top-right">
+                    <img class="img-responsive img-rounded" src="@Url.Content(Model.Image)" />
+                </div>
+                <div class="cat-top-left">
+                    <h1 style="padding:5px;">
+                        @Html.DisplayFor(model => model.CompetitionName)
+                    </h1>
+                    <p>@Html.DisplayNameFor(model => model.StartDate): @Html.DisplayFor(model => model.StartDate)</p>
+                    <p>@Html.DisplayNameFor(model => model.EndDate): @Html.DisplayFor(model => model.EndDate)</p>
+                </div>
+
+
+            </section>
+        </div>
+    </div>
+
     
 
 
