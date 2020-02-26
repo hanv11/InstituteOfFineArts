@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using InstituteOfFineArts.Areas.Teacher.Models;
 using InstituteOfFineArts.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -78,13 +79,16 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,Teacher")]
-        public ActionResult Edit([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description")] Competition competition)
+        public ActionResult Edit([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description, CreatorId")] Competition competition)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(competition).State = EntityState.Modified;
+                var creatorId = User.Identity.GetUserId();
+                var account = db.Users.FirstOrDefault(u => u.Id == creatorId);
+                competition.CreatorId = User.Identity.GetUserId();
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyCompetition");
             }
             return View(competition);
         }
@@ -159,6 +163,59 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             var currentUser = db.Users.Find(currentUserId);
             var competition = db.Competitions.Where(c => c.Examiners.Select(s => s.Id).Contains(currentUserId)).ToList();
             return View(competition);
+        }
+
+        [Authorize(Roles = "Teacher")]
+        public ActionResult MyCompetition()
+        {
+            var currentUserId = User.Identity.GetUserId();
+            var currentUser = db.Users.Find(currentUserId);
+            var allCompetition = db.Competitions.ToList();
+            var mycompetition = (from competition in db.Competitions
+                where competition.CreatorId == currentUserId
+                select new CompetitionViewModel
+                {
+                    CompetitionId = competition.CompetitionId,
+                    CompetitionName = competition.CompetitionName,
+                    StartDate = competition.StartDate,
+                    EndDate = competition.EndDate,
+                    Image = competition.Image,
+                    Description = competition.Description
+                }).ToList();
+            foreach (var item in allCompetition)
+            {
+                if (item.CreatorId.Equals(currentUserId)) break;
+                mycompetition.Add(new CompetitionViewModel()
+                {
+                    CompetitionId = item.CompetitionId,
+                    CompetitionName = item.CompetitionName,
+                    StartDate = item.StartDate,
+                    EndDate = item.EndDate,
+                    Image = item.Image,
+                    Description = item.Description
+                });
+                
+            }
+            return View(mycompetition);
+        }
+        [Authorize(Roles = "Teacher")]
+        public ActionResult DeleteExaminer(string accountId)
+        {
+            if (accountId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var account = db.Users.FirstOrDefault(x => x.Id.Equals(accountId));
+            var currentUserId = User.Identity.GetUserId();
+            var competition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
+            if (competition == null || competition.Examiners.Contains(account))
+            {
+                return null;
+            }
+            competition.Examiners.Remove(account);
+            db.SaveChanges();
+            return PartialView("_ListExaminer");
+            
         }
     }
 }

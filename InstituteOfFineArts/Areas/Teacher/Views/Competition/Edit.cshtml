@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","Competition",FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <div class="box box-info">
