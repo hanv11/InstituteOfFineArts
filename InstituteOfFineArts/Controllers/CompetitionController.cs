@@ -54,6 +54,39 @@ namespace InstituteOfFineArts.Controllers
             var pageNumber = page ?? 1;
             return View(competitions.ToPagedList(pageNumber, pageSize));
         }
+        public ActionResult SomeCompetition(int? id, string searchString, string sortOrder, string currentFilter, int? page)
+        {
+            ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortPara = sortOrder == "Date" ? "date_desc" : "Date";
+            var competitions = db.Competitions.AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                competitions = competitions.Where(s => s.CompetitionName.Contains(searchString));
+            }
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    competitions = competitions.OrderByDescending(s => s.CompetitionName);
+                    break;
+                case "Date":
+                    break;
+                default:
+                    competitions = competitions.OrderBy(s => s.CompetitionName);
+                    break;
+            }
+
+            return PartialView(competitions.ToList().Take(4));
+        }
 
         // GET: Competitions/Details/5
         public ActionResult Index(int? id)

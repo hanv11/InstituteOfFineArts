@@ -169,10 +169,12 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         [Authorize(Roles = "Teacher")]
         public ActionResult MyCompetition()
         {
+
             var currentUserId = User.Identity.GetUserId();
             var currentUser = db.Users.Find(currentUserId);
-            var myCompetition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
+            var myCompetition = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId)).ToList();
             return View(myCompetition);
+
         }
         [Authorize(Roles = "Teacher")]
         public ActionResult DeleteExaminer(int? competitionId, string accountId)

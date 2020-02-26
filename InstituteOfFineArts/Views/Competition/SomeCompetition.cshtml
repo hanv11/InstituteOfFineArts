@@ -1,0 +1,48 @@
+﻿@using InstituteOfFineArts.Models
+@model IEnumerable<InstituteOfFineArts.Models.Competition>
+<div class="single-widget recent-posts-widget">
+    <h4 class="title">Some Competitions</h4>
+    <div class="blog-list ">
+
+
+
+        @foreach (var item in Model)
+        {
+            <div class="single-recent-post d-flex flex-row">
+                <div class="recent-thumb">
+                    <a href="@Url.Action("DetailCompetition", "Competition", new {id = item.CompetitionId})"><img class="img-fluid" style="width:65px; padding-bottom: 15px" src="@Url.Content(item.Image)" alt=""></a>
+                </div>
+                <div class="recent-details">
+                    <a href="blog-single.html">
+                        <h4>
+                            @item.CompetitionName
+
+                        </h4>
+                    </a>
+                    <p>
+                        Competition Maker: @item.StartDate
+                    </p>
+                    <p>
+                        End date:  @item.EndDate
+                    </p>
+
+                </div>
+            </div>
+
+
+        }
+        @using (Html.BeginForm("ShowList", "Competition", FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+
+
+            <a href="@Url.Action("ShowList", "Competition")" target="_blank" style="text-align:left" class="text-uppercase">See More</a>
+
+
+        }
+        <!-- /.container -->
+
+
+    </div>
+</div>
+
