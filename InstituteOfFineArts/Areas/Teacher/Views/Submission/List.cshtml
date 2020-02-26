@@ -40,7 +40,7 @@
                                 <td>
                                     @Html.DisplayFor(model => item.Description)
                                 </td>
-                                <td><a href="@Url.Action("Mark", "Submission", new {id = item.SubmissionId})" class="btn btn-primary btn-lg">Mark</a></td>
+                                <td><a href="@Url.Action("Create", "Mark", new {id = item.SubmissionId})" class="btn btn-primary btn-lg">Mark</a></td>
                             </tr>
                         }
                     </table>

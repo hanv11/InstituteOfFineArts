@@ -168,34 +168,37 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         [Authorize(Roles = "Teacher")]
         public ActionResult MyCompetition()
         {
+            // var currentUserId = User.Identity.GetUserId();
+            // var currentUser = db.Users.Find(currentUserId);
+            // var allCompetition = db.Competitions.ToList();
+            // var mycompetition = (from competition in db.Competitions
+            //     where competition.CreatorId == currentUserId
+            //     select new CompetitionViewModel
+            //     {
+            //         CompetitionId = competition.CompetitionId,
+            //         CompetitionName = competition.CompetitionName,
+            //         StartDate = competition.StartDate,
+            //         EndDate = competition.EndDate,
+            //         Image = competition.Image,
+            //         Description = competition.Description
+            //     }).ToList();
+            // foreach (var item in allCompetition)
+            // {
+            //     if (item.CreatorId.Equals(currentUserId)) break;
+            //     mycompetition.Add(new CompetitionViewModel()
+            //     {
+            //         CompetitionId = item.CompetitionId,
+            //         CompetitionName = item.CompetitionName,
+            //         StartDate = item.StartDate,
+            //         EndDate = item.EndDate,
+            //         Image = item.Image,
+            //         Description = item.Description
+            //     });
+            //     
+            // }
             var currentUserId = User.Identity.GetUserId();
             var currentUser = db.Users.Find(currentUserId);
-            var allCompetition = db.Competitions.ToList();
-            var mycompetition = (from competition in db.Competitions
-                where competition.CreatorId == currentUserId
-                select new CompetitionViewModel
-                {
-                    CompetitionId = competition.CompetitionId,
-                    CompetitionName = competition.CompetitionName,
-                    StartDate = competition.StartDate,
-                    EndDate = competition.EndDate,
-                    Image = competition.Image,
-                    Description = competition.Description
-                }).ToList();
-            foreach (var item in allCompetition)
-            {
-                if (item.CreatorId.Equals(currentUserId)) break;
-                mycompetition.Add(new CompetitionViewModel()
-                {
-                    CompetitionId = item.CompetitionId,
-                    CompetitionName = item.CompetitionName,
-                    StartDate = item.StartDate,
-                    EndDate = item.EndDate,
-                    Image = item.Image,
-                    Description = item.Description
-                });
-                
-            }
+            var mycompetition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
             return View(mycompetition);
         }
         [Authorize(Roles = "Teacher")]
