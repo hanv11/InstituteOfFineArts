@@ -1693,6 +1693,7 @@
     <Content Include="Views\Shared\_TeacherNav.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Home\_ListCompetition.cshtml" />
+    <Content Include="Views\Submission\SomeSubmission.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
