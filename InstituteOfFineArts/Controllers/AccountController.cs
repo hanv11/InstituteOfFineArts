@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -76,7 +77,12 @@ namespace InstituteOfFineArts.Controllers
             {
                 return View(model);
             }
+
             var user = await UserManager.FindByEmailAsync(model.Email);
+            if (user.Status != Account.AccountStatus.Active)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -160,7 +166,7 @@ namespace InstituteOfFineArts.Controllers
             if (ModelState.IsValid)
             {
                 
-                var user = new Account { UserName = model.Email, Email = model.Email, CreatedAt = DateTime.Now, UpdateAt = DateTime.Now, DeletedAt = DateTime.Now,FirstName = model.FirstName,LastName = model.LastName, Birthday = model.Birthday, Gender = (Account.GenderType)model.Gender};
+                var user = new Account { UserName = model.Email, Email = model.Email, CreatedAt = DateTime.Now, UpdateAt = DateTime.Now,FirstName = model.FirstName,LastName = model.LastName, Birthday = model.Birthday, Gender = (Account.GenderType)model.Gender};
                 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

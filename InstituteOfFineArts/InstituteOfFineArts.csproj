@@ -1654,6 +1654,9 @@
     <Content Include="Areas\Admin\Views\Member\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Member\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Member\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Competition\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Competition\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Competition\Detail.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
