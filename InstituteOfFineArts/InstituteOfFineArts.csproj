@@ -212,6 +212,10 @@
     <Compile Include="Migrations\202002270156015_AddIsSildeBarToCompetition.Designer.cs">
       <DependentUpon>202002270156015_AddIsSildeBarToCompetition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002270252529_EditAccountModel.cs" />
+    <Compile Include="Migrations\202002270252529_EditAccountModel.Designer.cs">
+      <DependentUpon>202002270252529_EditAccountModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1748,6 +1752,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002270156015_AddIsSildeBarToCompetition.resx">
       <DependentUpon>202002270156015_AddIsSildeBarToCompetition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002270252529_EditAccountModel.resx">
+      <DependentUpon>202002270252529_EditAccountModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

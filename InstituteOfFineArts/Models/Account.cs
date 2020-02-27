@@ -14,6 +14,7 @@ namespace InstituteOfFineArts.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string UserCode { get; set; }
         public override string  Email { get; set; }
         public DateTime? Birthday { get; set; }
         public GenderType Gender { get; set; }
@@ -26,6 +27,13 @@ namespace InstituteOfFineArts.Models
         {
             Male = 0,
             FeMale = 1,
+        }
+        public enum UserType
+        {
+            Student = 0,
+            Teacher = 1,
+            Manager = 2,
+            Admin = 3
         }
         public AccountStatus Status { get; set; }
         public enum AccountStatus
