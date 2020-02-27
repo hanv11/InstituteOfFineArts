@@ -3,75 +3,7 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <section class="slide " id="home">
-        <div class="container-style ">
-            <div id="myCarousel" class=" carousel slide " data-ride="carousel">
-                <div class="carousel-inner banner-area relative">
-
-                    <div class="item active style-slide">
-                        <div class="overlay-bg overlay"></div>
-                        <img src="~/Content/img/slider1.jpg" alt="Los Angeles">
-                        <div class="carousel-caption" style="margin-bottom:10vw">
-                            <div class="col-sm-12">
-                                <h4 class="text-white font-style_1">Join Us Now!</h4>
-                                <h2 class="text-white font-style_2">
-                                    Exhibition on Modern Era
-                                </h2>
-                                <p class="pt-20 pb-20 text-white font-style_3">
-                                    I Dream my painting, and then paint my dream
-                                </p>
-                                <a href="/Home/About" class="primary-btn text-uppercase">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item style-slide">
-                        <div class="overlay-bg overlay"></div>
-                        <img src="~/Content/img/slider2.jpg" alt="Chicago">
-                        <div class="carousel-caption" style="margin-bottom:10vw" >
-                            <div class="col-sm-12">
-                                <h4 class="text-white font-style_1">Join Us Now!</h4>
-                                <h2 class="text-white font-style_2">
-                                    Exhibition on Modern Era
-                                </h2>
-                                <p class="pt-20 pb-20 text-white font-style_3">
-                                    Art is the only place you can do what you like . That's freedom
-                                </p>
-                                <a href="/Home/About" class="primary-btn text-uppercase">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item style-slide">
-                        <div class="overlay-bg overlay"></div>
-                        <img src="~/Content/img/slider3.png" alt="New York">
-                        <div class="carousel-caption"style="margin-bottom:10vw">
-                            <div class="col-sm-12">
-                                <h4 class="text-white font-style_1">Join Us Now!</h4>
-                                <h2 class="text-white font-style_2">
-                                    Exhibition on Modern Era
-                                </h2>
-                                <p class="pt-20 pb-20 text-white font-style_3">
-                                    Art is to console those who are broken by life
-                                </p>
-                                <a href="/Home/About" class="primary-btn text-uppercase">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-</section>
+    @Html.Action("SlideBar");
 
 @Html.Action("ListCompetition", "Home");
 <section class="service-area" id="about">

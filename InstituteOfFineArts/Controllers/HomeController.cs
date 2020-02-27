@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,6 +33,12 @@ namespace InstituteOfFineArts.Controllers
         public ActionResult ListCompetition()
         {
             return PartialView("_ListCompetition", db.Competitions.ToList());
+        }
+
+        public ActionResult SlideBar()
+        {
+            var competitions = db.Competitions.Where(c => c.IsSlide).Take(5).ToList();
+            return PartialView("_SlideBar", competitions);
         }
         
     }
