@@ -4,14 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-@using (Html.BeginForm("Index", "Member", FormMethod.Get))
-{
-    <p>
-        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
-    </p>
 
-}
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
@@ -19,9 +12,18 @@
                 <div class="box-header">
                     <h2 style="text-align:center;" class="box-title">List Competition</h2>
                 </div>
+
                 <div class="box-header">
                     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
                 </div>
+                @using (Html.BeginForm("Index", "Member", FormMethod.Get))
+                {
+                    <p>
+                        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                        <input type="submit" value="Search" />
+                    </p>
+
+                }
                 <div class="box-body">
                     <table id="example2" class="table table-bordered table-hover">
                         <tr>
@@ -38,8 +40,8 @@
                                 Image
                             </th>
                             @*<th>
-                                    @Html.DisplayNameFor(model => model.Awards)
-                                </th>*@
+                        @Html.DisplayNameFor(model => model.Awards)
+                    </th>*@
                             @* <th>Action</th> *@
                         </tr>
 
