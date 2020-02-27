@@ -176,6 +176,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MemberController.cs" />
     <Compile Include="Areas\Teacher\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Teacher\Controllers\MarkController.cs" />
     <Compile Include="Areas\Teacher\Controllers\SubmissionController.cs" />
@@ -215,6 +216,10 @@
     <Compile Include="Migrations\202002270252529_EditAccountModel.cs" />
     <Compile Include="Migrations\202002270252529_EditAccountModel.Designer.cs">
       <DependentUpon>202002270252529_EditAccountModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002270406486_add_membertype_account_table.cs" />
+    <Compile Include="Migrations\202002270406486_add_membertype_account_table.Designer.cs">
+      <DependentUpon>202002270406486_add_membertype_account_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
@@ -1640,6 +1645,11 @@
     <Content Include="Areas\Teacher\Views\Mark\ListMark.cshtml" />
     <Content Include="Areas\Teacher\Views\Competition\MyCompetition.cshtml" />
     <Content Include="Areas\Teacher\Views\Mark\_PopupEditMark.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1755,6 +1765,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002270252529_EditAccountModel.resx">
       <DependentUpon>202002270252529_EditAccountModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002270406486_add_membertype_account_table.resx">
+      <DependentUpon>202002270406486_add_membertype_account_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
