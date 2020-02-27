@@ -221,6 +221,10 @@
     <Compile Include="Migrations\202002270406486_add_membertype_account_table.Designer.cs">
       <DependentUpon>202002270406486_add_membertype_account_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002270532393_update-table.cs" />
+    <Compile Include="Migrations\202002270532393_update-table.Designer.cs">
+      <DependentUpon>202002270532393_update-table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -334,7 +338,6 @@
     <Content Include="Content\Homepage\css\nice-select.css" />
     <Content Include="Content\Homepage\css\owl.carousel.css" />
     <Content Include="Content\Homepage\css\paging.css" />
-    <Content Include="Content\Homepage\css\styles.css" />
     <Content Include="Content\Homepage\css\theme\pages.css" />
     <Content Include="Content\Homepage\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Homepage\fonts\Linearicons-Free.svg" />
@@ -1729,6 +1732,7 @@
     <Content Include="Views\Submission\SubmissionIndex.cshtml" />
     <Content Include="Views\Competition\SomeCompetition.cshtml" />
     <Content Include="Views\Home\_SlideBar.cshtml" />
+    <Content Include="Views\Home\_NewSubmission.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1769,6 +1773,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002270406486_add_membertype_account_table.resx">
       <DependentUpon>202002270406486_add_membertype_account_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002270532393_update-table.resx">
+      <DependentUpon>202002270532393_update-table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

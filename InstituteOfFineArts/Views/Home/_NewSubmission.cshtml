@@ -1,10 +1,5 @@
-﻿@*@model IEnumerable<InstituteOfFineArts.Models.Submission>
-
-@{
-    Layout = null;
-}
-
-    <section class="gallery-area section-gap gallery-page-area" id="gallery">
+﻿@model IEnumerable<InstituteOfFineArts.Models.Submission>
+@*<section class="gallery-area section-gap gallery-page-area" id="gallery">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-70 col-lg-8">
@@ -31,9 +26,9 @@
                 }
             </div>
         </div>
-    </section>
-    <section class="exibition-area section-gap" id="exhibitions">
-        <div class="container">
+    </section>*@
+<section class="exibition-area section-gap" id="exhibitions">
+    <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-10">
                     <div class="title text-center">
@@ -44,19 +39,25 @@
             </div>
             <div class="row">
                 <div class="active-exibition-carusel">
-                    <div class="single-exibition item">
-                        <img src="" alt="">
-                        <ul class="tags">
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">Life style</a></li>
-                        </ul>
-                        <a href="#"><h4>Portable latest blog for women</h4></a>
-                        <p>
-                            Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                        </p>
-                        <h6 class="date">31st January, 2018</h6>
-                    </div>
+                    @foreach (var item in Model)
+                    {
+                        <div class="single-exibition item">
+                            <div><img class="grid-item" style="width:65px; padding-bottom: 15px" src="@Url.Content(item.Picture)" alt=""></div>
+                            <ul class="tags">
+                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Life style</a></li>
+                            </ul>
+                            <a href="#"><h4>Portable latest blog for women</h4></a>
+                            <p>
+                                
+                            </p>
+                            <h6 class="date">31st January, 2018</h6>
+                        </div>
+                    }
+
                 </div>
             </div>
-        </div>
-    </section>*@
+    </div>
+
+</section>
+

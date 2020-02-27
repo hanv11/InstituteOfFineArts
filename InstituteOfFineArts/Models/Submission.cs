@@ -19,6 +19,7 @@ namespace InstituteOfFineArts.Models
         [DataType(DataType.DateTime)]
         [DisplayName("Updated Post")]
         public DateTime? UpdatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
         // nguoi ta ra submission
         [ForeignKey("Account")]
         public string AccountId { get; set; }
@@ -29,6 +30,13 @@ namespace InstituteOfFineArts.Models
         public virtual ICollection<Mark > Marks { get; set; }
         public Submission()
         {
+        }
+        public SubmissionStatus Status { get; set; }
+        public enum SubmissionStatus
+        {
+            Pending = 0,
+            Confirmed = 1,
+            Cancel = 2
         }
         public Submission(int subid, int competid, string pic, string descrip)
         {
