@@ -1,11 +1,19 @@
-﻿@model IEnumerable<InstituteOfFineArts.Models.Competition>
+﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Competition>
+@using PagedList.Mvc
 @{
     ViewBag.Title = "MyCompetition";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>MyCompetition</h2>
+<h2>My Competition</h2>
+@using (Html.BeginForm("Index", "Member", FormMethod.Get))
+{
+    <p>
+        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
 
+}
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
@@ -20,16 +28,16 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.CompetitionName)
+                               Competition Name
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.StartDate)
+                                Start Date
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.EndDate)
+                                End Date
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Image)
+                                Image
                             </th>
                             @*<th>
                                     @Html.DisplayNameFor(model => model.Awards)
@@ -52,15 +60,12 @@
                                 <td class="col-md-4">
                                     <img class="img-responsive" src="@Url.Content(@item.Image)" alt="Alternate Text" />
                                 </td>
-                               
-                                      <td>
-                                          @using (Html.BeginForm("List", "Submission", FormMethod.Get)) 
-                                              {
-                                              } 
-                                         @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" }) 
-                                         @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" }) 
-                                           @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
-                                          </td> 
+
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
+                                </td>
                             </tr>
                         }
 
@@ -70,3 +75,5 @@
         </div>
     </div>
 </section>
+Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))

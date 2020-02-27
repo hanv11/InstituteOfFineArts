@@ -15,6 +15,7 @@ using PagedList;
 
 namespace InstituteOfFineArts.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class MemberController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -41,7 +42,6 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                 _userManager = value;
             }
         }
-
         // GET: Admin/Member
         public ActionResult Index(int? id, string searchString, int? usertype,int? status ,string sortOrder, string currentFilter, int? page)
         {
@@ -129,7 +129,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Member");
                 }
                 AddErrors(result);
             }
@@ -192,7 +192,8 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Account account = db.Users.Find(id);
-            db.Users.Remove(account);
+           account.DeletedAt = DateTime.Now;
+           account.Status = Account.AccountStatus.Deleted;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
