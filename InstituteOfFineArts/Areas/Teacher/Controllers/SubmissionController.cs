@@ -65,25 +65,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             }
             return View("List",submission.ToPagedList(pageNumber, pageSize));
         }
-
-        public ActionResult ListSubmission(int? Id)
-        {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Competition competition = db.Competitions.Find(Id);
-            if (competition == null)
-            {
-                return HttpNotFound();
-            }
-
-            var submission = db.Submissions.Where(s => s.CompetitionId == Id);
-            return View(submission.ToList());
-        }
-        // GET: Submissions/Edit/5
-        [Authorize(Roles = "Teacher")]
-        public ActionResult Mark(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -94,33 +76,50 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             {
                 return HttpNotFound();
             }
-
-            if (submission.AccountId == User.Identity.GetUserId())
-            {
-                ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
-
-            }
             return View(submission);
         }
-
-        // POST: Submissions/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
-        [Authorize(Roles = "Teacher")]
-        public ActionResult Mark([Bind(Include = "SubmissionId,CompetitionId,Picture,AccountId,Description")] Submission submission)
+        public ActionResult ConfirmSubmission(int? submissionId)
         {
-            if (ModelState.IsValid)
+            if (submissionId == null)
             {
-                db.Entry(submission).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Details", new { id = submission.SubmissionId });
+                return null;
             }
-            ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
-            return View(submission);
+            Submission submission = db.Submissions.Find(submissionId);
+            if (submission == null)
+            {
+                return null;
+            }
+            submission.Status = Submission.SubmissionStatus.Confirmed;
+            db.SaveChanges();
+            return new JsonResult()
+            {
+                Data = new
+                {
+                    submissionId = submissionId,
+                },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        } public ActionResult CancelSubmission(int? submissionId)
+        {
+            if (submissionId == null)
+            {
+                return null;
+            }
+            Submission submission = db.Submissions.Find(submissionId);
+            if (submission == null)
+            {
+                return null;
+            }
+            submission.Status = Submission.SubmissionStatus.Cancel;
+            db.SaveChanges();
+            return new JsonResult()
+            {
+                Data = new
+                {
+                    submissionId = submissionId,
+                },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
         }
-
     }
 }

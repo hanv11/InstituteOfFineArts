@@ -1635,8 +1635,6 @@
     <Content Include="Areas\Teacher\Views\Competition\Delete.cshtml" />
     <Content Include="Areas\Teacher\Views\Competition\Detail.cshtml" />
     <Content Include="Areas\Teacher\Views\Submission\Index.cshtml" />
-    <Content Include="Areas\Teacher\Views\Submission\Mark.cshtml" />
-    <Content Include="Areas\Teacher\Views\Submission\ListSubmission.cshtml" />
     <Content Include="Areas\Teacher\Views\Submission\List.cshtml" />
     <Content Include="Areas\Teacher\Views\Competition\_ListExaminer.cshtml" />
     <Content Include="Areas\Teacher\Views\Competition\Joined.cshtml" />
@@ -1657,6 +1655,7 @@
     <Content Include="Areas\Admin\Views\Competition\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Competition\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Competition\Detail.cshtml" />
+    <Content Include="Areas\Teacher\Views\Submission\Details.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
