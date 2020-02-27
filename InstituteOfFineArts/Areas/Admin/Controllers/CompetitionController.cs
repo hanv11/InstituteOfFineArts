@@ -11,6 +11,7 @@ using PagedList;
 
 namespace InstituteOfFineArts.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CompetitionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
