@@ -18,7 +18,7 @@
                                     <p class="pt-20 pb-20 text-white font-style_3">
                                         I Dream my painting, and then paint my dream
                                     </p>
-                                    <a href="/Home/About" class="primary-btn text-uppercase">Read More</a>
+                                    @Html.ActionLink("Register", "Register", "Submission", new {competitionId = item.CompetitionId}, new {@class ="primary-btn text-uppercase"})
                                 </div>
                             </div>
                         </div>
