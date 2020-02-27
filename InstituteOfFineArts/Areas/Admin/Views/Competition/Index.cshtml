@@ -5,29 +5,38 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Competition List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "Competition", FormMethod.Get))
+{
+    <p>
+        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+
+}
 <table id="example2" class="table table-bordered table-hover">
     <tr>
         <th>
-           Id
-        </th> <th>
+            Id
+        </th>
+        <th>
             Competition Name
         </th>
         <th>
             Created By
         </th>
         <th>
-           Start Date
+            Start Date
         </th>
         <th>
             End Date
         </th>
         <th>
-           Image
+            Image
         </th>
         @* <th> *@
         @*     @Html.DisplayNameFor(model => model.Description) *@
@@ -38,33 +47,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>@(item.CompetitionId)</td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompetitionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Creator.FirstName)  @Html.DisplayFor(modelItem => item.Creator.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td class="col-md-2">
-            @* @Html.DisplayFor(modelItem => item.Image) *@
-            <img src="@item.Image" alt="Alternate Text" class="img-thumbnail"/>
-        </td>
-        @* <td> *@
-        @*     @Html.DisplayFor(modelItem => item.Description) *@
-        @* </td> *@
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@(item.CompetitionId)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creator.FirstName)  @Html.DisplayFor(modelItem => item.Creator.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td class="col-md-2">
+                @* @Html.DisplayFor(modelItem => item.Image) *@
+                <img src="@item.Image" alt="Alternate Text" class="img-thumbnail" />
+            </td>
+            @* <td> *@
+            @*     @Html.DisplayFor(modelItem => item.Description) *@
+            @* </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
+            </td>
+            
+        </tr>
+    }
 
 </table>
 Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
