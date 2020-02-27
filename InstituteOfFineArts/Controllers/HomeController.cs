@@ -22,6 +22,11 @@ namespace InstituteOfFineArts.Controllers
 
             return View();
         }
+        public ActionResult NewSubmission()
+        {
+            var submission = db.Submissions.Where(s => s.Status == Submission.SubmissionStatus.Confirmed).OrderBy(s => s.CreatedAt).Take(10);
+            return PartialView("_NewSubmission", submission );
+        }
 
         public ActionResult Contact()
         {
