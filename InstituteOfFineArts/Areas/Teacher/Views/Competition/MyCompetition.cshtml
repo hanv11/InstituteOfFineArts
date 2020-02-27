@@ -24,11 +24,19 @@
                 <div class="box-header">
                     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
                 </div>
+                @using (Html.BeginForm("Index", "Member", FormMethod.Get))
+                {
+                    <p>
+                        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                        <input type="submit" value="Search" />
+                    </p>
+
+                }
                 <div class="box-body">
                     <table id="example2" class="table table-bordered table-hover">
                         <tr>
                             <th>
-                               Competition Name
+                                Competition Name
                             </th>
                             <th>
                                 Start Date
@@ -40,8 +48,8 @@
                                 Image
                             </th>
                             @*<th>
-                                    @Html.DisplayNameFor(model => model.Awards)
-                                </th>*@
+                        @Html.DisplayNameFor(model => model.Awards)
+                    </th>*@
                             @* <th>Action</th> *@
                         </tr>
 
