@@ -17,11 +17,18 @@
             <div id="grid-container" class="row">
                 @foreach (var item in Model)
                 {
-
-                       <div><img class="grid-item" style="width:65px; padding-bottom: 15px" src="@Url.Content(item.Picture)" alt=""></div>
-
+                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})">
+                        <div><img class="grid-item" style="width:65px; padding-bottom: 15px" src="@Url.Content(item.Picture)" alt=""></div>
+                    </a>
                 }
 
+            </div>
+            <div style="text-align:center;">
+                @using (Html.BeginForm("List", "Submission", FormMethod.Get))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="@Url.Action("List", "Submission")" class="genric-btn primary circle button-area">See More</a>
+                }
             </div>
         </div>
     </section>
