@@ -205,7 +205,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                         });
                     }
                 }
-                return View(markView.OrderBy(m => m.Mark == null).ToList());
+                return View(markView);
             }
 
     }
