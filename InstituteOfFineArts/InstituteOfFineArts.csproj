@@ -208,6 +208,10 @@
     <Compile Include="Migrations\202002240619390_submissionTable2.Designer.cs">
       <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002270156015_AddIsSildeBarToCompetition.cs" />
+    <Compile Include="Migrations\202002270156015_AddIsSildeBarToCompetition.Designer.cs">
+      <DependentUpon>202002270156015_AddIsSildeBarToCompetition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1709,6 +1713,7 @@
     <Content Include="Views\Competition\Details.cshtml" />
     <Content Include="Views\Submission\SubmissionIndex.cshtml" />
     <Content Include="Views\Competition\SomeCompetition.cshtml" />
+    <Content Include="Views\Home\_SlideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1740,6 +1745,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002240619390_submissionTable2.resx">
       <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002270156015_AddIsSildeBarToCompetition.resx">
+      <DependentUpon>202002270156015_AddIsSildeBarToCompetition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
