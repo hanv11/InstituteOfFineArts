@@ -23,12 +23,13 @@ namespace InstituteOfFineArts.Models
         public DateTime? UpdateAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public ICollection<Submission> Submissions { get; set; }
+        public UserTypes UserType { get; set; }
         public enum GenderType
         {
             Male = 0,
             FeMale = 1,
         }
-        public enum UserType
+        public enum UserTypes
         {
             Student = 0,
             Teacher = 1,
