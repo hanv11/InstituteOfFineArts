@@ -1740,6 +1740,7 @@
     <Content Include="Views\Competition\SomeCompetition.cshtml" />
     <Content Include="Views\Home\_SlideBar.cshtml" />
     <Content Include="Views\Home\_NewSubmission.cshtml" />
+    <Content Include="Views\Home\_ExhibitionGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
