@@ -11,13 +11,24 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    @Html.DisplayFor(model => model.First().Competition.CompetitionName)
+                    <h1>@Html.DisplayFor(model => model.First().Competition.CompetitionName)</h1>
                 </div>
+                @using (Html.BeginForm("List", "Submission", FormMethod.Get,new {@class="form-inline"}))
+                {
+                    <p class="form-group" style="margin-left: 20px;">
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new {@class = "form-control ", @placeholder="Find by keyword"})
+                        <input type="submit" class="btn btn-default" value="Search"/>
+                    </p>
+
+                }
                 <div class="box-body">
                     <table id="example2" class="table table-bordered table-hover">
                         <tr>
                             <th>
-                                Art
+                                Picture Name
+                            </th>
+                            <th>
+                                Picture
                             </th>
                             <th>
                                 Author
@@ -26,13 +37,17 @@
                                 Decription
                             </th>
                             <th></th>
+                            <th></th>
+
                         </tr>
                         @foreach (var item in Model)
                         {
                             <tr>
-
-                                <td>
-                                    <a href="@Url.Action("Mark", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-responsive pad" src="@item.Picture" alt=""></a>
+                                <td class="col-md-2">
+                                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">@Html.DisplayFor(model => item.SubmissionName)</a>
+                                </td>
+                                <td class="col-md-2">
+                                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
                                 </td>
                                 <td>
                                     @Html.DisplayFor(model => item.Account.FirstName) @Html.DisplayFor(model => item.Account.LastName)
@@ -40,7 +55,14 @@
                                 <td>
                                     @Html.DisplayFor(model => item.Description)
                                 </td>
-                                <td><a href="@Url.Action("Create", "Mark", new {id = item.SubmissionId})" class="btn btn-primary btn-lg">Mark</a></td>
+                                <td id="status_@item.SubmissionId">
+                                    @Html.DisplayFor(model => item.Status)
+                                </td>
+                                <td>
+
+                                    <button id="confirm_@item.SubmissionId" class="btn btn-warning" @Html.Raw((item.Status == Submission.SubmissionStatus.Confirmed) ? "disabled" : "") onclick="confirmed(@item.SubmissionId)">Confirm</button>
+                                    <button id="cancel_@item.SubmissionId" class="btn btn-danger" @Html.Raw((item.Status == Submission.SubmissionStatus.Cancel) ? "disabled" : "") onclick="cancel(@item.SubmissionId)">Cancel</button>
+                                </td>
                             </tr>
                         }
                     </table>
@@ -49,3 +71,44 @@
         </div>
     </div>
 </section>
+Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+<script>
+    function confirmed (id) {
+        var confirmation = confirm("are you sure you want to confirm the submission?");
+        if (confirmation) {
+            $.ajax({
+                type: 'get',
+                url: '@Url.Action("ConfirmSubmission", "Submission")',
+                data: {
+                    submissionId: id
+                },
+                success: function (res) {
+                    console.log(res.submissionId);
+                    $('#status_' + res.submissionId).html("Confirmed");
+                    $('#confirm_' + res.submissionId).attr("disabled", true);
+                    $('#cancel_' + res.submissionId).attr("disabled", false);
+                }
+
+            })
+        }
+    }function cancel (id) {
+        var confirmation = confirm("are you sure you want to cancel the submission?");
+        if (confirmation) {
+            $.ajax({
+                type: 'get',
+                url: '@Url.Action("CancelSubmission", "Submission")',
+                data: {
+                    submissionId: id
+                },
+                success: function (res) {
+                    console.log(res.submissionId);
+                    $('#status_' + res.submissionId).html("Cancel");
+                    $('#cancel_' + res.submissionId).attr("disabled", true);
+                    $('#confirm_' + res.submissionId).attr("disabled", false);
+                }
+
+            })
+        }
+    }
+</script>
