@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="banner-area relative">
+<section class="banner-area relative" style="background-color: white;">
     <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
@@ -30,7 +30,7 @@
     
 </section>
 <!-- Start blog-posts Area -->
-<section class="blog-posts-area section-gap">
+<section class="blog-posts-area section-gap" style="background-color: white;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 post-list blog-post-list">
@@ -42,8 +42,9 @@
                         </h1>
                     </a>
                     <div class="content-wrap">
-
-
+                        <p>
+                            @Html.DisplayFor(model => model.ShortDescription)
+                        </p>
                         <blockquote class="generic-blockquote">
                             <p>@Html.DisplayNameFor(model => model.StartDate): @Html.DisplayFor(model => model.StartDate)</p>
                             <p>@Html.DisplayNameFor(model => model.EndDate): @Html.DisplayFor(model => model.EndDate)</p>
@@ -82,7 +83,7 @@
                     <div class="col-lg-offset-4">
                         <img src="@Html.DisplayFor(model => model.Creator.Avatar, new { id = Model.CreatorId })" class="img-responsive" style=" width:100px;" alt="">
                     </div>
-                    <a href="#"><h4>@Html.DisplayFor(model => model.Creator.FirstName, new { id = Model.CreatorId }) @Html.DisplayFor(model => model.Creator.LastName)</h4></a>
+                    <h4>@Html.DisplayFor(model => model.Creator.FirstName, new { id = Model.CreatorId }) @Html.DisplayFor(model => model.Creator.LastName)</h4>
                     <p>
                         @Html.DisplayFor(model => model.Creator.Email, new { id = Model.CreatorId })
                     </p>
@@ -151,6 +152,3 @@
             </article>
         </main>
     </div>*@
-
-
-<br />
