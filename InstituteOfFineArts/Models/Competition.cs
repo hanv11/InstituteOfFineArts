@@ -24,6 +24,8 @@ namespace InstituteOfFineArts.Models
         public DateTime EndDate { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
+        public string ShortDescription { get; set; }
+        public string AwardDetail { get; set; }
         public bool IsSlide { get; set; }
         public virtual ICollection<Mark> Marks { get; set; }
         public CompetitionStatus Status { get; set; }
