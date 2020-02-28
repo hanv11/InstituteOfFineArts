@@ -225,6 +225,10 @@
     <Compile Include="Migrations\202002270532393_update-table.Designer.cs">
       <DependentUpon>202002270532393_update-table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.cs" />
+    <Compile Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.Designer.cs">
+      <DependentUpon>202002280326131_add_column_short_awarddetail_competition_table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1636,8 +1640,6 @@
     <Content Include="Areas\Teacher\Views\Competition\Delete.cshtml" />
     <Content Include="Areas\Teacher\Views\Competition\Detail.cshtml" />
     <Content Include="Areas\Teacher\Views\Submission\Index.cshtml" />
-    <Content Include="Areas\Teacher\Views\Submission\Mark.cshtml" />
-    <Content Include="Areas\Teacher\Views\Submission\ListSubmission.cshtml" />
     <Content Include="Areas\Teacher\Views\Submission\List.cshtml" />
     <Content Include="Areas\Teacher\Views\Competition\_ListExaminer.cshtml" />
     <Content Include="Areas\Teacher\Views\Competition\Joined.cshtml" />
@@ -1655,6 +1657,10 @@
     <Content Include="Areas\Admin\Views\Member\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Member\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Member\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Competition\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Competition\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Competition\Detail.cshtml" />
+    <Content Include="Areas\Teacher\Views\Submission\Details.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1777,6 +1783,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002270532393_update-table.resx">
       <DependentUpon>202002270532393_update-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.resx">
+      <DependentUpon>202002280326131_add_column_short_awarddetail_competition_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

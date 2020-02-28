@@ -10,6 +10,7 @@ using InstituteOfFineArts.Models;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using PagedList;
 
 namespace InstituteOfFineArts.Areas.Teacher.Controllers
 {
@@ -18,9 +19,39 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private UserManager<Account> _userManager = new UserManager<Account>(new UserStore<Account>());
         // GET: Teacher/Competition
-        public ActionResult Index()
+        public ActionResult Index(string searchString, string sortOrder, string currentFilter, int? page)
         {
-            return View(db.Competitions.ToList());
+            ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortPara = sortOrder == "Date" ? "date_desc" : "Date";
+            var competitions = db.Competitions.AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                competitions = competitions.Where(s => s.CompetitionName.Contains(searchString));
+            }
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    competitions = competitions.OrderByDescending(s => s.CompetitionName);
+                    break;
+                case "Date":
+                    break;
+                default:
+                    competitions = competitions.OrderBy(s => s.CompetitionName);
+                    break;
+            }
+            int pageSize = 5;
+            var pageNumber = page ?? 1;
+            return View(competitions.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult Detail(int? id)
         {
@@ -167,11 +198,44 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         }
 
         [Authorize(Roles = "Teacher")]
-        public ActionResult MyCompetition()
+        public ActionResult MyCompetition(string searchString, string sortOrder, string currentFilter, int? page)
         {
             var currentUserId = User.Identity.GetUserId();
-            var myCompetition = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId)).ToList();
-            return View(myCompetition);
+            ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+                ViewBag.DateSortPara = sortOrder == "Date" ? "date_desc" : "Date";
+                var competitions = db.Competitions.AsQueryable();
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    competitions = competitions.Where(s => s.CompetitionName.Contains(searchString));
+                }
+                if (searchString != null)
+                {
+                    page = 1;
+                }
+                else
+                {
+                    searchString = currentFilter;
+                }
+
+                ViewBag.CurrentFilter = searchString;
+                switch (sortOrder)
+                {
+                    case "name_desc":
+                        competitions = competitions.OrderByDescending(s => s.CompetitionName);
+                        break;
+                    case "Date":
+                        break;
+                    default:
+                        competitions = competitions.OrderBy(s => s.CompetitionName);
+                        break;
+                }
+                int pageSize = 5;
+                var pageNumber = page ?? 1;
+                
+            
+                 var myCompetition = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId)).ToList();
+                return View(myCompetition.ToPagedList(pageNumber, pageSize));
+            
         }
         [Authorize(Roles = "Teacher")]
         public ActionResult DeleteExaminer(int? competitionId, string accountId)

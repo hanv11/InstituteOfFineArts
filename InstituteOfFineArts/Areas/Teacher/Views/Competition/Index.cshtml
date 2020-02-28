@@ -1,76 +1,87 @@
-﻿@model IEnumerable<InstituteOfFineArts.Models.Competition>
+﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Competition>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
 
-    @{
-        ViewBag.Title = "Index";
-        Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    }
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h2 style="text-align:center;" class="box-title">List Competition</h2>
+                </div>
 
-    <section class="content">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h2 style="text-align:center;" class="box-title">List Competition</h2>
-                    </div>
-                    <div class="box-header">
-                        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
-                    </div>
-                    <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover">
+                <div class="box-header">
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+                </div>
+                @using (Html.BeginForm("Index", "Member", FormMethod.Get))
+                {
+                    <p>
+                        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                        <input type="submit" value="Search" />
+                    </p>
+
+                }
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <tr>
+                            <th>
+                                Competition Name
+                            </th>
+                            <th>
+                                Start Date
+                            </th>
+                            <th>
+                                End Date
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            @*<th>
+                        @Html.DisplayNameFor(model => model.Awards)
+                    </th>*@
+                            @* <th>Action</th> *@
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
                             <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.CompetitionName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.StartDate)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.EndDate)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Image)
-                                </th>
-                                @*<th>
-                                        @Html.DisplayNameFor(model => model.Awards)
-                                    </th>*@
-                                @* <th>Action</th> *@
+                                <td class="col-md-2">
+                                    <a href="@Url.Action("List", "Submission", new { id = item.CompetitionId })"> @Html.DisplayFor(modelItem => item.CompetitionName)</a>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                </td>
+                                <td class="col-md-4">
+                                    <img class="img-responsive" src="@Url.Content(@item.Image)" alt="Alternate Text" />
+                                </td>
+                                @*                                     <td> *@
+
+                                @*                                         </td> *@
+                                @*                                      <td>  *@
+                                @*   *@
+                                @*                                          @using (Html.BeginForm("List", "Submission", FormMethod.Get))  *@
+                                @*                                          {  *@
+                                @*   *@
+                                @*                                          }  *@
+                                @*                                          @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" })  *@
+                                @*                                          @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })  *@
+                                @*                                          @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })  *@
+                                @*   *@
+                                @*                                      </td>  *@
                             </tr>
+                        }
 
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td class="col-md-2">
-                                        <a href="@Url.Action("List", "Submission", new { id = item.CompetitionId })"> @Html.DisplayFor(modelItem => item.CompetitionName)</a>
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.StartDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.EndDate)
-                                    </td>
-                                    <td class="col-md-4">
-                                        <img class="img-responsive" src="@Url.Content(@item.Image)" alt="Alternate Text" />
-                                    </td>
-@*                                     <td> *@
-
-@*                                         </td> *@
-@*                                      <td>  *@
-@*   *@
-@*                                          @using (Html.BeginForm("List", "Submission", FormMethod.Get))  *@
-@*                                          {  *@
-@*   *@
-@*                                          }  *@
-@*                                          @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" })  *@
-@*                                          @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })  *@
-@*                                          @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })  *@
-@*   *@
-@*                                      </td>  *@
-                                </tr>
-                            }
-
-                        </table>
-                    </div>
+                    </table>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
