@@ -225,6 +225,10 @@
     <Compile Include="Migrations\202002270532393_update-table.Designer.cs">
       <DependentUpon>202002270532393_update-table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.cs" />
+    <Compile Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.Designer.cs">
+      <DependentUpon>202002280326131_add_column_short_awarddetail_competition_table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1778,6 +1782,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002270532393_update-table.resx">
       <DependentUpon>202002270532393_update-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.resx">
+      <DependentUpon>202002280326131_add_column_short_awarddetail_competition_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
