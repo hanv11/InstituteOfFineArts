@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<InstituteOfFineArts.Models.Submission>
-
 <section class="exibition-area section-gap" id="exhibitions">
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -30,6 +29,38 @@
 
             </div>
         </div>
+    </div>
+</section>
+<section class="exibition-area section-gap" id="exhibitions">
+    <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-60 col-lg-10">
+                    <div class="title text-center">
+                        <h1 class="mb-10">Ongoing Exhibitions from the scratch</h1>
+                        <p>Who are in extremely love with eco friendly system.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 20px">
+                <div class="active-exibition-carusel">
+                    @foreach (var item in Model)
+                    {
+                        <div class="single-exibition item">
+                            <img class="grid-item" style="max-width: 360px !important; height: 255px !important; margin-left: -15px;" src="@Url.Content(item.Picture)" alt="">
+                            <ul class="tags">
+                                <li><a href="#">Read More</a></li>
+                                <li><a href="#">Life style</a></li>
+                            </ul>
+                            <a href="#"><h4> @item.SubmissionName </h4></a>
+                            <p>
+                                @item.Description
+                            </p>
+                            <h6 class="date">@item.UpdatedAt</h6>
+                        </div>
+                    }
+
+                </div>
+            </div>
     </div>
 
 </section>
