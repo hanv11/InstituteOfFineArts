@@ -3,10 +3,27 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.Action("SlideBar");
+@Html.Action("SlideBar")
+@*<section class="container" style="padding: 50px 0">
+    <div id="secondary" class="widget-area col-sm-12 col-lg-4" role="complementary">
+        <aside id="search-2" class="widget widget_search">
+            <form method="get" class="form-search" action="#">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="screen-reader-text"></span>
+                        <input id="search" style="width: 40%; height: 6%; font-size: 16px" type="text" class="form-control search-query" placeholder="Search..." value="" name="s">
+                        <span class="input-group-btn">
+                            <button style="height:100%; width: 60px" type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </aside>
+    </div>
+</section>*@
 
-@Html.Action("ListCompetition", "Home");
-<section class="service-area" id="about">
+@Html.Action("ListCompetition", "Home")
+<section class="service-area section-gap" id="about">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
@@ -46,25 +63,9 @@
     </div>
     <br />
 </section>
-@*<section class="quote-area section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 quote-left">
-                    <h1>
-                        <span>Art</span> gives soul to the universe, <br>
-                        wings to the <span>mind</span>, flight <br>
-                        to the <span>imagination</span>.
-                    </h1>
-                </div>
-                <div class="col-lg-6 quote-right">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>*@
-@Html.Action("NewSubmission");
+
+@Html.Action("NewSubmission")
+
 <section class="gallery-area section-gap" id="gallery">
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -76,30 +77,20 @@
             </div>
         </div>
         <div id="grid-container" class="row">
-            <a class="single-gallery" href="~/Content/Homepage/img/g1.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g1.jpg" data-index="0" style="padding: 15px; height: 108.347px; width: 156.019px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g2.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g2.jpg" data-index="1" style="padding: 15px; height: 108.347px; width: 113.981px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g3.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g3.jpg" data-index="2" style="padding: 15px; height: 114.02px; width: 75.2534px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g4.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g4.jpg" data-index="3" style="padding: 15px; height: 114.02px; width: 119.493px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g5.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g5.jpg" data-index="4" style="padding: 15px; height: 114.02px; width: 75.2534px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g6.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g6.jpg" data-index="5" style="padding: 15px; height: 128.327px; width: 135px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g7.jpg">
-                <img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g7.jpg" data-index="6" style="        padding: 15px;
-        height: 128.327px;
-        width: 135px;
-        opacity: 1;">
-            </a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g8.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g8.jpg" data-index="7" style="padding: 15px; height: 108.347px; width: 156.019px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g9.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g9.jpg" data-index="8" style="padding: 15px; height: 108.347px; width: 113.981px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g10.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g10.jpg" data-index="9" style="padding: 15px; height: 108.521px; width: 113.73px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g11.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g11.jpg" data-index="10" style="padding: 15px; height: 108.521px; width: 156.27px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g12.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g12.jpg" data-index="11" style="padding: 15px; height: 114.02px; width: 75.2534px; opacity: 1;"></a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g4.jpg">
-                <img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g4.jpg" data-index="12" style="        padding: 15px;
-        height: 114.02px;
-        width: 119.493px;
-        opacity: 1;">
-            </a>
-            <a class="single-gallery" href="~/Content/Homepage/img/g5.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g5.jpg" data-index="13" style="padding: 15px; height: 114.02px; width: 75.2534px; opacity: 1;"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g1.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g1.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g2.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g2.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g3.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g3.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g4.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g4.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g5.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g5.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g6.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g6.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g7.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g7.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g8.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g8.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g9.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g9.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g10.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g10.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g11.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g11.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g12.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g12.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g4.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g4.jpg"></a>
+            <a class="single-gallery" href="~/Content/Homepage/img/g5.jpg"><img class="grid-item hgrid-item loaded resized" src="~/Content/Homepage/img/g5.jpg"></a>
         </div>
     </div>
 </section>

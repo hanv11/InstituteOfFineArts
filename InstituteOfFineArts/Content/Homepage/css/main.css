@@ -2517,9 +2517,18 @@ body.mobile-nav-active {
 .single-exibition .tags li:hover a {
   color: #fff;
 }
-
+/*.single-exibition {
+    margin-left: 15px;
+}*/
 .single-exibition h4 {
   padding-bottom: 20px;
+}
+.single-exibition img {
+    border-radius: 5px;
+    padding: 0 10px 0 0;
+    box-sizing: border-box;
+    height: 250px !important;
+    width: 334px !important;
 }
 
 .single-exibition .date {
@@ -3442,6 +3451,22 @@ body.mobile-nav-active {
 .commentform-area .form-control {
   border: none;
   background: #f9f9ff;
+}
+
+/* =Buttons
+----------------------------------------------- */
+.btn-default, .label-default {
+    background-color: #1FA67A;
+    border-color: #1FA67A;
+}
+
+    .btn-default:hover, .label-default[href]:hover, .label-default[href]:focus, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, #image-navigation .nav-previous a:hover, #image-navigation .nav-next a:hover {
+        background-color: #1b926c;
+        border-color: #1b926c;
+    }
+
+.btn.btn-default {
+    color: #FFF;
 }
 
 /*
