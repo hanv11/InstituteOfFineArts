@@ -1,59 +1,146 @@
 ﻿@model InstituteOfFineArts.Models.Competition
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "DetailCompetition";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<section class="banner-area relative" style="background-color: white;">
+    <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white pt-20 pb-20">
+                    @Html.DisplayFor(model => model.CompetitionName)
+                </h1>
 
-<div>
-    <h4>Competition</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CompetitionName)
-        </dt>
+            </div>
+                
 
-        <dd>
-            @Html.DisplayFor(model => model.CompetitionName)
-        </dd>
+            </div>
+        </div>
+    
+</section>
+<!-- Start blog-posts Area -->
+<section class="blog-posts-area section-gap" style="background-color: white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 post-list blog-post-list">
+                <div class="single-post">
+                    <img class="img-fluid" style="width:700px" src="@Url.Content(@Model.Image)" alt="">
+                    <a href="#">
+                        <h1>
+                            @Html.DisplayFor(model => model.CompetitionName)
+                        </h1>
+                    </a>
+                    <div class="content-wrap">
+                        <p>
+                            @Html.DisplayFor(model => model.ShortDescription)
+                        </p>
+                        <blockquote class="generic-blockquote">
+                            <p>@Html.DisplayNameFor(model => model.StartDate): @Html.DisplayFor(model => model.StartDate)</p>
+                            <p>@Html.DisplayNameFor(model => model.EndDate): @Html.DisplayFor(model => model.EndDate)</p>
+                        </blockquote>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
+                        <p>
+                            @Html.DisplayFor(model => model.Description)
+                        </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
+                        <div style="text-align:center;">
+                            <a href="@Url.Action("Register", "Submission", new { id = Model.CompetitionId })" target="_blank" class="primary-btn text-uppercase">Click here to register</a>
+                        </div>
+                    </div>
+                    <div class="bottom-meta">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
+                        <div class="social-wrap col-lg-12">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+                        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                </div>
+            </div>
+            <div class="col-lg-4 sidebar">
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CompetitionId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                <div class="single-widget protfolio-widget">
+                    <h4 class="title">Competition maker</h4>
+                    <div class="col-lg-offset-4">
+                        <img src="@Html.DisplayFor(model => model.Creator.Avatar, new { id = Model.CreatorId })" class="img-responsive" style=" width:100px;" alt="">
+                    </div>
+                    <h4>@Html.DisplayFor(model => model.Creator.FirstName, new { id = Model.CreatorId }) @Html.DisplayFor(model => model.Creator.LastName)</h4>
+                    <p>
+                        @Html.DisplayFor(model => model.Creator.Email, new { id = Model.CreatorId })
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.Creator.PhoneNumber, new { id = Model.CreatorId })
+                    </p>
+
+                </div>
+
+                @*<div class="single-widget category-widget">
+            <h4 class="title">Number of participants</h4>
+            <ul>
+                <li><a href="#" class="justify-content-between align-items-center d-flex"><h6>... Peoples</h6> <span></span></a></li>
+
+            </ul>
+        </div>*@
+                @Html.Action("SomeCompetition", "Competition");
+                @if (Model.Submissions.Any())
+                {
+                    @Html.Action("ListSubmission", "Submission", new { Id = Model.CompetitionId })
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End blog-posts Area -->
+@*<section class="relative" style="background-image: url(@Url.Content(@Model.Image)); -ms-background-size: cover; background-size: cover">
+            <div class="overlay overlay-bg" style="background-color: rgba(0, 0, 0, 0.7);"></div>
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="about-content col-lg-12">
+                        <h1 class="text-white pt-20 pb-20">
+                            @Html.DisplayFor(model => model.CompetitionName)
+                        </h1>
+                        <div class="row detail-content">
+                            <div class="col-md-6 term">
+                                <strong>@Html.DisplayNameFor(model => model.StartDate):</strong>
+                                @Html.DisplayFor(model => model.StartDate)
+                            </div>
+                            <div class="col-md-6 term">
+                                <strong>@Html.DisplayNameFor(model => model.EndDate):</strong>
+                                @Html.DisplayFor(model => model.EndDate)
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Register", "Submission", new {competitionId = Model.CompetitionId})" target="_blank" class="primary-btn text-uppercase">Register</a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <div class="container">
+        <main class="site-main">
+            <article class="type-page">
+                <div class="container">
+                    <div class="detail-content submission-content">
+                        @Html.DisplayFor(model => model.Description)
+                    </div>
+
+                </div>
+            </article>
+        </main>
+    </div>*@

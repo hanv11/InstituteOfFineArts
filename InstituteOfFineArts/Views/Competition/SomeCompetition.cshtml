@@ -10,10 +10,10 @@
         {
             <div class="single-recent-post d-flex flex-row">
                 <div class="recent-thumb">
-                    <a href="@Url.Action("DetailCompetition", "Competition", new {id = item.CompetitionId})"><img class="img-fluid" style="width:65px; padding-bottom: 15px" src="@Url.Content(item.Image)" alt=""></a>
+                    <a href="@Url.Action("Details", "Competition", new {id = item.CompetitionId})"><img class="img-fluid" style="width:65px; padding-bottom: 15px" src="@Url.Content(item.Image)" alt=""></a>
                 </div>
                 <div class="recent-details">
-                    <a href="@Url.Action("DetailCompetition", "Competition", new {id = item.CompetitionId})">
+                    <a href="@Url.Action("Details", "Competition", new {id = item.CompetitionId})">
                         <h4>
                             @item.CompetitionName
 
@@ -31,12 +31,12 @@
 
 
         }
-        @using (Html.BeginForm("ShowList", "Competition", FormMethod.Get))
+        @using (Html.BeginForm("Index", "Competition", FormMethod.Get))
         {
             @Html.AntiForgeryToken()
 
 
-            <a href="@Url.Action("ShowList", "Competition")" target="_blank" style="text-align:left" class="text-uppercase">See More</a>
+            <a href="@Url.Action("Index", "Competition")" target="_blank" style="text-align:left" class="text-uppercase">See More</a>
 
 
         }
