@@ -13,7 +13,7 @@
                     <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"><img class="img-fluid" style="width:65px; padding-bottom: 15px" src="@item.Picture" alt=""></a>
                 </div>
                 <div class="recent-details">
-                    <a href="blog-single.html">
+                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})">
                         <h4>
                             @item.SubmissionName
 
