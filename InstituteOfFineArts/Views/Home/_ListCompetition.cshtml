@@ -24,7 +24,7 @@
                         <img class="img-fluid" src="@Url.Content(competitions[i + 2].Image)" style="height: 250px; width: 540px" alt="">
                         <a href="#"><h4>@competitions[i + 2].CompetitionName</h4></a>
                         <p>
-                            @competitions[i + 2].Description
+                            @competitions[i + 2].ShortDescription
                         </p>
                         @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 2].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                     </div>
@@ -32,7 +32,7 @@
                         <img class="img-fluid" src="@Url.Content(competitions[i + 4].Image)" style="height: 250px; width: 540px" alt="">
                         <a href="#"><h4>@competitions[i + 4].CompetitionName</h4></a>
                         <p>
-                            @competitions[i + 4].Description
+                            @competitions[i + 4].ShortDescription
                         </p>
                         @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 4].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                     </div>
@@ -50,7 +50,7 @@
                     <div class="single-events">
                         <a href="#"><h4>@competitions[i + 5].CompetitionName</h4></a>
                         <p>
-                            @competitions[i + 5].Description
+                            @competitions[i + 5].ShortDescription
                         </p>
                         @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @competitions[i + 5].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                         <img class="img-fluid" src="@Url.Content(competitions[i + 5].Image)" style="height: 250px; width: 540px" alt="">
