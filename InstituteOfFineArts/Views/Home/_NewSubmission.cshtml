@@ -1,32 +1,4 @@
 ﻿@model IEnumerable<InstituteOfFineArts.Models.Submission>
-@*<section class="gallery-area section-gap gallery-page-area" id="gallery">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-70 col-lg-8">
-                    <div class="title text-center">
-                        <h1 class="mb-10">Some Submissions</h1>
-                        <p>This's some submissions of students in Institude of Fine Art</p>
-                    </div>
-                </div>
-            </div>
-            <div id="grid-container" class="row">
-                @foreach (var item in Model)
-                {
-                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})">
-                        <div><img class="grid-item" style="width:65px; padding-bottom: 15px" src="@Url.Content(item.Picture)" alt=""></div>
-                    </a>
-                }
-
-            </div>
-            <div style="text-align:center;">
-                @using (Html.BeginForm("List", "Submission", FormMethod.Get))
-                {
-                    @Html.AntiForgeryToken()
-                    <a href="@Url.Action("List", "Submission")" class="genric-btn primary circle button-area">See More</a>
-                }
-            </div>
-        </div>
-    </section>*@
 <section class="exibition-area section-gap" id="exhibitions">
     <div class="container">
             <div class="row d-flex justify-content-center">
@@ -37,21 +9,21 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-left: 20px">
                 <div class="active-exibition-carusel">
                     @foreach (var item in Model)
                     {
                         <div class="single-exibition item">
-                            <div><img class="grid-item" style="width:65px; padding-bottom: 15px" src="@Url.Content(item.Picture)" alt=""></div>
+                            <img class="grid-item" style="max-width: 360px !important; height: 255px !important; margin-left: -15px;" src="@Url.Content(item.Picture)" alt="">
                             <ul class="tags">
-                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Read More</a></li>
                                 <li><a href="#">Life style</a></li>
                             </ul>
-                            <a href="#"><h4>Portable latest blog for women</h4></a>
+                            <a href="#"><h4> @item.SubmissionName </h4></a>
                             <p>
-                                
+                                @item.Description
                             </p>
-                            <h6 class="date">31st January, 2018</h6>
+                            <h6 class="date">@item.UpdatedAt</h6>
                         </div>
                     }
 

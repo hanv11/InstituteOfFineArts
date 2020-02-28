@@ -2538,6 +2538,7 @@ body.mobile-nav-active {
 }
 .upcoming-event-area .event-left .single-events img {
     max-height: 250px !important;
+    width: 540px !important;
 }
 
 .upcoming-event-area .event-left .single-events h4 {
@@ -2551,6 +2552,7 @@ body.mobile-nav-active {
 
 .upcoming-event-area .event-right .single-events img {
   margin-top: 40px;
+  width: 540px !important;
   max-height:250px !important;
 }
 

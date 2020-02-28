@@ -34,6 +34,7 @@ namespace InstituteOfFineArts
                       "~/Content/Homepage/css/nice-select.css",
                       "~/Content/Homepage/css/animate.min.css",
                       "~/Content/Homepage/css/owl.carousel.css",
+                      "~/Content/Homepage/css/style.css",
                       "~/Content/Homepage/css/main.css"));
 
             bundles.Add(new ScriptBundle("~/Content/Homepage/js").Include(

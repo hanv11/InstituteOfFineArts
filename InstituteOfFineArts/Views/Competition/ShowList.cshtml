@@ -29,19 +29,19 @@
                 </div>
             </div>
         </div>
-            <article>
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        <div class="menu-content pb-60 col-lg-10">
-                            <div class="title text-center">
-                                <h1 class="mb-10"></h1>
-                                <p></p>
-                            </div>
+        <article>
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-60 col-lg-10">
+                        <div class="title text-center">
+                            <h1 class="mb-10"></h1>
+                            <p></p>
                         </div>
                     </div>
-                    <div class="row">
-                        @for (var i = 0; i < 1; i++)
-                        {
+                </div>
+                <div class="row">
+                    @for (var i = 0; i < 1; i++)
+                    {
                         <div class="col-lg-6 event-left">
                             <div class="single-events">
                                 <img class="img-fluid" src="@Url.Content(Model[i].Image)" style="height: 250px;width: 540px" alt="">
@@ -52,7 +52,7 @@
                                 @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @Model[i].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                             </div>
                             <div class="single-events">
-                                <img class="img-fluid" src="@Url.Content(Model[i + 1].Image)"style="height: 250px;width: 540px" alt="">
+                                <img class="img-fluid" src="@Url.Content(Model[i + 1].Image)" style="height: 250px;width: 540px" alt="">
                                 <a href="#"><h4>@Model[i + 1].CompetitionName</h4></a>
                                 <p>
                                     @Model[i + 1].Description
@@ -67,7 +67,7 @@
                                     @Model[i + 2].Description
                                 </p>
                                 @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @Model[i + 2].CompetitionId }, new { @class = "primary-btn text-uppercase" })
-                                <img class="img-fluid" src="@Url.Content(Model[i + 2].Image)"style="height: 250px; width: 540px" alt="">
+                                <img class="img-fluid" src="@Url.Content(Model[i + 2].Image)" style="height: 250px; width: 540px" alt="">
                             </div>
                             <div class="single-events">
                                 <a href="#"><h4>@Model[i + 3].CompetitionName</h4></a>
@@ -75,17 +75,17 @@
                                     @Model[i + 3].Description
                                 </p>
                                 @Html.ActionLink("VIEW DETAILS", "DetailCompetition", "Competition", new { Id = @Model[i + 3].CompetitionId }, new { @class = "primary-btn text-uppercase" })
-                                <img class="img-fluid" src="@Url.Content(Model[i + 3].Image)"style="height: 250px; width: 540px" alt="">
-                            </div>                            
+                                <img class="img-fluid" src="@Url.Content(Model[i + 3].Image)" style="height: 250px; width: 540px" alt="">
+                            </div>
                         </div>
-              
-                        }
-                       
-                    </div>
-                </div>
 
-            </article>
-    <hr />
+                    }
+
+                </div>
+            </div>
+
+        </article>
+        <hr />
         Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
         <div style="color: white;"> @Html.PagedListPager(Model, page => Url.Action("ShowList", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))</div>
     </section>
