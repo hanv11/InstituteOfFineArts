@@ -1,25 +1,18 @@
 ﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Competition>
 @using PagedList.Mvc
 @{
-    ViewBag.Title = "MyCompetition";
+    ViewBag.Title = "My Competition";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>My Competition</h2>
-@using (Html.BeginForm("Index", "Member", FormMethod.Get))
-{
-    <p>
-        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
-    </p>
 
-}
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h2 style="text-align:center;" class="box-title">List Competition</h2>
+                    @* <h2 style="text-align:center;" class="box-title">List Competition</h2> *@
                 </div>
                 <div class="box-header">
                     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
@@ -27,7 +20,7 @@
                 @using (Html.BeginForm("Index", "Member", FormMethod.Get))
                 {
                     <p>
-                        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                         @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new {placeholder = "Find by keyword:"})
                         <input type="submit" value="Search" />
                     </p>
 
@@ -39,10 +32,13 @@
                                 Competition Name
                             </th>
                             <th>
-                                Start Date
+                                Start Date - End Date
                             </th>
                             <th>
-                                End Date
+                                Status
+                            </th> 
+                            <th>
+                                CreateAt
                             </th>
                             <th>
                                 Image
@@ -60,13 +56,16 @@
                                     <a href="@Url.Action("List", "Submission", new { id = item.CompetitionId })"> @Html.DisplayFor(modelItem => item.CompetitionName)</a>
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                    @Html.DisplayFor(modelItem => item.StartDate) - @Html.DisplayFor(modelItem => item.EndDate)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                    @item.Status
+                                </td>
+                                    @item.CreatedAt
+                                <td>
                                 </td>
                                 <td class="col-md-4">
-                                    <img class="img-responsive" src="@Url.Content(@item.Image)" alt="Alternate Text" />
+                                    <img class="img-responsive" width="200" src="@Url.Content(@item.Image)" alt="Alternate Text" />
                                 </td>
 
                                 <td>

@@ -19,7 +19,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         // GET: Teacher/Submission
         public ActionResult Index()
         {
-            var submissions = db.Submissions.Include(s => s.Account).Include(s => s.Competition);
+            var submissions = db.Submissions.Include(s => s.Creator).Include(s => s.Competition);
             return View(submissions.ToList());
         }
         public ActionResult List(int? id, string searchString, string sortOrder, string currentFilter, int? page)
@@ -44,12 +44,12 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             switch (sortOrder)
             {
                 case "name_desc":
-                    submission = submission.OrderByDescending(s => s.AccountId);
+                    submission = submission.OrderByDescending(s => s.CreatorId);
                     break;
                 case "Date":
                     break;
                 default:
-                    submission = submission.OrderBy(s => s.AccountId.ToString());
+                    submission = submission.OrderBy(s => s.CreatorId.ToString());
                     break;
             }
             int pageSize = 8;

@@ -1,4 +1,5 @@
 ﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Competition>
+@using Microsoft.Ajax.Utilities
 @using PagedList.Mvc
 @{
     ViewBag.Title = "Index";
@@ -55,7 +56,7 @@
                 @Html.DisplayFor(modelItem => item.CompetitionName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Creator.FirstName)  @Html.DisplayFor(modelItem => item.Creator.FirstName)
+                @Html.ActionLink(@item.Creator.FirstName + " " + @item.Creator.LastName, "Details/"+@item.CreatorId, "Member")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
@@ -74,7 +75,6 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" })
                 @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
                 @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
             </td>

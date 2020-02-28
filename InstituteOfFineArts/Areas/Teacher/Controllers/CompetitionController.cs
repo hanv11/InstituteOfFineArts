@@ -19,6 +19,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private UserManager<Account> _userManager = new UserManager<Account>(new UserStore<Account>());
         // GET: Teacher/Competition
+        [Authorize(Roles = "Teacher")]
         public ActionResult Index(string searchString, string sortOrder, string currentFilter, int? page)
         {
             ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -71,6 +72,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Teacher")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description")] Competition competition)
@@ -78,6 +80,11 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             if (ModelState.IsValid)
             {
                 competition.Status = Competition.CompetitionStatus.Pending;
+                competition.CreatedAt = DateTime.Now;
+                var currentUserId = User.Identity.GetUserId();
+                var user = db.Users.Find(currentUserId);
+                competition.CreatorId = currentUserId;
+                competition.Creator = user;
                 db.Competitions.Add(competition);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -110,11 +117,12 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Teacher")]
+        [Authorize(Roles = "Teacher")]
         public ActionResult Edit([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description, CreatorId")] Competition competition)
         {
             if (ModelState.IsValid)
             {
+                competition.UpdatedAt = DateTime.Now;
                 db.Entry(competition).State = EntityState.Modified;
                 var creatorId = User.Identity.GetUserId();
                 var account = db.Users.FirstOrDefault(u => u.Id == creatorId);
@@ -124,13 +132,14 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             }
             return View(competition);
         }
+        [Authorize(Roles = "Teacher")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Competition competition = db.Competitions.Find(id);
+            var competition = db.Competitions.Find(id);
             if (competition == null)
             {
                 return HttpNotFound();
@@ -139,6 +148,9 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
+            competition.Status = Competition.CompetitionStatus.Cancel;
+            competition.UpdatedAt = DateTime.Now;
+            competition.CancelAt = DateTime.Now;
             return View(competition);
         }
         // POST: Competitions/Delete/5

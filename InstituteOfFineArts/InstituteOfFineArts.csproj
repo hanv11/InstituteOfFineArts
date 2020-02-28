@@ -185,7 +185,6 @@
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountRolesController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CompetitionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -228,6 +227,14 @@
     <Compile Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.cs" />
     <Compile Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.Designer.cs">
       <DependentUpon>202002280326131_add_column_short_awarddetail_competition_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002281642439_UpdateCompetitionModel.cs" />
+    <Compile Include="Migrations\202002281642439_UpdateCompetitionModel.Designer.cs">
+      <DependentUpon>202002281642439_UpdateCompetitionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002281701290_UpdateSubmissionModel.cs" />
+    <Compile Include="Migrations\202002281701290_UpdateSubmissionModel.Designer.cs">
+      <DependentUpon>202002281701290_UpdateSubmissionModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
@@ -453,6 +460,9 @@
     <Content Include="Content\Homepage\js\superfish.min.js" />
     <Content Include="Content\Homepage\js\vendor\bootstrap.min.js" />
     <Content Include="Content\Homepage\js\vendor\jquery-2.2.4.min.js" />
+    <Content Include="Content\Icons\active-icon.png" />
+    <Content Include="Content\Icons\deactive-icon.png" />
+    <Content Include="Content\Icons\delete-icon.png" />
     <Content Include="Content\img\artexhibition.jpg" />
     <Content Include="Content\img\banner-concert.jpg" />
     <Content Include="Content\img\listofpainting.jpg" />
@@ -1707,20 +1717,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Competition\Create.cshtml" />
-    <Content Include="Views\Competition\Delete.cshtml" />
-    <Content Include="Views\Competition\Edit.cshtml" />
-    <Content Include="Views\Competition\Index.cshtml" />
-    <Content Include="Views\Competition\ShowList.cshtml" />
-    <Content Include="Views\Competition\DetailCompetition.cshtml" />
+    <None Include="Views\Competition\Index.cshtml" />
+    <None Include="Views\Competition\Details.cshtml" />
     <Content Include="Views\AccountRoles\Create.cshtml" />
     <Content Include="Views\AccountRoles\Delete.cshtml" />
     <Content Include="Views\AccountRoles\Details.cshtml" />
     <Content Include="Views\AccountRoles\Edit.cshtml" />
     <Content Include="Views\AccountRoles\Index.cshtml" />
-    <Content Include="Views\Submission\Delete.cshtml" />
     <Content Include="Views\Submission\Details.cshtml" />
     <Content Include="Views\Submission\Edit.cshtml" />
     <Content Include="Views\Submission\Index.cshtml" />
@@ -1735,7 +1739,6 @@
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Home\_ListCompetition.cshtml" />
     <Content Include="Views\Submission\SomeSubmission.cshtml" />
-    <Content Include="Views\Competition\Details.cshtml" />
     <Content Include="Views\Submission\SubmissionIndex.cshtml" />
     <Content Include="Views\Competition\SomeCompetition.cshtml" />
     <Content Include="Views\Home\_SlideBar.cshtml" />
@@ -1787,6 +1790,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.resx">
       <DependentUpon>202002280326131_add_column_short_awarddetail_competition_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002281642439_UpdateCompetitionModel.resx">
+      <DependentUpon>202002281642439_UpdateCompetitionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002281701290_UpdateSubmissionModel.resx">
+      <DependentUpon>202002281701290_UpdateSubmissionModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

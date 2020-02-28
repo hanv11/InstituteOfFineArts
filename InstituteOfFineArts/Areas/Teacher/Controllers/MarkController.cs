@@ -188,7 +188,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                         Image = submission.Picture,
                         Description = mark.Description,
                         Mark = mark.Marks,
-                        StudentName = submission.Account.FirstName + " " + submission.Account.LastName
+                        StudentName = submission.Creator.FirstName + " " + submission.Creator.LastName
                     }).ToList();
                 foreach (var item in allSubmission)
                 {
@@ -201,7 +201,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                             SubmissionId = item.SubmissionId,
                             MarkId = null,
                             Image = item.Picture,
-                            StudentName = item.Account.FirstName + " " + item.Account.LastName,
+                            StudentName = item.Creator.FirstName + " " + item.Creator.LastName,
                         });
                     }
                 }

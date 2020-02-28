@@ -25,7 +25,7 @@ namespace InstituteOfFineArts.Controllers
         }
         public ActionResult SubmissionIndex()
         {
-            var submissions = db.Submissions.Include(s => s.Competition);
+            var submissions = db.Submissions.Include(s => s.Competition).Where(s => s.Status == Submission.SubmissionStatus.Confirmed);
             return PartialView(submissions.ToList().Take(4));
         }
         public ActionResult ListSubmission(int? Id)
@@ -35,12 +35,12 @@ namespace InstituteOfFineArts.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Competition competition = db.Competitions.Find(Id);
-            if (competition == null)
+            if (competition == null || competition.Status == Competition.CompetitionStatus.Cancel || competition.Status == Competition.CompetitionStatus.Pending)
             {
                 return HttpNotFound();
             }
 
-            var submission = db.Submissions.Where(s => s.CompetitionId == Id);
+            var submission = db.Submissions.Where(s => s.CompetitionId == Id & s.Status == Submission.SubmissionStatus.Confirmed);
             return PartialView("ListSubmission", submission.ToList().Take(3));
         }
         public ActionResult SomeSubmission(int? Id)
@@ -50,7 +50,7 @@ namespace InstituteOfFineArts.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Competition competition = db.Competitions.Find(Id);
-            if (competition == null)
+            if (competition == null || competition.Status == Competition.CompetitionStatus.Cancel || competition.Status == Competition.CompetitionStatus.Pending)
             {
                 return HttpNotFound();
             }
@@ -61,9 +61,18 @@ namespace InstituteOfFineArts.Controllers
 
         public ActionResult List(int? id, string searchString, string sortOrder, string currentFilter, int? page)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var competition = db.Competitions.Find(id);
+            if (competition == null)
+            {
+                return HttpNotFound();
+            }
             ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            var submission = db.Submissions.Where(s => s.CompetitionId == id);
+            var submission = db.Submissions.Where(s => s.CompetitionId == id && s.Status == Submission.SubmissionStatus.Confirmed);
             if (!string.IsNullOrEmpty(searchString))
             {
                 submission = submission.Where(s => s.SubmissionId.ToString().Contains(searchString));
@@ -81,30 +90,24 @@ namespace InstituteOfFineArts.Controllers
             switch (sortOrder)
             {
                 case "name_desc":
-                    submission = submission.OrderByDescending(s => s.AccountId);
+                    submission = submission.OrderByDescending(s => s.CreatorId);
                     break;
                 case "Date":
                     break;
                 default:
-                    submission = submission.OrderBy(s => s.AccountId.ToString());
+                    submission = submission.OrderBy(s => s.CreatorId.ToString());
                     break;
             }
             int pageSize = 8;
             var pageNumber = page ?? 1;
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Competition competition = db.Competitions.Find(id);
-            if (competition == null)
-            {
-                return HttpNotFound();
-            }
             return View("List", submission.ToPagedList(pageNumber, pageSize));
         }
+        [Authorize(Roles = "Student")]
         // GET: Submissions/Details/5
         public ActionResult Details(int? id)
         {
+            var currentUserId = User.Identity.GetUserId();
+            var user = db.Users.Find(currentUserId);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,23 +117,34 @@ namespace InstituteOfFineArts.Controllers
             {
                 return HttpNotFound();
             }
+
+            if (submission.CreatorId != currentUserId)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             return View(submission);
         }
 
         // GET: Submissions/Register
         [Authorize(Roles = "Student")]
-        public ActionResult Register(int? competitionId)
+        public ActionResult Register(int? id)
         {
-            if (competitionId == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Competition competition = db.Competitions.Find(competitionId);
+
+            var currentUserId = User.Identity.GetUserId();
+            var user = db.Users.Find(currentUserId);
+            Competition competition = db.Competitions.Find(id);
             if (competition == null)
             {
                 return HttpNotFound();
             }
-
+            if ( competition.Participants.Contains(user))
+            {
+                return HttpNotFound();
+            }
             return View(competition);
         }
         public ActionResult RegisterPartialView(int competitionId)
@@ -148,17 +162,21 @@ namespace InstituteOfFineArts.Controllers
         {
             if (ModelState.IsValid)
             {
+                var competition = db.Competitions.Find(submission.CompetitionId);
+                if (competition.Participants.Contains(submission.Creator))
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 var userId = User.Identity.GetUserId();
-                var account = db.Users.FirstOrDefault(u => u.Id == userId) ;
-                submission.AccountId = User.Identity.GetUserId();
-                submission.Account = account;
+                var account = db.Users.Find(userId);
+                submission.CreatorId = User.Identity.GetUserId();
+                submission.Creator = account;
+                submission.CreatedAt = DateTime.Now;
                 submission.UpdatedAt = DateTime.Now;
                 db.Submissions.Add(submission);
                 db.SaveChanges();
                 return View("Details", submission);
             }
-
-
             ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
             return View("Details", submission);
         }
@@ -171,13 +189,18 @@ namespace InstituteOfFineArts.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Submission submission = db.Submissions.Find(id);
+            var submission = db.Submissions.Find(id);
             if (submission == null)
             {
                 return HttpNotFound();
             }
+            var userId = User.Identity.GetUserId();
+            if (!submission.CreatorId.Equals(userId))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
 
-            if (submission.AccountId == User.Identity.GetUserId())
+            if (submission.CreatorId == User.Identity.GetUserId())
             {
                 ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
 
@@ -196,12 +219,17 @@ namespace InstituteOfFineArts.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(submission).State = EntityState.Modified;
                 var userId = User.Identity.GetUserId();
-                var account = db.Users.FirstOrDefault(u => u.Id == userId);
-                submission.AccountId = User.Identity.GetUserId();
-                submission.Account = account;
+                var account = db.Users.Find(userId);
+                if (submission.CreatorId != userId)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                }
+                db.Entry(submission).State = EntityState.Modified;
+                submission.CreatorId = userId;
+                submission.Creator = account;
                 submission.UpdatedAt = DateTime.Now;
+                submission.Status = Submission.SubmissionStatus.Pending;
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = submission.SubmissionId });
             }
@@ -210,15 +238,14 @@ namespace InstituteOfFineArts.Controllers
         }
 
         // GET: Submissions/Delete/5
-        [Authorize(Roles = "Admin,Teacher")]
-
+        [Authorize(Roles = "Admin,Teacher,Student")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Submission submission = db.Submissions.Find(id);
+            var submission = db.Submissions.Find(id);
             if (submission == null)
             {
                 return HttpNotFound();
@@ -226,13 +253,21 @@ namespace InstituteOfFineArts.Controllers
             return View(submission);
         }
 
-        [Authorize(Roles = "Admin,Teacher")]
+        [Authorize(Roles = "Admin,Teacher,Student")]
         // POST: Submissions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
-            Submission submission = db.Submissions.Find(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var submission = db.Submissions.Find(id);
+            if (submission == null)
+            {
+                return HttpNotFound();
+            }
             db.Submissions.Remove(submission);
             db.SaveChanges();
             return RedirectToAction("Index");

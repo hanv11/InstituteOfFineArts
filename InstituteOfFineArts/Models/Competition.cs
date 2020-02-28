@@ -22,6 +22,9 @@ namespace InstituteOfFineArts.Models
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? CancelAt { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
         public string ShortDescription { get; set; }
@@ -31,9 +34,12 @@ namespace InstituteOfFineArts.Models
         public CompetitionStatus Status { get; set; }
         public enum CompetitionStatus
         {
+            Cancel = -1,
             Pending = 0,
             Confirmed = 1,
-            Finished = 2
+            Completed = 2,
+            Finished = 3,
+            
         }
         public virtual ICollection<Submission> Submissions { get; set; }
         public virtual ICollection<Account> Participants { get; set; }

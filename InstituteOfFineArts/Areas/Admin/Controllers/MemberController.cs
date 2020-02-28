@@ -81,7 +81,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                     members = members.OrderBy(s => s.FirstName);
                     break;
             }
-            int pageSize = 4;
+            int pageSize = 10;
             var pageNumber = page ?? 1;
             return View(members.ToPagedList(pageNumber, pageSize));
         }
@@ -94,7 +94,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Account account = db.Users.FirstOrDefault(x => x.Id.Equals(id));
+            Account account = db.Users.Find(id);
             if (account == null)
             {
                 return HttpNotFound();

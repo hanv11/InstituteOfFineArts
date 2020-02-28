@@ -21,9 +21,9 @@ namespace InstituteOfFineArts.Models
         public DateTime? UpdatedAt { get; set; }
         public DateTime? CreatedAt { get; set; }
         // nguoi ta ra submission
-        [ForeignKey("Account")]
-        public string AccountId { get; set; }
-        public virtual Account Account { get; set; }
+        [ForeignKey("Creator")]
+        public string CreatorId { get; set; }
+        public virtual Account Creator { get; set; }
 
         public string Description { get; set; }
         public virtual Competition Competition { get; set; }

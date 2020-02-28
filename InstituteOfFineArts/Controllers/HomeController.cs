@@ -42,12 +42,13 @@ namespace InstituteOfFineArts.Controllers
 
         public ActionResult ListCompetition()
         {
-            return PartialView("_ListCompetition", db.Competitions.ToList());
+            var competitions = db.Competitions.Where(c => c.Status != Competition.CompetitionStatus.Confirmed).OrderBy(x => x.CancelAt).ToList();
+            return PartialView("_ListCompetition", competitions);
         }
 
         public ActionResult SlideBar()
         {
-            var competitions = db.Competitions.Where(c => c.IsSlide).Take(5).ToList();
+            var competitions = db.Competitions.Where(c => c.Status != Competition.CompetitionStatus.Confirmed && c.IsSlide).OrderBy(c => c.CancelAt).Take(5).ToList();
             return PartialView("_SlideBar", competitions);
         }
         
