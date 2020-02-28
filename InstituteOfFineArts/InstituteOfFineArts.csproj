@@ -338,6 +338,7 @@
     <Content Include="Content\Homepage\css\nice-select.css" />
     <Content Include="Content\Homepage\css\owl.carousel.css" />
     <Content Include="Content\Homepage\css\paging.css" />
+    <Content Include="Content\Homepage\css\style.css" />
     <Content Include="Content\Homepage\css\theme\pages.css" />
     <Content Include="Content\Homepage\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Homepage\fonts\Linearicons-Free.svg" />
