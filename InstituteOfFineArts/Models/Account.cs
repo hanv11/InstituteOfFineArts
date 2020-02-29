@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ namespace InstituteOfFineArts.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Index(IsUnique = true)]
         public string UserCode { get; set; }
         public override string  Email { get; set; }
         [DataType(DataType.Date)]
