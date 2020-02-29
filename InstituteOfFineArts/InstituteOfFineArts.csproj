@@ -236,6 +236,10 @@
     <Compile Include="Migrations\202002281701290_UpdateSubmissionModel.Designer.cs">
       <DependentUpon>202002281701290_UpdateSubmissionModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002290328242_UpdateBirthday.cs" />
+    <Compile Include="Migrations\202002290328242_UpdateBirthday.Designer.cs">
+      <DependentUpon>202002290328242_UpdateBirthday.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1796,6 +1800,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002281701290_UpdateSubmissionModel.resx">
       <DependentUpon>202002281701290_UpdateSubmissionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002290328242_UpdateBirthday.resx">
+      <DependentUpon>202002290328242_UpdateBirthday.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
