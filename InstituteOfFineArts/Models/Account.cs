@@ -16,6 +16,7 @@ namespace InstituteOfFineArts.Models
         public string LastName { get; set; }
         public string UserCode { get; set; }
         public override string  Email { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? Birthday { get; set; }
         public GenderType Gender { get; set; }
         public string Avatar { get; set; }
