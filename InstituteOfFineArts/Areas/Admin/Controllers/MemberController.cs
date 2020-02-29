@@ -116,8 +116,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var role = "Student";
-                var usercode = "";
-              
+
                 switch (model.UserType)
                 {
                     case Account.UserTypes.Teacher:
@@ -184,10 +183,11 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,UserCode,Email,Birthday,Gender,Avatar,PhoneNumber")] Account account)
+        public ActionResult Edit(Account account)
         {
             if (ModelState.IsValid)
             {
+                account.UserName = account.Email;
                 db.Entry(account).State = EntityState.Modified;
                 account.UpdateAt = DateTime.Now;
                 db.SaveChanges();
