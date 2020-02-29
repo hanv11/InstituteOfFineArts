@@ -24,19 +24,19 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td class="col-md-3">
                 @Html.DisplayFor(modelItem => item.Competition.CompetitionName)
             </td>
-            <td>
-                <img width="500" height="500" src="@Url.Content(item.Picture)" alt="Alternate Text" />
+            <td class="col-md-2">
+                <img class="img-thumbnail" src="@Url.Content(item.Picture)" alt="Alternate Text" />
             </td>
-            <td>
+            <td class="col-md-3">
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.SubmissionId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.SubmissionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SubmissionId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.SubmissionId }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Details", "Details", new { id = item.SubmissionId }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.SubmissionId }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
