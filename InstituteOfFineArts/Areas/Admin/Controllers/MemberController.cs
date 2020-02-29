@@ -115,14 +115,31 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var role = "Student";
+                var usercode = "";
+              
+                switch (model.UserType)
+                {
+                    case Account.UserTypes.Teacher:
+                        role = "Teacher";
+                        break;
+                    case Account.UserTypes.Admin:
+                        role = "Admin";
+                        break;
+                    case Account.UserTypes.Manager:
+                        role = "Manager";
+                        break;
+                    default:
+                        role = "Student";
+                        break;
+                }
 
-                var user = new Account { UserName = model.Email, Email = model.Email, CreatedAt = DateTime.Now, UpdateAt = DateTime.Now, DeletedAt = DateTime.Now, FirstName = model.FirstName, LastName = model.LastName, Birthday = model.Birthday, Gender = (Account.GenderType)model.Gender };
+                var user = new Account { UserName = model.Email, Email = model.Email, CreatedAt = DateTime.Now, UpdateAt = DateTime.Now, FirstName = model.FirstName, LastName = model.LastName, Birthday = model.Birthday, Gender = (Account.GenderType)model.Gender };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await UserManager.AddToRoleAsync(user.Id, "Student");
-
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
