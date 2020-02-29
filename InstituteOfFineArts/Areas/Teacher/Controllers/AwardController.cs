@@ -58,7 +58,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             ViewBag.SubmissionId = submissionId;
             ViewBag.SubmissionName = submission.SubmissionName;
             ViewBag.Picture = submission.Picture;
-            ViewBag.StudentName = submission.Account.FirstName + " " + submission.Account.LastName;
+            ViewBag.StudentName = submission.Creator.FirstName + " " + submission.Creator.LastName;
             return View();
         }
 
