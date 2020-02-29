@@ -24,7 +24,6 @@ namespace InstituteOfFineArts.Models
         [ForeignKey("Creator")]
         public string CreatorId { get; set; }
         public virtual Account Creator { get; set; }
-
         public string Description { get; set; }
         public virtual Competition Competition { get; set; }
         public virtual ICollection<Mark > Marks { get; set; }
@@ -38,6 +37,9 @@ namespace InstituteOfFineArts.Models
             Confirmed = 1,
             Cancel = 2
         }
+
+        public virtual Award Award { get; set; }
+
         public Submission(int subid, int competid, string pic, string descrip)
         {
             SubmissionId = subid;
@@ -45,6 +47,5 @@ namespace InstituteOfFineArts.Models
             Picture = pic;
             Description = descrip;
         }
-        public virtual Award Awards { get; set; }
     }
 }
