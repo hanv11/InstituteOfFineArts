@@ -194,53 +194,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002231722102_UpdateData.cs" />
-    <Compile Include="Migrations\202002231722102_UpdateData.Designer.cs">
-      <DependentUpon>202002231722102_UpdateData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002240333153_submissionTable1.cs" />
-    <Compile Include="Migrations\202002240333153_submissionTable1.Designer.cs">
-      <DependentUpon>202002240333153_submissionTable1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002240334194_submissionTable.cs" />
-    <Compile Include="Migrations\202002240334194_submissionTable.Designer.cs">
-      <DependentUpon>202002240334194_submissionTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002240619390_submissionTable2.cs" />
-    <Compile Include="Migrations\202002240619390_submissionTable2.Designer.cs">
-      <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002270156015_AddIsSildeBarToCompetition.cs" />
-    <Compile Include="Migrations\202002270156015_AddIsSildeBarToCompetition.Designer.cs">
-      <DependentUpon>202002270156015_AddIsSildeBarToCompetition.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002270252529_EditAccountModel.cs" />
-    <Compile Include="Migrations\202002270252529_EditAccountModel.Designer.cs">
-      <DependentUpon>202002270252529_EditAccountModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002270406486_add_membertype_account_table.cs" />
-    <Compile Include="Migrations\202002270406486_add_membertype_account_table.Designer.cs">
-      <DependentUpon>202002270406486_add_membertype_account_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002270532393_update-table.cs" />
-    <Compile Include="Migrations\202002270532393_update-table.Designer.cs">
-      <DependentUpon>202002270532393_update-table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.cs" />
-    <Compile Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.Designer.cs">
-      <DependentUpon>202002280326131_add_column_short_awarddetail_competition_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002281642439_UpdateCompetitionModel.cs" />
-    <Compile Include="Migrations\202002281642439_UpdateCompetitionModel.Designer.cs">
-      <DependentUpon>202002281642439_UpdateCompetitionModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002281701290_UpdateSubmissionModel.cs" />
-    <Compile Include="Migrations\202002281701290_UpdateSubmissionModel.Designer.cs">
-      <DependentUpon>202002281701290_UpdateSubmissionModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002290328242_UpdateBirthday.cs" />
-    <Compile Include="Migrations\202002290328242_UpdateBirthday.Designer.cs">
-      <DependentUpon>202002290328242_UpdateBirthday.cs</DependentUpon>
+    <Compile Include="Migrations\202002290603114_UpdateData.cs" />
+    <Compile Include="Migrations\202002290603114_UpdateData.Designer.cs">
+      <DependentUpon>202002290603114_UpdateData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
@@ -1777,41 +1733,8 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002231722102_UpdateData.resx">
-      <DependentUpon>202002231722102_UpdateData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002240333153_submissionTable1.resx">
-      <DependentUpon>202002240333153_submissionTable1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002240334194_submissionTable.resx">
-      <DependentUpon>202002240334194_submissionTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002240619390_submissionTable2.resx">
-      <DependentUpon>202002240619390_submissionTable2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002270156015_AddIsSildeBarToCompetition.resx">
-      <DependentUpon>202002270156015_AddIsSildeBarToCompetition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002270252529_EditAccountModel.resx">
-      <DependentUpon>202002270252529_EditAccountModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002270406486_add_membertype_account_table.resx">
-      <DependentUpon>202002270406486_add_membertype_account_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002270532393_update-table.resx">
-      <DependentUpon>202002270532393_update-table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002280326131_add_column_short_awarddetail_competition_table.resx">
-      <DependentUpon>202002280326131_add_column_short_awarddetail_competition_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002281642439_UpdateCompetitionModel.resx">
-      <DependentUpon>202002281642439_UpdateCompetitionModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002281701290_UpdateSubmissionModel.resx">
-      <DependentUpon>202002281701290_UpdateSubmissionModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002290328242_UpdateBirthday.resx">
-      <DependentUpon>202002290328242_UpdateBirthday.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002290603114_UpdateData.resx">
+      <DependentUpon>202002290603114_UpdateData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

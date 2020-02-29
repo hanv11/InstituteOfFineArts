@@ -7,13 +7,13 @@ namespace InstituteOfFineArts.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdateBirthday : IMigrationMetadata
+    public sealed partial class UpdateData : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateBirthday));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateData));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002290328242_UpdateBirthday"; }
+            get { return "202002290603114_UpdateData"; }
         }
         
         string IMigrationMetadata.Source

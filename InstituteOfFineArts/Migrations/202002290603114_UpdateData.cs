@@ -11,10 +11,12 @@ namespace InstituteOfFineArts.Migrations
                 "dbo.Awards",
                 c => new
                     {
-                        SubmissionId = c.Int(nullable: false, identity: true),
+                        AwardId = c.Int(nullable: false),
                         AwardName = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.SubmissionId);
+                .PrimaryKey(t => t.AwardId)
+                .ForeignKey("dbo.Submissions", t => t.AwardId)
+                .Index(t => t.AwardId);
             
             CreateTable(
                 "dbo.Submissions",
@@ -23,17 +25,41 @@ namespace InstituteOfFineArts.Migrations
                         SubmissionId = c.Int(nullable: false, identity: true),
                         CompetitionId = c.Int(nullable: false),
                         Picture = c.String(),
-                        AccountId = c.String(maxLength: 128),
+                        SubmissionName = c.String(),
+                        UpdatedAt = c.DateTime(),
+                        CreatedAt = c.DateTime(),
+                        CreatorId = c.String(maxLength: 128),
                         Description = c.String(),
-                        Awards_SubmissionId = c.Int(),
+                        Status = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.SubmissionId)
-                .ForeignKey("dbo.AspNetUsers", t => t.AccountId)
-                .ForeignKey("dbo.Awards", t => t.Awards_SubmissionId)
                 .ForeignKey("dbo.Competitions", t => t.CompetitionId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.CreatorId)
                 .Index(t => t.CompetitionId)
-                .Index(t => t.AccountId)
-                .Index(t => t.Awards_SubmissionId);
+                .Index(t => t.CreatorId);
+            
+            CreateTable(
+                "dbo.Competitions",
+                c => new
+                    {
+                        CompetitionId = c.Int(nullable: false, identity: true),
+                        CompetitionName = c.String(),
+                        CreatorId = c.String(maxLength: 128),
+                        StartDate = c.DateTime(nullable: false),
+                        EndDate = c.DateTime(nullable: false),
+                        CreatedAt = c.DateTime(),
+                        UpdatedAt = c.DateTime(),
+                        CancelAt = c.DateTime(),
+                        Image = c.String(),
+                        Description = c.String(),
+                        ShortDescription = c.String(),
+                        AwardDetail = c.String(),
+                        IsSlide = c.Boolean(nullable: false),
+                        Status = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.CompetitionId)
+                .ForeignKey("dbo.AspNetUsers", t => t.CreatorId)
+                .Index(t => t.CreatorId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -42,6 +68,7 @@ namespace InstituteOfFineArts.Migrations
                         Id = c.String(nullable: false, maxLength: 128),
                         FirstName = c.String(),
                         LastName = c.String(),
+                        UserCode = c.String(),
                         Email = c.String(maxLength: 256),
                         Birthday = c.DateTime(),
                         Gender = c.Int(nullable: false),
@@ -49,6 +76,7 @@ namespace InstituteOfFineArts.Migrations
                         CreatedAt = c.DateTime(),
                         UpdateAt = c.DateTime(),
                         DeletedAt = c.DateTime(),
+                        UserType = c.Int(nullable: false),
                         Status = c.Int(nullable: false),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -109,23 +137,6 @@ namespace InstituteOfFineArts.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.Competitions",
-                c => new
-                    {
-                        CompetitionId = c.Int(nullable: false, identity: true),
-                        CompetitionName = c.String(),
-                        CreatorId = c.String(maxLength: 128),
-                        StartDate = c.DateTime(nullable: false),
-                        EndDate = c.DateTime(nullable: false),
-                        Image = c.String(),
-                        Description = c.String(),
-                        Status = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.CompetitionId)
-                .ForeignKey("dbo.AspNetUsers", t => t.CreatorId)
-                .Index(t => t.CreatorId);
-            
-            CreateTable(
                 "dbo.Marks",
                 c => new
                     {
@@ -160,6 +171,8 @@ namespace InstituteOfFineArts.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Awards", "AwardId", "dbo.Submissions");
+            DropForeignKey("dbo.Submissions", "CreatorId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Submissions", "CompetitionId", "dbo.Competitions");
             DropForeignKey("dbo.AspNetUsers", "Competition_CompetitionId1", "dbo.Competitions");
             DropForeignKey("dbo.Marks", "Competition_CompetitionId", "dbo.Competitions");
@@ -167,8 +180,6 @@ namespace InstituteOfFineArts.Migrations
             DropForeignKey("dbo.Marks", "AccountId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUsers", "Competition_CompetitionId", "dbo.Competitions");
             DropForeignKey("dbo.Competitions", "CreatorId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Submissions", "Awards_SubmissionId", "dbo.Awards");
-            DropForeignKey("dbo.Submissions", "AccountId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -176,7 +187,6 @@ namespace InstituteOfFineArts.Migrations
             DropIndex("dbo.Marks", new[] { "Competition_CompetitionId" });
             DropIndex("dbo.Marks", new[] { "AccountId" });
             DropIndex("dbo.Marks", new[] { "SubmissionId" });
-            DropIndex("dbo.Competitions", new[] { "CreatorId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
@@ -184,16 +194,17 @@ namespace InstituteOfFineArts.Migrations
             DropIndex("dbo.AspNetUsers", new[] { "Competition_CompetitionId1" });
             DropIndex("dbo.AspNetUsers", new[] { "Competition_CompetitionId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Submissions", new[] { "Awards_SubmissionId" });
-            DropIndex("dbo.Submissions", new[] { "AccountId" });
+            DropIndex("dbo.Competitions", new[] { "CreatorId" });
+            DropIndex("dbo.Submissions", new[] { "CreatorId" });
             DropIndex("dbo.Submissions", new[] { "CompetitionId" });
+            DropIndex("dbo.Awards", new[] { "AwardId" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Marks");
-            DropTable("dbo.Competitions");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Competitions");
             DropTable("dbo.Submissions");
             DropTable("dbo.Awards");
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,9 +9,9 @@ namespace InstituteOfFineArts.Models
 {
     public class Award
     {
-        [Key]
-        public int SubmissionId { get; set; }
-        public virtual ICollection<Submission> Submissions { get; set; }
+        [ForeignKey("Submission")]
+        public int AwardId { get; set; }
+        public virtual Submission Submission{ get; set; }
         public AwardType AwardName { get; set; }
         public enum AwardType 
         {
