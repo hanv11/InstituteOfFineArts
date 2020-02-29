@@ -181,6 +181,7 @@
     <Compile Include="Areas\Teacher\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Teacher\Controllers\MarkController.cs" />
     <Compile Include="Areas\Teacher\Controllers\SubmissionController.cs" />
+    <Compile Include="Areas\Teacher\Models\AwardViewModel.cs" />
     <Compile Include="Areas\Teacher\Models\CompetitionViewModel.cs" />
     <Compile Include="Areas\Teacher\Models\MarkViewModel.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />

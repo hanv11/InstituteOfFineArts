@@ -56,9 +56,12 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             ViewBag.SubmissionId = submissionId;
+            ViewBag.SubmissionName = submission.SubmissionName;
             ViewBag.Picture = submission.Picture;
+            ViewBag.StudentName = submission.Account.FirstName + " " + submission.Account.LastName;
             return View();
         }
+
 
         // POST: Teacher/Award/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -69,6 +72,8 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
             if (ModelState.IsValid)
             {
+                var CompetitionId = db.Competitions.First().CompetitionId;
+
                 db.Awards.Add(award);
                 db.SaveChanges();
                 return RedirectToAction("Index");
