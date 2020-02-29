@@ -11,7 +11,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h1>@Model.First().Competition.C</h1>
+                    <h1>@Model.First().Competition.CompetitionName</h1>
                 </div>
                 @using (Html.BeginForm("List", "Submission", FormMethod.Get,new {@class="form-inline"}))
                 {
