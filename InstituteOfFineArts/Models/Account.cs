@@ -16,7 +16,6 @@ namespace InstituteOfFineArts.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Index(IsUnique = true)]
         public string UserCode { get; set; }
         public override string  Email { get; set; }
         [DataType(DataType.Date)]
