@@ -19,6 +19,12 @@
                         <!-- text input -->
                         <div class="form-group">
                             <label>
+                                @Html.LabelFor(m => m.UserType, new { @class = "col-md-2 control-label" })
+                            </label>
+                            @Html.EnumDropDownListFor(m => m.UserType, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>
                                 @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
                             </label>
                             @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
