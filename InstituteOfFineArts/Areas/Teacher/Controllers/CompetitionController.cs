@@ -250,7 +250,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             
         }
         [Authorize(Roles = "Teacher")]
-        public ActionResult InvitedCompetition(string searchString, string sortOrder, string currentFilter, int? page)
+        public ActionResult CompetitionInvited(string searchString, string sortOrder, string currentFilter, int? page)
         {
             var currentUserId = User.Identity.GetUserId();
             ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -285,8 +285,8 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             var pageNumber = page ?? 1;
 
 
-            var myCompetition = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId)).ToList();
-            return View(myCompetition.ToPagedList(pageNumber, pageSize));
+            var CompetitionInvited = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId)).ToList();
+            return View(CompetitionInvited.ToPagedList(pageNumber, pageSize));
 
         }
         [Authorize(Roles = "Teacher")]

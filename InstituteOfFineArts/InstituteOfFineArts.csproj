@@ -1640,7 +1640,7 @@
     <Content Include="Areas\Teacher\Views\Award\Index.cshtml" />
     <Content Include="Areas\Teacher\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Teacher\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Teacher\Views\Competition\InvitedCompetition.cshtml" />
+    <Content Include="Areas\Teacher\Views\Competition\CompetitionInvited.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

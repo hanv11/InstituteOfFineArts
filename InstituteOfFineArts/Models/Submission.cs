@@ -40,11 +40,13 @@ namespace InstituteOfFineArts.Models
 
         public virtual Award Award { get; set; }
 
-        public Submission(int subid, int competid, string pic, string descrip)
-        {
-            SubmissionId = subid;
+        public Submission(int competid,string creatorid,string pic, string subname, string descrip, DateTime createdat)
+        {              
             CompetitionId = competid;
+            CreatorId = creatorid;
+            CreatedAt = createdat;
             Picture = pic;
+            SubmissionName = subname;
             Description = descrip;
         }
     }
