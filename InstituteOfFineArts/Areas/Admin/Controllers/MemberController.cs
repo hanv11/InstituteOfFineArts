@@ -134,7 +134,13 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                         break;
                 }
 
-                var user = new Account { UserName = model.Email, Email = model.Email, CreatedAt = DateTime.Now, UpdateAt = DateTime.Now, FirstName = model.FirstName, LastName = model.LastName, Birthday = model.Birthday, Gender = (Account.GenderType)model.Gender };
+                var user = new Account
+                {
+                    UserName = model.Email, Email = model.Email, CreatedAt = DateTime.Now, UpdateAt = DateTime.Now,
+                    FirstName = model.FirstName, LastName = model.LastName, Birthday = model.Birthday,
+                    Gender = (Account.GenderType) model.Gender,
+                    UserType = (Account.UserTypes)model.UserType
+                };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
