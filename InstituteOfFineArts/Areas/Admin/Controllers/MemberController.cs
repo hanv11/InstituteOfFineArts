@@ -117,6 +117,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             {
                 var role = "Student";
                 var usercode = "";
+              
                 switch (model.UserType)
                 {
                     case Account.UserTypes.Teacher:
