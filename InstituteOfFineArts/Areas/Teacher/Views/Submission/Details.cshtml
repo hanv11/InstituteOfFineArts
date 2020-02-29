@@ -30,12 +30,12 @@
                         @Html.DisplayFor(model => model.Competition.CompetitionName)
                     </h1>
 
-                    <p>Student Name: @Html.DisplayFor(model => model.Account.FirstName) @Html.DisplayFor(model => model.Account.LastName)</p>
+                    <p>Student Name: @Html.DisplayFor(model => model.Creator.FirstName) @Html.DisplayFor(model => model.Creator.LastName)</p>
                     <p>Point: @Html.DisplayFor(model => model.Marks)</p>
                     <p>Award: @Html.DisplayFor(model => model.Awards)</p>
                     <p>Post Date: @Html.DisplayFor(model => model.UpdatedAt)</p>
                     <p>Description : @Html.DisplayFor(model => model.Description)</p>
-                    @if (Model.AccountId == User.Identity.GetUserId())
+                    @if (Model.CreatorId == User.Identity.GetUserId())
                     {
                         <a class="genric-btn warning circle" href="@Url.Action("Edit", "Submission", new {id = Model.SubmissionId})">Update</a>
                     }

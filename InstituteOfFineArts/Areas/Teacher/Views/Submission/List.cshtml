@@ -50,7 +50,7 @@
                                     <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(model => item.Account.FirstName) @Html.DisplayFor(model => item.Account.LastName)
+                                    @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(model => item.Description)
