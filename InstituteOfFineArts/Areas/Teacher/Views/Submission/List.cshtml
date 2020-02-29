@@ -1,5 +1,6 @@
 ﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Submission>
 @using InstituteOfFineArts.Models
+@using Microsoft.AspNet.Identity
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "List";
@@ -11,7 +12,10 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h1>@Model.First().Competition.C</h1>
+                    @if (Model.Any())
+                    {
+                        <h1>@Model.First().Competition.CompetitionName</h1>
+                    }
                 </div>
                 @using (Html.BeginForm("List", "Submission", FormMethod.Get,new {@class="form-inline"}))
                 {
@@ -59,9 +63,12 @@
                                     @Html.DisplayFor(model => item.Status)
                                 </td>
                                 <td>
+                                    @if (Model.First().Competition.CreatorId == User.Identity.GetUserId())
+                                    {
+                                        <button id="confirm_@item.SubmissionId" class="btn btn-warning" @Html.Raw((item.Status == Submission.SubmissionStatus.Confirmed) ? "disabled" : "") onclick="confirmed(@item.SubmissionId)">Confirm</button>
+                                        <button id="cancel_@item.SubmissionId" class="btn btn-danger" @Html.Raw((item.Status == Submission.SubmissionStatus.Cancel) ? "disabled" : "") onclick="cancel(@item.SubmissionId)">Cancel</button>
+                                    }
 
-                                    <button id="confirm_@item.SubmissionId" class="btn btn-warning" @Html.Raw((item.Status == Submission.SubmissionStatus.Confirmed) ? "disabled" : "") onclick="confirmed(@item.SubmissionId)">Confirm</button>
-                                    <button id="cancel_@item.SubmissionId" class="btn btn-danger" @Html.Raw((item.Status == Submission.SubmissionStatus.Cancel) ? "disabled" : "") onclick="cancel(@item.SubmissionId)">Cancel</button>
                                 </td>
                             </tr>
                         }

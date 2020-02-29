@@ -177,9 +177,11 @@
     <Compile Include="Areas\Admin\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\MemberController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\AwardController.cs" />
     <Compile Include="Areas\Teacher\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Teacher\Controllers\MarkController.cs" />
     <Compile Include="Areas\Teacher\Controllers\SubmissionController.cs" />
+    <Compile Include="Areas\Teacher\Models\AwardViewModel.cs" />
     <Compile Include="Areas\Teacher\Models\CompetitionViewModel.cs" />
     <Compile Include="Areas\Teacher\Models\MarkViewModel.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
@@ -1631,6 +1633,11 @@
     <Content Include="Areas\Admin\Views\Competition\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Competition\Detail.cshtml" />
     <Content Include="Areas\Teacher\Views\Submission\Details.cshtml" />
+    <Content Include="Areas\Teacher\Views\Award\Create.cshtml" />
+    <Content Include="Areas\Teacher\Views\Award\Delete.cshtml" />
+    <Content Include="Areas\Teacher\Views\Award\Details.cshtml" />
+    <Content Include="Areas\Teacher\Views\Award\Edit.cshtml" />
+    <Content Include="Areas\Teacher\Views\Award\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

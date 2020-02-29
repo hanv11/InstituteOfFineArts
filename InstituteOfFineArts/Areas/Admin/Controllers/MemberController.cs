@@ -43,14 +43,14 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             }
         }
         // GET: Admin/Member
-        public ActionResult Index(int? id, string searchString, int? usertype,int? status ,string sortOrder, string currentFilter, int? page)
+        public ActionResult Index(int? id, string searchString, int? usertype, int? status, string sortOrder, string currentFilter, int? page)
         {
             ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortPara = sortOrder == "Date" ? "date_desc" : "Date";
             var members = db.Users.AsQueryable();
             if (!string.IsNullOrEmpty(searchString))
             {
-                members = members.Where(s => s.UserCode.Contains(searchString)|| s.FirstName.Contains(searchString) || s.LastName.Contains(searchString) || s.Email.Contains(searchString));
+                members = members.Where(s => s.UserCode.Contains(searchString) || s.FirstName.Contains(searchString) || s.LastName.Contains(searchString) || s.Email.Contains(searchString));
             }
             if (usertype != null)
             {
@@ -137,17 +137,17 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-        
+
 
         // GET: Admin/Member/Edit/5
-        public ActionResult Edit(string userCode)
+        public ActionResult Edit(string id)
         {
-            if (userCode == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Account account = db.Users.FirstOrDefault(x => x.UserCode.Equals(userCode));
+            Account account = db.Users.Find(id);
             if (account == null)
             {
                 return HttpNotFound();
@@ -158,6 +158,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
         // POST: Admin/Member/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,UserCode,Email,Birthday,Gender,Avatar,PhoneNumber")] Account account)
@@ -165,6 +166,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(account).State = EntityState.Modified;
+                account.UpdateAt = DateTime.Now;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
