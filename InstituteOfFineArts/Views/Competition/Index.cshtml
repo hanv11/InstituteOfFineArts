@@ -47,36 +47,49 @@
                                 <img class="img-fluid" src="@Url.Content(Model[i].Image)" style="height: 250px;width: 540px" alt="">
                                 <a href="#"><h4>@Model[i].CompetitionName</h4></a>
                                 <p>
-                                    @Model[i].Description
+                                    @Model[i].ShortDescription
                                 </p>
                                 @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @Model[i].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                             </div>
-                            <div class="single-events">
-                                <img class="img-fluid" src="@Url.Content(Model[i + 1].Image)" style="height: 250px;width: 540px" alt="">
-                                <a href="#"><h4>@Model[i + 1].CompetitionName</h4></a>
-                                <p>
-                                    @Model[i + 1].Description
-                                </p>
-                                @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @Model[i + 1].CompetitionId }, new { @class = "primary-btn text-uppercase" })
-                            </div>
+                            
+                            @if (i+2 < Model.Count)
+                            {
+                        <div class="single-events">
+                            <img class="img-fluid" src="@Url.Content(Model[i + 2].Image)" style="height: 250px; width: 540px" alt="">
+
+                            <a href="#"><h4>@Model[i + 2].CompetitionName</h4></a>
+                            <p>
+                                @Model[i + 2].ShortDescription
+                            </p>
+                            @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @Model[i + 2].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                        </div>
+                            }
+                            
                         </div>
                         <div class="col-lg-6 event-right">
-                            <div class="single-events">
-                                <a href="#"><h4>@Model[i + 2].CompetitionName</h4></a>
-                                <p>
-                                    @Model[i + 2].Description
-                                </p>
-                                @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @Model[i + 2].CompetitionId }, new { @class = "primary-btn text-uppercase" })
-                                <img class="img-fluid" src="@Url.Content(Model[i + 2].Image)" style="height: 250px; width: 540px" alt="">
-                            </div>
-                            <div class="single-events">
-                                <a href="#"><h4>@Model[i + 3].CompetitionName</h4></a>
-                                <p>
-                                    @Model[i + 3].Description
-                                </p>
-                                @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @Model[i + 3].CompetitionId }, new { @class = "primary-btn text-uppercase" })
-                                <img class="img-fluid" src="@Url.Content(Model[i + 3].Image)" style="height: 250px; width: 540px" alt="">
-                            </div>
+                            @if (i+1 < Model.Count)
+                            {
+                                <div class="single-events">
+                                    <a href="#"><h4>@Model[i + 1].CompetitionName</h4></a>
+                                    <p>
+                                        @Model[i + 1].ShortDescription
+                                    </p>
+                                    @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @Model[i + 1].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                                    <img class="img-fluid" src="@Url.Content(Model[i + 1].Image)" style="height: 250px;width: 540px" alt="">
+                                </div>
+                            }
+                            @if (i + 3 < Model.Count)
+                            {
+                                <div class="single-events">
+                                    <a href="#"><h4>@Model[i + 3].CompetitionName</h4></a>
+                                    <p>
+                                        @Model[i + 3].ShortDescription
+                                    </p>
+                                    @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new {Id = @Model[i + 3].CompetitionId}, new {@class = "primary-btn text-uppercase"})
+                                    <img class="img-fluid" src="@Url.Content(Model[i + 3].Image)" style="height: 250px; width: 540px" alt="">
+                                </div>
+                            }
+                     
                         </div>
 
                     }
