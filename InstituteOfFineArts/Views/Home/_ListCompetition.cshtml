@@ -23,20 +23,20 @@
                 {
                     <div class="col-lg-6 event-left">
                         <div class="single-events">
+                            <img class="img-fluid" src="@Url.Content(competitions[i ].Image)" style="height: 250px; width: 540px" alt="">
+                            <a href="#"><h4>@competitions[i].CompetitionName</h4></a>
+                            <p>
+                                @competitions[i].ShortDescription
+                            </p>
+                            @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @competitions[i].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                        </div>
+                        <div class="single-events">
                             <img class="img-fluid" src="@Url.Content(competitions[i + 2].Image)" style="height: 250px; width: 540px" alt="">
                             <a href="#"><h4>@competitions[i + 2].CompetitionName</h4></a>
                             <p>
                                 @competitions[i + 2].ShortDescription
                             </p>
                             @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @competitions[i + 2].CompetitionId }, new { @class = "primary-btn text-uppercase" })
-                        </div>
-                        <div class="single-events">
-                            <img class="img-fluid" src="@Url.Content(competitions[i + 4].Image)" style="height: 250px; width: 540px" alt="">
-                            <a href="#"><h4>@competitions[i + 4].CompetitionName</h4></a>
-                            <p>
-                                @competitions[i + 4].ShortDescription
-                            </p>
-                            @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @competitions[i + 4].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                         </div>
 
                     </div>
@@ -50,12 +50,12 @@
                             <img class="img-fluid" src="@Url.Content(competitions[i + 1].Image)" style="height: 250px; width: 540px" alt="">
                         </div>
                         <div class="single-events">
-                            <a href="#"><h4>@competitions[i + 5].CompetitionName</h4></a>
+                            <a href="#"><h4>@competitions[i + 3].CompetitionName</h4></a>
                             <p>
-                                @competitions[i + 5].ShortDescription
+                                @competitions[i + 3].ShortDescription
                             </p>
-                            @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @competitions[i + 5].CompetitionId }, new { @class = "primary-btn text-uppercase" })
-                            <img class="img-fluid" src="@Url.Content(competitions[i + 5].Image)" style="height: 250px; width: 540px" alt="">
+                            @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @competitions[i + 3].CompetitionId }, new { @class = "primary-btn text-uppercase" })
+                            <img class="img-fluid" src="@Url.Content(competitions[i + 3].Image)" style="height: 250px; width: 540px" alt="">
                         </div>
 
                     </div>
