@@ -1,0 +1,73 @@
+﻿@model IEnumerable<InstituteOfFineArts.Models.Submission>
+@{
+    ViewBag.Title = "ListAward";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ListAward</h2>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    @if (Model.Any())
+                    {
+                        <h1>@Model.First().Competition.CompetitionName</h1>
+                    }
+                </div>
+                @using (Html.BeginForm("List", "Submission", FormMethod.Get, new { @class = "form-inline" }))
+                {
+                    <p class="form-group" style="margin-left: 20px;">
+                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control ", @placeholder = "Find by keyword" })
+                        <input type="submit" class="btn btn-default" value="Search" />
+                    </p>
+
+                }
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <tr>
+                            <th>
+                                Picture Name
+                            </th>
+                            <th>
+                                Picture
+                            </th>
+                            <th>
+                                Author
+                            </th>
+                            <th>
+                                Mark
+                            </th>
+                            <th>Award</th>
+                            <th></th>
+
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="col-md-2">
+                                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">@Html.DisplayFor(model => item.SubmissionName)</a>
+                                </td>
+                                <td class="col-md-2">
+                                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model=>item.Marks)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.Award.AwardName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Award","Create","Award",new {submissionId = item.SubmissionId},new{@class="btn btn-success"})
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

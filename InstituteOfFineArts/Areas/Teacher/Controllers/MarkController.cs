@@ -53,6 +53,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             var currentUserId = User.Identity.GetUserId();
             var account = db.Users.Find(currentUserId);
             var submission = db.Submissions.Find(submissionId);
+            var competition = submission.CompetitionId;
             if (submission == null)
             {
                 return HttpNotFound();
@@ -63,6 +64,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             }
             ViewBag.SubmissionId = submissionId;
             ViewBag.Picture = submission.Picture;
+            ViewBag.CompetitionId = competition;
             return View();
         }
 
@@ -75,14 +77,15 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
             if (ModelState.IsValid)
             {
-                var CompetitionId = db.Competitions.First().CompetitionId;
+                var submission = db.Submissions.Find(mark.SubmissionId);
+                var competition = submission.Competition;
                 var teacherId = User.Identity.GetUserId();
-                var account = db.Users.FirstOrDefault(u => u.Id == teacherId);
+                var account = db.Users.Find(teacherId);
                 mark.AccountId = teacherId;
                 mark.Examiner = account;
                 db.Marks.Add(mark);
                 db.SaveChanges();
-                return RedirectToAction("ListMark",new {CompetitionId = CompetitionId});
+                return RedirectToAction("ListMark",new {competitionId = competition.CompetitionId});
             }
             return View(mark);
         }
@@ -113,9 +116,15 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
             if (ModelState.IsValid)
             {
+                var submission = db.Submissions.Find(mark.SubmissionId);
+                var competition = submission.Competition;
+                var teacherId = User.Identity.GetUserId();
+                var account = db.Users.Find(teacherId);
+                mark.AccountId = teacherId;
+                mark.Examiner = account;
                 db.Entry(mark).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListMark", new { competitionId = competition.CompetitionId });
             }
             ViewBag.AccountId = new SelectList(db.Users, "Id", "FirstName", mark.AccountId);
             ViewBag.SubmissionId = new SelectList(db.Submissions, "SubmissionId", "Picture", mark.SubmissionId);

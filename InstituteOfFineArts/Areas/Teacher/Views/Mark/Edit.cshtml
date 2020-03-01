@@ -27,9 +27,6 @@
                                     @Html.HiddenFor(model => model.MarkId, new { value = Model.MarkId })
                                     @Html.HiddenFor(model => model.AccountId, new { value = User.Identity.GetUserId() })
                                     @Html.HiddenFor(model => model.SubmissionId, new { value = Model.SubmissionId })
-
-
-
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Marks, htmlAttributes: new { @class = "control-label col-md-2" })
                                         @Html.EnumDropDownListFor(model => model.Marks, htmlAttributes: new { @class = "form-control" })
@@ -43,7 +40,7 @@
                                     <div class="form-group">
 
                                         <input type="submit" value="Save" class="btn btn-warning" />
-                                        <a href="@Url.Action("Index", "Mark")" class="btn btn-default" style="margin-left:1%">Back to List</a>
+                                        <a href="@Url.Action("ListMark", "Mark",new{competitionId = Model.Submission.CompetitionId})" class="btn btn-default" style="margin-left:1%">Back to List</a>
 
                                     </div>
                                 </div>
@@ -51,7 +48,7 @@
 
                         }
                     </div>
-                    <div class="col-md-8 mt-sm-20"><img src="@Model.Submission.Picture" class="img-rounded img-responsive pad picture" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey; width:1000px" alt="Alternate Text" /></div>
+                    <div class="col-md-6 mt-sm-20"><img src="@Model.Submission.Picture" class="img-rounded img-responsive pad picture" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey; width:1000px" alt="Alternate Text" /></div>
                 </div>
             </div>
         </div>

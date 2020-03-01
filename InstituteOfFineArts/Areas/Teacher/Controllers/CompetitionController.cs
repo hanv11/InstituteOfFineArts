@@ -166,19 +166,17 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
 
         public ActionResult GetTeachers(string keyword)
         {
-            var teacher = (from user in db.Users
-                from role in user.Roles
-                join userRole in db.Roles on role.RoleId equals userRole.Id
-                where userRole.Name == "Teacher" & user.FirstName.Contains(keyword) | user.LastName.Contains(keyword)
-                select new
+            var user = db.Users.Where(u =>
+                u.UserType == Account.UserTypes.Teacher &
+                (u.FirstName.Contains(keyword) | u.LastName.Contains(keyword))).Select( u=>new
                 {
-                    id = user.Id,
-                    name = user.FirstName + user.LastName
+                    id = u.Id,
+                    name = u.FirstName + u.LastName
                 });
 
             return new JsonResult()
             {
-                Data = teacher,
+                Data = user,
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
@@ -215,7 +213,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             var currentUserId = User.Identity.GetUserId();
             ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
                 ViewBag.DateSortPara = sortOrder == "Date" ? "date_desc" : "Date";
-                var competitions = db.Competitions.AsQueryable();
+                var competitions = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId));
                 if (!string.IsNullOrEmpty(searchString))
                 {
                     competitions = competitions.Where(s => s.CompetitionName.Contains(searchString));
@@ -245,17 +243,18 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 var pageNumber = page ?? 1;
                 
             
-                 var myCompetition = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId)).ToList();
-                return View(myCompetition.ToPagedList(pageNumber, pageSize));
+                return View(competitions.ToPagedList(pageNumber, pageSize));
             
         }
         [Authorize(Roles = "Teacher")]
         public ActionResult CompetitionInvited(string searchString, string sortOrder, string currentFilter, int? page)
         {
             var currentUserId = User.Identity.GetUserId();
+            var user = db.Users.Find(currentUserId);
             ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortPara = sortOrder == "Date" ? "date_desc" : "Date";
-            var competitions = db.Competitions.AsQueryable();
+            var competitions = db.Competitions.Where(c => c.Examiners.Select(e => e.Id).Contains(currentUserId));
+
             if (!string.IsNullOrEmpty(searchString))
             {
                 competitions = competitions.Where(s => s.CompetitionName.Contains(searchString));
@@ -285,8 +284,8 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             var pageNumber = page ?? 1;
 
 
-            var CompetitionInvited = db.Competitions.Where(c => c.CreatorId.Equals(currentUserId)).ToList();
-            return View(CompetitionInvited.ToPagedList(pageNumber, pageSize));
+           
+            return View(competitions.ToPagedList(pageNumber, pageSize));
 
         }
         [Authorize(Roles = "Teacher")]

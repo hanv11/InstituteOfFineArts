@@ -19,13 +19,17 @@ namespace InstituteOfFineArts.Models
         public virtual Account Creator { get; set; }
         // cac giam khao duoc chon
         public virtual ICollection<Account> Examiners { get; set; }
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")]
         public DateTime StartDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")]
         public DateTime EndDate { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? CancelAt { get; set; }
         public string Image { get; set; }
+        public string Slide { get; set; }
         public string Description { get; set; }
         public string ShortDescription { get; set; }
         public string AwardDetail { get; set; }

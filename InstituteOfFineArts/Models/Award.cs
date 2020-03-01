@@ -11,6 +11,7 @@ namespace InstituteOfFineArts.Models
     {
         [ForeignKey("Submission")]
         public int AwardId { get; set; }
+        public int SubmissionId { get; set; }
         public virtual Submission Submission{ get; set; }
         public AwardType AwardName { get; set; }
         public enum AwardType 
