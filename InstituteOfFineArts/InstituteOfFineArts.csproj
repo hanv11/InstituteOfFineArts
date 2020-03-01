@@ -177,6 +177,7 @@
     <Compile Include="Areas\Admin\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\MemberController.cs" />
+    <Compile Include="Areas\Admin\Models\Class1.cs" />
     <Compile Include="Areas\Teacher\Controllers\AwardController.cs" />
     <Compile Include="Areas\Teacher\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Teacher\Controllers\MarkController.cs" />
@@ -1742,7 +1743,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
