@@ -174,7 +174,21 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(account);
+
+            
+            var model = new UpdateViewModel()
+            {
+                Birthday = account.Birthday,
+                FirstName = account.FirstName,
+                LastName = account.LastName,
+                Email = account.Email,
+                UserType = account.UserType,
+                Gender = account.Gender,
+                UserCode = account.UserCode,
+                Status = account.Status,
+                PhoneNumber = account.PhoneNumber
+            };
+            return View(model);
         }
 
         // POST: Admin/Member/Edit/5
@@ -183,17 +197,54 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Account account)
+        public async Task<ActionResult> Edit(UpdateViewModel model)
         {
+            
             if (ModelState.IsValid)
             {
-                account.UserName = account.Email;
+            
+                var account = db.Users.Find(model.Id);
+                if (account == null)
+                {
+                    return HttpNotFound();
+                }
+               
+
+                var role = "";
+                switch (model.UserType)
+                {
+                    case Account.UserTypes.Teacher:
+                        role = "Teacher";
+                        break;
+                    case Account.UserTypes.Admin:
+                        role = "Admin";
+                        break;
+                    case Account.UserTypes.Manager:
+                        role = "Manager";
+                        break;
+                    default:
+                        role = "Student";
+                        break;
+                }
+                var roles = await UserManager.GetRolesAsync(model.Id);
+                await UserManager.RemoveFromRolesAsync(model.Id, roles.ToArray());
+               await UserManager.AddToRoleAsync(model.Id, role);
                 db.Entry(account).State = EntityState.Modified;
+                account.UserName = model.Email;
+                account.Birthday = model.Birthday;
+                account.FirstName = model.FirstName;
+                account.LastName = model.LastName;
+                account.Email = model.Email;
+                account.UserType = model.UserType;
+                account.Gender = (Account.GenderType)model.Gender;
+                account.UserCode = model.UserCode;
+                account.Status = model.Status;
                 account.UpdateAt = DateTime.Now;
+                account.PhoneNumber = model.PhoneNumber;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(account);
+            return View(model);
         }
 
         // GET: Admin/Member/Delete/5
