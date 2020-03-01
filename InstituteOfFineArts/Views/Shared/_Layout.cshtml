@@ -17,7 +17,9 @@
 
     <title>Art Museum</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
     @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     @Styles.Render("~/Content/Homepage/css")
     @Styles.Render("~/Content/bootstrap")
     @Scripts.Render("~/bundles/modernizr")
@@ -134,10 +136,13 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Content/js")
     @Scripts.Render("~/Content/Homepage/js")
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     @RenderSection("scripts", required: false)
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
     <script type="61ce3ffbce705e338d4feed6-text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="61ce3ffbce705e338d4feed6-text/javascript"></script>
+
     <script type="61ce3ffbce705e338d4feed6-text/javascript">
         $(document).ready(function(){
               window.dataLayer = window.dataLayer || [];
@@ -156,6 +161,7 @@
 
     </script>
     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="61ce3ffbce705e338d4feed6-|49" defer=""></script>
+
 </body>
 
 </html>

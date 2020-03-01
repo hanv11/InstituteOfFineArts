@@ -112,5 +112,21 @@ namespace InstituteOfFineArts.Controllers
         {
             return RedirectToAction("Create", "Submission");
         }
+
+        public ActionResult GetCompetition(string keyword)
+        {
+            var competition = db.Competitions.Where(u =>
+                u.CompetitionName.Contains(keyword)).Select(u => new
+            {
+                id = u.CompetitionId,
+                name = u.CompetitionName
+            });
+
+            return new JsonResult()
+            {
+                Data = competition,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
     }
 }
