@@ -93,7 +93,7 @@
             </ul>
         </div>*@
                 @Html.Action("SomeCompetition", "Competition");
-                @if (Model.Submissions.Any())
+                @if (Model.Submissions.Any(s => s.CompetitionId == Model.CompetitionId & s.Status == InstituteOfFineArts.Models.Submission.SubmissionStatus.Confirmed))
                 {
                     @Html.Action("ListSubmission", "Submission", new { Id = Model.CompetitionId })
                 }
