@@ -1,4 +1,5 @@
-﻿@model IEnumerable<InstituteOfFineArts.Models.Submission>
+﻿@using InstituteOfFineArts.Models
+@model IEnumerable<InstituteOfFineArts.Models.Submission>
 @{
     ViewBag.Title = "ListAward";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -55,7 +56,10 @@
                                     @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(model=>item.Marks)
+                                    @foreach (var m in item.Marks)
+                                    {
+                                    <p> @m.Examiner.FirstName  @m.Examiner.LastName : @m.Marks</p>
+                                    }
                                 </td>
                                 <td>
                                     @Html.DisplayFor(model => item.Award.AwardName)
