@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using InstituteOfFineArts.Areas.Teacher.Models;
 using InstituteOfFineArts.Models;
 using Microsoft.AspNet.Identity;
 
@@ -58,6 +59,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             ViewBag.SubmissionId = submissionId;
             ViewBag.SubmissionName = submission.SubmissionName;
             ViewBag.Picture = submission.Picture;
+            ViewBag.CompetitionId = submission.CompetitionId;
             ViewBag.StudentName = submission.Creator.FirstName + " " + submission.Creator.LastName;
             return View();
         }
@@ -72,11 +74,12 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         {
             if (ModelState.IsValid)
             {
-                var CompetitionId = db.Competitions.First().CompetitionId;
-
+                var submission = db.Submissions.Find(award.SubmissionId);
+                var competition = submission.Competition;
+                submission.Award = award;
                 db.Awards.Add(award);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListAward", new { competitionId = competition.CompetitionId });
             }
 
             return View(award);
@@ -146,6 +149,31 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult ListAward(int? competitionId)
+        {
+            if (competitionId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var competition = db.Competitions.Find(competitionId);
+
+            var currentUserId = User.Identity.GetUserId();
+            var currentUser = db.Users.Find(currentUserId);
+
+            if (competition == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            if (!competition.CreatorId.Equals(currentUserId))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
+            var allSubmission = db.Submissions.Where(s => s.CompetitionId == competitionId);
+            
+            return View(allSubmission);
         }
     }
 }

@@ -6,6 +6,7 @@
     ViewBag.Title = "Create";
     var submissionId = ViewBag.SubmissionId;
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var competitionId = ViewBag.CompetitionId;
 }
 @using (Html.BeginForm("create", "Mark", FormMethod.Post))
 {
@@ -40,7 +41,7 @@
                                         </div>
                                         <div class="form-group" style="padding-top:2%">
                                             <input type="submit" value="Mark" class="btn btn-success" />
-                                            <a href="@Url.Action("Index", "Mark")" class="btn btn-default" style="margin-left:1%">Back to List</a>
+                                            <a href="@Url.Action("ListMark", "Mark",new{competitionId = competitionId})" class="btn btn-default" style="margin-left:1%">Back to List</a>
                                         </div>
                                     </form>
                                 </div>
@@ -50,7 +51,7 @@
 
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-6">
 
                             <img class="img-rounded img-responsive pad picture" style="box-shadow: 0 0 10px 4px grey, 0 0 10px 0px grey, 0px 0 0px 0px grey; width:1000px" src="@Url.Content(@ViewBag.Picture)" alt="alternate text" />
 
