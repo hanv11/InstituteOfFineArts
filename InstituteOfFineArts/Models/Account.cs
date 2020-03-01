@@ -19,6 +19,7 @@ namespace InstituteOfFineArts.Models
         public string UserCode { get; set; }
         public override string  Email { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? Birthday { get; set; }
         public GenderType Gender { get; set; }
         public string Avatar { get; set; }

@@ -63,6 +63,33 @@ namespace InstituteOfFineArts.Models
         public bool RememberMe { get; set; }
     }
 
+    public class UpdateViewModel
+    {
+        [Required]
+        public string Id { get; set; }
+
+        public string UserCode { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+
+        public Account.AccountStatus Status { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? Birthday { get; set; }
+        public Account.GenderType Gender { get; set; }
+        [Required]
+        public Account.UserTypes UserTypes { get; set; }
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        public string  PhoneNumber { get; set; }
+        public Account.UserTypes UserType { get; set; }
+    }
     public class RegisterViewModel
     {
         [Required]
@@ -70,7 +97,8 @@ namespace InstituteOfFineArts.Models
         [Required]
         public string LastName { get; set; }
         [Required]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get; set; }
         public GenderType Gender { get; set; }
         [Required]
