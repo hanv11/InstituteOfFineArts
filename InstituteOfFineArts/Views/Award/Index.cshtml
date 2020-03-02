@@ -1,0 +1,46 @@
+﻿@model IEnumerable<InstituteOfFineArts.Models.Award>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Submission.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubmissionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AwardName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Submission.Picture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmissionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AwardName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AwardId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AwardId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AwardId })
+        </td>
+    </tr>
+}
+
+</table>
