@@ -1,4 +1,5 @@
-﻿@model InstituteOfFineArts.Models.Competition
+﻿@using System.Security.Policy
+@model InstituteOfFineArts.Models.Competition
 
 @{
     ViewBag.Title = "Edit";
@@ -160,8 +161,9 @@
                 $.ajax({
                     url: '@Url.Action("InviteExaminer", "Competition")',
                     data: {
-                        accountId: ui.item.id
-                    },
+                        accountId: ui.item.id,
+                        competitionId: @Model.CompetitionId
+            },
                     success: function (res) {
                         console.log(res);
                         if (res.length)
@@ -193,7 +195,7 @@
             },
             false);
         function remove (id) {
-            var confirmation = confirm("are you sure you want to remove the user?");
+            var confirmation = confirm("Are you sure you want to remove the user?");
             if (confirmation) {
                 $.ajax({
                     type: 'get',

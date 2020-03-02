@@ -43,7 +43,7 @@ namespace InstituteOfFineArts.Controllers
                 case "Date":
                     break;
                 default:
-                    competitions = competitions.OrderBy(s => s.CompetitionName).Take(5);
+                    competitions = competitions.OrderBy(s => s.CompetitionName);
                     break;
             }
             var pageSize = 4;
