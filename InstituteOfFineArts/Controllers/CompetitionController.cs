@@ -20,7 +20,7 @@ namespace InstituteOfFineArts.Controllers
         {
             ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            var competitions = db.Competitions.AsQueryable();
+            var competitions = db.Competitions.Where(u=>u.Status == Competition.CompetitionStatus.Confirmed);
             if (!string.IsNullOrEmpty(searchString))
             {
                 competitions = competitions.Where(s => s.CompetitionName.Contains(searchString));

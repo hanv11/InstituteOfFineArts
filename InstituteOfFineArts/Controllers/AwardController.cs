@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InstituteOfFineArts.Models;
+using PagedList;
 
 namespace InstituteOfFineArts.Controllers
 {
@@ -20,7 +21,7 @@ namespace InstituteOfFineArts.Controllers
             var awards = db.Awards.Include(a => a.Submission);
             return View(awards.ToList());
         }
-
+        
         // GET: Award/Details/5
         public ActionResult Details(int? id)
         {
