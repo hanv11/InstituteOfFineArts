@@ -29,7 +29,7 @@
 
 
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+                        @Html.HiddenFor(model => model.CreatorId)
                         @Html.HiddenFor(model => model.SubmissionId)
                         <div class="submission-content">
                             <div class="mt-10">
