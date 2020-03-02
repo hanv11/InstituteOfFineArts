@@ -30,7 +30,7 @@
 
                     <p>Student Name: @Html.DisplayFor(model => model.Creator.FirstName) @Html.DisplayFor(model => model.Creator.LastName)</p>
                     <p>Point: @Html.DisplayFor(model => model.Marks)</p>
-
+                    <p>Award: @Html.DisplayFor(model => model.Award.AwardName)</p>
                     <p>Post Date: @Html.DisplayFor(model => model.UpdatedAt)</p>
                     <p>Description : @Html.DisplayFor(model => model.Description)</p>
                     @if (Model.CreatorId == User.Identity.GetUserId())
