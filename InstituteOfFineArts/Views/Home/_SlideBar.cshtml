@@ -8,7 +8,7 @@
                     {
                         <div class="item @Html.Raw(Model.First().Equals(item)? "active": "") style-slide">
                             <div class="overlay-bg overlay"></div>
-                            <img src="@Url.Content(item.Image)" alt="Los Angeles">
+                            <img src="@Url.Content(item.Slide)" alt="Los Angeles">
                             <div class="carousel-caption" style="margin-bottom:10vw">
                                 <div class="col-sm-12">
                                     <h4 class="text-white font-style_1">Join Us Now!</h4>
@@ -16,7 +16,7 @@
                                         @item.CompetitionName
                                     </h2>
                                     <p class="pt-20 pb-20 text-white font-style_3">
-                                        I Dream my painting, and then paint my dream
+                                        @item.ShortDescription
                                     </p>
                                     @Html.ActionLink("Register", "Register", "Submission", new {id = item.CompetitionId}, new {@class ="primary-btn text-uppercase"})
                                 </div>
