@@ -290,5 +290,90 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                 ModelState.AddModelError("", error);
             }
         }
+        public ActionResult ListStudent(int? id, string searchString, int? usertype, int? status, string sortOrder, string currentFilter, int? page)
+        {
+            ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortPara = sortOrder == "Date" ? "date_desc" : "Date";
+            var members = db.Users.Where(m => m.UserType == Account.UserTypes.Student);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                members = members.Where(s => s.UserCode.Contains(searchString) || s.FirstName.Contains(searchString) || s.LastName.Contains(searchString) || s.Email.Contains(searchString));
+            }
+            if (usertype != null)
+            {
+                members = members.Where(m => (int)m.UserType == usertype);
+            }
+            if (status != null)
+            {
+                members = members.Where(m => (int)m.Status == status);
+            }
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    members = members.OrderByDescending(s => s.FirstName);
+                    break;
+                case "Date":
+                    break;
+                default:
+                    members = members.OrderBy(s => s.FirstName);
+                    break;
+            }
+            int pageSize = 10;
+            var pageNumber = page ?? 1;
+            return View(members.ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult ListTeacher(int? id, string searchString, int? usertype, int? status, string sortOrder, string currentFilter, int? page)
+        {
+            ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortPara = sortOrder == "Date" ? "date_desc" : "Date";
+            var members = db.Users.Where(m => m.UserType == Account.UserTypes.Teacher);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                members = members.Where(s => s.UserCode.Contains(searchString) || s.FirstName.Contains(searchString) || s.LastName.Contains(searchString) || s.Email.Contains(searchString));
+            }
+            if (usertype != null)
+            {
+                members = members.Where(m => (int)m.UserType == usertype);
+            }
+            if (status != null)
+            {
+                members = members.Where(m => (int)m.Status == status);
+            }
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    members = members.OrderByDescending(s => s.FirstName);
+                    break;
+                case "Date":
+                    break;
+                default:
+                    members = members.OrderBy(s => s.FirstName);
+                    break;
+            }
+            int pageSize = 10;
+            var pageNumber = page ?? 1;
+            return View(members.ToPagedList(pageNumber, pageSize));
+        }
+
     }
 }
