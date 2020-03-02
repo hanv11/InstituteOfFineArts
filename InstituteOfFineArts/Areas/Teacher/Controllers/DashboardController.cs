@@ -1,4 +1,4 @@
-﻿using InstituteOfFineArts.Areas.Admin.Models;
+﻿using InstituteOfFineArts.Areas.Teacher.Models;
 using InstituteOfFineArts.Models;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace InstituteOfFineArts.Areas.Admin.Controllers
+namespace InstituteOfFineArts.Areas.Teacher.Controllers
 {
     public class DashboardController : Controller
     {

@@ -94,7 +94,7 @@ namespace InstituteOfFineArts.Controllers
                     if( await UserManager.IsInRoleAsync(user.Id, "Admin")) //<= Checking Role and redirecting accordingly.
                         return RedirectToAction("Index", "Dashboard", new {Area = "Admin"});
                     else if(await UserManager.IsInRoleAsync(user.Id, "Teacher"))
-                        return RedirectToAction("Index", "Competition", new { Area = "Teacher" });
+                        return RedirectToAction("Index", "Dashboard", new { Area = "Teacher" });
                     return RedirectToAction("Index", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
