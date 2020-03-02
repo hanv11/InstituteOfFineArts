@@ -9,58 +9,65 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Image)
-        </th> <th>
-            @Html.DisplayNameFor(model => model.StudentName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Mark)
+            Author
         </th>
-        <th>
-            Status
-        </th>  
         <th>
             @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Point
+        </th>
+        <th>
+            Comment
+        </th>
+        <th>
+            Mark
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td class="col-md-2">
-                <img class="img-thumbnail" src="@Url.Content(@item.Image)" alt="Alternate Text" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudentName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mark)
-            </td>
+<tr>
+    <td class="col-md-2">
+        <img class="img-thumbnail" src="@Url.Content(@item.Image)" alt="Alternate Text" />
+    </td>
+    <td>
+       @Html.DisplayFor(modelItem => item.StudentName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mark)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Comment)
+    </td>
 
-            @if (item.Mark == null)
-            {
-                <td>
-                    <button class="btn btn-warning">Pending</button>
-                </td>
-                <td>
-                    @Html.ActionLink("Create", "Create", new {submissionId = item.SubmissionId}, new {@class = "btn btn-info"})
-                </td>
-            }
-            else
-            {
-                <td>
-                    <button class="btn btn-success">Done</button>
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new {id = item.MarkId}, new {@class = "btn btn-info"})
+    @if (item.Mark == null)
+    {
+        <td>
+            <button class="btn btn-warning">Pending</button>
+        </td>
+        <td>
+            @Html.ActionLink("Mark", "Create", new { submissionId = item.SubmissionId }, new { @class = "btn btn-info" })
+        </td>
+    }
+    else
+    {
+        <td>
+            <button class="btn btn-success">Done</button>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MarkId }, new { @class = "btn btn-info" })
 
-                </td>
-            }
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-           
-        </tr>
+        </td>
+    }
+
+</tr>
     }
 
 </table>

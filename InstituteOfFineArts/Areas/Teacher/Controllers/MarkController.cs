@@ -63,7 +63,9 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             ViewBag.SubmissionId = submissionId;
+            ViewBag.Description = submission.Description;
             ViewBag.Picture = submission.Picture;
+            ViewBag.SubmissionName = submission.SubmissionName;
             ViewBag.CompetitionId = competition;
             return View();
         }
@@ -195,7 +197,8 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                         SubmissionId = submission.SubmissionId,
                         MarkId = mark.MarkId,
                         Image = submission.Picture,
-                        Description = mark.Description,
+                        Description = submission.Description,
+                        Comment = mark.Description,
                         Mark = mark.Marks,
                         StudentName = submission.Creator.FirstName + " " + submission.Creator.LastName
                     }).ToList();
@@ -210,6 +213,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                             SubmissionId = item.SubmissionId,
                             MarkId = null,
                             Image = item.Picture,
+                            Description =item.Description,
                             StudentName = item.Creator.FirstName + " " + item.Creator.LastName,
                         });
                     }
