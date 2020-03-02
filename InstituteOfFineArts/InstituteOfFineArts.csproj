@@ -182,6 +182,7 @@
     <Compile Include="Areas\Teacher\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Teacher\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Teacher\Controllers\MarkController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\StudentController.cs" />
     <Compile Include="Areas\Teacher\Controllers\SubmissionController.cs" />
     <Compile Include="Areas\Teacher\Models\AwardViewModel.cs" />
     <Compile Include="Areas\Teacher\Models\CompetitionViewModel.cs" />
@@ -1658,6 +1659,11 @@
     <Content Include="Areas\Teacher\Views\Competition\CompetitionInvited.cshtml" />
     <Content Include="Areas\Teacher\Views\Award\ListAward.cshtml" />
     <Content Include="Areas\Teacher\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\ListStudent.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\ListTeacher.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\ListStudent.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\Details.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
