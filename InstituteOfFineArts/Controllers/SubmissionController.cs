@@ -102,7 +102,7 @@ namespace InstituteOfFineArts.Controllers
             var pageNumber = page ?? 1;
             return View("List", submission.ToPagedList(pageNumber, pageSize));
         }
-        [Authorize(Roles = "Student")]
+        // [Authorize(Roles = "Student")]
         // GET: Submissions/Details/5
         public ActionResult Details(int? id)
         {
