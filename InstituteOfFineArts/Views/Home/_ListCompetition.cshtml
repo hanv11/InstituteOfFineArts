@@ -2,24 +2,24 @@
 @using System.Linq
 @using InstituteOfFineArts.Models
 @model System.Collections.Generic.IEnumerable<InstituteOfFineArts.Models.Competition>
-    <section class="upcoming-event-area section-gap" style="background-color:#F9F9FF" id="events">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-60 col-lg-10">
-                    <div class="title text-center">
-                        <h1 class="mb-10">List Of Competitions</h1>
-                        <p>Who are in extremely love with eco friendly system.</p>
-                    </div>
+<section class="upcoming-event-area" style="background-color:#F9F9FF; padding: 100px 0 50px 0" id="events">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">List Of Competitions</h1>
+                    <p>Who are in extremely love with eco friendly system.</p>
                 </div>
             </div>
-            @{
-                var length = Model.Count();
-                List<Competition> competitions = (List<Competition>) Model;
-            }
+        </div>
+        @{
+            var length = Model.Count();
+            List<Competition> competitions = (List<Competition>)Model;
+        }
         <div class="row">
             @if (Model.Any())
             {
-                for(var i = 0; i < 1; i += 4)
+                for (var i = 0; i < 1; i += 4)
                 {
                     <div class="col-lg-6 event-left">
                         <div class="single-events">
@@ -62,5 +62,8 @@
                 }
             }
         </div>
+        <div style="text-align:center">
+            <a href="/Competition" class="genric-btn primary circle arrow">See More <span class="lnr lnr-arrow-right"></span></a>
         </div>
-    </section>
+    </div>
+</section>
