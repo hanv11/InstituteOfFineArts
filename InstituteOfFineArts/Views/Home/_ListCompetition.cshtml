@@ -2,14 +2,7 @@
 @using System.Linq
 @using InstituteOfFineArts.Models
 @model System.Collections.Generic.IEnumerable<InstituteOfFineArts.Models.Competition>
-<section class="upcoming-event-area" style="background-color:#F9F9FF; padding: 100px 0 50px 0" id="events">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-10">
-                <div class="title text-center">
-                    <h1 class="mb-10">List Of Competitions</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
-    <section class=" upcoming-event-area section-gap" style="background-color:#f3f3f3" id="events">
+    <section class=" upcoming-event-area" style="background-color:#f3f3f3; padding: 10vw 0 5vw 0 " id="events">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-10">
@@ -19,7 +12,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
         @{
             var length = Model.Count();
             List<Competition> competitions = (List<Competition>)Model;
