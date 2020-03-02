@@ -50,7 +50,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                     competitions = competitions.OrderBy(s => s.CompetitionName);
                     break;
             }
-            int pageSize = 5;
+            int pageSize = 4;
             var pageNumber = page ?? 1;
             return View(competitions.ToPagedList(pageNumber, pageSize));
         }
@@ -181,7 +181,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             };
         }
         [Authorize(Roles = "Teacher")]
-        public ActionResult InviteExaminer(string accountId)
+        public ActionResult InviteExaminer(string accountId, int? competitionId)
         {
             if (accountId == null)
             {
@@ -189,7 +189,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             }
             var account = db.Users.FirstOrDefault(x => x.Id.Equals(accountId));
             var currentUserId = User.Identity.GetUserId();
-            var competition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
+            var competition = db.Competitions.Find(competitionId);
             if (competition == null || competition.Examiners.Contains(account))
             {
                 return null;
