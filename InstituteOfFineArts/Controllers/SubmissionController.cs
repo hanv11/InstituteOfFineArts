@@ -118,10 +118,6 @@ namespace InstituteOfFineArts.Controllers
                 return HttpNotFound();
             }
 
-            if (submission.CreatorId != currentUserId)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
-            }
             return View(submission);
         }
 
@@ -215,7 +211,7 @@ namespace InstituteOfFineArts.Controllers
         [ValidateAntiForgeryToken]
 
         [Authorize(Roles = "Student")]
-        public ActionResult Edit([Bind(Include = "SubmissionId,CompetitionId,Picture,AccountId,Description, SubmissionName")] Submission submission)
+        public ActionResult Edit([Bind(Include = "SubmissionId,CompetitionId,Picture,CreatorId,Description, SubmissionName")] Submission submission)
         {
             if (ModelState.IsValid)
             {

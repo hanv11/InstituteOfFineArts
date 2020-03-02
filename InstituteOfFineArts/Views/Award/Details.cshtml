@@ -1,0 +1,43 @@
+﻿@model InstituteOfFineArts.Models.Award
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Award</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Submission.Picture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Submission.Picture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubmissionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubmissionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwardName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AwardId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
