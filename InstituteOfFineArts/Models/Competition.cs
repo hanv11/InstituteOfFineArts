@@ -17,8 +17,7 @@ namespace InstituteOfFineArts.Models
         // nguoi tao ra cuoc thi
         public string CreatorId { get; set; }
         public virtual Account Creator { get; set; }
-        // cac giam khao duoc chon
-        public virtual ICollection<Account> Examiners { get; set; }
+       
         [Required]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
@@ -46,7 +45,11 @@ namespace InstituteOfFineArts.Models
             
         }
         public virtual ICollection<Submission> Submissions { get; set; }
+        [InverseProperty("Competitions")]
         public virtual ICollection<Account> Participants { get; set; }
+        // cac giam khao duoc chon
+        [InverseProperty("ACompetitions")]
+        public virtual ICollection<Account> Examiners { get; set; }
         public Competition()
         {
         }

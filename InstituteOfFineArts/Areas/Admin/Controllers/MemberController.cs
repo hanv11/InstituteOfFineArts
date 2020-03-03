@@ -199,7 +199,6 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(UpdateViewModel model)
         {
-            
             if (ModelState.IsValid)
             {
             
@@ -208,9 +207,9 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                 {
                     return HttpNotFound();
                 }
-               
 
-                var role = "";
+
+                var role = "Student";
                 switch (model.UserType)
                 {
                     case Account.UserTypes.Teacher:
