@@ -7,79 +7,80 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<section class="content">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    @if (Model.Any())
-                    {
-                        <h1>@Model.First().Competition.CompetitionName</h1>
-                    }
-                </div>
-                @using (Html.BeginForm("List", "Submission", FormMethod.Get, new { @class = "form-inline" }))
-                {
-                    <p class="form-group" style="margin-left: 20px;">
-                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control ", @placeholder = "Find by keyword" })
-                        <input type="submit" class="btn btn-default" value="Search" />
-                    </p>
-
-                }
-                <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
-                        <tr>
-                            <th>
-                                Picture Name
-                            </th>
-                            <th>
-                                Picture
-                            </th>
-                            <th>
-                                Author
-                            </th>
-                            <th>
-                                Decription
-                            </th>
-                            <th>
-                                Mark
-                            </th>
-                            <th>Award</th>
-                            <th></th>
-                            <th></th>
-
-                        </tr>
-                        @foreach (var item in Model)
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        @if (Model.Any())
                         {
-                    <tr>
-                        <td class="col-md-2">
-                            <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">@Html.DisplayFor(model => item.SubmissionName)</a>
-                        </td>
-                        <td class="col-md-2">
-                            <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.Description)
-                        </td>
-                        <td>
-                            @item.MarkAverage()
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.Award.AwardName)
-                        </td>
-                        <td id="status_@item.SubmissionId">
-                            @Html.DisplayFor(model => item.Status)
-                        </td>
-                        
-                    </tr>
+                            <h1>@Model.First().Competition.CompetitionName</h1>
                         }
-                    </table>
+                    </div>
+                    @using (Html.BeginForm("List", "Submission", FormMethod.Get, new { @class = "form-inline" }))
+                    {
+                        <p class="form-group" style="margin-left: 10px;">
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control ", @placeholder = "Find by keyword" })
+                            <input type="submit" class="btn btn-default" value="Search" />
+                        </p>
+
+                    }
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <tr>
+                                <th>
+                                    Picture Name
+                                </th>
+                                <th>
+                                    Picture
+                                </th>
+                                <th>
+                                    Author
+                                </th>
+                                <th>
+                                    Decription
+                                </th>
+                                <th>
+                                    Mark
+                                </th>
+                                <th>Award</th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="col-md-2">
+                                        <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">@Html.DisplayFor(model => item.SubmissionName)</a>
+                                    </td>
+                                    <td class="col-md-2">
+                                        <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.Description)
+                                    </td>
+                                    <td>
+                                        @item.MarkAverage
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.Award.AwardName)
+                                    </td>
+                                    <td id="status_@item.SubmissionId">
+                                        @Html.DisplayFor(model => item.Status)
+                                    </td>
+
+                                </tr>
+                            }
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+        Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+
+    </section>
