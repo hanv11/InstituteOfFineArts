@@ -171,7 +171,7 @@ namespace InstituteOfFineArts.Controllers
                 submission.UpdatedAt = DateTime.Now;
                 db.Submissions.Add(submission);
                 db.SaveChanges();
-                return View("Details", submission);
+                return RedirectToAction("Details", new {id= submission.SubmissionId});
             }
             ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
             return View("Details", submission);

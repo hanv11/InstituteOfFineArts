@@ -9,13 +9,11 @@
 
     <div class="box">
         <div class="box-header"><h2>Teachers List</h2></div>
-        @using (Html.BeginForm("ListStudent", "Member", FormMethod.Get, new { @class = "ml-2" }))
+        @using (Html.BeginForm("ListTeacher", "Member", FormMethod.Get, new { @class = "ml-2" }))
         {
             <p>
                 @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Keyword", })
-                <select name="usertype">
-                    <option value="0">Teacher</option>
-                </select>
+                <input name="usertype" value="1" type="hidden" />
                 <select name="status">
                     <option value="">All</option>
                     <option value="0">Active</option>
