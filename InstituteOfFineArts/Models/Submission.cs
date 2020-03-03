@@ -40,6 +40,22 @@ namespace InstituteOfFineArts.Models
 
         public virtual Award Award { get; set; }
 
+        public  double MarkAverage()
+        {
+            var sumOfMark = 0;
+            if (!Marks.Any())
+            {
+                return 0;
+            }
+
+            foreach (var item in Marks)
+            {
+                sumOfMark += (int) item.Marks * 2;
+            }
+
+            return (double)sumOfMark / Marks.Count;
+
+        }
         public Submission(int competid,string creatorid,string pic, string subname, string descrip, DateTime createdat)
         {              
             CompetitionId = competid;
