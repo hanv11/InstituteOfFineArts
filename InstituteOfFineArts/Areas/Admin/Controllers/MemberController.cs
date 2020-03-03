@@ -144,7 +144,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await UserManager.AddToRoleAsync(user.Id, "Student");
+                    await UserManager.AddToRoleAsync(user.Id, role);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -208,7 +208,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                     return HttpNotFound();
                 }
 
-
+                var usertype = (int) account.UserType;
                 var role = "Student";
                 switch (model.UserType)
                 {
@@ -241,6 +241,15 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                 account.UpdateAt = DateTime.Now;
                 account.PhoneNumber = model.PhoneNumber;
                 db.SaveChanges();
+                if (usertype == (int) Account.UserTypes.Teacher)
+                {
+                    return RedirectToAction("ListTeacher");
+                }
+
+                if (usertype == (int) Account.UserTypes.Student)
+                {
+                    return RedirectToAction("ListStudent");
+                }
                 return RedirectToAction("Index");
             }
             return View(model);

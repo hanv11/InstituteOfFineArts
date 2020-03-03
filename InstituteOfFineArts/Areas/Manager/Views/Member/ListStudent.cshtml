@@ -13,7 +13,7 @@
         {
             <p>
                 @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Keyword", })
-                <input name="usertype" value="0" type="hidden"/>
+                <input name="usertype" value="0" type="hidden" />
                 <select name="status">
                     <option value="">All</option>
                     <option value="0">Active</option>
@@ -110,9 +110,8 @@
 
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+                       
                     </td>
                 </tr>
             }
