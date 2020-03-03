@@ -20,10 +20,11 @@ namespace InstituteOfFineArts.Models
         public string LastName { get; set; }
         public string UserCode { get; set; }
         [Required(ErrorMessage = "Please enter email of member.")]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Email  is not  valid.")]
         public override string  Email { get; set; }
         [Required(ErrorMessage = "Please enter birthday of member.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? Birthday { get; set; }
         [Required(ErrorMessage = "Please choose gender of member.")]
         public GenderType Gender { get; set; }
