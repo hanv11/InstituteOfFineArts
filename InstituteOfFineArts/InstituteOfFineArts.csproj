@@ -180,7 +180,6 @@
     <Compile Include="Areas\Admin\Models\Dashboard.cs" />
     <Compile Include="Areas\Manager\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Manager\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Manager\Controllers\MarkController.cs" />
     <Compile Include="Areas\Manager\Controllers\MemberController.cs" />
     <Compile Include="Areas\Manager\Controllers\SubmissionController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
@@ -228,6 +227,10 @@
     <Compile Include="Migrations\202003030343510_Update-table.cs" />
     <Compile Include="Migrations\202003030343510_Update-table.Designer.cs">
       <DependentUpon>202003030343510_Update-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003030607294_edit_mark_table.cs" />
+    <Compile Include="Migrations\202003030607294_edit_mark_table.Designer.cs">
+      <DependentUpon>202003030607294_edit_mark_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
@@ -1689,9 +1692,6 @@
     <Content Include="Areas\Manager\Views\Submission\Details.cshtml" />
     <Content Include="Areas\Manager\Views\Submission\Index.cshtml" />
     <Content Include="Areas\Manager\Views\Submission\List.cshtml" />
-    <Content Include="Areas\Manager\Views\Mark\Index.cshtml" />
-    <Content Include="Areas\Manager\Views\Mark\Details.cshtml" />
-    <Content Include="Areas\Manager\Views\Mark\ListMark.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1810,6 +1810,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003030343510_Update-table.resx">
       <DependentUpon>202003030343510_Update-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003030607294_edit_mark_table.resx">
+      <DependentUpon>202003030607294_edit_mark_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

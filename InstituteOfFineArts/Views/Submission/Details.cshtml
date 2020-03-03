@@ -13,7 +13,7 @@
                 <h1 class="text-white pt-20 pb-20">
                     @Html.DisplayFor(model => model.Competition.CompetitionName)
                 </h1>
-                <p class="text-white link-nav"><a href="/Home/Index">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="/Submission/List/@Html.DisplayFor(model => model.CompetitionId)">List Submission</a><span class="lnr lnr-arrow-right"></span><a href="/Submission/Detail/@Html.DisplayFor(model => model.SubmissionId)">Detail Submission</a></p>
+                <p class="text-white link-nav"><a href="/Home/Index">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="/Submission/List/@Model.CompetitionId">List Submission</a><span class="lnr lnr-arrow-right"></span><a href="/Submission/Detail/@Model.SubmissionId">Detail Submission</a></p>
             </div>
         </div>
     </div>
@@ -27,14 +27,17 @@
                     <h1>
                         @Html.DisplayFor(model => model.SubmissionName)
                     </h1>
-                    <h2>
-                        @Html.DisplayFor(model => model.SubmissionName)
-                    </h2>
-                    <p>Student Name: @Html.DisplayFor(model => model.Creator.FirstName) @Html.DisplayFor(model => model.Creator.LastName)</p>
-                    <p>Point: @Html.DisplayFor(model => model.Marks)</p>
-                    <p>Award: @Html.DisplayFor(model => model.Award.AwardName)</p>
-                    <p>Post Date: @Html.DisplayFor(model => model.UpdatedAt)</p>
-                    <p>Description : @Html.DisplayFor(model => model.Description)</p>
+                    
+                    <p style="font-size: 24px;">Author: @Model.Creator.FirstName @Model.Creator.LastName</p>
+                    <p style="font-size: 24px;">Point: @if (Model.Marks.Any())
+                    {
+                        @Model.MarkAverage
+                        
+                    }
+                    </p>
+                    <p style="font-size: 24px;">Award: @Html.DisplayFor(model => model.Award.AwardName)</p>
+                    <p style="font-size: 24px;">Post Date: @Html.DisplayFor(model => model.UpdatedAt)</p>
+                    <p style="font-size: 24px;">Description : @Html.DisplayFor(model => model.Description)</p>
                     @if (Model.CreatorId == User.Identity.GetUserId())
                     {
                         <a class="genric-btn warning circle" href="@Url.Action("Edit", "Submission", new {id = Model.SubmissionId})">Update</a>

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>ListMark</h2>
+<h2>List Mark</h2>
 <table class="table">
     <tr>
         <th>
@@ -22,9 +22,7 @@
         <th>
             Comment
         </th>
-        <th>
-            Mark
-        </th>
+        <th></th>
         <th></th>
     </tr>
 
@@ -37,7 +35,7 @@
     <td>
        @Html.DisplayFor(modelItem => item.StudentName)
     </td>
-    <td>
+    <td class="col-md-3">
         @Html.DisplayFor(modelItem => item.Description)
     </td>
     <td>

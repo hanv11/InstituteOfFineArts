@@ -133,13 +133,14 @@ namespace InstituteOfFineArts.Controllers
             var currentUserId = User.Identity.GetUserId();
             var user = db.Users.Find(currentUserId);
             Competition competition = db.Competitions.Find(id);
-            if (competition == null)
+            if (competition == null || competition.StartDate > DateTime.Now || competition.EndDate < DateTime.Now)
             {
                 return HttpNotFound();
             }
             if ( competition.Participants.Contains(user))
             {
-                return HttpNotFound();
+                var submission = competition.Submissions.FirstOrDefault(s => s.CreatorId == currentUserId);
+                if (submission != null) RedirectToAction("Details", new {id = submission.SubmissionId});
             }
             return View(competition);
         }
@@ -159,12 +160,17 @@ namespace InstituteOfFineArts.Controllers
             if (ModelState.IsValid)
             {
                 var competition = db.Competitions.Find(submission.CompetitionId);
-                if (competition.Participants.Contains(submission.Creator))
+                if (competition.Participants.Contains(submission.Creator) || competition.StartDate > DateTime.Now || competition.EndDate < DateTime.Now)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 var userId = User.Identity.GetUserId();
                 var account = db.Users.Find(userId);
+                var submissions = db.Submissions.Where(s => s.CreatorId == userId);
+                if (submissions.Any())
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 submission.CreatorId = User.Identity.GetUserId();
                 submission.Creator = account;
                 submission.CreatedAt = DateTime.Now;
