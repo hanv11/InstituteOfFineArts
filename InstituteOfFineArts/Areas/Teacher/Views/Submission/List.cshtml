@@ -40,37 +40,47 @@
                             <th>
                                 Decription
                             </th>
+                            <th>
+                                Mark
+                            </th>
+                            <th>Award</th>
                             <th></th>
                             <th></th>
 
                         </tr>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td class="col-md-2">
-                                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">@Html.DisplayFor(model => item.SubmissionName)</a>
-                                </td>
-                                <td class="col-md-2">
-                                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(model => item.Description)
-                                </td>
-                                <td id="status_@item.SubmissionId">
-                                    @Html.DisplayFor(model => item.Status)
-                                </td>
-                                <td>
-                                    @if (Model.First().Competition.CreatorId == User.Identity.GetUserId())
-                                    {
-                                        <button id="confirm_@item.SubmissionId" class="btn btn-warning" @Html.Raw((item.Status == Submission.SubmissionStatus.Confirmed) ? "disabled" : "") onclick="confirmed(@item.SubmissionId)">Confirm</button>
-                                        <button id="cancel_@item.SubmissionId" class="btn btn-danger" @Html.Raw((item.Status == Submission.SubmissionStatus.Cancel) ? "disabled" : "") onclick="cancel(@item.SubmissionId)">Cancel</button>
-                                    }
+                    <tr>
+                        <td class="col-md-2">
+                            <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">@Html.DisplayFor(model => item.SubmissionName)</a>
+                        </td>
+                        <td class="col-md-2">
+                            <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Description)
+                        </td>
+                        <td>
+                            @item.MarkAverage()
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Award.AwardName)
+                        </td>
+                        <td id="status_@item.SubmissionId">
+                            @Html.DisplayFor(model => item.Status)
+                        </td>
+                        <td>
+                            @if (Model.First().Competition.CreatorId == User.Identity.GetUserId())
+                            {
+                                <button id="confirm_@item.SubmissionId" class="btn btn-warning" @Html.Raw((item.Status == Submission.SubmissionStatus.Confirmed) ? "disabled" : "") onclick="confirmed(@item.SubmissionId)">Confirm</button>
+                                <button id="cancel_@item.SubmissionId" class="btn btn-danger" @Html.Raw((item.Status == Submission.SubmissionStatus.Cancel) ? "disabled" : "") onclick="cancel(@item.SubmissionId)">Cancel</button>
+                            }
 
-                                </td>
-                            </tr>
+                        </td>
+                    </tr>
                         }
                     </table>
                 </div>

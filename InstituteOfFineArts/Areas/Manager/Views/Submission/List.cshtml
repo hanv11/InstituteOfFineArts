@@ -40,37 +40,40 @@
                             <th>
                                 Decription
                             </th>
+                            <th>
+                                Mark
+                            </th>
+                            <th>Award</th>
                             <th></th>
                             <th></th>
 
                         </tr>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td class="col-md-2">
-                                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">@Html.DisplayFor(model => item.SubmissionName)</a>
-                                </td>
-                                <td class="col-md-2">
-                                    <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(model => item.Description)
-                                </td>
-                                <td id="status_@item.SubmissionId">
-                                    @Html.DisplayFor(model => item.Status)
-                                </td>
-                                <td>
-                                    @if (Model.First().Competition.CreatorId == User.Identity.GetUserId())
-                                    {
-                                        <button id="confirm_@item.SubmissionId" class="btn btn-warning" @Html.Raw((item.Status == Submission.SubmissionStatus.Confirmed) ? "disabled" : "") onclick="confirmed(@item.SubmissionId)">Confirm</button>
-                                        <button id="cancel_@item.SubmissionId" class="btn btn-danger" @Html.Raw((item.Status == Submission.SubmissionStatus.Cancel) ? "disabled" : "") onclick="cancel(@item.SubmissionId)">Cancel</button>
-                                    }
-
-                                </td>
-                            </tr>
+                    <tr>
+                        <td class="col-md-2">
+                            <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4">@Html.DisplayFor(model => item.SubmissionName)</a>
+                        </td>
+                        <td class="col-md-2">
+                            <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})" class="d-block mb-4"><img class="img-thumbnail pad" src="@item.Picture" alt=""></a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Creator.FirstName) @Html.DisplayFor(model => item.Creator.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Description)
+                        </td>
+                        <td>
+                            @item.MarkAverage()
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Award.AwardName)
+                        </td>
+                        <td id="status_@item.SubmissionId">
+                            @Html.DisplayFor(model => item.Status)
+                        </td>
+                        
+                    </tr>
                         }
                     </table>
                 </div>
@@ -80,42 +83,3 @@
 </section>
 Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
 @Html.PagedListPager(Model, page => Url.Action("List", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
-<script>
-    function confirmed (id) {
-        var confirmation = confirm("are you sure you want to confirm the submission?");
-        if (confirmation) {
-            $.ajax({
-                type: 'get',
-                url: '@Url.Action("ConfirmSubmission", "Submission")',
-                data: {
-                    submissionId: id
-                },
-                success: function (res) {
-                    console.log(res.submissionId);
-                    $('#status_' + res.submissionId).html("Confirmed");
-                    $('#confirm_' + res.submissionId).attr("disabled", true);
-                    $('#cancel_' + res.submissionId).attr("disabled", false);
-                }
-
-            })
-        }
-    }function cancel (id) {
-        var confirmation = confirm("are you sure you want to cancel the submission?");
-        if (confirmation) {
-            $.ajax({
-                type: 'get',
-                url: '@Url.Action("CancelSubmission", "Submission")',
-                data: {
-                    submissionId: id
-                },
-                success: function (res) {
-                    console.log(res.submissionId);
-                    $('#status_' + res.submissionId).html("Cancel");
-                    $('#cancel_' + res.submissionId).attr("disabled", true);
-                    $('#confirm_' + res.submissionId).attr("disabled", false);
-                }
-
-            })
-        }
-    }
-</script>
