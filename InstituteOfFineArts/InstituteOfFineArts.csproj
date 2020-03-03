@@ -183,6 +183,7 @@
     <Compile Include="Areas\Manager\Controllers\MemberController.cs" />
     <Compile Include="Areas\Manager\Controllers\SubmissionController.cs" />
     <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Areas\Manager\Models\Dashboard.cs" />
     <Compile Include="Areas\Teacher\Controllers\AwardController.cs" />
     <Compile Include="Areas\Teacher\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Teacher\Controllers\DashboardController.cs" />
@@ -1692,6 +1693,9 @@
     <Content Include="Areas\Manager\Views\Submission\Details.cshtml" />
     <Content Include="Areas\Manager\Views\Submission\Index.cshtml" />
     <Content Include="Areas\Manager\Views\Submission\List.cshtml" />
+    <Content Include="Areas\Manager\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Manager\Views\Dashboard\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1785,9 +1789,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Manager\Data\" />
-    <Folder Include="Areas\Manager\Views\Dashboard\" />
     <Folder Include="Areas\Manager\Views\Manager\" />
-    <Folder Include="Areas\Manager\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002290603114_UpdateData.resx">
