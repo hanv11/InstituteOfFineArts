@@ -10,7 +10,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Models
     {
         public int? SubmissionId { get; set; }
             public string Image { get; set; }
-            public Mark.MarkType? Mark { get; set; }
+            public int? Mark { get; set; }
             public string StudentName { get; set; }
             public int MarkId { get; set; }
             public virtual ICollection<Submission> Submissions { get; set; }
