@@ -1,19 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using InstituteOfFineArts.Models;
-using Microsoft.AspNet.Identity;
 using PagedList;
 
-namespace InstituteOfFineArts.Areas.Admin.Controllers
+namespace InstituteOfFineArts.Areas.Manager.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class CompetitionController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Admin/Competition
+        [Authorize(Roles = "Manager")]
         public ActionResult Index(string searchString, string sortOrder, string currentFilter, int? page, int? status)
         {
             ViewBag.NameSortPara = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -34,7 +35,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
 
             if (status != null)
             {
-                competitions = competitions.Where(s =>(int) s.Status == status);
+                competitions = competitions.Where(s => (int)s.Status == status);
             }
             ViewBag.CurrentFilter = searchString;
             switch (sortOrder)
@@ -52,7 +53,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             var pageNumber = page ?? 1;
             return View(competitions.ToPagedList(pageNumber, pageSize));
         }
-
+        [Authorize(Roles = "Manager")]
         public ActionResult Detail(int? id)
         {
             if (id == null)
@@ -66,56 +67,13 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             }
             return View(competition);
         }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult Delete(int? id)
+        protected override void Dispose(bool disposing)
         {
-            if (id == null)
+            if (disposing)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                db.Dispose();
             }
-            Competition competition = db.Competitions.Find(id);
-            if (competition == null)
-            {
-                return HttpNotFound();
-            }
-            competition.Status = Competition.CompetitionStatus.Cancel;
-            competition.UpdatedAt = DateTime.Now;
-           
-            return View(competition);
-        }
-        [Authorize(Roles = "Admin")]
-        // POST: Competitions/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Competition competition = db.Competitions.Find(id);
-            db.Competitions.Remove(competition ?? throw new InvalidOperationException());
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        [Authorize(Roles = "Admin")]
-        public ActionResult ConfirmCompetition(int? competitionId)
-        {
-            if (competitionId == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            var competition = db.Competitions.Find(competitionId);
-            if (competition == null)
-            {
-                return HttpNotFound();
-            }
-
-            competition.Status = Competition.CompetitionStatus.Confirmed;
-            db.SaveChanges();
-            return new JsonResult()
-            {
-                Data = competition.Status,
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet
-            };
+            base.Dispose(disposing);
         }
     }
 }

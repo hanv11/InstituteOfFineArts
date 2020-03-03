@@ -1,0 +1,63 @@
+﻿@model InstituteOfFineArts.Models.Account
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="box box-primary ">
+                <div class="box-body box-profile">
+                    <img class="profile-user-img img-responsive img-circle" src="@Model.Avatar" alt="User profile picture">
+
+                    <h3 class="profile-username text-center">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h3>
+
+                    <p class="text-muted text-center">@Html.DisplayFor(model => model.UserType)</p>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.UserCode)</b> <p class="pull-right">@Html.DisplayFor(model => model.UserCode)</p>
+                        </li>
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.Email)</b> <p class="pull-right">@Html.DisplayFor(model => model.Email)</p>
+                        </li>
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.PhoneNumber)</b> <p class="pull-right">@Html.DisplayFor(model => model.PhoneNumber)</p>
+                        </li>
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.Birthday)</b> <p class="pull-right">@Html.DisplayFor(model => model.Birthday)</p>
+                        </li>
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.Gender)</b> <p class="pull-right">@Html.DisplayFor(model => model.Gender)</p>
+                        </li>
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.Status)</b> <p class="pull-right">@Html.DisplayFor(model => model.Status)</p>
+                        </li>
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.CreatedAt)</b> <p class="pull-right">@Html.DisplayFor(model => model.CreatedAt)</p>
+                        </li>
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.UpdateAt)</b> <p class="pull-right">@Html.DisplayFor(model => model.UpdateAt)</p>
+                        </li>
+                        <li class="list-group-item">
+                            <b>@Html.DisplayNameFor(model => model.DeletedAt)</b> <p class="pull-right">@Html.DisplayFor(model => model.DeletedAt)</p>
+                        </li>
+
+
+                    </ul>
+
+                    <div style="text-align:center;">
+                        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-default" })
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
