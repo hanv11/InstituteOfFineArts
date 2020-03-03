@@ -17,7 +17,15 @@
                     {
                         <p>
                             @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Keyword", })
-                            <input  class=" btn-info" type="submit" value="Search" />
+                            <select name="status">
+                                <option value="">All</option>
+                                <option value="@((int)Competition.CompetitionStatus.Cancel)">Cancel</option>
+                                <option value="@((int)Competition.CompetitionStatus.Pending)">Pending</option>
+                                <option value="@((int)Competition.CompetitionStatus.Confirmed)">Confirmed</option>
+                                <option value="@((int)Competition.CompetitionStatus.Completed)">Completed</option>
+                                <option value="@((int)Competition.CompetitionStatus.Finished)">Finished</option>
+                            </select>
+                            <input  class="btn btn-info" type="submit" value="Search" />
                         </p>
 
                     }
@@ -48,6 +56,9 @@
                                             Image
                                         </th>
                                         <th>
+                                            CreatedAt
+                                        </th>
+                                        <th>
                                             Status
                                         </th>
                                         <th>Active</th>
@@ -73,7 +84,9 @@
 
                                                 <img src="@item.Image" alt="Alternate Text" class="img-thumbnail" />
                                             </td>
-
+                                            <td>
+                                                @Html.DisplayFor(modeItem => item.CreatedAt)
+                                            </td>
                                             <td id="status">
                                                 @Html.DisplayFor(modelItem => item.Status)
                                             </td>

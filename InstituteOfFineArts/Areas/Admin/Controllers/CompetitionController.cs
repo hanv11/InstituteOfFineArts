@@ -36,19 +36,10 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             {
                 competitions = competitions.Where(s =>(int) s.Status == status);
             }
+            competitions = competitions.OrderBy(c => c.Status == Competition.CompetitionStatus.Pending);
             ViewBag.CurrentFilter = searchString;
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    competitions = competitions.OrderByDescending(s => s.CompetitionName);
-                    break;
-                case "Date":
-                    break;
-                default:
-                    competitions = competitions.OrderBy(s => s.CompetitionName);
-                    break;
-            }
-            int pageSize = 5;
+            competitions = competitions.OrderBy(c => c.Status).ThenBy(c => c.CreatedAt);
+            var pageSize = 5;
             var pageNumber = page ?? 1;
             return View(competitions.ToPagedList(pageNumber, pageSize));
         }
@@ -79,9 +70,6 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            competition.Status = Competition.CompetitionStatus.Cancel;
-            competition.UpdatedAt = DateTime.Now;
-           
             return View(competition);
         }
         [Authorize(Roles = "Admin")]
@@ -91,7 +79,8 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Competition competition = db.Competitions.Find(id);
-            db.Competitions.Remove(competition ?? throw new InvalidOperationException());
+            competition.Status = Competition.CompetitionStatus.Cancel;
+            competition.UpdatedAt = DateTime.Now;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
