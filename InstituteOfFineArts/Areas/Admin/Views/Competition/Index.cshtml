@@ -69,7 +69,7 @@
                                         <tr>
                                             <td>@(item.CompetitionId)</td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.CompetitionName)
+                                                <a href="@Url.Action("List", "Submission", new {id = item.CompetitionId})">@Html.DisplayFor(modelItem => item.CompetitionName)</a>
                                             </td>
                                             <td>
                                                 @Html.ActionLink(@item.Creator.FirstName + " " + @item.Creator.LastName, "Details/" + @item.CreatorId, "Member")
@@ -81,13 +81,32 @@
                                                 @Html.DisplayFor(modelItem => item.EndDate)
                                             </td>
                                             <td class="col-md-2">
-
-                                                <img src="@item.Image" alt="Alternate Text" class="img-thumbnail" />
+                                                <img src="@item.Image" alt="Alternate Text" class="img-thumbnail"/>
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modeItem => item.CreatedAt)
                                             </td>
                                             <td id="status">
+                                                @if (item.Status == Competition.CompetitionStatus.Confirmed)
+                                                {
+                                                    <img src="~/Content/Icons/confirm-icon.png" ) />
+                                                }
+                                                else if (item.Status == Competition.CompetitionStatus.Pending)
+                                                {
+                                                    <img src="~/Content/Icons/pending-icon.png" ) />
+                                                }
+                                                else if (item.Status == Competition.CompetitionStatus.Cancel)
+                                                {
+                                                    <img src="~/Content/Icons/cancel-icon.png" ) />
+                                                }
+                                                else if (item.Status == Competition.CompetitionStatus.Finished)
+                                                {
+                                                    <img src="~/Content/Icons/finished-icon.png" ) />
+                                                }
+                                                else if (item.Status == Competition.CompetitionStatus.Completed)
+                                                {
+                                                    <img src="~/Content/Icons/complete-icon.png" ) />
+                                                }
                                                 @Html.DisplayFor(modelItem => item.Status)
                                             </td>
                                             <td>
@@ -95,10 +114,9 @@
                                                 {
                                                     <button id="confirm1" class="btn btn-warning" onclick="confirmCompetition(@item.CompetitionId)">Confirm</button>
                                                 }
-                                                @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
-                                                @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
+                                                @Html.ActionLink("Detail", "Detail", new {id = item.CompetitionId}, new {@class = "btn btn-info"})
+                                                @Html.ActionLink("Delete", "Delete", new {id = item.CompetitionId}, new {@class = "btn btn-danger"})
                                             </td>
-
                                         </tr>
                                     }
 
