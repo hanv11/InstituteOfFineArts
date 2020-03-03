@@ -78,20 +78,21 @@ namespace InstituteOfFineArts.Controllers
                 return View(model);
             }
 
-            var user = await UserManager.FindByEmailAsync(model.Email);
           
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            if (user.Status != Account.AccountStatus.Active)
-            {
-                ModelState.AddModelError("", "Account is disable");
-                return View(model);
-            }
+            
             switch (result)
             {
                 case SignInStatus.Success:
-                    if( await UserManager.IsInRoleAsync(user.Id, "Admin")) //<= Checking Role and redirecting accordingly.
+                    var user = await UserManager.FindByEmailAsync(model.Email);
+                    if (user.Status != Account.AccountStatus.Active)
+                    {
+                        ModelState.AddModelError("", "Account is disable");
+                        return View(model);
+                    }
+                    if ( await UserManager.IsInRoleAsync(user.Id, "Admin")) //<= Checking Role and redirecting accordingly.
                         return RedirectToAction("Index", "Dashboard", new {Area = "Admin"});
                     else if(await UserManager.IsInRoleAsync(user.Id, "Teacher"))
                         return RedirectToAction("Index", "Dashboard", new { Area = "Teacher" });
