@@ -29,15 +29,15 @@
                     </h1>
                     
                     <p style="font-size: 24px;">Author: @Model.Creator.FirstName @Model.Creator.LastName</p>
-                    <p style="font-size: 24px;">Point: @if (Model.Marks.Any())
+                    <p style="font-size: 18px;">Point: @if (Model.Marks.Any())
                     {
                         @Model.MarkAverage
                         
                     }
                     </p>
-                    <p style="font-size: 24px;">Award: @Html.DisplayFor(model => model.Award.AwardName)</p>
-                    <p style="font-size: 24px;">Post Date: @Html.DisplayFor(model => model.UpdatedAt)</p>
-                    <p style="font-size: 24px;">Description : @Html.DisplayFor(model => model.Description)</p>
+                    <p style="font-size: 18px;">Award: @Html.DisplayFor(model => model.Award.AwardName)</p>
+                    <p style="font-size: 18px;">Post Date: @Html.DisplayFor(model => model.UpdatedAt)</p>
+                    <p>@Model.Description</p>
                     @if (Model.CreatorId == User.Identity.GetUserId())
                     {
                         <a class="genric-btn warning circle" href="@Url.Action("Edit", "Submission", new {id = Model.SubmissionId})">Update</a>

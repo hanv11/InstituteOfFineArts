@@ -1,5 +1,7 @@
-﻿@model IEnumerable<InstituteOfFineArts.Models.Award>
-
+﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Award>
+@using InstituteOfFineArts.Models
+@using Microsoft.AspNet.Identity
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,17 +19,47 @@
         </div>
     </div>
 </section>
-
-<section class="gallery-area section-gap gallery-page-area" id="gallery">
+<section class="gallery-area gallery-page-area" id="gallery">
     <div class="container">
+        <div class="mt-20 ml-20">
+        @using (Html.BeginForm("Index", "Award", FormMethod.Get, new {@class = "ml-2"}))
+        {
+            <div class="row">
+                <select id="mySelect" name="awardtype" value ="@ViewBag.Awardtype">
+                    <option value="">All</option>
+                    <option value="1">First Prize</option>
+                    <option value="2">Second Prize</option>
+                    <option value="3">Third Prize</option>
+                </select>
+                <input type="submit" value="search" class="btn btn-default ml-2" />
+            </div>
+            
+        }
+            </div>
         <div id="grid-container" class="row">
             @foreach (var item in Model)
             {
                 <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})">
-                    <div><img class="grid-item" src="@Url.Content(item.Submission.Picture)"></div>
+                    <img class="grid-item hgrid-item loaded resized" src="@Url.Content(item.Submission.Picture)">
                 </a>
-
             }
         </div>
     </div>
+    <div class="ml-30 mt-10">
+        Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
+        <div style="color: #fff">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+    
 </section>
+@section scripts
+{
+    <script>
+        $(document).ready(function()
+        {
+            $("#mySelect option[value = @ViewBag.Awardtype]").attr('selected','selected');
+        });
+    </script>
+    
+}

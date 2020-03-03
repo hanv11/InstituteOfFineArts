@@ -1739,10 +1739,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Award\Create.cshtml" />
-    <Content Include="Views\Award\Delete.cshtml" />
     <Content Include="Views\Award\Details.cshtml" />
-    <Content Include="Views\Award\Edit.cshtml" />
     <Content Include="Views\Award\Index.cshtml" />
     <None Include="Views\Competition\Index.cshtml" />
     <None Include="Views\Competition\Details.cshtml" />
