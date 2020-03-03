@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<InstituteOfFineArts.Models.Account>
 
-<tr>
+<tr class="odd">
     <th>
         FirstName
     </th>
@@ -13,7 +13,7 @@
     <th>
         Birthday
     </th>
-    <th></th>
+    <th>Action</th>
 </tr>
 
 @foreach (var item in Model) {
@@ -31,9 +31,7 @@
             @item.Birthday
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            <button class="btn-danger" onclick="remove('@item.Id')">Delete</button>
+            <button class="btn btn-danger" onclick="remove('@item.Id')">Delete</button>
         </td>
     </tr>
 }
