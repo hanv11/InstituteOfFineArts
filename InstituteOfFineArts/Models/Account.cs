@@ -14,21 +14,30 @@ namespace InstituteOfFineArts.Models
 {
     public class Account : IdentityUser
     {
+        [Required(ErrorMessage = "Please enter first name of member.")]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "Please enter last name of member.")]
         public string LastName { get; set; }
         public string UserCode { get; set; }
+        [Required(ErrorMessage = "Please enter email of member.")]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Email  is not  valid.")]
         public override string  Email { get; set; }
+        [Required(ErrorMessage = "Please enter birthday of member.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? Birthday { get; set; }
+        [Required(ErrorMessage = "Please choose gender of member.")]
         public GenderType Gender { get; set; }
+        [Required(ErrorMessage = "Update avatar.")]
         public string Avatar { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public ICollection<Submission> Submissions { get; set; }
+
         public virtual ICollection<Competition> Competitions { get; set; }
         public virtual ICollection<Competition> ACompetitions { get; set; }
+        [Required(ErrorMessage = "Please choose user type.")]
         public UserTypes UserType { get; set; }
         public enum GenderType
         {

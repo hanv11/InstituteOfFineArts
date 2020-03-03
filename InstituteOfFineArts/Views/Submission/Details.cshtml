@@ -27,7 +27,9 @@
                     <h1>
                         @Html.DisplayFor(model => model.Competition.CompetitionName)
                     </h1>
-
+                    <h2>
+                        @Html.DisplayFor(model => model.SubmissionName)
+                    </h2>
                     <p>Student Name: @Html.DisplayFor(model => model.Creator.FirstName) @Html.DisplayFor(model => model.Creator.LastName)</p>
                     <p>Point: @Html.DisplayFor(model => model.Marks)</p>
                     <p>Award: @Html.DisplayFor(model => model.Award.AwardName)</p>

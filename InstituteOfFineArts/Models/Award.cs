@@ -13,6 +13,7 @@ namespace InstituteOfFineArts.Models
         public int AwardId { get; set; }
         public int SubmissionId { get; set; }
         public virtual Submission Submission{ get; set; }
+        [Required(ErrorMessage = "Please choose award for submission.")]
         public AwardType AwardName { get; set; }
         public enum AwardType 
         {
