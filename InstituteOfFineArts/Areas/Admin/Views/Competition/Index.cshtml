@@ -55,38 +55,56 @@
 
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>@(item.CompetitionId)</td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.CompetitionName)
-                                            </td>
-                                            <td>
-                                                @Html.ActionLink(@item.Creator.FirstName + " " + @item.Creator.LastName, "Details/" + @item.CreatorId, "Member")
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.StartDate)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.EndDate)
-                                            </td>
-                                            <td class="col-md-2">
+                                <tr>
+                                    <td>@(item.CompetitionId)</td>
+                                    <td>
+                                        <a href="@Url.Action("List", "Submission", new { id = item.CompetitionId })">@Html.DisplayFor(modelItem => item.CompetitionName)</a>
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink(@item.Creator.FirstName + " " + @item.Creator.LastName, "Details/" + @item.CreatorId, "Member")
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.StartDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EndDate)
+                                    </td>
+                                    <td class="col-md-2">
 
-                                                <img src="@item.Image" alt="Alternate Text" class="img-thumbnail" />
-                                            </td>
+                                        <img src="@item.Image" alt="Alternate Text" class="img-thumbnail" />
+                                    </td>
 
-                                            <td id="status">
-                                                @Html.DisplayFor(modelItem => item.Status)
-                                            </td>
-                                            <td>
-                                                @if (item.Status == Competition.CompetitionStatus.Pending)
-                                                {
-                                                    <button id="confirm1" class="btn btn-warning" onclick="confirmCompetition(@item.CompetitionId)">Confirm</button>
-                                                }
-                                                @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
-                                                @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
-                                            </td>
+                                    <td id="status">
+                                        @if (item.Status == Competition.CompetitionStatus.Confirmed)
+                                        {
+                                            <button class="btn btn-success">Confirmed</button>
+                                        }
+                                        else if (item.Status == Competition.CompetitionStatus.Pending)
+                                        {
 
-                                        </tr>
+                                            <button class="btn btn-warning">Pending</button>
+                                        }
+                                        else if (item.Status == Competition.CompetitionStatus.Cancel)
+                                        {
+
+                                    <button class="btn btn-danger">Cancel</button>
+                                        }
+                                        else if (item.Status == Competition.CompetitionStatus.Finished)
+                                        {
+                                    <button class="btn btn-primary">Finished</button>
+                                        }
+                                        else if (item.Status == Competition.CompetitionStatus.Completed)
+                                        {
+
+                                    <button class="btn btn-info">Completed</button>
+                                        }
+                                    </td>
+                                        <td>
+                                            @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
+                                        </td>
+
+                                    </tr>
                                     }
 
                                 </table>

@@ -177,6 +177,7 @@
     <Compile Include="Areas\Admin\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\MemberController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubmissionController.cs" />
     <Compile Include="Areas\Admin\Models\Dashboard.cs" />
     <Compile Include="Areas\Manager\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Manager\Controllers\DashboardController.cs" />
@@ -1696,6 +1697,9 @@
     <Content Include="Areas\Manager\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Manager\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Manager\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Submission\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Submission\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Submission\List.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
