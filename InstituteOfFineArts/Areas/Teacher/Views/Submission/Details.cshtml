@@ -19,7 +19,7 @@
                     <h4>Point:</h4>
                     @if (Model.Marks.Any())
                     {
-                        @Html.DisplayFor(model => model.MarkAverage())
+                        @Model.MarkAverage
                     }
 
                 <h4>Award:  @Html.DisplayFor(model => model.Award.AwardName)</h4>
