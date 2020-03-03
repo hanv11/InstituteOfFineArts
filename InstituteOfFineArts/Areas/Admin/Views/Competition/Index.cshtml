@@ -7,80 +7,103 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Competition List</h2>
-@using (Html.BeginForm("Index", "Competition", FormMethod.Get))
-{
-    <p>
-        Find by keyword: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
-    </p>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header col-md-12">
+                    <h3 class="" style="text-align:center">Competition List</h3>
+                    @using (Html.BeginForm("Index", "Competition", FormMethod.Get))
+                    {
+                        <p>
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Keyword", })
+                            <input  class=" btn-info" type="submit" value="Search" />
+                        </p>
 
-}
-<table id="example2" class="table table-bordered table-hover">
-    <tr>
-        <th>
-            Id
-        </th>
-        <th>
-            Competition Name
-        </th>
-        <th>
-            Created By
-        </th>
-        <th>
-            Start Date
-        </th>
-        <th>
-            End Date
-        </th>
-        <th>
-            Image
-        </th>
-        <th>
-            Status
-        </th>
-        <th></th>
-    </tr>
+                    }
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <tr>
+                                        <th>
+                                            Id
+                                        </th>
+                                        <th>
+                                            Competition Name
+                                        </th>
+                                        <th>
+                                            Created By
+                                        </th>
+                                        <th>
+                                            Start Date
+                                        </th>
+                                        <th>
+                                            End Date
+                                        </th>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>Active</th>
+                                    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@(item.CompetitionId)</td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompetitionName)
-            </td>
-            <td>
-                @Html.ActionLink(@item.Creator.FirstName + " " + @item.Creator.LastName, "Details/"+@item.CreatorId, "Member")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td class="col-md-2">
-             
-                <img src="@item.Image" alt="Alternate Text" class="img-thumbnail" />
-            </td>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@(item.CompetitionId)</td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CompetitionName)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink(@item.Creator.FirstName + " " + @item.Creator.LastName, "Details/" + @item.CreatorId, "Member")
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.StartDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EndDate)
+                                            </td>
+                                            <td class="col-md-2">
 
-            <td id="status">
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @if (item.Status == Competition.CompetitionStatus.Pending)
-                {
-                    <button id="confirm1" class="btn btn-warning" onclick="confirmCompetition(@item.CompetitionId)">Confirm</button>
-                }
-                @Html.ActionLink("Detail", "Detail", new {id = item.CompetitionId}, new {@class = "btn btn-info"})
-                @Html.ActionLink("Delete", "Delete", new {id = item.CompetitionId}, new {@class = "btn btn-danger"})
-            </td>
-            
-        </tr>
-    }
+                                                <img src="@item.Image" alt="Alternate Text" class="img-thumbnail" />
+                                            </td>
 
-</table>
-Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+                                            <td id="status">
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </td>
+                                            <td>
+                                                @if (item.Status == Competition.CompetitionStatus.Pending)
+                                                {
+                                                    <button id="confirm1" class="btn btn-warning" onclick="confirmCompetition(@item.CompetitionId)">Confirm</button>
+                                                }
+                                                @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
+            </div>            
+        </div>
+    </div>
+</section>
 @section scripts
 {
     <script>
