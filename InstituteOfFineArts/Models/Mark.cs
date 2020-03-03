@@ -19,7 +19,9 @@ namespace InstituteOfFineArts.Models
         [ForeignKey("Examiner")]
         public string AccountId { get; set; }
         public virtual Account Examiner { get; set; }
+        [Required(ErrorMessage = "Please choose mark for submission.")]
         public MarkType Marks { get; set; }
+        [Required(ErrorMessage = "Please enter comment for submission.")]
         public string Description { get; set; }
         public enum MarkType
         {
