@@ -5,26 +5,28 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Competition Invited</h2>
+
 
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    @* <h2 style="text-align:center;" class="box-title">List Competition</h2> *@
+                    <h2>Competition Invited</h2>
                 </div>
                 <div class="box-header">
                     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
                 </div>
-                @using (Html.BeginForm("Index", "Member", FormMethod.Get))
-                {
-                    <p>
-                        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Find by keyword:" })
-                        <input type="submit" value="Search" />
-                    </p>
+                <div style="padding-left:10px">
+                    @using (Html.BeginForm("Index", "Member", FormMethod.Get))
+                    {
+                        <p>
+                            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Find by keyword:" })
+                            <input type="submit" value="Search" />
+                        </p>
 
-                }
+                    }
+                </div>
                 <div class="box-body">
                     <table id="example2" class="table table-bordered table-hover">
                         <tr>
@@ -69,7 +71,7 @@
                                 </td>
 
                                 <td>
-                                    @Html.ActionLink("Mark", "ListMark","Mark", new { competitionId = item.CompetitionId }, new { @class = "btn btn-warning" })
+                                    @Html.ActionLink("Mark", "ListMark", "Mark", new { competitionId = item.CompetitionId }, new { @class = "btn btn-warning" })
                                 </td>
                             </tr>
                         }
@@ -79,6 +81,6 @@
             </div>
         </div>
     </div>
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))
 </section>
-Page @(Model.PageCount < Model.PageNumber ? 1 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))

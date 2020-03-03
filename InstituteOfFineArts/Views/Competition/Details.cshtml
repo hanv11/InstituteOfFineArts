@@ -1,4 +1,5 @@
-﻿@model InstituteOfFineArts.Models.Competition
+﻿@using Antlr.Runtime.Tree
+@model InstituteOfFineArts.Models.Competition
 
 @{
     ViewBag.Title = "DetailCompetition";
@@ -38,16 +39,27 @@
                             @Html.DisplayFor(model => model.ShortDescription)
                         </p>
                         <blockquote class="generic-blockquote">
-                            <p>@Html.DisplayNameFor(model => model.StartDate): @Html.DisplayFor(model => model.StartDate)</p>
-                            <p>@Html.DisplayNameFor(model => model.EndDate): @Html.DisplayFor(model => model.EndDate)</p>
+                            <strong>From @Html.DisplayFor(model => model.StartDate) to @Html.DisplayFor(model => model.EndDate)  </strong>
                         </blockquote>
 
                         <p>
                             @Html.DisplayFor(model => model.Description)
                         </p>
 
-                        <div style="text-align:center;">
-                            <a href="@Url.Action("Register", "Submission", new { id = Model.CompetitionId })" target="_blank" class="primary-btn text-uppercase">Click here to register</a>
+                        <div style="text-align: center;">
+                            @if (Model.StartDate > DateTime.Now)
+                            { 
+                            <button class="primary-btn text-uppercase" disabled>Competition is Upcoming  </button>
+                            }
+                            else if (Model.EndDate < DateTime.Now)
+                            {
+                                <button class="danger text-uppercase" disabled>Competition is finished  </button>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Register", "Submission", new {id = Model.CompetitionId})" target="_blank" class="primary-btn text-uppercase">Click here to register</a>
+                            }
+
                         </div>
                     </div>
                     <div class="bottom-meta">
