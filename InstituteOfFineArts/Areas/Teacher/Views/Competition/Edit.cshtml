@@ -1,5 +1,5 @@
 ﻿@using System.Security.Policy
-@model InstituteOfFineArts.Models.Competition
+@model InstituteOfFineArts.Areas.Teacher.Models.CompetitionViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -54,13 +54,6 @@
             </div>
 
             <div class="form-group">
-            @Html.LabelFor(model => model.AwardDetail, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AwardDetail, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AwardDetail, "", new { @class = "text-danger" })
-            </div>
-        </div>
-            <div class="form-group">
                 @Html.LabelFor(model => model.ShortDescription, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.ShortDescription, new { htmlAttributes = new { @class = "form-control" } })
@@ -85,49 +78,49 @@
     </div>
 }
 <input id="search" type="text" name="name" value="" autocomplete="false" placeholder="Seach" />
-    <table class="table" id="list-examiner">
+<table class="table" id="list-examiner">
 
-        <tr>
-            <th>
-               FirstName
-            </th>
-            <th>
-               LastName
-            </th>
-            <th>
-              Email
-            </th>
-            <th>
-               Birthday
-            </th>
-            <th></th>
-        </tr>
+    @*          <tr>  *@
+    @*              <th>  *@
+    @*                 FirstName  *@
+    @*              </th>  *@
+    @*              <th>  *@
+    @*                 LastName  *@
+    @*              </th>  *@
+    @*              <th>  *@
+    @*                Email  *@
+    @*              </th>  *@
+    @*              <th>  *@
+    @*                 Birthday  *@
+    @*              </th>  *@
+    @*              <th></th>  *@
+    @*          </tr>  *@
+    @*   *@
+    @*          @foreach (var item in Model.Examiners) {  *@
+    @*              <tr>  *@
+    @*                  <td>  *@
+    @*                     @item.FirstName  *@
+    @*                  </td>  *@
+    @*                  <td>  *@
+    @*                      @item.LastName  *@
+    @*                  </td>  *@
+    @*                  <td>  *@
+    @*                      @item.Email  *@
+    @*                  </td>  *@
+    @*                  <td>  *@
+    @*                      @item.Birthday  *@
+    @*                  </td>  *@
+    @*                  <td>  *@
+    @*                      @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |  *@
+    @*                      @Html.ActionLink("Delete", "Delete", new { id=item.Id })  *@
+    @*                      <button class="btn-danger" onclick="remove('@item.Id')">Delete</button>  *@
+    @*                  </td>  *@
+    @*              </tr>  *@
+    @*          }  *@
+    @Html.Action("InviteExaminer", "Competition", new { competitionId = Model.CompetitionId })
 
-        @foreach (var item in Model.Examiners) {
-            <tr>
-                <td>
-                   @item.FirstName
-                </td>
-                <td>
-                    @item.LastName
-                </td>
-                <td>
-                    @item.Email
-                </td>
-                <td>
-                    @item.Birthday
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                    <button class="btn-danger" onclick="remove('@item.Id')">Delete</button>
-                </td>
-            </tr>
-        }
-
-    </table>
-
-        <div class="col-md-10">
+</table> 
+<div class="col-md-10">
  
 </div>
 @section Scripts {

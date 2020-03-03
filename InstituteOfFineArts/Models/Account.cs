@@ -33,6 +33,9 @@ namespace InstituteOfFineArts.Models
         public DateTime? UpdateAt { get; set; }
         public DateTime? DeletedAt { get; set; }
         public ICollection<Submission> Submissions { get; set; }
+
+        public virtual ICollection<Competition> Competitions { get; set; }
+        public virtual ICollection<Competition> ACompetitions { get; set; }
         [Required(ErrorMessage = "Please choose user type.")]
         public UserTypes UserType { get; set; }
         public enum GenderType

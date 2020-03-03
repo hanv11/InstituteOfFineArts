@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using InstituteOfFineArts.Models;
 using Microsoft.AspNet.Identity;
@@ -65,24 +63,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             return View(competition);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description")] Competition competition)
-        {
-            if (ModelState.IsValid)
-            {
-                competition.Status = Competition.CompetitionStatus.Pending;
-                db.Competitions.Add(competition);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(competition);
-        }
+       
         [Authorize(Roles = "Admin")]
         // GET: Competitions/Edit/5
         public ActionResult Edit(int? id)
@@ -114,14 +95,12 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(competition).State = EntityState.Modified;
-                var creatorId = User.Identity.GetUserId();
-                var account = db.Users.FirstOrDefault(u => u.Id == creatorId);
-                competition.CreatorId = User.Identity.GetUserId();
                 db.SaveChanges();
                 return RedirectToAction("MyCompetition");
             }
             return View(competition);
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -133,10 +112,9 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            if (competition.CreatorId != User.Identity.GetUserId())
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
-            }
+            competition.Status = Competition.CompetitionStatus.Cancel;
+            competition.UpdatedAt = DateTime.Now;
+           
             return View(competition);
         }
         [Authorize(Roles = "Admin")]
@@ -146,9 +124,31 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Competition competition = db.Competitions.Find(id);
-            db.Competitions.Remove(competition);
+            db.Competitions.Remove(competition ?? throw new InvalidOperationException());
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult ConfirmCompetition(int? competitionId)
+        {
+            if (competitionId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var competition = db.Competitions.Find(competitionId);
+            if (competition == null)
+            {
+                return HttpNotFound();
+            }
+
+            competition.Status = Competition.CompetitionStatus.Confirmed;
+            db.SaveChanges();
+            return new JsonResult()
+            {
+                Data = competition.Status,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
         }
     }
 }
