@@ -336,7 +336,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                     members = members.OrderBy(s => s.FirstName);
                     break;
             }
-            int pageSize = 10;
+            int pageSize = 5;
             var pageNumber = page ?? 1;
             return View(members.ToPagedList(pageNumber, pageSize));
         }
