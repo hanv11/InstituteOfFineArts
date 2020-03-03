@@ -13,8 +13,10 @@ namespace InstituteOfFineArts.Models
         [Key]
         public int SubmissionId { get; set; }
         public int CompetitionId { get; set; }
+        [Required(ErrorMessage = "Update your submission.")]
         public string Picture { get; set; }
         [DisplayName("Name")]
+        [Required(ErrorMessage = "Please enter submission name.")]
         public string SubmissionName { get; set; }
         [DataType(DataType.DateTime)]
         [DisplayName("Updated Post")]
@@ -24,6 +26,7 @@ namespace InstituteOfFineArts.Models
         [ForeignKey("Creator")]
         public string CreatorId { get; set; }
         public virtual Account Creator { get; set; }
+        [Required(ErrorMessage = "Please enter decription of submission.")]
         public string Description { get; set; }
         public virtual Competition Competition { get; set; }
         public virtual ICollection<Mark > Marks { get; set; }
@@ -40,6 +43,22 @@ namespace InstituteOfFineArts.Models
 
         public virtual Award Award { get; set; }
 
+        public  double MarkAverage()
+        {
+            var sumOfMark = 0;
+            if (!Marks.Any())
+            {
+                return 0;
+            }
+
+            foreach (var item in Marks)
+            {
+                sumOfMark += (int) item.Marks * 2;
+            }
+
+            return (double)sumOfMark / Marks.Count;
+
+        }
         public Submission(int competid,string creatorid,string pic, string subname, string descrip, DateTime createdat)
         {              
             CompetitionId = competid;

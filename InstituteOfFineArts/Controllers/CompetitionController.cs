@@ -20,7 +20,7 @@ namespace InstituteOfFineArts.Controllers
         {
             ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            var competitions = db.Competitions.AsQueryable();
+            var competitions = db.Competitions.Where(u=>u.Status == Competition.CompetitionStatus.Confirmed);
             if (!string.IsNullOrEmpty(searchString))
             {
                 competitions = competitions.Where(s => s.CompetitionName.Contains(searchString));
@@ -43,7 +43,7 @@ namespace InstituteOfFineArts.Controllers
                 case "Date":
                     break;
                 default:
-                    competitions = competitions.OrderBy(s => s.CompetitionName).Take(5);
+                    competitions = competitions.OrderBy(s => s.CompetitionName);
                     break;
             }
             var pageSize = 4;

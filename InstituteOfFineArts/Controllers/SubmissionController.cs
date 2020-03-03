@@ -102,7 +102,7 @@ namespace InstituteOfFineArts.Controllers
             var pageNumber = page ?? 1;
             return View("List", submission.ToPagedList(pageNumber, pageSize));
         }
-        [Authorize(Roles = "Student")]
+        // [Authorize(Roles = "Student")]
         // GET: Submissions/Details/5
         public ActionResult Details(int? id)
         {
@@ -118,10 +118,6 @@ namespace InstituteOfFineArts.Controllers
                 return HttpNotFound();
             }
 
-            if (submission.CreatorId != currentUserId)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
-            }
             return View(submission);
         }
 
@@ -175,7 +171,7 @@ namespace InstituteOfFineArts.Controllers
                 submission.UpdatedAt = DateTime.Now;
                 db.Submissions.Add(submission);
                 db.SaveChanges();
-                return View("Details", submission);
+                return RedirectToAction("Details", new {id= submission.SubmissionId});
             }
             ViewBag.CompetitionId = new SelectList(db.Competitions, "CompetitionId", "CompetitionName", submission.CompetitionId);
             return View("Details", submission);
@@ -215,7 +211,7 @@ namespace InstituteOfFineArts.Controllers
         [ValidateAntiForgeryToken]
 
         [Authorize(Roles = "Student")]
-        public ActionResult Edit([Bind(Include = "SubmissionId,CompetitionId,Picture,AccountId,Description, SubmissionName")] Submission submission)
+        public ActionResult Edit([Bind(Include = "SubmissionId,CompetitionId,Picture,CreatorId,Description, SubmissionName")] Submission submission)
         {
             if (ModelState.IsValid)
             {

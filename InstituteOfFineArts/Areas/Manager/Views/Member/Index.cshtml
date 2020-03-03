@@ -1,0 +1,126 @@
+﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Account>
+@using InstituteOfFineArts.Models
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "User Manager";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content">
+    <h1>Manage member</h1>
+    <div class="box">
+        <div class="box-header"><h2>Member List</h2></div>
+        @using (Html.BeginForm("Index", "Member", FormMethod.Get, new { @class = "ml-2" }))
+        {
+            <p>
+                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Keyword", })
+                <select name="usertype">
+                    <option value="">All</option>
+                    <option value="0">Student</option>
+                    <option value="1">Teacher</option>
+                    <option value="2">Manager</option>
+                    <option value="3">Admin</option>
+                </select>
+                <select name="status">
+                    <option value="">All</option>
+                    <option value="0">Active</option>
+                    <option value="1">DeActive</option>
+                    <option value="2">Deleted</option>
+                </select>
+                <input type="submit" value="Search" />
+            </p>
+
+        }
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    User Code
+                </th>
+                <th>
+                    Full Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Birthday
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    CreatedAt
+                </th>
+                <th>
+                    UpdatedAt
+                </th>
+                <th>
+                    DeleteAt
+                </th>
+                <th>
+                    Status
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Birthday)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdateAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeletedAt)
+                    </td>
+                    <td>
+                        @if (item.Status == Account.AccountStatus.Active)
+                        {
+                            <img src="~/Content/Icons/active-icon.png" />
+                        }
+                        else if (item.Status == Account.AccountStatus.Deleted)
+                        {
+                            <img src="~/Content/Icons/delete-icon.png" />
+                        }
+                        else
+                        {
+                            <img src="~/Content/Icons/deactive-icon.png" width="20" />
+                        }
+                        @Html.DisplayFor(modelItem => item.Status)
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new {id = item.Id}, new {@class = "btn btn-info"})
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div style="color: white; text-align:right;"> @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.SortOder, currentFilter = ViewBag.CurrentFilter }))</div>
+
+    </div>
+</section>

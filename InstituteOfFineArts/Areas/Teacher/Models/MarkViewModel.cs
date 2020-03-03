@@ -12,6 +12,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Models
         public string Image { get; set; }
         public int SubmissionId { get; set; }
         public string Description { get; set; }
+        public string Comment { get; set; }
         public Mark.MarkType? Mark { get; set; }
         public string StudentName { get; set; }
 

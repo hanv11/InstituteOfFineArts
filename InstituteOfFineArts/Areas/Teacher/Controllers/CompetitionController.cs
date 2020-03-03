@@ -50,7 +50,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
                     competitions = competitions.OrderBy(s => s.CompetitionName);
                     break;
             }
-            int pageSize = 5;
+            int pageSize = 4;
             var pageNumber = page ?? 1;
             return View(competitions.ToPagedList(pageNumber, pageSize));
         }
@@ -109,7 +109,17 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
-            return View(competition);
+            var model = new CompetitionViewModel()
+            {
+                CompetitionId =  competition.CompetitionId,
+                CompetitionName =  competition.CompetitionName,
+                StartDate =  competition.StartDate,
+                EndDate = competition.EndDate,
+                Image =  competition.Image,
+                Description = competition.Description,
+                ShortDescription = competition.ShortDescription
+            };
+            return View(model);
         }
 
         // POST: Competitions/Edit/5
@@ -118,19 +128,28 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Teacher")]
-        public ActionResult Edit([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description, CreatorId")] Competition competition)
+        public ActionResult Edit(CompetitionViewModel model)
         {
             if (ModelState.IsValid)
             {
-                competition.UpdatedAt = DateTime.Now;
+                var competition = db.Competitions.Find(model.CompetitionId);
+                if (competition == null)
+                {
+                    return HttpNotFound();
+                }
                 db.Entry(competition).State = EntityState.Modified;
-                var creatorId = User.Identity.GetUserId();
-                var account = db.Users.FirstOrDefault(u => u.Id == creatorId);
+                competition.CompetitionName = competition.CompetitionName;
+                competition.StartDate = competition.StartDate;
+                competition.EndDate = competition.EndDate;
+                competition.Image = competition.Image;
+                competition.Description = competition.Description;
+                competition.ShortDescription = competition.ShortDescription;
+                competition.UpdatedAt = DateTime.Now;
                 competition.CreatorId = User.Identity.GetUserId();
                 db.SaveChanges();
                 return RedirectToAction("MyCompetition");
             }
-            return View(competition);
+            return View(model);
         }
         [Authorize(Roles = "Teacher")]
         public ActionResult Delete(int? id)
@@ -181,15 +200,14 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
             };
         }
         [Authorize(Roles = "Teacher")]
-        public ActionResult InviteExaminer(string accountId)
+        public ActionResult InviteExaminer(string accountId, int competitionId)
         {
+            var account = db.Users.Find(accountId);
+            var competition = db.Competitions.Find(competitionId);
             if (accountId == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return PartialView("_ListExaminer", competition.Examiners);
             }
-            var account = db.Users.FirstOrDefault(x => x.Id.Equals(accountId));
-            var currentUserId = User.Identity.GetUserId();
-            var competition = db.Competitions.FirstOrDefault(c => c.CreatorId.Equals(currentUserId));
             if (competition == null || competition.Examiners.Contains(account))
             {
                 return null;

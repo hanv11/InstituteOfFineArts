@@ -14,10 +14,10 @@
                 @foreach (var item in Model)
                 {
                     <div class="single-exibition item">
-                        <img src="@Url.Content(item.Picture)" alt="">
+                        <a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})"><img src="@Url.Content(item.Picture)" alt=""></a>
                         <ul class="tags">
-                            <li><a href="#">See More</a></li>
-                            <li><a href="#">Life style</a></li>
+                            <li><a href="@Url.Action("List", "Submission", new {id = item.CompetitionId})">See More</a></li>
+                            <li><a href="@Url.Action("Details", "Submission", new {id = item.SubmissionId})">Details</a></li>
                         </ul>
                         <a href="#"><h4> @item.SubmissionName </h4></a>
                         <p>

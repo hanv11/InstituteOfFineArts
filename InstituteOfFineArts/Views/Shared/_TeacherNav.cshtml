@@ -1,13 +1,13 @@
 ﻿<ul class="sidebar-menu">
     <li class="header">MAIN NAVIGATION</li>
     <li class="treeview">
-        <a href="@Url.Action("","")">
-            <i class="fa fa-edit"></i> <span>Student</span>
+        <a href="@Url.Action("Index","Dashboard")">
+            <i class="fa fa-edit"></i> <span>Dashboard</span>
         </a>
     </li>
     <li class="treeview">
-        <a href="@Url.Action("","")">
-            <i class="fa fa-th"></i> <span>Class</span>
+        <a href="@Url.Action("ListStudent","Student")">
+            <i class="fa fa-edit"></i> <span>Student</span>
         </a>
     </li>
     <li class="treeview">
@@ -20,9 +20,5 @@
             <li><a href="@Url.Action("CompetitionInvited","Competition","Teacher")"><i class="fa fa-envelope"></i> <span>Competition Invited</span></a></li>
         </ul>
     </li>
-    <li class="treeview">
-        <a href="@Url.Action("Index","Submission")">
-            <i class="fa fa-table"></i> <span>Submissions</span>
-        </a>
-    </li>
+
 </ul>

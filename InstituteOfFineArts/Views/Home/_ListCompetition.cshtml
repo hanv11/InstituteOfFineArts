@@ -2,7 +2,7 @@
 @using System.Linq
 @using InstituteOfFineArts.Models
 @model System.Collections.Generic.IEnumerable<InstituteOfFineArts.Models.Competition>
-    <section class="upcoming-event-area section-gap" style="background-color:#F9F9FF" id="events">
+    <section class=" upcoming-event-area" style="background-color:#f3f3f3; padding: 10vw 0 5vw 0 " id="events">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-10">
@@ -12,14 +12,15 @@
                     </div>
                 </div>
             </div>
-            @{
-                var length = Model.Count();
-                List<Competition> competitions = (List<Competition>) Model;
-            }
+
+        @{
+            var length = Model.Count();
+            List<Competition> competitions = (List<Competition>)Model;
+        }
         <div class="row">
             @if (Model.Any())
             {
-                for(var i = 0; i < 1; i += 4)
+                for (var i = 0; i < 1; i += 4)
                 {
                     <div class="col-lg-6 event-left">
                         <div class="single-events">
@@ -44,7 +45,7 @@
                         <div class="single-events">
                             <a href="#"><h4>@competitions[i + 1].CompetitionName</h4></a>
                             <p>
-                                @competitions[i + 1].Description
+                                @competitions[i + 1].ShortDescription
                             </p>
                             @Html.ActionLink("VIEW DETAILS", "Details", "Competition", new { Id = @competitions[i + 1].CompetitionId }, new { @class = "primary-btn text-uppercase" })
                             <img class="img-fluid" src="@Url.Content(competitions[i + 1].Image)" style="height: 250px; width: 540px" alt="">
@@ -62,5 +63,8 @@
                 }
             }
         </div>
+        <div style="text-align:center">
+            <a href="/Competition" class="genric-btn primary circle arrow">See More <span class="lnr lnr-arrow-right"></span></a>
         </div>
-    </section>
+    </div>
+</section>

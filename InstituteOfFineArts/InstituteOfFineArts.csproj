@@ -178,10 +178,17 @@
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\MemberController.cs" />
     <Compile Include="Areas\Admin\Models\Dashboard.cs" />
+    <Compile Include="Areas\Manager\Controllers\CompetitionController.cs" />
+    <Compile Include="Areas\Manager\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Manager\Controllers\MarkController.cs" />
+    <Compile Include="Areas\Manager\Controllers\MemberController.cs" />
+    <Compile Include="Areas\Manager\Controllers\SubmissionController.cs" />
+    <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
     <Compile Include="Areas\Teacher\Controllers\AwardController.cs" />
     <Compile Include="Areas\Teacher\Controllers\CompetitionController.cs" />
     <Compile Include="Areas\Teacher\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Teacher\Controllers\MarkController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\StudentController.cs" />
     <Compile Include="Areas\Teacher\Controllers\SubmissionController.cs" />
     <Compile Include="Areas\Teacher\Models\AwardViewModel.cs" />
     <Compile Include="Areas\Teacher\Models\CompetitionViewModel.cs" />
@@ -190,6 +197,7 @@
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountRolesController.cs" />
+    <Compile Include="Controllers\AwardController.cs" />
     <Compile Include="Controllers\CompetitionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -212,6 +220,14 @@
     <Compile Include="Migrations\202003010745238_add_column_slides_competition_table.cs" />
     <Compile Include="Migrations\202003010745238_add_column_slides_competition_table.Designer.cs">
       <DependentUpon>202003010745238_add_column_slides_competition_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003030103393_UpdateAccount.cs" />
+    <Compile Include="Migrations\202003030103393_UpdateAccount.Designer.cs">
+      <DependentUpon>202003030103393_UpdateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003030343510_Update-table.cs" />
+    <Compile Include="Migrations\202003030343510_Update-table.Designer.cs">
+      <DependentUpon>202003030343510_Update-table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
@@ -1658,6 +1674,24 @@
     <Content Include="Areas\Teacher\Views\Competition\CompetitionInvited.cshtml" />
     <Content Include="Areas\Teacher\Views\Award\ListAward.cshtml" />
     <Content Include="Areas\Teacher\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\ListStudent.cshtml" />
+    <Content Include="Areas\Admin\Views\Member\ListTeacher.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\ListStudent.cshtml" />
+    <Content Include="Areas\Teacher\Views\Student\Details.cshtml" />
+    <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\Views\Competition\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Competition\Detail.cshtml" />
+    <Content Include="Areas\Manager\Views\Member\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Member\Details.cshtml" />
+    <Content Include="Areas\Manager\Views\Member\ListStudent.cshtml" />
+    <Content Include="Areas\Manager\Views\Member\ListTeacher.cshtml" />
+    <Content Include="Areas\Manager\Views\Submission\Details.cshtml" />
+    <Content Include="Areas\Manager\Views\Submission\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Submission\List.cshtml" />
+    <Content Include="Areas\Manager\Views\Mark\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Mark\Details.cshtml" />
+    <Content Include="Areas\Manager\Views\Mark\ListMark.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1705,6 +1739,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Award\Create.cshtml" />
+    <Content Include="Views\Award\Delete.cshtml" />
+    <Content Include="Views\Award\Details.cshtml" />
+    <Content Include="Views\Award\Edit.cshtml" />
+    <Content Include="Views\Award\Index.cshtml" />
     <None Include="Views\Competition\Index.cshtml" />
     <None Include="Views\Competition\Details.cshtml" />
     <Content Include="Views\AccountRoles\Create.cshtml" />
@@ -1731,6 +1770,7 @@
     <Content Include="Views\Home\_SlideBar.cshtml" />
     <Content Include="Views\Home\_NewSubmission.cshtml" />
     <Content Include="Views\Home\_ExhibitionGallery.cshtml" />
+    <Content Include="Views\Submission\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1747,6 +1787,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Manager\Data\" />
+    <Folder Include="Areas\Manager\Views\Dashboard\" />
+    <Folder Include="Areas\Manager\Views\Manager\" />
+    <Folder Include="Areas\Manager\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002290603114_UpdateData.resx">
@@ -1760,6 +1804,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003010745238_add_column_slides_competition_table.resx">
       <DependentUpon>202003010745238_add_column_slides_competition_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003030103393_UpdateAccount.resx">
+      <DependentUpon>202003030103393_UpdateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003030343510_Update-table.resx">
+      <DependentUpon>202003030343510_Update-table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

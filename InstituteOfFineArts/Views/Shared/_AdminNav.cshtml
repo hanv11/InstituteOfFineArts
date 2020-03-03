@@ -1,34 +1,23 @@
 ﻿<ul class="sidebar-menu">
     <li class="header">MAIN NAVIGATION</li>
     <li class="treeview">
-        <a href="@Url.Action("","")">
-            <i class="fa fa-table"></i> <span>Manager</span>
-        </a>
-    </li>
-
-    <li class="treeview">
-        <a href="@Url.Action("","")">
-            <i class="fa fa-table"></i> <span>Staff</span>
+        <a href="@Url.Action("Index","Dashboard")">
+            <i class="fa fa-edit"></i> <span>Dashboard</span>
         </a>
     </li>
     <li class="treeview">
-        <a href="@Url.Action("","")">
-            <i class="fa fa-edit"></i> <span>Student</span>
+        <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <i class="fa fa-table"></i> <span>Account</span>
         </a>
-    </li>
-    <li class="treeview">
-        <a href="@Url.Action("","")">
-            <i class="fa fa-th"></i> <span>Class</span>
-        </a>
+        <ul class="collapse" id="memberSubmenu">
+            <li><a href="@Url.Action("Index","Member")"><i class="fa fa-th-list"></i> <span>List Member</span></a></li>
+            <li><a href="@Url.Action("ListStudent","Member")"><i class="fa fa-user"></i> <span>List Student</span></a></li>
+            <li><a href="@Url.Action("ListTeacher","Member")"><i class="fa fa-envelope"></i> <span>List Teacher</span></a></li>
+        </ul>
     </li>
     <li class="treeview">
         <a href="@Url.Action("Index","Competition")">
             <i class="fa fa-table"></i> <span>Competitions</span>
-        </a>
-    </li>
-    <li class="treeview">
-        <a href="@Url.Action("Index","Submission")">
-            <i class="fa fa-table"></i> <span>Submissions</span>
         </a>
     </li>
 </ul>

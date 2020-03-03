@@ -12,13 +12,13 @@ namespace InstituteOfFineArts.Models
     {
         [Key]
         public int CompetitionId { get; set; }
+        [Required(ErrorMessage = "Please enter competition name.")]
         public string CompetitionName { get; set; }
         [ForeignKey("Creator")]
         // nguoi tao ra cuoc thi
         public string CreatorId { get; set; }
         public virtual Account Creator { get; set; }
-        // cac giam khao duoc chon
-        public virtual ICollection<Account> Examiners { get; set; }
+       
         [Required]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
@@ -28,10 +28,14 @@ namespace InstituteOfFineArts.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? CancelAt { get; set; }
+        [Required(ErrorMessage = "Please enter banner of competition.")]
         public string Image { get; set; }
         public string Slide { get; set; }
+        [Required(ErrorMessage = "Please enter some decription of competition.")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "Please enter slogan of competition.")]
         public string ShortDescription { get; set; }
+        [Required(ErrorMessage = "Please enter award of competition.")]
         public string AwardDetail { get; set; }
         public bool IsSlide { get; set; }
         public virtual ICollection<Mark> Marks { get; set; }
@@ -46,7 +50,11 @@ namespace InstituteOfFineArts.Models
             
         }
         public virtual ICollection<Submission> Submissions { get; set; }
+        [InverseProperty("Competitions")]
         public virtual ICollection<Account> Participants { get; set; }
+        // cac giam khao duoc chon
+        [InverseProperty("ACompetitions")]
+        public virtual ICollection<Account> Examiners { get; set; }
         public Competition()
         {
         }

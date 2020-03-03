@@ -12,6 +12,7 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Admin/Dashboard
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Index()
         {
             var dashboard = new Dashboard();
