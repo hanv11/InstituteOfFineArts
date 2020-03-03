@@ -219,6 +219,10 @@
     <Compile Include="Migrations\202003030103393_UpdateAccount.Designer.cs">
       <DependentUpon>202003030103393_UpdateAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003030343510_Update-table.cs" />
+    <Compile Include="Migrations\202003030343510_Update-table.Designer.cs">
+      <DependentUpon>202003030343510_Update-table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1780,6 +1784,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003030103393_UpdateAccount.resx">
       <DependentUpon>202003030103393_UpdateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003030343510_Update-table.resx">
+      <DependentUpon>202003030343510_Update-table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
