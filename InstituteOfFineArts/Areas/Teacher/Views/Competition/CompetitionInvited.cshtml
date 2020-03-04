@@ -1,4 +1,5 @@
 ﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Competition>
+@using InstituteOfFineArts.Models
 @using PagedList.Mvc
 @{
     ViewBag.Title = "Competition Invited";
@@ -45,35 +46,34 @@
                             <th>
                                 Image
                             </th>
-                            @*<th>
-                                    @Html.DisplayNameFor(model => model.Awards)
-                                </th>*@
-                            @* <th>Action</th> *@
                         </tr>
 
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td class="col-md-2">
-                                    <a href="@Url.Action("List", "Submission", new { id = item.CompetitionId })"> @Html.DisplayFor(modelItem => item.CompetitionName)</a>
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.StartDate) - @Html.DisplayFor(modelItem => item.EndDate)
-                                </td>
-                                <td>
-                                    @item.Status
-                                </td>
-                                @item.CreatedAt
-                                <td>
-                                </td>
-                                <td class="col-md-3">
-                                    <img class="img-responsive" width="200" src="@Url.Content(@item.Image)" alt="Alternate Text" />
-                                </td>
+                    <tr>
+                        <td class="col-md-2">
+                            <a href="@Url.Action("List", "Submission", new { id = item.CompetitionId })"> @Html.DisplayFor(modelItem => item.CompetitionName)</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate) - @Html.DisplayFor(modelItem => item.EndDate)
+                        </td>
+                        <td>
+                            @item.Status
+                        </td>
+                        @item.CreatedAt
+                        <td>
+                        </td>
+                        <td class="col-md-3">
+                            <img class="img-responsive" width="200" src="@Url.Content(@item.Image)" alt="Alternate Text" />
+                        </td>
+                        @if (item.Status == Competition.CompetitionStatus.Confirmed)
+                        {
+                            <td>
+                                @Html.ActionLink("Mark", "ListMark", "Mark", new { competitionId = item.CompetitionId }, new { @class = "btn btn-warning" })
+                            </td>
+                        }
 
-                                <td>
-                                    @Html.ActionLink("Mark", "ListMark", "Mark", new { competitionId = item.CompetitionId }, new { @class = "btn btn-warning" })
-                                </td>
-                            </tr>
+                    </tr>
                         }
 
                     </table>
