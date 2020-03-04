@@ -1,4 +1,5 @@
 ﻿@model PagedList.IPagedList<InstituteOfFineArts.Models.Competition>
+@using InstituteOfFineArts.Models
 @using PagedList.Mvc
 @{
     ViewBag.Title = "My Competition";
@@ -67,7 +68,11 @@
                                 </td>
 
                                 <td>
-                                    @Html.ActionLink("Award", "ListAward", "Award", new { competitionId = item.CompetitionId }, new { @class = "btn btn-success" })
+                                    @if (item.Status == Competition.CompetitionStatus.Completed)
+                                    {
+                                        @Html.ActionLink("Award", "ListAward", "Award", new { competitionId = item.CompetitionId }, new { @class = "btn btn-success" })
+                                    }
+
                                     @Html.ActionLink("Edit", "Edit", new { id = item.CompetitionId }, new { @class = "btn btn-warning" })
                                     @Html.ActionLink("Detail", "Detail", new { id = item.CompetitionId }, new { @class = "btn btn-info" })
                                     @Html.ActionLink("Delete", "Delete", new { id = item.CompetitionId }, new { @class = "btn btn-danger" })
