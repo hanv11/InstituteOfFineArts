@@ -58,6 +58,30 @@
                                 </td>
                                 <td>
                                     @item.Status
+                                    @if (item.Status == null)
+                                    {
+                                        
+                                    }
+                                    else if (item.Status == InstituteOfFineArts.Models.Competition.CompetitionStatus.Pending)
+                                    {
+                                        <img src="~/Content/Icons/pending-icon.png" ) />
+                                    }
+                                    else if (item.Status == InstituteOfFineArts.Models.Competition.CompetitionStatus.Cancel)
+                                    {
+                                        <img src="~/Content/Icons/cancel-icon.png" ) />
+                                    }
+                                    else if (item.Status == InstituteOfFineArts.Models.Competition.CompetitionStatus.Finished)
+                                    {
+                                        <img src="~/Content/Icons/finished-icon.png" ) />
+                                    }
+                                    else if (item.Status == InstituteOfFineArts.Models.Competition.CompetitionStatus.Completed)
+                                    {
+                                        <img src="~/Content/Icons/complete-icon.png" ) />
+                                    }
+                                    else if (item.Status == InstituteOfFineArts.Models.Competition.CompetitionStatus.Confirmed)
+                                    {
+                                        <img src="~/Content/Icons/confirm-icon.png" ) />
+                                    }
                                 </td>
 
                                 <td>

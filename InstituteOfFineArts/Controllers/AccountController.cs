@@ -90,7 +90,8 @@ namespace InstituteOfFineArts.Controllers
                     if (user.Status != Account.AccountStatus.Active)
                     {
                         ModelState.AddModelError("", "Account is disable");
-                        return View(model);
+                        AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+                        return View(model);      
                     }
                     if ( await UserManager.IsInRoleAsync(user.Id, "Admin")) //<= Checking Role and redirecting accordingly.
                         return RedirectToAction("Index", "Dashboard", new {Area = "Admin"});
