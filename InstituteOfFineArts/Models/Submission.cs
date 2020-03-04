@@ -56,6 +56,10 @@ namespace InstituteOfFineArts.Models
         {
             get {
                 var sumOfMark = 0;
+                if(Marks == null)
+                {
+                    return 0;
+                }
                 if (!Marks.Any())
                 {
                     return 0;
