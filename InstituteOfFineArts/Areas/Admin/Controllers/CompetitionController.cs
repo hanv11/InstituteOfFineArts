@@ -106,5 +106,27 @@ namespace InstituteOfFineArts.Areas.Admin.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
+        public ActionResult ChangeStatus(int competitionId, int status)
+        {
+           
+
+            var competition = db.Competitions.Find(competitionId);
+            if (competition == null)
+            {
+                return HttpNotFound();
+            }
+
+            competition.Status = (Competition.CompetitionStatus) status;
+            db.SaveChanges();
+            return new JsonResult() {
+                Data = new
+                {
+                    status = competition.Status.ToString(),
+                    id = competition.CompetitionId
+                },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
     }
 }

@@ -460,8 +460,9 @@
     <Content Include="Content\Homepage\js\vendor\jquery-2.2.4.min.js" />
     <Content Include="Content\Icons\active-icon.png" />
     <Content Include="Content\Icons\cancel-icon.png" />
-    <Content Include="Content\Icons\complete-icon.png" />
+    <Content Include="Content\Icons\completed-icon.png" />
     <Content Include="Content\Icons\confirm-icon.png" />
+    <Content Include="Content\Icons\confirmed-icon.png" />
     <Content Include="Content\Icons\deactive-icon.png" />
     <Content Include="Content\Icons\delete-icon.png" />
     <Content Include="Content\Icons\finished-icon.png" />
