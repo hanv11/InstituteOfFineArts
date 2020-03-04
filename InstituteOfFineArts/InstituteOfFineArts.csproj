@@ -1671,7 +1671,6 @@
     <Content Include="Areas\Admin\Views\Member\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Member\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Member\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Competition\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Competition\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Competition\Detail.cshtml" />
     <Content Include="Areas\Teacher\Views\Submission\Details.cshtml" />
