@@ -8,18 +8,22 @@ using System.Web.Mvc;
 
 namespace InstituteOfFineArts.Areas.Teacher.Controllers
 {
+    [Authorize(Roles = "Teacher")]
     public class DashboardController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Admin/Dashboard
         public ActionResult Index()
         {
-            var dashboard = new Dashboard();
-            dashboard.NumberOfStudent = db.Users.Count(u => u.UserType == Account.UserTypes.Student);
-            dashboard.NumberOfTeacher = db.Users.Count(u => u.UserType == Account.UserTypes.Teacher);
-            dashboard.NumberOfCompetition = db.Competitions.Count();
-            dashboard.NumberOfCompetitionPending = db.Competitions.Count(u => u.Status == Competition.CompetitionStatus.Pending);
-            dashboard.NumberOfSubmission = db.Submissions.Count();
+            var dashboard = new Dashboard
+            {
+                NumberOfStudent = db.Users.Count(u => u.UserType == Account.UserTypes.Student),
+                NumberOfTeacher = db.Users.Count(u => u.UserType == Account.UserTypes.Teacher),
+                NumberOfCompetition = db.Competitions.Count(),
+                NumberOfCompetitionPending =
+                    db.Competitions.Count(u => u.Status == Competition.CompetitionStatus.Pending),
+                NumberOfSubmission = db.Submissions.Count()
+            };
             return View(dashboard);
         }
     }
