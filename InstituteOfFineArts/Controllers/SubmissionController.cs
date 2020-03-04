@@ -160,13 +160,13 @@ namespace InstituteOfFineArts.Controllers
             if (ModelState.IsValid)
             {
                 var competition = db.Competitions.Find(submission.CompetitionId);
-                if (competition.Participants.Contains(submission.Creator) || competition.StartDate > DateTime.Now || competition.EndDate < DateTime.Now)
+                if (competition.Participants.Contains(submission.Creator) || competition.StartDate.Date >= DateTime.Now || competition.EndDate.Date <= DateTime.Now)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 var userId = User.Identity.GetUserId();
                 var account = db.Users.Find(userId);
-                var submissions = db.Submissions.Where(s => s.CreatorId == userId);
+                var submissions = db.Submissions.Where(s => s.CreatorId == userId && s.CompetitionId == submission.CompetitionId);
                 if (submissions.Any())
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

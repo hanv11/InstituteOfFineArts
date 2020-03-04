@@ -234,6 +234,10 @@
     <Compile Include="Migrations\202003030607294_edit_mark_table.Designer.cs">
       <DependentUpon>202003030607294_edit_mark_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003041033010_remove_required.cs" />
+    <Compile Include="Migrations\202003041033010_remove_required.Designer.cs">
+      <DependentUpon>202003041033010_remove_required.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountRole.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -334,7 +338,10 @@
     <Content Include="Content\dist\js\pages\dashboard.js" />
     <Content Include="Content\dist\js\pages\dashboard2.js" />
     <Content Include="Content\Homepage\css\animate.min.css" />
+    <Content Include="Content\Homepage\css\bootstrap-theme.css" />
+    <Content Include="Content\Homepage\css\bootstrap-theme.min.css" />
     <Content Include="Content\Homepage\css\bootstrap.css" />
+    <Content Include="Content\Homepage\css\bootstrap.min.css" />
     <Content Include="Content\Homepage\css\bootstrap\bootstrap-grid.css" />
     <Content Include="Content\Homepage\css\bootstrap\bootstrap-reboot.css" />
     <Content Include="Content\Homepage\css\bootstrap\bootstrap.css" />
@@ -342,6 +349,7 @@
     <Content Include="Content\Homepage\css\jquery.DonutWidget.min.css" />
     <Content Include="Content\Homepage\css\jquerysctipttop.css" />
     <Content Include="Content\Homepage\css\linearicons.css" />
+    <Content Include="Content\Homepage\css\logo.png" />
     <Content Include="Content\Homepage\css\magnific-popup.css" />
     <Content Include="Content\Homepage\css\main.css" />
     <Content Include="Content\Homepage\css\nice-select.css" />
@@ -461,7 +469,6 @@
     <Content Include="Content\Icons\active-icon.png" />
     <Content Include="Content\Icons\cancel-icon.png" />
     <Content Include="Content\Icons\completed-icon.png" />
-    <Content Include="Content\Icons\confirm-icon.png" />
     <Content Include="Content\Icons\confirmed-icon.png" />
     <Content Include="Content\Icons\deactive-icon.png" />
     <Content Include="Content\Icons\delete-icon.png" />
@@ -474,7 +481,6 @@
     <Content Include="Content\img\poster1.jpg" />
     <Content Include="Content\img\poster10.jpg" />
     <Content Include="Content\img\poster11.jpg" />
-    <Content Include="Content\img\poster12.jpg" />
     <Content Include="Content\img\poster2.jpg" />
     <Content Include="Content\img\poster3.jpg" />
     <Content Include="Content\img\poster4.jpg" />
@@ -1706,6 +1712,11 @@
     <Content Include="Areas\Admin\Views\Submission\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Submission\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Submission\List.cshtml" />
+    <Content Include="Content\Homepage\css\bootstrap.min.css.map" />
+    <Content Include="Content\Homepage\css\bootstrap.css.map" />
+    <Content Include="Content\Homepage\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\Homepage\css\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\isoa - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1821,6 +1832,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003030607294_edit_mark_table.resx">
       <DependentUpon>202003030607294_edit_mark_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003041033010_remove_required.resx">
+      <DependentUpon>202003041033010_remove_required.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

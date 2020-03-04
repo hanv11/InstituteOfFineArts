@@ -75,7 +75,7 @@ namespace InstituteOfFineArts.Areas.Teacher.Controllers
         [Authorize(Roles = "Teacher")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,AwardDetails,Description")] Competition competition)
+        public ActionResult Create([Bind(Include = "CompetitionId,CompetitionName,StartDate,EndDate,Image,ShortDescription, AwardDetails,Description")] Competition competition)
         {
             if (ModelState.IsValid)
             {

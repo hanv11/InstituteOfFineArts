@@ -35,7 +35,6 @@ namespace InstituteOfFineArts.Models
         public string Description { get; set; }
         [Required(ErrorMessage = "Please enter slogan of competition.")]
         public string ShortDescription { get; set; }
-        [Required(ErrorMessage = "Please enter award of competition.")]
         public string AwardDetail { get; set; }
         public bool IsSlide { get; set; }
         public virtual ICollection<Mark> Marks { get; set; }
