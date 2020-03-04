@@ -110,12 +110,7 @@
                                                 
                                                 @Html.EnumDropDownListFor(model=>item.Status, new{@class="statustype", id=@item.CompetitionId})
                                             </td>
-                                            <td>
-                                                
-                                                @if (item.Status == Competition.CompetitionStatus.Pending)
-                                                {
-                                                    <button id="confirm1" class="btn btn-warning" onclick="confirmCompetition(@item.CompetitionId)">Confirm</button>
-                                                }
+                                            <td class="col-md-2">
                                                 @Html.ActionLink("Detail", "Detail", new {id = item.CompetitionId}, new {@class = "btn btn-info"})
                                                 @Html.ActionLink("Delete", "Delete", new {id = item.CompetitionId}, new {@class = "btn btn-danger"})
                                             </td>
