@@ -7,8 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace InstituteOfFineArts.Areas.Admin.Controllers
-{
-    [Authorize(Roles = "Teacher")]
+{ 
     public class DashboardController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

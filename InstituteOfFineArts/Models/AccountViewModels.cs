@@ -76,6 +76,7 @@ namespace InstituteOfFineArts.Models
         public Account.AccountStatus Status { get; set; }
         [Required]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? Birthday { get; set; }
         public Account.GenderType Gender { get; set; }
         [Required(ErrorMessage = "Please choose user type.")]
